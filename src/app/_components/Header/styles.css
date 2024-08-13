@@ -1,0 +1,29 @@
+.privacy-list li::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: -20px;
+    width: 1px;
+    height: 10px;
+    background-color: #B5B5B5;
+    opacity: 0.6;
+}
+
+.privacy-list li:not(:last-child) {
+    margin-right: 35px;
+}
+
+.privacy-list li:last-child::after {
+    content: none;
+}
+
+.login-box::after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background-color: #B5B5B5;
+    margin-top: 4px;
+    margin-right: 20px;
+    margin-left: 15px;
+}
