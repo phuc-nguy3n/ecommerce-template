@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Footer from "./_components/Footer/Footer";
 import Header from "./_components/Header";
+import ThemeProvider from "./_components/ThemeProvider/ThemeProvider";
 
 const leagueSpartan = League_Spartan({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -28,11 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${leagueSpartan.className} ${poppins.className}`}>
-        <main>
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <ThemeProvider>
+          <main className="bg-white dark:bg-white">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
