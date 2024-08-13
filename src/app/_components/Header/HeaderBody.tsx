@@ -1,10 +1,15 @@
-import React from "react";
+"use client";
+
+import ThemeContext from "@/context/themeContext";
+import React, { useContext } from "react";
 
 const HeaderBody = () => {
+  const { darkTheme } = useContext(ThemeContext);
+
   return (
-    <div className="flex justify-center py-[25px] bg-[#1e1e1e]">
+    <div className="flex justify-center py-[25px] bg-[#ffffff] dark:bg-[#1e1e1e]">
       <img
-        src="/logo-white.svg"
+        src={darkTheme ? "/logo-white.svg" : "/logo-black.svg"}
         alt="logo"
         className="cursor-pointer lg:block hidden"
       />
