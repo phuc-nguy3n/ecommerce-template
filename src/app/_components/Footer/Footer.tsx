@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="p-12 pb-6 bg-black ">
+    <div className="p-12 pb-6 bg-black dark:bg-[#282828]">
       <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
         <div className="flex flex-col justify-center items-center gap-10">
           <div>
