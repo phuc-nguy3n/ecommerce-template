@@ -30,7 +30,7 @@ const newsPosts = [
 
 const RightSide = () => {
   return (
-    <div className="bg-gray-100 xl:p-[20px] lg:px-[20px] lg:py-0">
+    <div className="bg-gray-100 dark:bg-[#1e1e1e] xl:p-[20px] lg:px-[20px] lg:py-0">
       <ul className="latest-box grid xl:grid-cols-1 lg:grid-cols-2 md:grid-cols-2  lg:gap-x-[24px] md:gap-x-[24px]">
         {newsPosts.map((item, index) => (
           <li className="flex gap-4 py-4" key={index}>
