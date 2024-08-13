@@ -30,7 +30,7 @@ export default function ArticlesSection() {
             <img
               className="h-full w-full object-cover transform transition-transform duration-500 hover:scale-105"
               src="https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew"
-              alt="News"
+              alt="Article"
             />
 
             <div className="absolute top-0 w-full h-[430px] gradient-bg flex gap-2 flex-col md:p-[30px] p-[20px]">
