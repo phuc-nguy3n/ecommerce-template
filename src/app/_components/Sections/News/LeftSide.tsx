@@ -42,13 +42,13 @@ const LeftSide = () => {
         </div>
 
         {/* Preview */}
-        <div className="lg:flex hidden xl:px-[30px] xl:py-[20px] lg:p-[20px] xl:h-[360px] lg:h-[500px] flex-1 flex-col justify-between bg-gray-100">
+        <div className="lg:flex hidden xl:px-[30px] xl:py-[20px] lg:p-[20px] xl:h-[360px] lg:h-[500px] flex-1 flex-col justify-between bg-gray-100 dark:bg-[#393939]">
           <div>
             <h2 className="font-bold text-[30px] leading-[1.417] mb-[15px] cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
               Following the Moon, they are in Close space. Choose the best
             </h2>
 
-            <p className="text-[#54595F] leading-[1.75]">
+            <p className="text-[#7e848d] leading-[1.75] font-medium">
               Quisque eget ex rutrum, consequat odio in, tempor purus. Mauris
               neque quam
             </p>
