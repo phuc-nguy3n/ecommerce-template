@@ -42,3 +42,50 @@
     right: 0;
     left: 0;
 }
+
+.group:hover .arrow-icon {
+    transform: rotate(180deg)
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.group .subnav-block {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 1000;
+}
+
+.group:hover .subnav-block {
+    visibility: visible;
+    opacity: 1;
+}
+
+ul.subnav {
+    box-shadow: 0px 4px 15px rgba(1, 15, 28, 0.06);
+}
+
+ul.subnav li p {
+    transform: translateX(-18px);
+    transition: all ease 0.4s;
+}
+
+ul.subnav li:hover p {
+    transform: translateX(0);
+}
+
+ul.subnav .icon-subnav {
+
+    opacity: 0;
+    transform: translateX(28px);
+    transition: all ease 0.4s;
+}
+
+ul.subnav li:hover .icon-subnav {
+
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
