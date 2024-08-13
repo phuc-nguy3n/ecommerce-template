@@ -1,11 +1,34 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { GrCart } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const HeaderFooter = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-black">
+    <nav
+      className={`bg-black sticky-header ${isVisible ? "header-visible" : ""}`}
+    >
       <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px] flex justify-between">
         <ul className="lg:flex hidden items-center gap-10">
           <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out inline-flex items-center gap-1">
