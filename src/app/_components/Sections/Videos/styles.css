@@ -13,8 +13,30 @@
     right: -15px;
 }
 
+.btn-play,
+.btn-sound-wave {
+    transition: all ease 0.4s;
+}
 
 
+
+
+.animate-fadeOutExpand {
+    animation: fadeOutExpand infinite 4s ease-in-out;
+}
+
+
+@keyframes fadeOutExpand {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
 
 @media (min-width: 992px) and (max-width: 1199px) {
 
