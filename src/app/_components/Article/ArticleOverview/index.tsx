@@ -2,6 +2,8 @@ import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoArrowForward } from "react-icons/io5";
 
+import "./styles.css";
+
 const articleOverviewData = [
   {
     tagName: "News",
@@ -150,24 +152,24 @@ const ArticleOverView = () => {
 
       <section className="pt-[60px] pb-[30px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
-          <div className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 gap-[20px]">
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px]">
             {articleOverviewData.map((item, index) => (
               <div key={index}>
-                <div className="mb-[25px] overflow-hidden xl:w-[280px] lg:w-[442px] w-full xl:h-[187px] lg:h-[360px] h-[400px] relative box">
+                <div className="mb-[18px] overflow-hidden xl:w-[280px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
                   <img
-                    className="xl:w-[280px] lg:w-[442px] w-full xl:h-[187px] lg:h-[360px]  h-[400px] object-cover"
+                    className="xl:w-[280px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
                     src={item.img}
                     alt="News"
                   />
 
                   {/* Overlay */}
-                  <div className="absolute top-0 xl:w-[280px] lg:w-[442px] w-full xl:h-[187px] lg:h-[360px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                  <div className="absolute top-0 xl:w-[280px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
                     <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                       {item.tagName}
                     </div>
                   </div>
                 </div>
-                <h3 className="text-[20px] leading-[1.8] font-bold mb-[15px] cursor-pointer hover:text-[#ff1d50]">
+                <h3 className="text-[16px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
                   {item.title}
                 </h3>
                 <div className="flex items-center gap-3 text-[#B5B5B5]">
