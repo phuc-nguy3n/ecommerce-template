@@ -1,17 +1,31 @@
-import ArticlesSection from "./_components/Sections/Articles";
-import LiteratureSection from "./_components/Sections/Literature";
-import NewsSection from "./_components/Sections/News";
-import VideoSection from "./_components/Sections/Videos";
+// Home
+import ArticlesSection from "./_components/Home/Articles";
+import LiteratureSection from "./_components/Home/Literature";
+import NewsSection from "./_components/Home/News";
+import VideoSection from "./_components/Home/Videos";
+
+// Video
+import VideoOverview from "./_components/Video/VideoOverview";
+
+// Article
+import ArticleOverView from "./_components/Article/ArticleOverview";
 
 export default function Home() {
   return (
-    <div className="bg-white dark:bg-[#1e1e1e]">
-      <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
-        <NewsSection />
-        <ArticlesSection />
-        <LiteratureSection />
-      </div>
-      <VideoSection />
-    </div>
+    // Home page
+    // <div className="bg-white dark:bg-[#1e1e1e]">
+    //   <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
+    //     <NewsSection />
+    //     <ArticlesSection />
+    //     <LiteratureSection />
+    //   </div>
+    //   <VideoSection />
+    // </div>
+
+    // Video overview page
+    // <VideoOverview />
+
+    // Article overview page
+    <ArticleOverView />
   );
 }
