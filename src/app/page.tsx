@@ -10,6 +10,9 @@ import VideoOverview from "./_components/Video/VideoOverview";
 // Article
 import ArticleOverView from "./_components/Article/ArticleOverview";
 
+// Blog
+import BlogDetails from "./_components/Blog/BlogDetails";
+
 export default function Home() {
   return (
     // Home page
@@ -26,6 +29,9 @@ export default function Home() {
     // <VideoOverview />
 
     // Article overview page
-    <ArticleOverView />
+    // <ArticleOverView />
+
+    // Blog details
+    <BlogDetails />
   );
 }
