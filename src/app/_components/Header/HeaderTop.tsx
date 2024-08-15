@@ -3,12 +3,14 @@
 import { FaCalendarDays } from "react-icons/fa6";
 import { MdSunny } from "react-icons/md";
 import { IoMoonSharp } from "react-icons/io5";
-import { FaRegUser } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
+import {
+  FaRegUser,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 import { useContext } from "react";
 import ThemeContext from "@/context/themeContext";
 
