@@ -18,10 +18,9 @@ import { AiFillLike } from "react-icons/ai";
 import { PiQuotesLight } from "react-icons/pi";
 import { FiMail } from "react-icons/fi";
 import { BsGlobe2 } from "react-icons/bs";
-import { IoSearch } from "react-icons/io5";
+import { IoSearch, IoArrowBack, IoArrowForward } from "react-icons/io5";
 
 import "./styles.css";
-import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 
 const BlogDetails = () => {
   return (
@@ -87,7 +86,7 @@ const BlogDetails = () => {
               {/* Blog img */}
               <div className="mb-[35px]">
                 <img
-                  className="object-cover w-[700px] h-[380px]"
+                  className="object-cover w-[721px] h-[380px]"
                   src="https://images.unsplash.com/photo-1719937050640-71cfd3d851be?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Blog details"
                 />
@@ -233,8 +232,7 @@ const BlogDetails = () => {
                     <blockquote className="text-[20px] leading-[1.5] p-[50px] relative bg-[#F5F5F5] overflow-hidden my-[30px] text-[#080809]">
                       <p className="mb-[22px] relative z-[3] text-[19px]">
                         Fuel your competitive spirit, chase victory, and let
-                        sports be your legacy Encapsulates the essence of
-                        embracing sports as a means
+                        sports be your legacy Encapsulates the essence.
                       </p>
                       <cite className="block text-[13px] relative leading-[1.3] font-semibold not-italic text-[#54595F] pl-[40px] ml-[10px]">
                         Robert Milton
@@ -242,42 +240,21 @@ const BlogDetails = () => {
                       <PiQuotesLight className="absolute bottom-[50px] right-[50px] text-[50px] text-[#54595F]" />
                     </blockquote>
 
-                    <div className="grid grid-cols-2 py-1 gap-[10px] mb-[24px]">
+                    <div className="grid grid-cols-2 py-1 gap-[20px] mb-[24px]">
                       <div>
                         <img
-                          className="w-[306px] h-[320px] object-cover"
-                          src="https://images.unsplash.com/photo-1723375384318-873fc6e92eb6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          className="object-cover w-[315px] h-[280px]"
+                          src="https://images.unsplash.com/photo-1723714807771-23b5447e2f65?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
                       </div>
+
                       <div>
-                        <h3 className="text-[18px] leading-[1.5] mb-[15px] font-bold  tracking-wide">
-                          Take your game to new heights.
-                        </h3>
-
-                        <p className="mb-[18px] leading-[1.75] text-[#54595F] tracking-wide">
-                          business, arts, and personal development. It conveys
-                          the message that by embracing new ideas, techniques,
-                          and technologies, individuals can unlock their full
-                          potential
-                        </p>
-
-                        <div>
-                          <ul className="list-disc pl-[17px] blog-inner-list">
-                            <li className=" text-[#54595F] leading-[1.75]">
-                              <b>Workout Modes:</b> Access pre-programmed
-                              workout modes Tailored specifically to different
-                            </li>
-                            <li className=" text-[#54595F] leading-[1.75]">
-                              <b>Workout Modes:</b> Access pre-programmed
-                              workout modes Tailored specifically to different
-                            </li>
-                            <li className="text-[#54595F] leading-[1.75]">
-                              <b>Workout Modes:</b> Access pre-programmed
-                              workout modes Tailored specifically to different
-                            </li>
-                          </ul>
-                        </div>
+                        <img
+                          className="object-cover w-[315px] h-[280px]"
+                          src="https://images.unsplash.com/photo-1721332149267-ef9b10eaacd9?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          alt=""
+                        />
                       </div>
                     </div>
 
@@ -525,7 +502,7 @@ const BlogDetails = () => {
               </div>
 
               {/* Comment form */}
-              <div className="comment-form mb-[30px]">
+              <div className="comment-form">
                 <div className="form-title">
                   <h3 className="mb-[10px] text-[30px] leading-[1.3] font-bold tracking-wide">
                     Leave a Comment
@@ -580,136 +557,6 @@ const BlogDetails = () => {
                     <button className="uppercase text-white bg-[#ff1d50] font-bold text-[14px] py-[16px] px-[26px] rounded-[4px]">
                       Post comment
                     </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Related-post */}
-              <div className="pt-[30px] mb-[30px]">
-                <div className="flex items-start gap-[10px]">
-                  <div className="flex-grow">
-                    <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] text-[24px] capitalize font-semibold leading-[1.5]">
-                      Related Post
-                    </h2>
-                  </div>
-
-                  <div className="flex gap-2">
-                    <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
-                      <IoArrowBack className="text-[18px]" />
-                    </div>
-
-                    <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
-                      <IoArrowForward className="text-[18px]" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3">
-                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
-                      <div>
-                        <div className="mb-[18px] overflow-hidden xl:w-[224px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
-                          <img
-                            className="xl:w-[224px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
-                            src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt=""
-                          />
-
-                          {/* Overlay */}
-                          <div className="absolute top-0 xl:w-[224px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
-                            <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                              News
-                            </div>
-                          </div>
-                        </div>
-                        <h3 className="text-[16px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
-                          Power to the people for a Better future!
-                        </h3>
-                        <div className="flex items-center gap-3 text-[#B5B5B5]">
-                          <span className="text-[12px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                            <FaRegUser />
-                            <p className="mt-0.5">By - Tnews</p>
-                          </span>
-
-                          <span>|</span>
-
-                          <span className="text-[12px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                            <FaCalendarDays />
-                            <p className="mt-0.5">20 Mar, 2023</p>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
-                      <div>
-                        <div className="mb-[18px] overflow-hidden xl:w-[224px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
-                          <img
-                            className="xl:w-[224px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
-                            src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt=""
-                          />
-
-                          {/* Overlay */}
-                          <div className="absolute top-0 xl:w-[224px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
-                            <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                              News
-                            </div>
-                          </div>
-                        </div>
-                        <h3 className="text-[16px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
-                          Power to the people for a Better future!
-                        </h3>
-                        <div className="flex items-center gap-3 text-[#B5B5B5]">
-                          <span className="text-[12px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                            <FaRegUser />
-                            <p className="mt-0.5">By - Tnews</p>
-                          </span>
-
-                          <span>|</span>
-
-                          <span className="text-[12px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                            <FaCalendarDays />
-                            <p className="mt-0.5">20 Mar, 2023</p>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
-                      <div>
-                        <div className="mb-[18px] overflow-hidden xl:w-[224px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
-                          <img
-                            className="xl:w-[224px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
-                            src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt=""
-                          />
-
-                          {/* Overlay */}
-                          <div className="absolute top-0 xl:w-[224px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
-                            <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                              News
-                            </div>
-                          </div>
-                        </div>
-                        <h3 className="text-[16px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
-                          Power to the people for a Better future!
-                        </h3>
-                        <div className="flex items-center gap-3 text-[#B5B5B5]">
-                          <span className="text-[12px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                            <FaRegUser />
-                            <p className="mt-0.5">By - Tnews</p>
-                          </span>
-
-                          <span>|</span>
-
-                          <span className="text-[12px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                            <FaCalendarDays />
-                            <p className="mt-0.5">20 Mar, 2023</p>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -912,6 +759,171 @@ const BlogDetails = () => {
                     <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Movies
                     </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Related-post */}
+          <div className="pt-[30px] mb-[30px]">
+            <div className="flex items-start gap-[10px]">
+              <div className="flex-grow">
+                <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] text-[24px] capitalize font-semibold leading-[1.5]">
+                  Related Post
+                </h2>
+              </div>
+
+              <div className="flex gap-2">
+                <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
+                  <IoArrowBack className="text-[18px]" />
+                </div>
+
+                <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
+                  <IoArrowForward className="text-[18px]" />
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3">
+                <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                  <div>
+                    <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <img
+                        className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                        src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+
+                      {/* Overlay */}
+                      <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
+                          News
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      Power to the people for a Better future!
+                    </h3>
+                    <div className="flex items-center gap-3 text-[#B5B5B5]">
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaRegUser />
+                        <p className="mt-0.5">By - Tnews</p>
+                      </span>
+
+                      <span>|</span>
+
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaCalendarDays />
+                        <p className="mt-0.5">20 Mar, 2023</p>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                  <div>
+                    <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <img
+                        className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                        src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+
+                      {/* Overlay */}
+                      <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
+                          News
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      Power to the people for a Better future!
+                    </h3>
+                    <div className="flex items-center gap-3 text-[#B5B5B5]">
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaRegUser />
+                        <p className="mt-0.5">By - Tnews</p>
+                      </span>
+
+                      <span>|</span>
+
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaCalendarDays />
+                        <p className="mt-0.5">20 Mar, 2023</p>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                  <div>
+                    <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <img
+                        className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                        src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+
+                      {/* Overlay */}
+                      <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
+                          News
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      Power to the people for a Better future!
+                    </h3>
+                    <div className="flex items-center gap-3 text-[#B5B5B5]">
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaRegUser />
+                        <p className="mt-0.5">By - Tnews</p>
+                      </span>
+
+                      <span>|</span>
+
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaCalendarDays />
+                        <p className="mt-0.5">20 Mar, 2023</p>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                  <div>
+                    <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <img
+                        className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                        src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+
+                      {/* Overlay */}
+                      <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
+                          News
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      Power to the people for a Better future!
+                    </h3>
+                    <div className="flex items-center gap-3 text-[#B5B5B5]">
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaRegUser />
+                        <p className="mt-0.5">By - Tnews</p>
+                      </span>
+
+                      <span>|</span>
+
+                      <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                        <FaCalendarDays />
+                        <p className="mt-0.5">20 Mar, 2023</p>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
