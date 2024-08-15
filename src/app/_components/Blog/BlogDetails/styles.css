@@ -11,3 +11,13 @@ cite::before {
 ul.blog-inner-list li:not(:last-child) {
     margin-bottom: 13px;
 }
+
+h2.has-line::after {
+    content: '';
+    height: 6px;
+    width: 100%;
+    flex: 1;
+    border-top: 1px dashed #B5B5B5;
+    border-bottom: 1px dashed #B5B5B5;
+    margin-left: 24px;
+}
