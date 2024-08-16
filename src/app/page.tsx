@@ -17,6 +17,9 @@ import BlogArticleDetails from "./_components/Blog/BlogDetails/BlogArticle";
 // Audio
 import AudioOverView from "./_components/Audio/AudioOverview";
 
+// TimeLine
+import Timeline from "./_components/Timeline/Timeline";
+
 export default function Home() {
   return (
     // Home page
@@ -40,6 +43,9 @@ export default function Home() {
     // <BlogArticleDetails />
 
     // Audio
-    <AudioOverView />
+    // <AudioOverView />
+
+    // Timeline
+    <Timeline />
   );
 }
