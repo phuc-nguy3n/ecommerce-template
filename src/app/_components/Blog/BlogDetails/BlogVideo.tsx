@@ -41,9 +41,9 @@ import BlogNavigation from "../_components/BlogNavigation";
 import BlogAuthor from "../_components/BlogAuthor";
 import BlogComment from "../_components/BlogComment";
 
-const BlogDetails = () => {
+const BlogVideoDetails = () => {
   return (
-    <div className="blog-details bg-[#f5f5f5]">
+    <div className="bg-[#f5f5f5]">
       {/* breadcrumb */}
       <Breadcrumb items={[{ label: "home" }, { label: "blog details" }]} />
 
@@ -81,7 +81,7 @@ const BlogDetails = () => {
                 {/* Share media */}
                 <ShareMedia />
 
-                {/* Blog content */}
+                {/* Blog ontent */}
                 <div className="flex-grow">
                   <ActionBar liked={1300} viewed={6000} shared={200} />
 
@@ -641,4 +641,4 @@ const BlogDetails = () => {
   );
 };
 
-export default BlogDetails;
+export default BlogVideoDetails;

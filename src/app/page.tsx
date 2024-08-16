@@ -11,7 +11,8 @@ import VideoOverview from "./_components/Video/VideoOverview";
 import ArticleOverView from "./_components/Article/ArticleOverview";
 
 // Blog
-import BlogDetails from "./_components/Blog/BlogDetails";
+import BlogVideoDetails from "./_components/Blog/BlogDetails/BlogVideo";
+import BlogArticleDetails from "./_components/Blog/BlogDetails/BlogArticle";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
     // <ArticleOverView />
 
     // Blog details
-    <BlogDetails />
+    // <BlogVideoDetails />
+    <BlogArticleDetails />
   );
 }
