@@ -81,7 +81,7 @@ const BlogVideoDetails = () => {
                 {/* Share media */}
                 <ShareMedia />
 
-                {/* Blog ontent */}
+                {/* Blog content */}
                 <div className="flex-grow">
                   <ActionBar liked={1300} viewed={6000} shared={200} />
 

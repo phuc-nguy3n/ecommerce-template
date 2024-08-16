@@ -14,6 +14,9 @@ import ArticleOverView from "./_components/Article/ArticleOverview";
 import BlogVideoDetails from "./_components/Blog/BlogDetails/BlogVideo";
 import BlogArticleDetails from "./_components/Blog/BlogDetails/BlogArticle";
 
+// Audio
+import AudioOverView from "./_components/Audio/AudioOverview";
+
 export default function Home() {
   return (
     // Home page
@@ -34,6 +37,9 @@ export default function Home() {
 
     // Blog details
     // <BlogVideoDetails />
-    <BlogArticleDetails />
+    // <BlogArticleDetails />
+
+    // Audio
+    <AudioOverView />
   );
 }

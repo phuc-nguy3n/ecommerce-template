@@ -1,0 +1,9 @@
+cite::before {
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: #FF1D50;
+    position: absolute;
+    bottom: 8px;
+    left: -10px;
+}
