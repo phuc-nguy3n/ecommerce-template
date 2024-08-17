@@ -20,6 +20,9 @@ import AudioOverView from "./_components/Audio/AudioOverview";
 // TimeLine
 import Timeline from "./_components/Timeline/Timeline";
 
+// Contact
+import Contact from "./_components/Contact";
+
 export default function Home() {
   return (
     // Home page
@@ -46,6 +49,9 @@ export default function Home() {
     // <AudioOverView />
 
     // Timeline
-    <Timeline />
+    // <Timeline />
+
+    // Contact us
+    <Contact />
   );
 }
