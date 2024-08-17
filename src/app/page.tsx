@@ -23,6 +23,9 @@ import Timeline from "./_components/Timeline/Timeline";
 // Contact
 import Contact from "./_components/Contact";
 
+// Shop
+import Shop from "./_components/Shop";
+
 export default function Home() {
   return (
     // Home page
@@ -52,6 +55,9 @@ export default function Home() {
     // <Timeline />
 
     // Contact us
-    <Contact />
+    // <Contact />
+
+    // Shop
+    <Shop />
   );
 }
