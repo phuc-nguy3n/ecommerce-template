@@ -26,6 +26,9 @@ import Contact from "./_components/Contact";
 // Shop
 import Shop from "./_components/Shop";
 
+// Login
+import Login from "./_components/Login";
+
 export default function Home() {
   return (
     // Home page
@@ -58,6 +61,9 @@ export default function Home() {
     // <Contact />
 
     // Shop
-    <Shop />
+    // <Shop />
+
+    // Login
+    <Login />
   );
 }
