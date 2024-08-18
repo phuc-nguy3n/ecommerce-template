@@ -61,9 +61,9 @@ export default function Home() {
     // <Contact />
 
     // Shop
-    // <Shop />
+    <Shop />
 
     // Login
-    <Login />
+    // <Login />
   );
 }

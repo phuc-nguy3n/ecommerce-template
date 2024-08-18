@@ -4,69 +4,79 @@ import "./styles.css";
 import React from "react";
 import { IoArrowForward, IoSearch } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
+import { SortDesc } from "lucide-react";
 
 const productData = [
   {
     name: "Adifom Climacool Speaker",
     price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
     img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "Shopper Canvas Bag",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/08cebdfba14f4b49b9b0d3ec4ae0d427_9366/Tui_Shopper_Canvas_Luoi_Monogram_Nhieu_mau_IT7373_01_standard.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "Track Pant Montreal",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ca2d92942d984356babdf86a7fa2a118_9366/Quan_Track_Pant_Montreal_Mau_vang_IP0629_21_model.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "Track Top Beckenbauer Classics Adicolor",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/51ef14ed0db644589d08dd8a3a3c3369_9366/Ao_Track_Top_Beckenbauer_Classics_Adicolor_Mau_xanh_da_troi_IP0418_21_model.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "Classic Street Premium Adibreak",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/dbe14039dd7d4e109d15bf305c3bb16c_9366/Ao_Thun_Classic_Street_Premium_Adibreak_Nhieu_mau_IS0615_21_model.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "Track Top Neuclassics",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/31573dbb3b374e7b9e59c355b831f0dc_9366/Ao_Track_Top_Neuclassics_Nhieu_mau_IU2505_21_model.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "AG ROUND BAG",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/be68248c60c948dbad26957d5cd59f8a_9366/AG_ROUND_BAG_Mau_xanh_da_troi_IN2778_01_standard.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "Adicross Low",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4b96690e64b742bd869eaf8d01820cea_9366/Giay_Golf_DJinh_Lien_Adicross_Low_trang_GW2118_01_standard.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 
   {
-    name: "AEROREADY Cap",
-    price: 132,
+    name: "Adifom Climacool Speaker",
+    price: 112,
+    SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a5f84a32438341d9ac02af2e008ccc2a_9366/Mu_Bong_Chay_3_Soc_AEROREADY_Nhieu_mau_IC6569_01_standard.jpg",
+    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
   },
 ];
 
@@ -96,136 +106,107 @@ const Shop = () => {
 
                 {/*  Category  */}
                 <div className="category">
-                  <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
+                  <h3 className="mb-[20px] text-[19px] font-bold">
                     Categories
                   </h3>
 
-                  <ul className="category-list space-y-[10px] mb-[30px]">
-                    <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                      <p>Sport</p>{" "}
-                      <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <FaArrowRight className="text-black " />
+                  <ul className="category-list mb-[30px]">
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Watches</span>
                       </div>
                     </li>
 
-                    <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                      <p>Business</p>{" "}
-                      <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <FaArrowRight className="text-black " />
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>TV & Home</span>
                       </div>
                     </li>
 
-                    <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                      <p>Politics</p>{" "}
-                      <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <FaArrowRight className="text-black " />
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Ipads</span>
                       </div>
                     </li>
 
-                    <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                      <p>Health</p>{" "}
-                      <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <FaArrowRight className="text-black " />
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Accessories</span>
                       </div>
                     </li>
 
-                    <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                      <p>Technology</p>{" "}
-                      <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <FaArrowRight className="text-black " />
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Laptops</span>
                       </div>
                     </li>
 
-                    <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                      <p>Entertaiment</p>{" "}
-                      <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                        <FaArrowRight className="text-black " />
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="checkbox"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Phones</span>
                       </div>
                     </li>
                   </ul>
 
-                  <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
-                    Filter By Price
-                  </h3>
+                  <h3 className="mb-[20px] text-[19px] font-bold">Sort By</h3>
 
-                  <div className="price-slider-wrapper mb-[35px]">
-                    <div className="price-label text-[#54595F] mb-[10px]">
-                      Price: <span className="from">$10</span>
-                      {" - "}
-                      <span className="to">$73</span>
-                    </div>
+                  <ul className="sort-list mb-[30px]">
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="radio"
+                          name="sort"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Latest</span>
+                      </div>
+                    </li>
 
-                    <div className="price-slider mt-[15px] mb-[25px] cursor-pointer h-[6px] relative w-full bg-[#FF1D50]">
-                      <div className="ui-slider-range absolute top-0  z-[1] block bg-[#080809] h-full w-[50%]"></div>
-                      <span className="w-[16px] h-[16px] rounded-full cursor-pointer absolute top-[50%] left-0 translate-y-[-50%] z-[2] bg-[#ffffff]  border-[3px] border-[#080809]"></span>
-                      <span className="w-[16px] h-[16px] rounded-full cursor-pointer absolute top-[50%] left-[50%] translate-y-[-50%] z-[2] bg-[#ffffff]  border-[3px] border-[#080809]"></span>
-                    </div>
-
-                    <button className="py-[8px] px-[32px] text-white font-semibold bg-[#FF1D50] text-[14px]">
-                      Filter
-                    </button>
-                  </div>
-
-                  <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
-                    Tags
-                  </h3>
-
-                  <div className="tag-cloud ">
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
-                      Sports
-                    </button>
-
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
-                      Politics
-                    </button>
-
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
-                      Business
-                    </button>
-
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
-                      Music
-                    </button>
-
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
-                      Foood
-                    </button>
-                  </div>
+                    <li className="py-[16px] px-[10px]">
+                      <div className="flex  items-center gap-3">
+                        <input
+                          type="radio"
+                          name="sort"
+                          className=" accent-[#FF1D50] w-6 h-6"
+                        />{" "}
+                        <span>Oldest</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div className="col-span-9">
-              <div className="sort-bar mb-[24px] p-[10px] bg-[#F5F5F5] rounded-sm">
+              <div className="mb-[24px] p-[10px]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <p className="pl-[16px] text-[#54596e]">
+                    <p className="text-[19px] font-bold">
                       Showing 1–9 of 16 results
                     </p>
-                  </div>
-
-                  <div>
-                    <select className="form-control min-w-[250px] h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]">
-                      <option value="" disabled selected hidden>
-                        Defaul Sorting
-                      </option>
-                      <option value="popularity">Sort by popularity</option>
-                      <option value="average rating">
-                        Sort by average rating
-                      </option>
-                      <option value="Gest Posting">Sort by latest</option>
-                      <option value="low to high">
-                        Sort by price: low to high
-                      </option>
-                      <option value="high to low">
-                        Sort by price: high to low
-                      </option>
-                      <option
-                        className="text-[#54596e]"
-                        value="Personal Question"
-                      >
-                        Personal Question
-                      </option>
-                    </select>
                   </div>
                 </div>
               </div>
@@ -234,29 +215,22 @@ const Shop = () => {
                 {productData.map((product, index) => (
                   <li key={index}>
                     <div className="product overflow-hidden">
-                      <div className="product-img mb-[25px]">
+                      <div className="product-img mb-[20px]">
                         <img
                           className="w-full h-[300px] object-cover rounded-sm"
                           src={product.img}
-                          alt={product.name}
+                          alt=""
                         />
                       </div>
-                      <div className="product-content text-center">
-                        <div className="star-rating space-x-1">
-                          {Array(product.rating)
-                            .fill(0)
-                            .map((_, i) => (
-                              <FaStar
-                                key={i}
-                                className="text-[#FF1D50] inline-block"
-                              />
-                            ))}
-                        </div>
-                        <h3 className="product-title font-semibold mt-[8px] mb-[10px] text-[17px]">
+                      <div className="product-content">
+                        <h3 className="product-title font-semibold mt-[7px] mb-[8px] text-[17px]">
                           {product.name}
                         </h3>
+                        <p className="short-desc text-[#54595F] font-medium">
+                          {product.SortDesc}
+                        </p>
                         <span className="price text-[#54595F] font-medium">
-                          ${product.price.toFixed(2)}
+                          ${product.price}
                         </span>
                       </div>
                     </div>
