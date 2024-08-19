@@ -1,31 +1,68 @@
 "use client";
 
+import "./styles.css";
+
 import {
-  FaArrowLeft,
-  FaArrowRight,
   FaCalendarDays,
   FaRegComments,
   FaRegUser,
+  FaRegCirclePlay,
+  FaRegCirclePause,
 } from "react-icons/fa6";
-import Breadcrumb from "../_components/Breadcrumb";
-import TagName from "../_components/TagName";
-import "./styles.css";
-import React from "react";
 import { HiOutlineBookOpen } from "react-icons/hi2";
-import ShareMedia from "../_components/ShareMedia";
-import ActionBar from "../_components/ActionBar";
-import Paragraph from "../_components/Paragraph";
-import Quote from "../_components/Quote";
-import RelatedTag from "../_components/RelatedTag";
-import Author from "../_components/Author";
-import Comment from "../_components/Comment";
 import { FiMail } from "react-icons/fi";
 import { BsGlobe2 } from "react-icons/bs";
 import { FaPencilAlt } from "react-icons/fa";
-import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-import Navigation from "../_components/Navigation";
+import { IoArrowBack, IoArrowForward, IoSearch } from "react-icons/io5";
+import { MdAudiotrack } from "react-icons/md";
+import { SlOptionsVertical } from "react-icons/sl";
+
+import Breadcrumb from "../_components/Breadcrumb";
+import ShareMedia from "../_components/ShareMedia";
+import ActionBar from "../_components/ActionBar";
+
+import { useState, useRef, useEffect } from "react";
 
 const AudioOverView = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current?.pause();
+    } else {
+      audioRef.current?.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      const updateTime = () => {
+        setCurrentTime(audio.currentTime);
+      };
+
+      audio.addEventListener("timeupdate", updateTime);
+      audio.addEventListener("loadedmetadata", () => {
+        setDuration(audio.duration);
+      });
+
+      return () => {
+        audio.removeEventListener("timeupdate", updateTime);
+      };
+    }
+  }, []);
+
+  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.currentTime = Number(event.target.value);
+    }
+  };
+
   return (
     <div>
       <Breadcrumb items={[{ label: "home" }, { label: "audio" }]} />
@@ -33,8 +70,6 @@ const AudioOverView = () => {
       <div className="pt-[60px] pb-[30px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
           <div className="flex flex-col items-center w">
-            <TagName text={"technology"} />
-
             {/* Title */}
             <h2 className="mt-[10px] mb-[18px] text-[34px] leading-[1.5] text-center font-bold tracking-wide">
               Tech made simple, your everyday made extraordinary with the power
@@ -89,146 +124,95 @@ const AudioOverView = () => {
               <div className="flex-grow">
                 <ActionBar liked={1300} viewed={6000} shared={200} />
 
-                <Paragraph
-                  text={
-                    "Fuel your competitive spirit, chase victory, and let sports be your legacy encapsulates the essence of embracing sports as a means to challenge oneself, strive for success, and leave a lasting impact. This phrase urges individuals to tap into their inner drive and motivation."
-                  }
-                />
-
-                <Paragraph
-                  text={
-                    "Igniting their competitive spirit. It encourages them to set ambitious goals, not settling for mediocrity but pushing themselves to excel in their chosen sport or athletic endeavor. The pursuit of victory becomes the driving force, motivating athletes to give their all,"
-                  }
-                />
-
-                <Paragraph
-                  text={
-                    "Surpass their limitations, and achieve remarkable feats. It emphasizes the importance of hard work, dedication, and Perseverance in the face of challenges and obstacles that may arise along the way."
-                  }
-                />
-
-                {/* Ads */}
-                <div className="my-[24px] py-[8px]">
-                  <div className="cursor-pointer">
-                    <img
-                      className="w-full h-[120px] object-cover"
-                      src="https://images.unsplash.com/photo-1666489022255-99a837a5c506?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt=""
-                    />
+                <div className="grid grid-cols-4 gap-[24px] mb-[35px]">
+                  <div className="form-group col-span-1 bg-[#F5F5F5] h-[50px] rounded-md">
+                    <select className="form-control w-full h-[50px] px-[25px] outline-none  text-[16px] rounded-md text-[#54596e] ">
+                      <option value="" disabled selected hidden>
+                        Language
+                      </option>
+                      <option value="English">English</option>
+                      <option value="German">German</option>
+                      <option value="France">France</option>
+                    </select>
                   </div>
-                </div>
 
-                <Paragraph
-                  text={
-                    "The slogan reminds athletes that their participation in sports has the potential to leave a lasting legacy. It suggests that their accomplishments, records, and impact can inspire future generations, shaping the sport itself and influencing others to follow in their footsteps. By embracing sports and embracing the pursuit of victory, individuals have the opportunity to create a legacy that will be remembered and celebrated long after their own participation."
-                  }
-                />
-
-                {/* Img */}
-                <div className="my-[24px] py-[8px]">
-                  <div>
-                    <img
-                      className="w-full h-[500px] object-cover"
-                      src="https://images.unsplash.com/photo-1666489022255-99a837a5c506?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt=""
-                    />
-                  </div>
-                </div>
-
-                {/* Subtitle */}
-                <h3 className="text-[25px] font-bold leading-[1.4] mb-[15px] tracking-wide">
-                  Achieve greatness, fueled by innovation
-                </h3>
-
-                <Paragraph
-                  text={
-                    'Achieve greatness, fueled by innovation" encapsulates the idea that by embracing and harnessing innovative approaches and technologies, individuals can reach extraordinary heights of success and achievement. It implies that the combination of pushing boundaries, thinking outside the box, and adopting cutting-edge advancements can Propel individuals to surpass their limitations and accomplish remarkable feats.'
-                  }
-                />
-
-                <Paragraph
-                  text={
-                    "This phrase suggests that innovation serves as the driving force behind progress and improvement in various fields, including sports, business, arts, and personal development. It conveys the message that by embracing new ideas."
-                  }
-                />
-
-                <Quote
-                  text={
-                    "Fuel your competitive spirit, chase victory, and let sports be your legacy Encapsulates the essence."
-                  }
-                  author={"Robert Milton"}
-                />
-
-                {/* Img */}
-                <div className="grid grid-cols-2 py-1 gap-[20px] mb-[24px]">
-                  <div>
-                    <div>
-                      <img
-                        className="w-full h-[320px] object-cover"
-                        src="https://images.unsplash.com/photo-1666489022255-99a837a5c506?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt=""
+                  <div className="flex rounded-[3px] overflow-hidden col-span-3">
+                    <div className="form-group relative flex-grow">
+                      <input
+                        type="text"
+                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none "
+                        placeholder="Name or Description"
                       />
                     </div>
-                  </div>
-
-                  <div>
-                    <div>
-                      <img
-                        className="w-full h-[320px] object-cover"
-                        src="https://images.unsplash.com/photo-1666489022255-99a837a5c506?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt=""
-                      />
-                    </div>
+                    <button className="bg-[#FF1D50] w-[66px] h-[50px] flex items-center justify-center">
+                      <IoSearch className="text-white text-[18px]" />
+                    </button>
                   </div>
                 </div>
 
-                {/* Subtitle */}
-                <h3 className="text-[25px] font-bold leading-[1.4] mb-[15px] tracking-wide">
-                  Power your game with innovative features.
-                </h3>
+                <ul className="mb-[30px] audio-list px-[10px]">
+                  <li>
+                    <div className="audio-item flex justify-between">
+                      <div className="flex gap-[16px]">
+                        <div className="audio-icon w-[50px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md">
+                          <MdAudiotrack className="text-[40px] text-white" />
+                        </div>
+                        <div className="audio-title-area mt-[-4px]">
+                          <h3 className="audio-title text-[20px] font-semibold mb-[2px]">
+                            Something just like this
+                          </h3>
+                          <div className="flex items-center gap-[16px]">
+                            <span className="text-[#757c83]">English</span>{" "}
+                            {isPlaying && (
+                              <div className="flex items-center gap-2">
+                                <input
+                                  type="range"
+                                  min="0"
+                                  max={duration.toFixed(2)}
+                                  value={currentTime}
+                                  onChange={handleTimeChange}
+                                  className="progress-bar w-[150px] h-[4px] bg-gray-300 rounded"
+                                />
+                                <span className="text-sm text-gray-500">
+                                  {new Date(currentTime * 1000)
+                                    .toISOString()
+                                    .substr(14, 5)}{" "}
+                                  /{" "}
+                                  {new Date(duration * 1000)
+                                    .toISOString()
+                                    .substr(14, 5)}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
 
-                <Paragraph
-                  text={
-                    "Power your game with innovative features signifies the utilization of advanced and cutting-edge elements to enhance your performance and elevate your gameplay. It suggests that by embracing these innovative features, you can tap into a new level of power, skill, and effectiveness in your chosen sport."
-                  }
-                />
+                      <div className="flex justify-center items-center gap-[16px]">
+                        <div
+                          className="play-btn w-[50px] h-[50px] flex justify-center items-center cursor-pointer"
+                          onClick={handlePlayPause}
+                        >
+                          {isPlaying ? (
+                            <FaRegCirclePause className="text-[40px] text-[#FF1D50]" />
+                          ) : (
+                            <FaRegCirclePlay className="text-[40px] text-[#FF1D50]" />
+                          )}
+                        </div>
 
-                <Paragraph
-                  text={
-                    "This phrase implies that the incorporation of groundbreaking technologies, techniques, and functionalities can provide you with a competitive edge and push the boundaries of what is achievable in your game."
-                  }
-                />
-
-                <RelatedTag tagList={["Sports", "Politics", "Business"]} />
+                        <span className="options-box">
+                          <SlOptionsVertical className="cursor-pointer text-[20px]" />
+                        </span>
+                        <audio
+                          ref={audioRef}
+                          src="/audio/2024Somko-06a_Weissagungen_DEU.mp3"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
-
-            {/* Navigation */}
-            <Navigation
-              pevBlog={{
-                img: "https://images.unsplash.com/photo-1723477450561-791fd67efa56?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                title: "Game on! Embrace the spirit of sportsmanship",
-              }}
-              nextBlog={{
-                img: "https://images.unsplash.com/photo-1721297013262-7265cc89a763?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                title: "Push your limits, redefine what's possible",
-              }}
-            />
-
-            {/* Author */}
-            <Author
-              img={
-                "https://images.unsplash.com/photo-1723212396541-e3b97ac55599?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              }
-              name={"Ronald Richards"}
-              position={"Founder & CEO"}
-              bio={
-                "Adventurer and passionate travel blogger. With a backpack full of stories and a camera in hand, she takes her readers on exhilarating journeys around the world."
-              }
-            />
-
-            {/* Comments */}
-            <Comment />
 
             {/* Comment form */}
             <div className="comment-form">

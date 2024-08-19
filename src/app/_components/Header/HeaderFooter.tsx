@@ -154,7 +154,11 @@ const HeaderFooter = () => {
           </ul>
 
           <div className="md:flex lg:hidden justify-center py-[10px]">
-            <img src="/logo-white.svg" alt="logo" className="cursor-pointer" />
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="cursor-pointer w-[143px] h-[60px]"
+            />
           </div>
 
           <div className="flex items-center lg:gap-10 gap-[20px]">
