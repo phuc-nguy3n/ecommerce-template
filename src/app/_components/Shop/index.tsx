@@ -181,6 +181,7 @@ const Shop = () => {
                           type="radio"
                           name="sort"
                           className=" accent-[#FF1D50] w-6 h-6"
+                          checked
                         />{" "}
                         <span>Latest</span>
                       </div>
