@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
         <div className="flex flex-col justify-center items-center gap-10">
           <div>
-            <img src="/logo-white.svg" alt="logo" />
+            <img src="/logo.png" alt="logo" className="w-[346px] h-[114px]" />
           </div>
 
           <p className="text-white  text-center">
@@ -18,7 +18,7 @@ export default function Footer() {
           </p>
 
           <div className="flex md:flex-row flex-col md:gap-0 gap-6 items-center justify-between text-white flex-grow w-full">
-            <p className="text-center">Copyright 2024 </p>
+            <p className="text-center">© Copyright 2024 </p>
             <div>
               <ul className="flex md:flex-row flex-col gap-6 justify-center items-center">
                 <li>Imprint</li>
