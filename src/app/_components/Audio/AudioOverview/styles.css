@@ -12,3 +12,7 @@ cite::before {
     appearance: none;
     cursor: pointer;
 }
+
+.audio-item:hover .play-box {
+    display: flex;
+}

@@ -7,6 +7,7 @@ import { GoDotFill } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { SlOptions } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
+import { IoMdPlay } from "react-icons/io";
 
 import Breadcrumb from "../_components/Breadcrumb";
 
@@ -155,24 +156,30 @@ const AudioOverView = () => {
                 <IoIosArrowDown className="absolute translate-y-[-50%] top-[50%] right-[10%]" />
               </div>
             </div>
-            <ul className="audio-list grid grid-cols-2  gap-[40px] px-[10]x">
+            <ul className="audio-list grid grid-cols-2 gap-y-[10px] gap-x-[40px] px-[10]x">
               {audioData.map((item, index) => (
                 <li key={index}>
-                  <div className="audio-item flex justify-between cursor-default">
+                  <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
                     <div className="flex gap-[16px]">
-                      <div className="audio-icon w-[50px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden">
+                      <div className="audio-icon w-[70px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
                         <img
-                          className="w-[50px] h-[50px] object-cover"
+                          className="w-[70px] h-[50px] object-cover"
                           src={item.img}
                           alt=""
                         />
+
+                        <div className="play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full hidden items-center justify-center">
+                          <IoMdPlay />
+                        </div>
                       </div>
-                      <div className="audio-title-area mt-[-4px]">
-                        <h3 className="audio-title text-[18px] font-medium mb-[2px] line-clamp-1">
+                      <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
+                        <h3 className="audio-title text-[16px] mb-[2px] line-clamp-1 cursor-pointer">
                           {item.nameFile}
                         </h3>
-                        <div className="flex items-center gap-[16px]">
-                          <span className="text-[#757c83]">{item.recorBy}</span>{" "}
+                        <div className="flex items-center gap-[16px] ">
+                          <span className="text-[#757c83] text-[14px] cursor-pointer">
+                            {item.recorBy}
+                          </span>{" "}
                           {isPlaying && (
                             <div className="flex items-center gap-2">
                               <input
