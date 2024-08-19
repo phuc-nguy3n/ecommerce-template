@@ -30,15 +30,18 @@ const ActionBar: React.FC<ActionBarProps> = ({ liked, viewed, shared }) => {
 
       <div className="flex items-center gap-[10px]">
         <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px] ml-auto">
-          {formatLiked} <AiFillLike className="text-[#FF1D50] text-[18px]" />
+          <span className="mt-[1px]">{formatLiked}</span>{" "}
+          <AiFillLike className="text-[#FF1D50] text-[18px]" />
         </button>
 
         <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
-          {formatViewed} <FaEye className="text-[#FF1D50] text-[18px]" />
+          <span className="mt-[1px]">{formatViewed}</span>{" "}
+          <FaEye className="text-[#FF1D50] text-[18px]" />
         </button>
 
         <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
-          {formatShared} <FaShareNodes className="text-[#FF1D50] text-[18px]" />
+          <span className="mt-[1px]">{formatShared}</span>{" "}
+          <FaShareNodes className="text-[#FF1D50] text-[18px]" />
         </button>
       </div>
     </div>

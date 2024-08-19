@@ -46,7 +46,7 @@ const BlogAuthor: React.FC<BlogAuthorProps> = ({
             </span>
           </div>
 
-          <div className="social-links flex items-center gap-[14px]">
+          <div className="social-links flex items-center gap-[14px] mt-[6px]">
             <div className="text-[19px] cursor-pointer">
               <FaFacebookF className="text-[#54595F]" />
             </div>

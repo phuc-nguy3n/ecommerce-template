@@ -1,3 +1,5 @@
+import Container from "./_components/Container/Container";
+
 // Home
 import ArticlesSection from "./_components/Home/Articles";
 import LiteratureSection from "./_components/Home/Literature";
@@ -33,11 +35,11 @@ export default function Home() {
   return (
     // Home page
     // <div className="bg-white dark:bg-[#1e1e1e]">
-    //   <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
+    //   <Container>
     //     <NewsSection />
     //     <ArticlesSection />
     //     <LiteratureSection />
-    //   </div>
+    //   </Container>
     //   <VideoSection />
     // </div>
 
@@ -48,7 +50,7 @@ export default function Home() {
     // <ArticleOverView />
 
     // Blog details
-    // <BlogVideoDetails />
+    <BlogVideoDetails />
     // <BlogArticleDetails />
 
     // Audio
@@ -61,7 +63,7 @@ export default function Home() {
     // <Contact />
 
     // Shop
-    <Shop />
+    // <Shop />
 
     // Login
     // <Login />

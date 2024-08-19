@@ -1,24 +1,8 @@
 "use client";
 
 import "./styles.css";
-import { IoIosArrowForward, IoMdMail } from "react-icons/io";
-import {
-  FaCalendarDays,
-  FaRegUser,
-  FaRegComments,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaShareNodes,
-  FaArrowLeft,
-  FaArrowRight,
-} from "react-icons/fa6";
-import { HiOutlineBookOpen } from "react-icons/hi2";
-import { FaPinterestP, FaEye, FaReply, FaPencilAlt } from "react-icons/fa";
-import { MdPrint } from "react-icons/md";
-import { AiFillLike } from "react-icons/ai";
-import { PiQuotesLight } from "react-icons/pi";
+import { FaCalendarDays, FaRegUser, FaArrowRight } from "react-icons/fa6";
+import { FaPencilAlt } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { BsGlobe2 } from "react-icons/bs";
 import { IoSearch, IoArrowBack, IoArrowForward } from "react-icons/io5";
@@ -45,13 +29,15 @@ const BlogVideoDetails = () => {
   return (
     <div className="bg-[#f5f5f5]">
       {/* breadcrumb */}
-      <Breadcrumb items={[{ label: "home" }, { label: "blog details" }]} />
+      <Breadcrumb
+        items={[{ label: "home" }, { label: "blog details video" }]}
+      />
 
       <div className="pt-[60px] pb-[30px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
           <div className="grid grid-cols-3 gap-[24px]">
             {/* Blog details post */}
-            <div className="p-[30px] mb-[40px] bg-white col-span-2">
+            <div className="p-[30px] mb-[40px] bg-white lg:col-span-2 md:col-span-3">
               {/* Tag name */}
               <TagName text={"sport"} />
 
@@ -267,18 +253,18 @@ const BlogVideoDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="p-[30px] mb-[40px] bg-white relative">
+            <div className="p-[30px] mb-[40px] bg-white lg:relative lg:col-span-1 md:col-span-3">
               <div className="sticky top-[80px] right-0">
                 {/* Search box */}
                 <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
-                  <div className="form-group relative">
+                  <div className="form-group relative flex-grow">
                     <input
                       type="text"
-                      className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
+                      className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none "
                       placeholder="Enter Keyword"
                     />
                   </div>
-                  <button className="bg-[#FF1D50] w-[56px] h-[50px] flex items-center justify-center">
+                  <button className="bg-[#FF1D50] w-[66px] h-[50px] flex items-center justify-center">
                     <IoSearch className="text-white text-[18px]" />
                   </button>
                 </div>
@@ -341,7 +327,7 @@ const BlogVideoDetails = () => {
                     <li className="flex gap-4 py-4">
                       <div className="flex flex-col justify-between flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out ">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -363,7 +349,7 @@ const BlogVideoDetails = () => {
                     <li className="flex gap-4 py-4">
                       <div className="flex flex-col justify-between flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out ">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -385,7 +371,7 @@ const BlogVideoDetails = () => {
                     <li className="flex gap-4 py-4">
                       <div className="flex flex-col justify-between flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out ">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -405,9 +391,9 @@ const BlogVideoDetails = () => {
                     </li>
                   </ul>
 
-                  <div className="w-[318px] h-[350px] mb-[35px]">
+                  <div className="mb-[35px]">
                     <img
-                      className="w-[318px] h-[350px] object-cover"
+                      className="xl:w-[318px] lg:w-[222px] md:w-[596px] xl:h-[350px] lg:h-[286px] md:h-[773px] object-cover"
                       src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt=""
                     />
@@ -481,11 +467,11 @@ const BlogVideoDetails = () => {
               </div>
 
               <div className="flex gap-2">
-                <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
+                <div className="p-2 rounded-full border bg-white hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
                   <IoArrowBack className="text-[18px]" />
                 </div>
 
-                <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
+                <div className="p-2 rounded-full border bg-white hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
                   <IoArrowForward className="text-[18px]" />
                 </div>
               </div>

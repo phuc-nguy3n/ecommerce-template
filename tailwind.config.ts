@@ -19,12 +19,12 @@ const config = {
     },
     extend: {
       screens: {
-        'xs': '576px',
-        'sm': '576px',
-        'md': '768px',
-        'lg': '992px',
-        'xl': '1200px',
-        '2xl': '1400px',
+        xs: "576px",
+        sm: "576px",
+        md: "768px",
+        lg: "992px",
+        xl: "1200px",
+        "2xl": "1300px",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -82,7 +82,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/line-clamp")],
 } satisfies Config;
 
 export default config;

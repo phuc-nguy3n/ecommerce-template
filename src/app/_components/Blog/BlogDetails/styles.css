@@ -21,3 +21,7 @@ h2.has-line::after {
     border-bottom: 1px dashed #B5B5B5;
     margin-left: 24px;
 }
+
+.gradient-bg {
+    justify-content: flex-start !important;
+}
