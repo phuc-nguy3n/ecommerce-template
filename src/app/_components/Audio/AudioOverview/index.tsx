@@ -122,19 +122,21 @@ let backgroundImg = {
 
 const AudioOverView = () => {
   const [playlist, setPlaylist] = useState(audioDetails.playlist);
+  const [audioIndex, setAudioIndex] = useState<number>(0);
   const [audioPlaying, setAudioPlaying] = useState<any>("");
 
   const audioRef = useRef<any>(null);
 
   const handleAudioPlaying = (index: number) => {
-    const updatedPlaylist = playlist.map((item) => ({
+    const updatedPlaylist = playlist.map((item, idx) => ({
       ...item,
-      playing: item.id === index,
+      playing: idx === index,
     }));
     const audio = updatedPlaylist.find((item) => item.playing === true);
 
     setPlaylist(updatedPlaylist);
     setAudioPlaying(audio);
+    setAudioIndex(index);
 
     if (audio && audioRef.current) {
       audioRef.current.src = audio.src;
@@ -164,6 +166,25 @@ const AudioOverView = () => {
   const handleTogglePlaying = () => {
     setAudioPlaying({ ...audioPlaying, playing: !audioPlaying.playing });
     handlePlayAudio(!audioPlaying.playing);
+  };
+
+  const handleGoToAudio = (typeAudio: string) => {
+    let audIndex = audioIndex;
+    if (typeAudio === "prev") {
+      audIndex -= 1;
+      if (audIndex >= 0) {
+        handleAudioPlaying(audIndex);
+      } else {
+        handleAudioPlaying(0);
+      }
+    } else if (typeAudio === "next") {
+      audIndex += 1;
+      if (audIndex <= playlist.length - 1) {
+        handleAudioPlaying(audIndex);
+      } else {
+        handleAudioPlaying(playlist.length - 1);
+      }
+    }
   };
 
   return (
@@ -259,7 +280,7 @@ const AudioOverView = () => {
                         {/* Play box */}
                         <div
                           onClick={() => {
-                            handleAudioPlaying(item.id);
+                            handleAudioPlaying(index);
                           }}
                           className={`play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full  ${
                             item.playing ? "flex" : "hidden"
@@ -309,11 +330,11 @@ const AudioOverView = () => {
                 </div>
                 <div className="cover-content pl-[12px]">
                   <h3 className="audio-title text-[14px] font-medium mb-[2px] line-clamp-1 cursor-pointer">
-                    {audioPlaying.name}
+                    {audioPlaying?.name}
                   </h3>
                   <div className="flex items-center gap-[16px] ">
                     <span className="text-[#757c83] text-[14px] cursor-pointer">
-                      {audioPlaying.desc}
+                      {audioPlaying?.desc}
                     </span>
                   </div>
                 </div>
@@ -323,7 +344,12 @@ const AudioOverView = () => {
                   <RiRepeat2Fill className="text-[20px]" />
                 </button>
 
-                <button className="p-2">
+                <button
+                  onClick={() => {
+                    handleGoToAudio("prev");
+                  }}
+                  className="p-2"
+                >
                   <MdSkipPrevious className="text-[24px]" />
                 </button>
 
@@ -331,7 +357,7 @@ const AudioOverView = () => {
                   className="p-3 rounded-full shadow-sm play-btn"
                   onClick={handleTogglePlaying}
                 >
-                  {audioPlaying.playing ? (
+                  {audioPlaying?.playing ? (
                     <IoMdPause className="text-[24px]" />
                   ) : (
                     <IoMdPlay className="text-[24px]" />
@@ -341,7 +367,12 @@ const AudioOverView = () => {
                 {/* Audio element */}
                 <audio ref={audioRef} />
 
-                <button className="p-2">
+                <button
+                  onClick={() => {
+                    handleGoToAudio("next");
+                  }}
+                  className="p-2"
+                >
                   <MdSkipNext className="text-[24px]" />
                 </button>
 
