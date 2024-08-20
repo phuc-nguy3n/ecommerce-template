@@ -13,9 +13,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import { PiSpeakerHighFill } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
 import { BiWorld } from "react-icons/bi";
+import { BsFileEarmarkMusic } from "react-icons/bs";
 
 import Breadcrumb from "../_components/Breadcrumb";
-import { useState } from "react";
+
+import { useState, useRef } from "react";
 
 const audioDetails = {
   name: "DPR Archives",
@@ -120,14 +122,48 @@ let backgroundImg = {
 
 const AudioOverView = () => {
   const [playlist, setPlaylist] = useState(audioDetails.playlist);
+  const [audioPlaying, setAudioPlaying] = useState<any>("");
 
-  const playingAudio = (index: number) => {
+  const audioRef = useRef<any>(null);
+
+  const handleAudioPlaying = (index: number) => {
     const updatedPlaylist = playlist.map((item) => ({
       ...item,
       playing: item.id === index,
     }));
+    const audio = updatedPlaylist.find((item) => item.playing === true);
 
     setPlaylist(updatedPlaylist);
+    setAudioPlaying(audio);
+
+    if (audio && audioRef.current) {
+      audioRef.current.src = audio.src;
+      handlePlayAudio(true);
+    }
+  };
+
+  const handlePlayAudio = (isPlay: boolean) => {
+    if (isPlay) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  };
+
+  const handleCloseAudioBar = () => {
+    const updatedPlaylist = playlist.map((item) => ({
+      ...item,
+      playing: false,
+    }));
+
+    setPlaylist(updatedPlaylist);
+    setAudioPlaying("");
+    handlePlayAudio(false);
+  };
+
+  const handleTogglePlaying = () => {
+    setAudioPlaying({ ...audioPlaying, playing: !audioPlaying.playing });
+    handlePlayAudio(!audioPlaying.playing);
   };
 
   return (
@@ -217,17 +253,13 @@ const AudioOverView = () => {
                 <li className={`audio-${index}`}>
                   <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
                     <div className="flex gap-[16px]">
-                      <div className="audio-icon w-[70px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
-                        <img
-                          className="w-[70px] h-[50px] object-cover"
-                          src={item.img}
-                          alt={`audio-${index}`}
-                        />
+                      <div className="audio-icon w-[50px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
+                        <BsFileEarmarkMusic className="text-[24px] text-white" />
 
                         {/* Play box */}
                         <div
                           onClick={() => {
-                            playingAudio(item.id);
+                            handleAudioPlaying(item.id);
                           }}
                           className={`play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full  ${
                             item.playing ? "flex" : "hidden"
@@ -263,23 +295,25 @@ const AudioOverView = () => {
             </ul>
           </div>
 
-          <div className="sticky-bar sticky z-30 bg-white bottom-[10px] rounded-lg overflow-hidden">
+          {/* audio control */}
+
+          <div
+            className={`sticky-bar ${
+              audioPlaying ? "block" : "hidden"
+            } sticky z-30 bg-white bottom-[10px] rounded-lg overflow-hidden`}
+          >
             <div className="flex items-center cover">
               <div className="flex-1 flex items-center">
-                <div className="cover-img">
-                  <img
-                    className="w-[72px] h-[72px] min-w-[72px] object-cover"
-                    src="https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt=""
-                  />
+                <div className="cover-img w-[72px] h-[72px] min-w-[72px] flex justify-center items-center">
+                  <BsFileEarmarkMusic className="text-[28px] text-[#FF1D50]" />
                 </div>
                 <div className="cover-content pl-[12px]">
                   <h3 className="audio-title text-[14px] font-medium mb-[2px] line-clamp-1 cursor-pointer">
-                    Aug 11, 2024 - Offerings & Consitution of the KingDom
+                    {audioPlaying.name}
                   </h3>
                   <div className="flex items-center gap-[16px] ">
                     <span className="text-[#757c83] text-[14px] cursor-pointer">
-                      The Church in Fourtain Valley
+                      {audioPlaying.desc}
                     </span>
                   </div>
                 </div>
@@ -293,9 +327,19 @@ const AudioOverView = () => {
                   <MdSkipPrevious className="text-[24px]" />
                 </button>
 
-                <button className="p-3 rounded-full shadow-sm play-btn">
-                  <IoMdPlay className="text-[24px]" />
+                <button
+                  className="p-3 rounded-full shadow-sm play-btn"
+                  onClick={handleTogglePlaying}
+                >
+                  {audioPlaying.playing ? (
+                    <IoMdPause className="text-[24px]" />
+                  ) : (
+                    <IoMdPlay className="text-[24px]" />
+                  )}
                 </button>
+
+                {/* Audio element */}
+                <audio ref={audioRef} />
 
                 <button className="p-2">
                   <MdSkipNext className="text-[24px]" />
@@ -305,7 +349,7 @@ const AudioOverView = () => {
                   <RiShuffleFill className="text-[20px]" />
                 </button>
 
-                <button className="p-2 ml-[24px]">
+                <button className="p-2 ml-[24px]" onClick={handleCloseAudioBar}>
                   <AiOutlineClose className="text-[20px] text-[#FF1D50]" />
                 </button>
               </div>
