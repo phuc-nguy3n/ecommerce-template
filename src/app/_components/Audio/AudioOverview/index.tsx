@@ -4,7 +4,7 @@ import "./styles.css";
 
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
-import { IoIosArrowDown, IoMdPlay } from "react-icons/io";
+import { IoMdPause, IoMdPlay } from "react-icons/io";
 import { SlOptions, SlOptionsVertical } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
 import { RiRepeat2Fill, RiShuffleFill, RiPlayListFill } from "react-icons/ri";
@@ -15,6 +15,7 @@ import { IoSearch } from "react-icons/io5";
 import { BiWorld } from "react-icons/bi";
 
 import Breadcrumb from "../_components/Breadcrumb";
+import { useState } from "react";
 
 const audioDetails = {
   name: "DPR Archives",
@@ -118,6 +119,17 @@ let backgroundImg = {
 };
 
 const AudioOverView = () => {
+  const [playlist, setPlaylist] = useState(audioDetails.playlist);
+
+  const playingAudio = (index: number) => {
+    const updatedPlaylist = playlist.map((item) => ({
+      ...item,
+      playing: item.id === index,
+    }));
+
+    setPlaylist(updatedPlaylist);
+  };
+
   return (
     <div className="relative">
       <Breadcrumb items={[{ label: "home" }, { label: "audio" }]} />
@@ -201,19 +213,27 @@ const AudioOverView = () => {
             </div>
 
             <ul className="audio-list grid grid-cols-2 gap-y-[10px] gap-x-[40px] px-[10px]">
-              {audioDetails.playlist.map((item, index) => (
-                <li key={index}>
+              {playlist.map((item, index) => (
+                <li className={`audio-${index}`}>
                   <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
                     <div className="flex gap-[16px]">
                       <div className="audio-icon w-[70px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
                         <img
                           className="w-[70px] h-[50px] object-cover"
                           src={item.img}
-                          alt=""
+                          alt={`audio-${index}`}
                         />
 
-                        <div className="play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full hidden items-center justify-center">
-                          <IoMdPlay />
+                        {/* Play box */}
+                        <div
+                          onClick={() => {
+                            playingAudio(item.id);
+                          }}
+                          className={`play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full  ${
+                            item.playing ? "flex" : "hidden"
+                          } items-center justify-center`}
+                        >
+                          {item.playing ? <IoMdPause /> : <IoMdPlay />}
                         </div>
                       </div>
                       <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
