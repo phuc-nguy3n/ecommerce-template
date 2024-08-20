@@ -4,109 +4,135 @@ import "./styles.css";
 
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
-import { IoIosArrowDown } from "react-icons/io";
-import { SlOptions } from "react-icons/sl";
+import { IoIosArrowDown, IoMdPlay } from "react-icons/io";
+import { SlOptions, SlOptionsVertical } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
-import { IoMdPlay } from "react-icons/io";
+import { RiRepeat2Fill, RiShuffleFill, RiPlayListFill } from "react-icons/ri";
+import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
+import { AiOutlineClose } from "react-icons/ai";
+import { PiSpeakerHighFill } from "react-icons/pi";
+import { IoSearch } from "react-icons/io5";
+import { BiWorld } from "react-icons/bi";
 
 import Breadcrumb from "../_components/Breadcrumb";
 
-import { useState, useRef, useEffect } from "react";
+const audioDetails = {
+  name: "DPR Archives",
+  by: "DPR",
+  cover: "https://i.scdn.co/image/ab67616d0000b27335028642fcc7d80a4e96f31b",
+  playlist: [
+    {
+      id: 1,
+      name: "Billboard uwu",
+      desc: "DPR LIVE",
+      img: "https://images.unsplash.com/photo-1720758917825-018735fe6e6e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Billboard uwu.mp3",
+      playing: false,
+    },
 
-const audioData = [
-  {
-    img: "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    nameFile: "Aug 11, 2024 - Offerings & Consitution of the KingDom",
-    recorBy: "The Church in Fourtain Valley",
-    src: "/audio/2024Somko-06a_Weissagungen_DEU.mp3",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    nameFile: "Aug 11, 2024 - Offerings & Consitution of the KingDom",
-    recorBy: "The Church in Fourtain Valley",
-    src: "/audio/2024Somko-06a_Weissagungen_DEU.mp3",
-  },
+    {
+      id: 2,
+      name: "Cardboard Box Adventure",
+      desc: "Purple Cat",
+      img: "https://images.unsplash.com/photo-1720758898452-c70f7f274e0a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Cardboard Box Adventure.mp3",
+      playing: false,
+    },
 
-  {
-    img: "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    nameFile: "Aug 11, 2024 - Offerings & Consitution of the KingDom",
-    recorBy: "The Church in Fourtain Valley",
-    src: "/audio/2024Somko-06a_Weissagungen_DEU.mp3",
-  },
+    {
+      id: 3,
+      name: "Coming to you seoul",
+      desc: "DPR CREAM",
+      img: "https://images.unsplash.com/photo-1723581013950-3ddcfd8f7553?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Coming to you seoul.mp3",
+      playing: false,
+    },
 
-  {
-    img: "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    nameFile: "Aug 11, 2024 - Offerings & Consitution of the KingDom",
-    recorBy: "The Church in Fourtain Valley",
-    src: "/audio/2024Somko-06a_Weissagungen_DEU.mp3",
-  },
+    {
+      id: 4,
+      name: "Eyes of cream",
+      desc: "DPR CREAM",
+      img: "https://images.unsplash.com/photo-1724021751488-c11d49c4736c?q=80&w=1902&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of cream.mp3",
+      playing: false,
+    },
 
-  {
-    img: "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    nameFile: "Aug 11, 2024 - Offerings & Consitution of the KingDom",
-    recorBy: "The Church in Fourtain Valley",
-    src: "/audio/2024Somko-06a_Weissagungen_DEU.mp3",
-  },
+    {
+      id: 5,
+      name: "Eyes of dpr",
+      desc: "DPR",
+      img: "https://images.unsplash.com/photo-1723912565879-93c63ae5bd9d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of dpr.mp3",
+      playing: false,
+    },
 
-  {
-    img: "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    nameFile: "Aug 11, 2024 - Offerings & Consitution of the KingDom",
-    recorBy: "The Church in Fourtain Valley",
-    src: "/audio/2024Somko-06a_Weissagungen_DEU.mp3",
-  },
-];
+    {
+      id: 6,
+      name: "Eyes of ian",
+      desc: "DPR IAN",
+      img: "https://images.unsplash.com/photo-1706920992323-2b58546b6f97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of ian.mp3",
+      playing: false,
+    },
+
+    {
+      id: 7,
+      name: "Eyes of live",
+      desc: "DPR LIVE",
+      img: "https://images.unsplash.com/photo-1605989039117-36c1ee1c7f8b?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of live.mp3",
+      playing: false,
+    },
+
+    {
+      id: 8,
+      name: "Eyes of rem",
+      desc: "DPR REM",
+      img: "https://images.unsplash.com/photo-1616960310894-3d43a1a00662?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of rem.mp3",
+      playing: false,
+    },
+
+    {
+      id: 9,
+      name: "Our last dream",
+      desc: "DPR",
+      img: "https://images.unsplash.com/photo-1723727597907-e0fc569af410?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Our last dream.mp3",
+      playing: false,
+    },
+
+    {
+      id: 10,
+      name: "The Red Dot",
+      desc: "Purple Cat",
+      img: "https://images.unsplash.com/photo-1723875311456-2996e42a2fda?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/The Red Dot.mp3",
+      playing: false,
+    },
+  ],
+};
+
+let backgroundImg = {
+  backgroundImage: `url(${audioDetails.cover})`,
+};
 
 const AudioOverView = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const handlePlayPause = () => {
-    if (isPlaying) {
-      audioRef.current?.pause();
-    } else {
-      audioRef.current?.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      const updateTime = () => {
-        setCurrentTime(audio.currentTime);
-      };
-
-      audio.addEventListener("timeupdate", updateTime);
-      audio.addEventListener("loadedmetadata", () => {
-        setDuration(audio.duration);
-      });
-
-      return () => {
-        audio.removeEventListener("timeupdate", updateTime);
-      };
-    }
-  }, []);
-
-  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.currentTime = Number(event.target.value);
-    }
-  };
-
   return (
-    <div>
+    <div className="relative">
       <Breadcrumb items={[{ label: "home" }, { label: "audio" }]} />
 
-      <div className="pt-[60px] pb-[30px]">
-        <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
+      {/* Hero */}
+      <div className="hero" style={backgroundImg}></div>
+
+      {/* Main */}
+      <div className="pt-[60px] pb-[30px] mt-[-100px]">
+        <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px] relative">
           <div className="flex justify-between items-center gap-[100px] mb-[80px]">
             <div className="img-box overflow-hidden rounded-xl">
               <img
                 className="w-[300px] h-[300px] object-cover"
-                src="https://images.unsplash.com/photo-1723653263152-f20aae931b99?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src={audioDetails.cover}
                 alt=""
               />
             </div>
@@ -115,18 +141,18 @@ const AudioOverView = () => {
               <div className="title-area flex justify-between">
                 <div>
                   <h2 className="title capitalize text-[28px] font-semibold mb-[12px]">
-                    Sunday Meetings
+                    {audioDetails.name}
                   </h2>
                   <div className="recor-box flex items-center text-[#54595F] gap-[10px] mb-[12px]">
                     <span>Recording</span>
                     <span>
                       <GoDotFill className="text-[10px]" />
                     </span>
-                    <span>96 Recording</span>
+                    <span>{audioDetails.playlist.length} Recording</span>
                   </div>
                   <div className="created-by flex gap-[8px]">
                     <span className="text-[#54595F]">By: </span>
-                    <p className="font-medium">The Church in Fountain Valley</p>
+                    <p className="font-medium">{audioDetails.by}</p>
                   </div>
 
                   <div className="play-box flex gap-[8px] mt-[44px] items-center cursor-pointer">
@@ -143,21 +169,39 @@ const AudioOverView = () => {
           </div>
 
           <div className="mb-[30px]">
-            <div className="flex items-center gap-[24px] mb-[40px]">
-              <span className="text-[#757c83]">Select language</span>{" "}
-              <div className="form-group col-span-1 bg-[#F5F5F5] h-[50px] rounded-md relative">
-                <select className="form-control w-full h-[50px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] ">
-                  <option selected value="English">
-                    English
-                  </option>
-                  <option value="German">German</option>
-                  <option value="France">France</option>
-                </select>
-                <IoIosArrowDown className="absolute translate-y-[-50%] top-[50%] right-[10%]" />
+            {/* Search box */}
+            <div className="search-box mb-[24px]">
+              <div className="container xl:max-w-[1184px] lg:max-w-[960px] max-w-[720px]  overflow-hidden px-0">
+                <div className="flex items-center gap-3">
+                  <form className="flex-grow border rounded-lg">
+                    <div className="form-control flex items-center py-[14px] gap-[10px] px-[16px]">
+                      <label htmlFor="search_input ">
+                        <IoSearch className="text-[24px] text-[#FF1D50]" />
+                      </label>
+                      <input
+                        type="text"
+                        className="search_input outline-none bg-transparent w-full pr-[24px]"
+                        placeholder="Type anything to get result..."
+                      />
+                    </div>
+                  </form>
+
+                  <div className="form-group col-span-1 bg-[#F5F5F5] h-[50px] rounded-md relative">
+                    <select className="form-control w-full h-[50px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] ">
+                      <option selected value="English">
+                        English
+                      </option>
+                      <option value="German">German</option>
+                      <option value="France">France</option>
+                    </select>
+                    <BiWorld className="absolute translate-y-[-50%] top-[50%] right-[10%]" />
+                  </div>
+                </div>
               </div>
             </div>
-            <ul className="audio-list grid grid-cols-2 gap-y-[10px] gap-x-[40px] px-[10]x">
-              {audioData.map((item, index) => (
+
+            <ul className="audio-list grid grid-cols-2 gap-y-[10px] gap-x-[40px] px-[10px]">
+              {audioDetails.playlist.map((item, index) => (
                 <li key={index}>
                   <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
                     <div className="flex gap-[16px]">
@@ -174,54 +218,98 @@ const AudioOverView = () => {
                       </div>
                       <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
                         <h3 className="audio-title text-[16px] mb-[2px] line-clamp-1 cursor-pointer">
-                          {item.nameFile}
+                          {item.name}
                         </h3>
                         <div className="flex items-center gap-[16px] ">
                           <span className="text-[#757c83] text-[14px] cursor-pointer">
-                            {item.recorBy}
-                          </span>{" "}
-                          {isPlaying && (
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="range"
-                                min="0"
-                                max={duration.toFixed(2)}
-                                value={currentTime}
-                                onChange={handleTimeChange}
-                                className="progress-bar w-[150px] h-[4px] bg-gray-300 rounded"
-                              />
-                              <span className="text-sm text-gray-500">
-                                {new Date(currentTime * 1000)
-                                  .toISOString()
-                                  .substr(14, 5)}{" "}
-                                /{" "}
-                                {new Date(duration * 1000)
-                                  .toISOString()
-                                  .substr(14, 5)}
-                              </span>
-                            </div>
-                          )}
+                            {item.desc}
+                          </span>
                         </div>
                       </div>
                     </div>
 
                     <div className="flex justify-center items-center gap-[16px]">
-                      <div className="play-btn w-[50px] h-[50px] flex justify-center items-center cursor-pointer">
+                      <div className="w-[50px] h-[50px] flex justify-center items-center cursor-pointer">
                         <FaRegHeart className="text-[20px]" />
                       </div>
 
                       <span className="options-box">
                         <SlOptions className="cursor-pointer text-[20px]" />
                       </span>
-                      <audio
-                        ref={audioRef}
-                        src="/audio/2024Somko-06a_Weissagungen_DEU.mp3"
-                      />
                     </div>
                   </div>
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="sticky-bar sticky z-30 bg-white bottom-[10px] rounded-lg overflow-hidden">
+            <div className="flex items-center cover">
+              <div className="flex-1 flex items-center">
+                <div className="cover-img">
+                  <img
+                    className="w-[72px] h-[72px] min-w-[72px] object-cover"
+                    src="https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <div className="cover-content pl-[12px]">
+                  <h3 className="audio-title text-[14px] font-medium mb-[2px] line-clamp-1 cursor-pointer">
+                    Aug 11, 2024 - Offerings & Consitution of the KingDom
+                  </h3>
+                  <div className="flex items-center gap-[16px] ">
+                    <span className="text-[#757c83] text-[14px] cursor-pointer">
+                      The Church in Fourtain Valley
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex-[2] play-control flex items-center justify-center">
+                <button className="p-2 mr-[24px]">
+                  <RiRepeat2Fill className="text-[20px]" />
+                </button>
+
+                <button className="p-2">
+                  <MdSkipPrevious className="text-[24px]" />
+                </button>
+
+                <button className="p-3 rounded-full shadow-sm play-btn">
+                  <IoMdPlay className="text-[24px]" />
+                </button>
+
+                <button className="p-2">
+                  <MdSkipNext className="text-[24px]" />
+                </button>
+
+                <button className="p-2 ml-[22px]">
+                  <RiShuffleFill className="text-[20px]" />
+                </button>
+
+                <button className="p-2 ml-[24px]">
+                  <AiOutlineClose className="text-[20px] text-[#FF1D50]" />
+                </button>
+              </div>
+              <div className="flex-1 flex items-center justify-end">
+                <div className="duration mr-[24px]">00:00 / 25:07</div>
+                <div className="">
+                  <button className="p-2">
+                    <PiSpeakerHighFill className="text-[20px]" />
+                  </button>
+                </div>
+
+                <div className="">
+                  <button className="p-2">
+                    <SlOptionsVertical className="text-[16px]" />
+                  </button>
+                </div>
+
+                <div className="">
+                  <button className="p-2 mr-[18px]">
+                    <RiPlayListFill className="text-[20px]" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
