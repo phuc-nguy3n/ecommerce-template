@@ -18,16 +18,16 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
   return (
     <div className="blog-navigation flex items-center justify-between border border-x-0 border-y-1 border-[#EFEFEF] py-[30px]">
       <div className="nav-btn pev flex items-center max-w-[350px] gap-[20px]">
-        <div className="min-w-[80px]">
+        <div className="md:min-w-[80px] min-w-[50px]">
           <img
-            className="w-[80px] h-[80px] object-cover rounded-full"
+            className="md:w-[80px] w-[50px] md:h-[80px] h-[50px] object-cover rounded-full"
             src={pevBlog.img}
             alt=""
           />
         </div>
 
         <div className="mr-[31px]">
-          <h5 className="text-[13px] mb-[12px] font-bold line-clamp-2">
+          <h5 className="text-[13px] mb-[12px] font-bold md:line-clamp-2  hidden">
             {pevBlog.title}
           </h5>
           <p className="flex items-center font-medium text-[#54595F]">
@@ -39,16 +39,16 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
       <div className="w-[1px] h-[80px] bg-[#EFEFEF]"></div>
 
       <div className="nav-btn pev flex items-center max-w-[350px] gap-[20px]">
-        <div className="min-w-[80px] order-2">
+        <div className="md:min-w-[80px] min-w-[50px] order-2">
           <img
-            className="w-[80px] h-[80px] object-cover rounded-full"
+            className="md:w-[80px] w-[50px] md:h-[80px] h-[50px] object-cover rounded-full"
             src={nextBlog.img}
             alt=""
           />
         </div>
 
         <div className="ml-[31px]">
-          <h5 className="text-[13px] mb-[12px] font-bold text-right line-clamp-2">
+          <h5 className="text-[13px] mb-[12px] font-bold text-right md:line-clamp-2  hidden">
             {nextBlog.title}
           </h5>
           <p className="flex items-center font-medium text-[#54595F] justify-end">

@@ -24,6 +24,7 @@ import RelatedTag from "../_components/RelatedTag";
 import BlogNavigation from "../_components/BlogNavigation";
 import BlogAuthor from "../_components/BlogAuthor";
 import BlogComment from "../_components/BlogComment";
+import ShareMediaMobile from "../_components/ShareMediaMobile";
 
 const BlogVideoDetails = () => {
   return (
@@ -34,10 +35,10 @@ const BlogVideoDetails = () => {
       />
 
       <div className="pt-[60px] pb-[30px]">
-        <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
+        <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
           <div className="grid grid-cols-3 gap-[24px]">
             {/* Blog details post */}
-            <div className="p-[30px] mb-[40px] bg-white lg:col-span-2 md:col-span-3">
+            <div className="p-[30px] mb-[40px] bg-white lg:col-span-2 col-span-3">
               {/* Tag name */}
               <TagName text={"sport"} />
 
@@ -69,6 +70,9 @@ const BlogVideoDetails = () => {
 
                 {/* Blog content */}
                 <div className="flex-grow">
+                  {/* Share media mobile  */}
+                  <ShareMediaMobile />
+
                   <ActionBar liked={1300} viewed={6000} shared={200} />
 
                   <div className="main-content-blog">
@@ -253,7 +257,7 @@ const BlogVideoDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="p-[30px] mb-[40px] bg-white lg:relative lg:col-span-1 md:col-span-3">
+            <div className="p-[30px] mb-[40px] bg-white lg:relative lg:col-span-1 col-span-3">
               <div className="sticky top-[80px] right-0">
                 {/* Search box */}
                 <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
@@ -393,7 +397,7 @@ const BlogVideoDetails = () => {
 
                   <div className="mb-[35px]">
                     <img
-                      className="xl:w-[318px] lg:w-[222px] md:w-[596px] xl:h-[350px] lg:h-[286px] md:h-[773px] object-cover"
+                      className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] xl:h-[350px] lg:h-[286px] md:h-[773px] h-[554px] object-cover"
                       src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt=""
                     />

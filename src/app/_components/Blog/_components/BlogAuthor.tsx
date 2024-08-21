@@ -28,8 +28,8 @@ const BlogAuthor: React.FC<BlogAuthorProps> = ({
   instagram,
 }) => {
   return (
-    <div className="blog-author p-[40px] mt-[40px] mb-[30px] bg-[#F5F5F5] flex gap-[30px]">
-      <div className="min-w-[110px]">
+    <div className="blog-author p-[40px] mt-[40px] mb-[30px] bg-[#F5F5F5] flex gap-[30px] sm:flex-nowrap flex-wrap">
+      <div className="min-w-[110px] mx-auto">
         <img
           className="w-[110px] h-[110px] object-cover rounded-full"
           src={img}

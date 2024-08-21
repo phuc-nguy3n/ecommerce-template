@@ -17,7 +17,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ liked, viewed, shared }) => {
   let formatShared = formatNumber(shared);
 
   return (
-    <div className="flex items-center justify-between mb-[24px]">
+    <div className="flex items-center justify-between mb-[24px] flex-wrap gap-[10px]">
       <div className="flex items-center gap-[10px]">
         <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
           Print: <MdPrint className="text-[#FF1D50] text-[18px]" />

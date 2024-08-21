@@ -16,7 +16,7 @@ const BlogInfo: React.FC<BlogInfoProps> = ({
   readingTime,
 }) => {
   return (
-    <div className="flex items-center gap-3 text-[#54595F] mb-[24px]">
+    <div className="flex items-center gap-3 text-[#54595F] mb-[24px] flex-wrap">
       <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
         <FaRegUser />
         <p className="mt-0.5 capitalize">{createdBy}</p>

@@ -7,15 +7,15 @@ import {
   FaTwitter,
 } from "react-icons/fa6";
 
-const ShareMedia = () => {
+const ShareMediaMobile = () => {
   return (
-    <div className="max-w-[40px] sm:block hidden">
-      <div className="sticky lg:top-[80px] top-[90px] left-0">
-        <span className="text-[12px] leading-[20px] text-[#080809] font-bold mb-[15px] block capitalize">
+    <div className="sm:hidden block mb-[20px]">
+      <div className="flex">
+        <span className="text-[12px] leading-[20px] text-[#080809] font-bold mb-[15px] block capitalize mr-[10px]">
           Share Post:
         </span>
 
-        <div>
+        <div className="flex gap-[10px]">
           <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
             <FaFacebookF className="text-[#1D4292]" />
           </div>
@@ -41,4 +41,4 @@ const ShareMedia = () => {
   );
 };
 
-export default ShareMedia;
+export default ShareMediaMobile;
