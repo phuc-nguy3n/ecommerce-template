@@ -7,7 +7,12 @@ import { GoDotFill } from "react-icons/go";
 import { IoMdPause, IoMdPlay } from "react-icons/io";
 import { SlOptions, SlOptionsVertical } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
-import { RiRepeat2Fill, RiShuffleFill, RiPlayListFill } from "react-icons/ri";
+import {
+  RiRepeat2Fill,
+  RiRepeatOneFill,
+  RiShuffleFill,
+  RiPlayListFill,
+} from "react-icons/ri";
 import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 import { PiSpeakerHighFill } from "react-icons/pi";
@@ -116,6 +121,34 @@ const audioDetails = {
   ],
 };
 
+const playlistPopupData = [
+  {
+    id: 1,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
+  },
+  {
+    id: 2,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
+  },
+  {
+    id: 3,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
+  },
+  {
+    id: 4,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
+  },
+  {
+    id: 5,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
+  },
+];
+
 let backgroundImg = {
   backgroundImage: `url(${audioDetails.cover})`,
 };
@@ -124,6 +157,15 @@ const AudioOverView = () => {
   const [playlist, setPlaylist] = useState(audioDetails.playlist);
   const [audioIndex, setAudioIndex] = useState<number>(0);
   const [audioPlaying, setAudioPlaying] = useState<any>("");
+
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [isVolumnDisplay, setVolumnDisplay] = useState(false);
+  const [volume, setVolume] = useState<any>(1);
+  const [isRepeat, setRepeat] = useState(false);
+  const [isShuffling, setIsShuffling] = useState(false);
+  const [showOption, setShowOption] = useState(false);
+  const [showPlaylistPopup, setShowPlaylistPopup] = useState(false);
 
   const audioRef = useRef<any>(null);
 
@@ -141,6 +183,14 @@ const AudioOverView = () => {
     if (audio && audioRef.current) {
       audioRef.current.src = audio.src;
       handlePlayAudio(true);
+    }
+  };
+
+  const handlePlayAll = () => {
+    if (!audioPlaying) {
+      handleAudioPlaying(0);
+    } else {
+      return;
     }
   };
 
@@ -169,22 +219,80 @@ const AudioOverView = () => {
   };
 
   const handleGoToAudio = (typeAudio: string) => {
-    let audIndex = audioIndex;
-    if (typeAudio === "prev") {
-      audIndex -= 1;
-      if (audIndex >= 0) {
-        handleAudioPlaying(audIndex);
-      } else {
-        handleAudioPlaying(0);
-      }
-    } else if (typeAudio === "next") {
-      audIndex += 1;
-      if (audIndex <= playlist.length - 1) {
-        handleAudioPlaying(audIndex);
-      } else {
-        handleAudioPlaying(playlist.length - 1);
+    if (isShuffling) {
+      handlePlayRandom();
+    } else {
+      let audIndex = audioIndex;
+      if (typeAudio === "prev") {
+        audIndex -= 1;
+        if (audIndex > 0) {
+          handleAudioPlaying(audIndex);
+        } else {
+          handleAudioPlaying(0);
+        }
+      } else if (typeAudio === "next") {
+        audIndex += 1;
+        if (audIndex < playlist.length - 1) {
+          handleAudioPlaying(audIndex);
+        }
+        return;
       }
     }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const changCurrentTime = (e: any) => {
+    const currentTime = Number(e.target.value);
+    audioRef.current.currentTime = currentTime;
+    setCurrentTime(currentTime);
+  };
+
+  const handleVolumeChange = (e: any) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
+  const handleEnded = () => {
+    if (isRepeat) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    } else if (isShuffling) {
+      handlePlayRandom();
+    } else if (audioIndex < playlist.length - 1) {
+      handleGoToAudio("next");
+    } else {
+      handleAudioPlaying(0);
+    }
+  };
+
+  const handlePlayRandom = () => {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * playlist.length);
+    } while (randomIndex === audioIndex);
+    handleAudioPlaying(randomIndex);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
   };
 
   return (
@@ -197,7 +305,10 @@ const AudioOverView = () => {
       {/* Main */}
       <div className="pt-[60px] pb-[30px] mt-[-100px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px] relative">
-          <div className="flex justify-between items-center gap-[100px] mb-[80px]">
+          <div
+            className="flex justify-between items-center gap-[100px] mb-[80px]"
+            id="view-details"
+          >
             <div className="img-box overflow-hidden rounded-xl">
               <img
                 className="w-[300px] h-[300px] object-cover"
@@ -224,7 +335,10 @@ const AudioOverView = () => {
                     <p className="font-medium">{audioDetails.by}</p>
                   </div>
 
-                  <div className="play-box flex gap-[8px] mt-[44px] items-center cursor-pointer">
+                  <div
+                    onClick={handlePlayAll}
+                    className="play-box flex gap-[8px] mt-[44px] items-center cursor-pointer"
+                  >
                     <FaRegCirclePlay className="text-[40px] text-[#FF1D50]" />{" "}
                     <span className="font-semibold">Play all</span>
                   </div>
@@ -321,9 +435,23 @@ const AudioOverView = () => {
           <div
             className={`sticky-bar ${
               audioPlaying ? "block" : "hidden"
-            } sticky z-30 bg-white bottom-[10px] rounded-lg overflow-hidden`}
+            } sticky z-30 bg-white bottom-[10px] rounded-lg`}
           >
-            <div className="flex items-center cover">
+            <div className="flex items-center cover relative">
+              {/* progress audio */}
+              <div className="progress absolute w-full h-1 top-[-14px] ">
+                <div className="container max-w-[1200px] px-[10px]">
+                  <input
+                    type="range"
+                    className="h-1 w-full outline-none rounded-md"
+                    min={0}
+                    max={duration}
+                    value={currentTime}
+                    onChange={(e) => changCurrentTime(e)}
+                  />
+                </div>
+              </div>
+
               <div className="flex-1 flex items-center">
                 <div className="cover-img w-[72px] h-[72px] min-w-[72px] flex justify-center items-center">
                   <BsFileEarmarkMusic className="text-[28px] text-[#FF1D50]" />
@@ -340,8 +468,15 @@ const AudioOverView = () => {
                 </div>
               </div>
               <div className="flex-[2] play-control flex items-center justify-center">
-                <button className="p-2 mr-[24px]">
-                  <RiRepeat2Fill className="text-[20px]" />
+                <button
+                  onClick={() => setRepeat(!isRepeat)}
+                  className="p-2 mr-[24px]"
+                >
+                  {isRepeat ? (
+                    <RiRepeatOneFill className="text-[20px]" />
+                  ) : (
+                    <RiRepeat2Fill className="text-[20px]" />
+                  )}
                 </button>
 
                 <button
@@ -358,14 +493,20 @@ const AudioOverView = () => {
                   onClick={handleTogglePlaying}
                 >
                   {audioPlaying?.playing ? (
-                    <IoMdPause className="text-[24px]" />
+                    <IoMdPause className="text-[18px]" />
                   ) : (
-                    <IoMdPlay className="text-[24px]" />
+                    <IoMdPlay className="text-[18px]" />
                   )}
                 </button>
 
                 {/* Audio element */}
-                <audio ref={audioRef} />
+                <audio
+                  ref={audioRef}
+                  onLoadedMetadata={handleLoadedMetadata}
+                  onTimeUpdate={handleTimeUpdate}
+                  onEnded={handleEnded}
+                  volume={volume}
+                />
 
                 <button
                   onClick={() => {
@@ -376,32 +517,153 @@ const AudioOverView = () => {
                   <MdSkipNext className="text-[24px]" />
                 </button>
 
-                <button className="p-2 ml-[22px]">
-                  <RiShuffleFill className="text-[20px]" />
+                <button
+                  onClick={() => setIsShuffling(!isShuffling)}
+                  className="p-2 ml-[22px]"
+                >
+                  <RiShuffleFill
+                    className={`text-[20px] ${
+                      isShuffling ? "text-[#FF1D50]" : ""
+                    } `}
+                  />
                 </button>
 
                 <button className="p-2 ml-[24px]" onClick={handleCloseAudioBar}>
                   <AiOutlineClose className="text-[20px] text-[#FF1D50]" />
                 </button>
               </div>
+
               <div className="flex-1 flex items-center justify-end">
-                <div className="duration mr-[24px]">00:00 / 25:07</div>
-                <div className="">
-                  <button className="p-2">
+                <div className="duration mr-[24px]">
+                  {formatTime(currentTime)} / {formatTime(duration)}
+                </div>
+                <div className="relative">
+                  <div
+                    className={`absolute -rotate-90 left-[50%] translate-x-[-50%] top-[-96px] py-[4px] px-[12px] bg-white border rounded-lg ${
+                      isVolumnDisplay ? "block" : "hidden"
+                    }`}
+                  >
+                    <input
+                      className="mt-[7px]"
+                      type="range"
+                      min={0}
+                      max={1}
+                      step={0.01}
+                      value={volume}
+                      onChange={handleVolumeChange}
+                    />
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setVolumnDisplay(!isVolumnDisplay);
+                    }}
+                    className="p-2"
+                  >
                     <PiSpeakerHighFill className="text-[20px]" />
                   </button>
                 </div>
 
-                <div className="">
-                  <button className="p-2">
+                <div className="relative">
+                  <button
+                    onClick={() => {
+                      setShowOption(!showOption);
+                    }}
+                    className="p-2"
+                  >
                     <SlOptionsVertical className="text-[16px]" />
                   </button>
+
+                  <div
+                    className={`${
+                      showOption ? "block" : "hidden"
+                    } absolute top-[-145px] left-[-120px] min-w-[120px] bg-white border rounded-md overflow-hidden text-[#57595b] text-[13px]`}
+                  >
+                    <ul className="option-board py-[10px] ">
+                      <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                        <span>Favorite</span>
+                      </li>
+                      <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                        <span>Add to playlist</span>
+                      </li>
+                      <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                        <a
+                          href={audioPlaying.src}
+                          download={`${audioPlaying.name}.mp3`}
+                        >
+                          Download
+                        </a>
+                      </li>
+                      <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                        <span>Share</span>
+                      </li>
+                    </ul>
+                    <hr></hr>
+                    <div className="view-details pb-[10px] cursor-pointer">
+                      <a
+                        href="#view-details"
+                        className="px-[12px] pb-[4px] pt-[10px] block hover:bg-slate-100"
+                      >
+                        View details
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="">
-                  <button className="p-2 mr-[18px]">
+                <div className="relative">
+                  <button
+                    onClick={() => setShowPlaylistPopup(!showPlaylistPopup)}
+                    className="p-2 mr-[18px]"
+                  >
                     <RiPlayListFill className="text-[20px]" />
                   </button>
+
+                  <div
+                    className={`playlist-popup absolute top-[-230px] left-[-400px] w-[400px] h-[268px] py-[8px] bg-white border rounded-md ${
+                      showPlaylistPopup ? "block" : "hidden"
+                    }`}
+                  >
+                    <div className="playlist-head py-[16px] px-[24px] flex justify-between items-center">
+                      <h3 className="font-semibold">Next Lineup</h3>
+                      <div className="text-[#FF1D50] cursor-pointer">
+                        <span className="font-medium">Clear</span>
+                        <div className="h-[2px] bg-[#FF1D50]"></div>
+                      </div>
+                    </div>
+                    <ul className="playlist-body py-[8px] px-[16px] max-h-[200px] overflow-y-scroll">
+                      {playlistPopupData.map((item, index) => (
+                        <li>
+                          <div className="flex p-[8px] rounded-md hover:bg-slate-100">
+                            <div className="cover-img w-[48px] h-[48px] min-w-[48px] flex justify-center items-center relative">
+                              <BsFileEarmarkMusic className="text-[40px] text-[#FF1D50]" />
+
+                              <div className="play-box overlay absolute w-[30px] h-[30px] bg-black rounded-full hidden items-center justify-center cursor-pointer">
+                                <IoMdPlay className="text-white" />
+                              </div>
+                            </div>
+                            <div className="list__content mt-[8px] pl-[2px]">
+                              <h4 className="audio-title leading-[1] text-[13px] line-clamp-1 cursor-pointer font-medium">
+                                {item.name}
+                              </h4>
+
+                              <span className="text-[#757c83] text-[13px] cursor-pointer">
+                                {item.desc}
+                              </span>
+                            </div>
+
+                            <div className="options flex gap-[14px] items-center">
+                              <div className="cursor-pointer close-option hidden">
+                                <AiOutlineClose className="text-[12px] text-[#5d6369]" />
+                              </div>
+                              <div className="cursor-pointer mr-[10px]">
+                                <FaRegHeart className="text-[#5d6369] text-[18px]" />
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

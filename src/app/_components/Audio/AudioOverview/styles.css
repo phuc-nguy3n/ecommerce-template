@@ -21,7 +21,8 @@
     cursor: pointer;
 }
 
-.audio-item:hover .play-box {
+.audio-item:hover .play-box,
+.playlist-body .cover-img:hover .play-box {
     display: flex;
 }
 
@@ -31,4 +32,18 @@
 
 .play-btn {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.playlist-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.playlist-body::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.playlist-body li:hover .close-option {
+    display: block;
 }
