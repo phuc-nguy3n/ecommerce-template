@@ -16,7 +16,7 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
   nextBlog,
 }) => {
   return (
-    <div className="blog-navigation flex items-center justify-between border border-x-0 border-y-1 border-[#EFEFEF] py-[30px]">
+    <div className="blog-navigation flex items-center justify-between border border-x-0 border-y-1 border-[#EFEFEF] sm:py-[30px] py-[16px]">
       <div className="nav-btn pev flex items-center max-w-[350px] gap-[20px]">
         <div className="md:min-w-[80px] min-w-[50px]">
           <img
@@ -26,7 +26,7 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
           />
         </div>
 
-        <div className="mr-[31px]">
+        <div className="sm:mr-[31px] mr-0">
           <h5 className="text-[13px] mb-[12px] font-bold md:line-clamp-2  hidden">
             {pevBlog.title}
           </h5>
@@ -47,7 +47,7 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
           />
         </div>
 
-        <div className="ml-[31px]">
+        <div className="sm:ml-[31px] ml-0">
           <h5 className="text-[13px] mb-[12px] font-bold text-right md:line-clamp-2  hidden">
             {nextBlog.title}
           </h5>

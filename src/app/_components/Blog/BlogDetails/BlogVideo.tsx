@@ -34,11 +34,11 @@ const BlogVideoDetails = () => {
         items={[{ label: "home" }, { label: "blog details video" }]}
       />
 
-      <div className="pt-[60px] pb-[30px]">
+      <div className="pt-[60px] pb-[30px]" id="blog-details-video">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
           <div className="grid grid-cols-3 gap-[24px]">
             {/* Blog details post */}
-            <div className="p-[30px] mb-[40px] bg-white lg:col-span-2 col-span-3">
+            <div className="sm:px-[30px] sm:py-[30px] px-[12px] py-[14px] mb-[40px] bg-white lg:col-span-2 col-span-3">
               {/* Tag name */}
               <TagName text={"sport"} />
 
@@ -200,7 +200,7 @@ const BlogVideoDetails = () => {
               {/* Comment form */}
               <div className="comment-form">
                 <div className="form-title">
-                  <h3 className="mb-[10px] text-[30px] leading-[1.3] font-bold tracking-wide">
+                  <h3 className="mb-[10px] sm:text-[30px] text-[22px] leading-[1.3] font-bold tracking-wide">
                     Leave a Comment
                   </h3>
                   <p className="mb-[25px] text-[14px] text-[#6c757d]">
@@ -210,7 +210,7 @@ const BlogVideoDetails = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-[24px]">
-                  <div className="form-group relative">
+                  <div className="form-group relative sm:col-span-1 col-span-2">
                     <input
                       type="text"
                       className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
@@ -220,7 +220,7 @@ const BlogVideoDetails = () => {
                     <FaRegUser className="absolute top-[50%] right-[6%] translate-y-[-50%] text-[#ff1d50]" />
                   </div>
 
-                  <div className="form-group relative">
+                  <div className="form-group relative sm:col-span-1 col-span-2">
                     <input
                       type="email"
                       className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
@@ -249,7 +249,7 @@ const BlogVideoDetails = () => {
                     <FaPencilAlt className="absolute top-[16px] right-[3%] text-[#ff1d50]" />
                   </div>
 
-                  <div>
+                  <div className="col-span-2">
                     <button className="uppercase text-white bg-[#ff1d50] font-bold text-[14px] py-[16px] px-[26px] rounded-[4px]">
                       Post comment
                     </button>
@@ -257,7 +257,7 @@ const BlogVideoDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="p-[30px] mb-[40px] bg-white lg:relative lg:col-span-1 col-span-3">
+            <div className="sm:px-[30px] sm:py-[30px] px-[12px] py-[14px] mb-[40px] bg-white lg:relative lg:col-span-1 col-span-3">
               <div className="sticky top-[80px] right-0">
                 {/* Search box */}
                 <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
@@ -397,7 +397,7 @@ const BlogVideoDetails = () => {
 
                   <div className="mb-[35px]">
                     <img
-                      className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] xl:h-[350px] lg:h-[286px] md:h-[773px] h-[554px] object-cover"
+                      className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] xl:h-[350px] lg:h-[286px] md:h-[773px] sm:h-[554px] h-[400px] object-cover"
                       src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt=""
                     />
@@ -465,7 +465,7 @@ const BlogVideoDetails = () => {
           <div className="pt-[30px] mb-[30px]">
             <div className="flex items-start gap-[10px]">
               <div className="flex-grow">
-                <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] text-[24px] capitalize font-semibold leading-[1.5]">
+                <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] sm:text-[24px] text-[22px] capitalize font-semibold leading-[1.5]">
                   Related Post
                 </h2>
               </div>
