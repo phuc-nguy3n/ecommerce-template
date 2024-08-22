@@ -60,10 +60,10 @@ export default function Home() {
     // <Timeline />
 
     // Contact us
-    <Contact />
+    // <Contact />
 
     // Shop
-    // <Shop />
+    <Shop />
 
     // Login
     // <Login />
