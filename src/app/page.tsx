@@ -54,10 +54,10 @@ export default function Home() {
     // <BlogArticleDetails />
 
     // Audio
-    <AudioOverView />
+    // <AudioOverView />
 
     // Timeline
-    // <Timeline />
+    <Timeline />
 
     // Contact us
     // <Contact />
