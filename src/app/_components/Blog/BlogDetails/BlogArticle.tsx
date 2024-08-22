@@ -18,16 +18,20 @@ import { FiMail } from "react-icons/fi";
 import { BsGlobe2 } from "react-icons/bs";
 import { FaPencilAlt } from "react-icons/fa";
 import { IoArrowBack, IoArrowForward, IoSearch } from "react-icons/io5";
+import ShareMediaMobile from "../_components/ShareMediaMobile";
 
 const BlogArticleDetails = () => {
   return (
     <div>
-      <Breadcrumb items={[{ label: "home" }, { label: "blog details" }]} />
+      <Breadcrumb
+        items={[{ label: "home" }, { label: "blog artcle details" }]}
+      />
 
       <div className="pt-[60px] pb-[30px]">
-        <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
-          <div className="grid grid-cols-7">
-            <div className="col-span-5">
+        <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
+          <div className="grid grid-cols-7 gap-[30px]">
+            {/* Main  */}
+            <div className="lg:col-span-5 col-span-7 mb-[40px]">
               <TagName text={"sports"} />
               <BlogTitle
                 title={
@@ -44,7 +48,7 @@ const BlogArticleDetails = () => {
               {/* Main img */}
               <div className="mb-[35px]">
                 <img
-                  className="object-cover w-[883px] h-[500px]"
+                  className="object-cover xl:w-[838px] lg:w-[631px] md:w-[656px] sm:w-[703px] w-full xl:h-[500px] lg:h-[343px] md:h-[388px] sm:h-[400px] h-[400px]"
                   src="https://images.unsplash.com/photo-1721170628208-dffed6eb3514?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
                 />
@@ -55,6 +59,9 @@ const BlogArticleDetails = () => {
 
                 {/* Blog content */}
                 <div className="flex-grow">
+                  {/* Share media mobile  */}
+                  <ShareMediaMobile />
+
                   <ActionBar liked={1300} viewed={6000} shared={200} />
 
                   <div className="main-content-blog">
@@ -78,9 +85,11 @@ const BlogArticleDetails = () => {
 
                     {/* Ads */}
                     <div className="my-[24px] py-[8px]">
-                      <div className="h-[90px] flex items-center justify-center bg-[#eeeeee] cursor-pointer">
-                        <h2 className="text-[30px] font-bold"> 826 x 90</h2>
-                      </div>
+                      <img
+                        className="object-cover xl:w-[768px] lg:w-[633px] md:w-[586px] sm:w-[608px] w-full lg:h-[80px] sm:h-[70px] h-[80px]"
+                        src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
                     </div>
 
                     <Paragraph
@@ -92,8 +101,8 @@ const BlogArticleDetails = () => {
                     {/* Second img */}
                     <div className="mb-[35px]">
                       <img
-                        className="object-cover w-[883px] h-[400px]"
-                        src="https://images.unsplash.com/photo-1721170628208-dffed6eb3514?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        className="object-cover xl:w-[768px] lg:w-[561px] md:w-[586px] sm:w-[608px] w-full xl:h-[350px] lg:h-[300px] md:h-[270px] sm:h-[280px] h-[280px]"
+                        src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt=""
                       />
                     </div>
@@ -121,16 +130,17 @@ const BlogArticleDetails = () => {
                       author={"Robert Milton"}
                     />
 
-                    <div className="grid grid-cols-3 gap-[24px] my-[40px]">
-                      <div>
+                    <div className="my-[30px] xl:w-[768px] w-full flex md:flex-nowrap flex-wrap">
+                      <div className="xl:w-5/12 lg:w-7/12 md:w-6/12 w-full">
                         <img
-                          className="object-cover w-full h-[320px]"
-                          src="https://images.unsplash.com/photo-1721170628208-dffed6eb3514?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          className="object-cover xl:w-[310px] lg:w-[313px] md:w-[281px] w-full h-[320px]"
+                          src="https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
                       </div>
-                      <div className="col-span-2">
-                        <h3 className="text-[20px] font-bold mb-[16px]">
+
+                      <div className="xl:w-7/12 lg:w-5/12 md:w-6/12 w-full md:ml-[24px] ml-0">
+                        <h3 className="text-[20px] font-bold mb-[16px] md:mt-0 mt-[16px]">
                           Take your game to new heights.
                         </h3>
                         <Paragraph
@@ -138,16 +148,16 @@ const BlogArticleDetails = () => {
                             "business, arts, and personal development. It conveys the message that by embracing new ideas, techniques, and technologies, individuals can unlock their full potential"
                           }
                         />
-                        <ul className="pl-[17px] list-disc">
-                          <li className="mb-[14px] leading-[1.6] text-[#54595F] tracking-wide">
+                        <ul className="pl-[17px] list-disc space-y-[14px]">
+                          <li className="leading-[1.6] text-[#54595F] tracking-wide">
                             <b>Workout Modes:</b> Access pre-programmed workout
                             modes Tailored specifically to different
                           </li>
-                          <li className="mb-[14px] leading-[1.6] text-[#54595F] tracking-wide">
+                          <li className="leading-[1.6] text-[#54595F] tracking-wide">
                             <b>Workout Modes:</b> Access pre-programmed workout
                             modes Tailored specifically to different
                           </li>
-                          <li className="mb-[14px] leading-[1.6] text-[#54595F] tracking-wide">
+                          <li className="leading-[1.6] text-[#54595F] tracking-wide">
                             <b>Workout Modes:</b> Access pre-programmed workout
                             modes Tailored specifically to different
                           </li>
@@ -205,7 +215,7 @@ const BlogArticleDetails = () => {
               {/* Comment form */}
               <div className="comment-form">
                 <div className="form-title">
-                  <h3 className="mb-[10px] text-[30px] leading-[1.3] font-bold tracking-wide">
+                  <h3 className="mb-[10px] sm:text-[30px] text-[22px] leading-[1.3] font-bold tracking-wide">
                     Leave a Comment
                   </h3>
                   <p className="mb-[25px] text-[14px] text-[#6c757d]">
@@ -215,7 +225,7 @@ const BlogArticleDetails = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-[24px]">
-                  <div className="form-group relative">
+                  <div className="form-group relative sm:col-span-1 col-span-2">
                     <input
                       type="text"
                       className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
@@ -225,7 +235,7 @@ const BlogArticleDetails = () => {
                     <FaRegUser className="absolute top-[50%] right-[6%] translate-y-[-50%] text-[#ff1d50]" />
                   </div>
 
-                  <div className="form-group relative">
+                  <div className="form-group relative sm:col-span-1 col-span-2">
                     <input
                       type="email"
                       className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
@@ -254,7 +264,7 @@ const BlogArticleDetails = () => {
                     <FaPencilAlt className="absolute top-[16px] right-[3%] text-[#ff1d50]" />
                   </div>
 
-                  <div>
+                  <div className="col-span-2">
                     <button className="uppercase text-white bg-[#ff1d50] font-bold text-[14px] py-[16px] px-[26px] rounded-[4px]">
                       Post comment
                     </button>
@@ -262,6 +272,7 @@ const BlogArticleDetails = () => {
                 </div>
               </div>
 
+              {/* Related Post */}
               <div className="pt-[30px] mb-[30px]">
                 <div className="flex items-start gap-[10px]">
                   <div className="flex-grow">
@@ -283,17 +294,17 @@ const BlogArticleDetails = () => {
 
                 <div className="relative">
                   <div className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3">
-                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
                       <div>
-                        <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                        <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
                           <img
-                            className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                            className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
                             src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt=""
                           />
 
                           {/* Overlay */}
-                          <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                          <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
                             <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                               News
                             </div>
@@ -318,17 +329,17 @@ const BlogArticleDetails = () => {
                       </div>
                     </div>
 
-                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
                       <div>
-                        <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                        <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
                           <img
-                            className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                            className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
                             src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt=""
                           />
 
                           {/* Overlay */}
-                          <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                          <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
                             <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                               News
                             </div>
@@ -353,17 +364,17 @@ const BlogArticleDetails = () => {
                       </div>
                     </div>
 
-                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
+                    <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
                       <div>
-                        <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                        <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
                           <img
-                            className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                            className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
                             src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt=""
                           />
 
                           {/* Overlay */}
-                          <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                          <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
                             <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                               News
                             </div>
@@ -391,14 +402,16 @@ const BlogArticleDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="col-span-2 p-[30px] mb-[40px] relative">
+
+            {/* Navbar */}
+            <div className="lg:col-span-2 col-span-7 mb-[40px] relative">
               <div className="sticky top-[80px] right-0">
                 {/* Search box */}
                 <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
-                  <div className="form-group relative">
+                  <div className="form-group relative flex-grow">
                     <input
                       type="text"
-                      className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
+                      className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none"
                       placeholder="Enter Keyword"
                     />
                   </div>
@@ -407,12 +420,12 @@ const BlogArticleDetails = () => {
                   </button>
                 </div>
 
-                {/*  Category  */}
                 <div className="category">
                   <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
                     Categories
                   </h3>
 
+                  {/*  Category list  */}
                   <ul className="category-list space-y-[10px] mb-[30px]">
                     <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
                       <p>Sport</p>{" "}
@@ -461,11 +474,12 @@ const BlogArticleDetails = () => {
                     Recent Posts
                   </h3>
 
+                  {/* Recent Posts List */}
                   <ul className="recent-post mb-[35px]">
                     <li className="flex gap-4 py-4">
-                      <div className="flex flex-col justify-between flex-1 text-right order-2">
+                      <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out ">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -485,9 +499,9 @@ const BlogArticleDetails = () => {
                     </li>
 
                     <li className="flex gap-4 py-4">
-                      <div className="flex flex-col justify-between flex-1 text-right order-2">
+                      <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out ">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -507,9 +521,9 @@ const BlogArticleDetails = () => {
                     </li>
 
                     <li className="flex gap-4 py-4">
-                      <div className="flex flex-col justify-between flex-1 text-right order-2">
+                      <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out ">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -529,9 +543,10 @@ const BlogArticleDetails = () => {
                     </li>
                   </ul>
 
+                  {/* Ads */}
                   <div className="mb-[35px]">
                     <img
-                      className="w-[278px] h-[350px] object-cover"
+                      className="xl:w-[316px] lg:w-[234px] md:w-[656px] w-full xl:h-[350px] lg:h-[286px] md:h-[773px] sm:h-[700px] h-[550px] object-cover"
                       src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt=""
                     />
@@ -541,52 +556,53 @@ const BlogArticleDetails = () => {
                     Popular Tags
                   </h3>
 
-                  <div className="tag-cloud ">
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                  {/* Popular Tags List */}
+                  <div className="tag-cloud flex gap-[10px] flex-wrap">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Sports
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Politics
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Business
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Music
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Foood
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Technology
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Travels
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Health
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Fashions
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Animal
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Weather
                     </button>
 
-                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
                       Movies
                     </button>
                   </div>

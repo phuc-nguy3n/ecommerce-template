@@ -329,9 +329,9 @@ const BlogVideoDetails = () => {
 
                   <ul className="recent-post mb-[35px]">
                     <li className="flex gap-4 py-4">
-                      <div className="flex flex-col justify-between flex-1 text-right order-2">
+                      <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -351,9 +351,9 @@ const BlogVideoDetails = () => {
                     </li>
 
                     <li className="flex gap-4 py-4">
-                      <div className="flex flex-col justify-between flex-1 text-right order-2">
+                      <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>
@@ -373,9 +373,9 @@ const BlogVideoDetails = () => {
                     </li>
 
                     <li className="flex gap-4 py-4">
-                      <div className="flex flex-col justify-between flex-1 text-right order-2">
+                      <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                         <div className="flex flex-col items-start">
-                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
+                          <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                             Fitness: Your journey to Better, stronger you.
                           </h3>
                         </div>

@@ -9,7 +9,9 @@ type RelatedTagListProps = {
 const RelatedTag: React.FC<RelatedTagListProps> = ({ tagList }) => {
   return (
     <div className="blog-tag flex items-start mt-[35px] gap-[10px] flex-wrap">
-      <h6 className="font-bold pt-[3px] text-[15px] flex-1">Related Tag :</h6>
+      <h6 className="font-bold pt-[3px] text-[15px] mr-[10px]">
+        Related Tag :
+      </h6>
       <div className="flex items-center gap-2 flex-wrap">
         {tagList.map((item, index) => (
           <button
