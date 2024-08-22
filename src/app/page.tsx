@@ -57,10 +57,10 @@ export default function Home() {
     // <AudioOverView />
 
     // Timeline
-    <Timeline />
+    // <Timeline />
 
     // Contact us
-    // <Contact />
+    <Contact />
 
     // Shop
     // <Shop />
