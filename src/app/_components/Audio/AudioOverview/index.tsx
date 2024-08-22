@@ -306,18 +306,18 @@ const AudioOverView = () => {
       <div className="pt-[60px] pb-[30px] mt-[-100px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px] relative">
           <div
-            className="flex justify-between items-center gap-[100px] mb-[80px]"
+            className="flex justify-between items-center lg:gap-[40px] gap-[24px] mb-[80px] md:flex-nowrap flex-wrap"
             id="view-details"
           >
-            <div className="img-box overflow-hidden rounded-xl">
+            <div className="img-box overflow-hidden rounded-xl md:w-auto w-full">
               <img
-                className="w-[300px] h-[300px] object-cover"
+                className="md:w-[300px]  w-full md:h-[300px] sm:h-[622px] h-fit object-cover"
                 src={audioDetails.cover}
                 alt=""
               />
             </div>
 
-            <div className="flex-grow">
+            <div className="md:flex-grow md:w-0 w-full md:mt-0 mt-[30px]">
               <div className="title-area flex justify-between">
                 <div>
                   <h2 className="title capitalize text-[28px] font-semibold mb-[12px]">
@@ -355,7 +355,7 @@ const AudioOverView = () => {
             {/* Search box */}
             <div className="search-box mb-[24px]">
               <div className="container xl:max-w-[1184px] lg:max-w-[960px] max-w-[720px]  overflow-hidden px-0">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 flex-wrap">
                   <form className="flex-grow border rounded-lg">
                     <div className="form-control flex items-center py-[14px] gap-[10px] px-[16px]">
                       <label htmlFor="search_input ">
@@ -383,7 +383,7 @@ const AudioOverView = () => {
               </div>
             </div>
 
-            <ul className="audio-list grid grid-cols-2 gap-y-[10px] gap-x-[40px] px-[10px]">
+            <ul className="audio-list grid xl:grid-cols-2 grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
               {playlist.map((item, index) => (
                 <li className={`audio-${index}`}>
                   <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
@@ -431,7 +431,6 @@ const AudioOverView = () => {
           </div>
 
           {/* audio control */}
-
           <div
             className={`sticky-bar ${
               audioPlaying ? "block" : "hidden"
@@ -470,7 +469,7 @@ const AudioOverView = () => {
               <div className="flex-[2] play-control flex items-center justify-center">
                 <button
                   onClick={() => setRepeat(!isRepeat)}
-                  className="p-2 mr-[24px]"
+                  className="p-2 mr-[24px] md:inline-block hidden"
                 >
                   {isRepeat ? (
                     <RiRepeatOneFill className="text-[20px]" />
@@ -519,7 +518,7 @@ const AudioOverView = () => {
 
                 <button
                   onClick={() => setIsShuffling(!isShuffling)}
-                  className="p-2 ml-[22px]"
+                  className="p-2 md:ml-[22px] ml-0 md:inline-block hidden"
                 >
                   <RiShuffleFill
                     className={`text-[20px] ${
@@ -528,13 +527,16 @@ const AudioOverView = () => {
                   />
                 </button>
 
-                <button className="p-2 ml-[24px]" onClick={handleCloseAudioBar}>
-                  <AiOutlineClose className="text-[20px] text-[#FF1D50]" />
+                <button
+                  className="md:p-2 p-0 md:ml-[24px] ml-0"
+                  onClick={handleCloseAudioBar}
+                >
+                  <AiOutlineClose className="text-[20px] text-[#FF1D50] md:inline-block hidden" />
                 </button>
               </div>
 
               <div className="flex-1 flex items-center justify-end">
-                <div className="duration mr-[24px]">
+                <div className="duration xl:block hidden mr-[24px]">
                   {formatTime(currentTime)} / {formatTime(duration)}
                 </div>
                 <div className="relative">
@@ -558,7 +560,7 @@ const AudioOverView = () => {
                     onClick={() => {
                       setVolumnDisplay(!isVolumnDisplay);
                     }}
-                    className="p-2"
+                    className="p-2 md:inline-block hidden"
                   >
                     <PiSpeakerHighFill className="text-[20px]" />
                   </button>
@@ -571,7 +573,7 @@ const AudioOverView = () => {
                     }}
                     className="p-2"
                   >
-                    <SlOptionsVertical className="text-[16px]" />
+                    <SlOptionsVertical className="text-[16px] md:inline-block hidden" />
                   </button>
 
                   <div
