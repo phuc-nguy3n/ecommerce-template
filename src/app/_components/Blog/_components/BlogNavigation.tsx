@@ -17,7 +17,7 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
 }) => {
   return (
     <div className="blog-navigation flex items-center justify-between border border-x-0 border-y-1 border-[#EFEFEF] sm:py-[30px] py-[16px]">
-      <div className="nav-btn pev flex items-center max-w-[350px] gap-[20px]">
+      <div className="nav-btn pev flex items-center max-w-[350px] sm:gap-[20px] gap-[10px]">
         <div className="md:min-w-[80px] min-w-[50px]">
           <img
             className="md:w-[80px] w-[50px] md:h-[80px] h-[50px] object-cover rounded-full"
@@ -38,7 +38,7 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
 
       <div className="w-[1px] h-[80px] bg-[#EFEFEF]"></div>
 
-      <div className="nav-btn pev flex items-center max-w-[350px] gap-[20px]">
+      <div className="nav-btn pev flex items-center max-w-[350px] sm:gap-[20px] gap-[10px]">
         <div className="md:min-w-[80px] min-w-[50px] order-2">
           <img
             className="md:w-[80px] w-[50px] md:h-[80px] h-[50px] object-cover rounded-full"
