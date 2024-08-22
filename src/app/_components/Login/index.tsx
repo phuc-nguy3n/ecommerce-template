@@ -8,13 +8,13 @@ import "./styles.css";
 
 const Login = () => {
   return (
-    <div className="login-background p-[100px]">
-      <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
+    <div className="login-background lg:py-[100px] py-[60px]">
+      <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
         <div className="grid grid-cols-12 gap-[24px]">
-          <div className="col-span-5">
+          <div className="xl:col-span-5 col-span-12">
             <div className="mr-[14px]">
-              <div className="title-area mb-[30px]">
-                <h2 className="leading-[1.5] tracking-wide text-[34px] mb-[22px] font-bold">
+              <div className="title-area mb-[30px] xl:text-left text-center">
+                <h2 className="leading-[1.5] tracking-wide xl:text-[34px] text-[28px] mb-[22px] font-bold">
                   Everything you want
                 </h2>
 
@@ -24,12 +24,12 @@ const Login = () => {
                 </p>
               </div>
 
-              <div className="contact-feature-wrap">
-                <div className="contact-feature flex gap-[25px] mb-[40px]">
-                  <div className="box-icon ">
+              <div className="login-feature-wrap xl:block flex justify-between xl:gap-0 flex-wrap">
+                <div className="login-feature flex xl:flex-row flex-col xl:items-start items-center gap-[25px] mb-[40px] xl:w-auto lg:w-1/3 sm:w-1/2 w-full">
+                  <div className="box-icon min-w-[50px]">
                     <FaRegNewspaper className="text-[50px] text-[#FF1D50]" />
                   </div>
-                  <div className="box-content max-w-[235px]">
+                  <div className="box-content max-w-[235px] xl:text-left text-center">
                     <h3 className="box-title mb-[5px] tracking-wide font-bold">
                       News
                     </h3>
@@ -39,11 +39,11 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="contact-feature flex gap-[25px] mb-[40px]">
-                  <div className="box-icon">
+                <div className="login-feature flex xl:flex-row flex-col xl:items-start items-center gap-[25px] mb-[40px] xl:w-auto lg:w-1/3 sm:w-1/2 w-full">
+                  <div className="box-icon min-w-[50px]">
                     <RiShoppingBag4Line className="text-[50px] text-[#FF1D50]" />
                   </div>
-                  <div className="box-content max-w-[235px]">
+                  <div className="box-content max-w-[235px] xl:text-left text-center">
                     <h3 className="box-title mb-[5px] tracking-wide font-bold">
                       Shopping
                     </h3>
@@ -53,11 +53,11 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="contact-feature flex gap-[25px] mb-[40px]">
-                  <div className="box-icon w-[50px]">
+                <div className="login-feature flex xl:flex-row flex-col xl:items-start items-center gap-[25px] mb-[40px] xl:w-auto lg:w-1/3 sm:w-1/2 w-full">
+                  <div className="box-icon min-w-[50px]">
                     <FaBlog className="text-[50px] text-[#FF1D50]" />
                   </div>
-                  <div className="box-content max-w-[235px]">
+                  <div className="box-content max-w-[235px] xl:text-left text-center">
                     <h3 className="box-title mb-[5px] tracking-wide font-bold">
                       Blog
                     </h3>
@@ -69,14 +69,14 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-7">
-            <div className="quote-form-box p-[50px] bg-[#F5F5F5]">
-              <h4 className="form-title text-[26px] font-bold mb-[20px]">
+          <div className="xl:col-span-7 col-span-12">
+            <div className="quote-form-box md:px-[50px] md:py-[50px] px-[20px] py-[30px] bg-[#F5F5F5]">
+              <h4 className="form-title xl:text-[26px] text-[20px] xl:text-left text-center font-bold mb-[20px]">
                 Login
               </h4>
               <form className="contact-form">
                 <div className="grid grid-cols-2 gap-[24px]">
-                  <div className="form-group">
+                  <div className="form-group md:col-span-1 col-span-2">
                     <input
                       type="text"
                       className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]"
@@ -84,7 +84,7 @@ const Login = () => {
                     />
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group md:col-span-1 col-span-2">
                     <input
                       type="text"
                       className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]"
@@ -92,7 +92,7 @@ const Login = () => {
                     />
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group md:col-span-1 col-span-2">
                     <input
                       type="text"
                       className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]"
@@ -100,7 +100,7 @@ const Login = () => {
                     />
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group md:col-span-1 col-span-2">
                     <select className="form-control w-full  h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]">
                       <option value="" disabled selected hidden>
                         Gender
@@ -111,7 +111,7 @@ const Login = () => {
                     </select>
                   </div>
 
-                  <div className="form-group col-span-2">
+                  <div className="form-group md:col-span-1 col-span-2">
                     <input
                       type="password"
                       className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]"
@@ -119,7 +119,7 @@ const Login = () => {
                     />
                   </div>
 
-                  <div className="form-group col-span-2">
+                  <div className="form-group md:col-span-1 col-span-2">
                     <input
                       type="password"
                       className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]"
@@ -127,7 +127,7 @@ const Login = () => {
                     />
                   </div>
 
-                  <div className="col-span-2">
+                  <div className="col-span-2 flex xl:justify-normal justify-center">
                     <button className="uppercase py-[16px] px-[26px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center">
                       Login <TbLogin2 className="text-[18px] ml-[5px]" />
                     </button>
