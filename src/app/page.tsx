@@ -50,8 +50,8 @@ export default function Home() {
     // <ArticleOverView />
 
     // Blog details
-    <BlogVideoDetails />
-    // <BlogArticleDetails />
+    // <BlogVideoDetails />
+    <BlogArticleDetails />
 
     // Audio
     // <AudioOverView />

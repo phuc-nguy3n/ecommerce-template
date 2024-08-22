@@ -26,8 +26,8 @@ const BlogArticleDetails = () => {
 
       <div className="pt-[60px] pb-[30px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
-          <div className="grid grid-cols-12">
-            <div className="col-span-9">
+          <div className="grid grid-cols-7">
+            <div className="col-span-5">
               <TagName text={"sports"} />
               <BlogTitle
                 title={
@@ -391,7 +391,7 @@ const BlogArticleDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="col-span-3 p-[30px] mb-[40px] relative">
+            <div className="col-span-2 p-[30px] mb-[40px] relative">
               <div className="sticky top-[80px] right-0">
                 {/* Search box */}
                 <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
@@ -529,9 +529,9 @@ const BlogArticleDetails = () => {
                     </li>
                   </ul>
 
-                  <div className="w-[318px] h-[320px] mb-[35px]">
+                  <div className="mb-[35px]">
                     <img
-                      className="w-[236px] h-[320px] object-cover"
+                      className="w-[278px] h-[350px] object-cover"
                       src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt=""
                     />
@@ -542,51 +542,51 @@ const BlogArticleDetails = () => {
                   </h3>
 
                   <div className="tag-cloud ">
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Sports
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Politics
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Business
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Music
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Foood
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Technology
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Travels
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Health
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Fashions
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Animal
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Weather
                     </button>
 
-                    <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                    <button className="py-[9px] px-[10px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
                       Movies
                     </button>
                   </div>
