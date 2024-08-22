@@ -144,7 +144,7 @@ const ArticleOverView = () => {
               Home <IoIosArrowForward />
             </li>
             <li className="uppercase  font-semibold text-[#FF1D50]">
-              Video overview
+              Article overview
             </li>
           </ul>
         </div>

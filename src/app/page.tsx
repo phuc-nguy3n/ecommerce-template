@@ -47,11 +47,11 @@ export default function Home() {
     // <VideoOverview />
 
     // Article overview page
-    // <ArticleOverView />
+    <ArticleOverView />
 
     // Blog details
     // <BlogVideoDetails />
-    <BlogArticleDetails />
+    // <BlogArticleDetails />
 
     // Audio
     // <AudioOverView />
