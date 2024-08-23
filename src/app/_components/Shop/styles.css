@@ -5,3 +5,31 @@ select {
     background-color: white;
     cursor: pointer;
 }
+
+.product-img-box img {
+    transition: transform .5s;
+}
+
+.product-item:hover .product-img-box img {
+    transform: scale(1.1);
+}
+
+.overlay-product {
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.product-item:hover .overlay-product {
+    opacity: 1;
+}
+
+
+.product-desc::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.product-desc::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}

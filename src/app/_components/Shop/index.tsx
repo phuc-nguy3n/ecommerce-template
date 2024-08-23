@@ -1,10 +1,14 @@
 "use client";
 
-import { IoIosArrowDown } from "react-icons/io";
-import Breadcrumb from "../ui/Breadcrumb";
 import "./styles.css";
 import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import Breadcrumb from "../ui/Breadcrumb";
 import { IoArrowForward, IoSearch } from "react-icons/io5";
+import { FaRegEye } from "react-icons/fa";
+import { LiaCartPlusSolid } from "react-icons/lia";
+import { FaRegHeart } from "react-icons/fa6";
+import ProductPopup from "./_components/ProductPopup";
 
 const productData = [
   {
@@ -83,6 +87,12 @@ const productData = [
 const Shop = () => {
   const [showCategory, setShowCategory] = useState(false);
   const [showSortBy, setShowSortBy] = useState(false);
+  const [showProductPopup, setShowProductPopup] = useState(false);
+
+  const openProductPopup = () => {
+    setShowProductPopup(true);
+    document.body.style.overflow = "hidden";
+  };
 
   return (
     <>
@@ -91,6 +101,7 @@ const Shop = () => {
       <div className="pt-[60px] pb-[30px]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
           <div className="grid grid-cols-12 gap-[24px]">
+            {/* Navbar */}
             <div className="xl:col-span-3 lg:col-span-4 sm:col-span-12 col-span-12 mb-[40px] relative">
               <div className="sticky top-[80px] right-0">
                 {/* Search box */}
@@ -239,6 +250,8 @@ const Shop = () => {
                 </div>
               </div>
             </div>
+
+            {/* Products */}
             <div className="xl:col-span-9 lg:col-span-8 sm:col-span-12 col-span-12">
               <div className="mb-[24px] p-[10px]">
                 <div className="flex items-center justify-between">
@@ -253,13 +266,32 @@ const Shop = () => {
               <ul className="grid xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[24px]">
                 {productData.map((product, index) => (
                   <li key={index}>
-                    <div className="product overflow-hidden">
-                      <div className="product-img mb-[20px]">
+                    <div className="product-item overflow-hidden">
+                      <div className="product-img-box sm:h-[300px] h:[511px] product-img mb-[20px] relative rounded-sm overflow-hidden">
                         <img
-                          className="w-full sm:h-[300px] h:[511px] object-cover rounded-sm"
+                          className="w-full sm:h-[300px] h:[511px] object-cover "
                           src={product.img}
                           alt=""
                         />
+
+                        <div className="overlay-product absolute bg-black bg-opacity-[0.3] w-[90%] h-[90%] rounded-sm top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex justify-center items-center ">
+                          <div className="flex justify-center items-center gap-[12px] flex-grow">
+                            <button
+                              onClick={openProductPopup}
+                              className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black"
+                            >
+                              <FaRegEye className="text-white" />
+                            </button>
+
+                            <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
+                              <LiaCartPlusSolid className="text-white text-[20px]" />
+                            </button>
+
+                            <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
+                              <FaRegHeart className="text-white" />
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       <div className="product-content">
                         <h3 className="product-title font-semibold mt-[7px] mb-[8px] text-[17px]">
@@ -299,6 +331,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
+      {showProductPopup && <ProductPopup setShow={setShowProductPopup} />}
     </>
   );
 };
