@@ -206,24 +206,24 @@ const Cart = () => {
 
                 <tr>
                   <td colSpan={6} className="actions px-[20px]">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                    <div className="flex items-center lg:justify-between justify-center flex-wrap gap-[20px]">
+                      <div className="flex items-center gap-2 lg:flex-grow-0 flex-grow flex-wrap">
                         <input
                           type="text"
-                          className="form-control outline-none py-[12px] px-[16px] bg-[#EFEFEF] rounded-sm"
+                          className="form-control outline-none py-[12px] px-[16px] bg-[#EFEFEF] rounded-sm flex-1"
                           placeholder="Coupon Code..."
                         />
-                        <button className="bg-[#FF1D50] text-white py-[12px] px-[20px] rounded-sm font-bold uppercase">
+                        <button className="bg-[#FF1D50] text-white py-[12px] px-[20px] rounded-sm font-bold uppercase sm:w-auto w-full">
                           Apply Coupon
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <button className="bg-[#FF1D50] text-white py-[12px] px-[20px] rounded-sm font-bold uppercase">
+                      <div className="flex items-center gap-2 btn-box sm:flex-grow-0 flex-grow flex-wrap">
+                        <button className="bg-[#FF1D50] text-white py-[12px] px-[20px] rounded-sm font-bold uppercase sm:w-auto w-full">
                           Update cart
                         </button>
 
-                        <button className="bg-[#FF1D50] text-white py-[12px] px-[20px] rounded-sm font-bold uppercase">
+                        <button className="bg-[#FF1D50] text-white py-[12px] px-[20px] rounded-sm font-bold uppercase sm:w-auto w-full">
                           Continue Shopping
                         </button>
                       </div>
@@ -233,6 +233,88 @@ const Cart = () => {
               </tbody>
             </table>
           </form>
+
+          <div className="grid grid-cols-12">
+            <div className="xl:col-start-7 md:col-start-5 xl:col-span-6 md:col-span-8 col-span-12">
+              <h2 className="sumary-title text-[25px] font-bold mb-[15px]">
+                Cart Totals
+              </h2>
+
+              <table className="cart-totals border border-[#EFEFEF] mb-[20px]">
+                <tbody>
+                  <tr>
+                    <td>Cart Subtotal</td>
+                    <td data-title="Cart Subtotal">
+                      <span className="amount font-bold">$47</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Shipping and Handling</td>
+                    <td data-title="Shipping and Handling">
+                      <ul className="shipping-methods">
+                        <li>
+                          <div className="flex gap-2 items-center mb-[5px]">
+                            <input
+                              id="free-ship"
+                              type="radio"
+                              className="cursor-pointer"
+                              name="shipping-fee"
+                            />
+                            <label htmlFor="free-ship">
+                              <span className="font-semibold text-[16px]">
+                                {" "}
+                                Free shipping
+                              </span>
+                            </label>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div className="flex gap-2 items-center mb-[5px]">
+                            <input
+                              id="flat-rate"
+                              type="radio"
+                              className="cursor-pointer"
+                              name="shipping-fee"
+                              checked
+                            />
+                            <label htmlFor="free-ship">
+                              <span className="font-semibold text-[16px]">
+                                {" "}
+                                Flat rate
+                              </span>
+                            </label>
+                          </div>
+                        </li>
+                      </ul>
+                      <p className="shipping-destination text-[#54595F] mb-[15px]">
+                        Shipping options will be updated during checkout.
+                      </p>
+                      <span className="font-bold pb-[4px] border border-x-0 border-t-0 border-b-1 border-black cursor-pointer">
+                        Change address
+                      </span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Order Total</td>
+                    <td data-title="Cart Subtotal">
+                      <span className="amount font-bold text-[#FF1D50]">
+                        $47
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div className="flex justify-end">
+                <button className="font-bold uppercase py-[12px] px-[24px] bg-[#FF1D50] text-white rounded-sm mb-[30px]">
+                  Proceed to checkout
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </>
