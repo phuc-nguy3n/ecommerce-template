@@ -34,6 +34,9 @@ import Login from "./_components/Login";
 // Cart
 import Cart from "./_components/Cart";
 
+// Checkout
+import Checkout from "./_components/Checkout";
+
 export default function Home() {
   return (
     // Home page
@@ -69,7 +72,10 @@ export default function Home() {
     // <Shop />
 
     // Cart
-    <Cart />
+    // <Cart />
+
+    // Checkout
+    <Checkout />
 
     // Login
     // <Login />
