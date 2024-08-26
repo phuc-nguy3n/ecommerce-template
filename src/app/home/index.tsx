@@ -1,9 +1,9 @@
 import React from "react";
-import Container from "../Container/Container";
 import NewsSection from "./News";
 import ArticlesSection from "./Articles";
 import LiteratureSection from "./Literature";
 import VideoSection from "./Videos";
+import Container from "../_components/Container/Container";
 
 const HomePage = () => {
   return (
