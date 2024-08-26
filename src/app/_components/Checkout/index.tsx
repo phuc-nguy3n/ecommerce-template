@@ -45,7 +45,7 @@ const Checkout = () => {
                     />
                   </div>
 
-                  <div className="form-control col-span-2 ml-1 flex items-center gap-3">
+                  <div className="form-control col-span-2 ml-1 flex items-center gap-3 sm:justify-normal justify-center">
                     <input
                       id="accept"
                       type="checkbox"
@@ -54,13 +54,13 @@ const Checkout = () => {
                     <label htmlFor="accept">Remember Me</label>
                   </div>
 
-                  <div className="col-span-2 flex xl:justify-normal justify-end">
-                    <button className="uppercase py-[16px] px-[26px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center">
+                  <div className="col-span-2 flex sm:flex-grow-0 flex-grow">
+                    <button className="uppercase py-[16px] sm:px-[58px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center justify-center sm:w-auto w-full">
                       Login
                     </button>
                   </div>
 
-                  <div className="form-control">
+                  <div className="form-control col-span-2 sm:text-left text-center">
                     <span className="hover:underline cursor-pointer text-[#54596e]">
                       Lost your password?
                     </span>
@@ -93,8 +93,8 @@ const Checkout = () => {
                     />
                   </div>
 
-                  <div className="col-span-2 flex xl:justify-normal justify-end">
-                    <button className="uppercase py-[16px] px-[26px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center">
+                  <div className="col-span-2 flex sm:flex-grow-0 flex-grow">
+                    <button className="uppercase py-[16px] sm:px-[26px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center sm:w-auto w-full justify-center">
                       Apply coupon
                     </button>
                   </div>
@@ -106,10 +106,12 @@ const Checkout = () => {
           {/* Billing details */}
           <div className="billing-wrapper mb-[50px]">
             <div className="grid grid-cols-12 gap-[20px]">
-              <div className="col-span-6">
+              <div className="lg:col-span-6 col-span-12">
                 <div className="grid grid-cols-12 gap-[20px]">
                   <div className="col-span-12">
-                    <h2 className="font-bold text-[26px]">Billing Details</h2>
+                    <h2 className="font-bold md:text-[26px] text-[20px]">
+                      Billing Details
+                    </h2>
                   </div>
 
                   <div className="col-span-12">
@@ -244,7 +246,7 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-6">
+              <div className="lg:col-span-6 col-span-12">
                 <div className="grid grid-cols-12 gap-[20px]">
                   <div className="col-span-12">
                     <div className="form-control ml-1 flex items-center gap-3 h-[39px]">
@@ -395,7 +397,9 @@ const Checkout = () => {
 
           {/* Order */}
           <div className="your-order-wrapper mb-[30px]">
-            <h2 className="text-[26px] font-bold mb-[20px]">Your Order</h2>
+            <h2 className="md:text-[26px] text-[20px] font-bold mb-[20px]">
+              Your Order
+            </h2>
             <form className="order-form">
               <table className="order-table">
                 <thead>
@@ -415,7 +419,7 @@ const Checkout = () => {
                 <tbody>
                   <tr className="cart-item">
                     <td data-title="Product">
-                      <div className="cart-product-image flex justify-center">
+                      <div className="cart-product-image flex md:justify-center justify-end">
                         <img
                           className="w-[90px] h-[90px] cursor-pointer"
                           src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -435,7 +439,9 @@ const Checkout = () => {
                     </td>
 
                     <td data-title="Quantity">
-                      <span className="product-quantity">01</span>
+                      <span className="product-quantity font-bold text-black">
+                        01
+                      </span>
                     </td>
 
                     <td data-title="Total">
@@ -444,11 +450,11 @@ const Checkout = () => {
                   </tr>
                 </tbody>
 
-                <tfoot className="checkout-ordertable">
+                <tfoot className="checkout-ordertable text-[14px]">
                   <tr className="cart-subtotal">
                     <th>Subtotal</th>
                     <td data-title="Subtotal" colSpan={4}>
-                      <span className="woocommerce-Price-amount amount">
+                      <span className="woocommerce-Price-amount amount font-semibold text-black">
                         $281.05
                       </span>
                     </td>
@@ -456,7 +462,11 @@ const Checkout = () => {
 
                   <tr className="woocommerce-shipping-totals shipping">
                     <th>Shipping</th>
-                    <td data-title="Shipping" colSpan={4}>
+                    <td
+                      data-title="Shipping"
+                      colSpan={4}
+                      className="font-semibold text-black"
+                    >
                       Enter your address to view shipping options.
                     </td>
                   </tr>
@@ -464,7 +474,7 @@ const Checkout = () => {
                   <tr className="order-total">
                     <th>Total</th>
                     <td data-title="Total" colSpan={4}>
-                      <span className="woocommerce-Price-amount amount">
+                      <span className="woocommerce-Price-amount amount font-bold text-[#FF1D50]">
                         $281.05
                       </span>
                     </td>
@@ -533,8 +543,8 @@ const Checkout = () => {
               </div>
             </div>
 
-            <div>
-              <button className="uppercase py-[16px] px-[26px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center">
+            <div className="flex sm:flex-grow-0 flex-grow">
+              <button className="uppercase py-[16px] sm:px-[26px] sm:w-auto w-full bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center justify-center mb-[30px]">
                 Place order
               </button>
             </div>
