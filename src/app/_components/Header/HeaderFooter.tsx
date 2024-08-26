@@ -6,29 +6,22 @@ import { IoSearch } from "react-icons/io5";
 import { GrCart } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import MenuMobile from "../MenuMobile";
+import Link from "next/link";
 
 export const subnavData = {
-  home: [
-    "Home newspaper",
-    "Home magazine",
-    "Home sports",
-    "Home movie",
-    "Home gadget",
-  ],
-
   category: ["Category", "Three column", "Three column sidebar"],
 
   pages: ["Shop", "Team", "Author", "Error page"],
 
   blog: [
-    "Blog standard",
-    "Blog masonary",
-    "Blog list",
-    "Blog details",
-    "Blog details video",
-    "Blog details audio",
-    "Blog details nosidebar",
-    "Blog details full image",
+    {
+      name: "Blog details video",
+      url: "/blog/video",
+    },
+    {
+      name: "Blog details article ",
+      url: "/blog/article",
+    },
   ],
 };
 
@@ -62,23 +55,9 @@ const HeaderFooter = () => {
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px] flex justify-between">
           <ul className="lg:flex hidden items-center gap-10">
             <li className="group py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <div className="inline-flex items-center gap-1">
+              <Link href="/" className="inline-flex items-center gap-1">
                 <span>HOME</span> <IoIosArrowDown className="arrow-icon" />
-              </div>
-              <div className="relative subnav-block ">
-                <ul className="w-[230px] subnav absolute top-[18px] left-[-18px] p-[18px] pr-[20px]  border-t-[3px] border-[#ff1d50] text-[#080809] dark:text-white text-[14px] bg-[#fff] dark:bg-[#282828]">
-                  {subnavData.home.map((item, index) => (
-                    <li
-                      className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
-                      key={index}
-                    >
-                      <p className="flex items-center gap-1 uppercase leading-[30px] text-nowrap">
-                        <IoIosArrowForward className="icon-subnav" /> {item}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </Link>
             </li>
 
             <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
@@ -133,15 +112,18 @@ const HeaderFooter = () => {
               </div>
 
               <div className="relative subnav-block ">
-                <ul className="w-[230px] subnav absolute top-[18px] left-[-18px] p-[18px] pr-[20px]  border-t-[3px] border-[#ff1d50] text-[#080809] dark:text-white text-[14px] bg-[#fff] dark:bg-[#282828]">
+                <ul className="w-[230px] subnav absolute top-[18px] left-[-18px] p-[18px] pr-[20px] border-t-[3px] border-[#ff1d50] text-[#080809] dark:text-white text-[14px] bg-[#fff] dark:bg-[#282828]">
                   {subnavData.blog.map((item, index) => (
                     <li
                       className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
                       key={index}
                     >
-                      <p className="flex items-center gap-1 uppercase leading-[30px] text-nowrap">
-                        <IoIosArrowForward className="icon-subnav" /> {item}
-                      </p>
+                      <Link href={item.url}>
+                        <p className="flex items-center gap-1 uppercase leading-[30px] text-nowrap">
+                          <IoIosArrowForward className="icon-subnav" />{" "}
+                          {item.name}
+                        </p>
+                      </Link>
                     </li>
                   ))}
                 </ul>

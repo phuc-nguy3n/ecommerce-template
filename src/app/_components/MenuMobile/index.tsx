@@ -1,9 +1,10 @@
 "use client";
 
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import { subnavData } from "../Header/HeaderFooter";
+import Link from "next/link";
 
 import "./styles.css";
 
@@ -44,37 +45,16 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
           <ul className="nav-menu px-[40px]">
             <li>
               <p className="flex items-center justify-between py-[12px] ">
-                <span
+                <Link
+                  href="/"
+                  onClick={() => setOpen(false)}
                   className={`flex items-center gap-1 cursor-pointer ${
                     isActiveHomeMenu ? "active" : ""
                   }`}
                 >
                   <IoIosArrowForward /> Home
-                </span>
-
-                <button
-                  className="text-[18px] bg-[#F5F5F5] px-2 rounded-full"
-                  onClick={() => {
-                    setActiveHomeMenu(!isActiveHomeMenu);
-                  }}
-                >
-                  {isActiveHomeMenu ? "-" : "+"}
-                </button>
+                </Link>
               </p>
-
-              <ul
-                className={`subnav-menu ${
-                  isActiveHomeMenu ? "submenu-open" : "submenu-close"
-                }`}
-              >
-                {subnavData.home.map((item, index) => (
-                  <li className="pl-[20px]" key={index}>
-                    <span className="flex items-center gap-1 cursor-pointer py-[12px]">
-                      <IoIosArrowForward /> {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </li>
 
             <li>
@@ -182,9 +162,16 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
               >
                 {subnavData.blog.map((item, index) => (
                   <li className="pl-[20px]" key={index}>
-                    <span className="flex items-center gap-1 cursor-pointer py-[12px]">
-                      <IoIosArrowForward /> {item}
-                    </span>
+                    <Link
+                      onClick={() => {
+                        setOpen(false);
+                        setActiveBlogMenu(false);
+                      }}
+                      href={item.url}
+                      className="flex items-center gap-1 cursor-pointer py-[12px]"
+                    >
+                      <IoIosArrowForward /> {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
