@@ -134,7 +134,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -144,7 +144,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -194,7 +194,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -204,7 +204,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -282,7 +282,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -292,7 +292,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -342,7 +342,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
@@ -352,7 +352,7 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-6">
+                  <div className="md:col-span-6 col-span-12">
                     <div className="form-group">
                       <input
                         type="text"
