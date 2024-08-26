@@ -6,8 +6,32 @@ import Breadcrumb from "../ui/Breadcrumb";
 import Container from "../Container/Container";
 import { RiErrorWarningLine } from "react-icons/ri";
 
+const paymentMethodsData = [
+  {
+    id: 1,
+    name: "Direct bank transfer",
+    content:
+      "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
+  },
+  {
+    id: 2,
+    name: "Cheque Payment",
+    content:
+      "Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.",
+  },
+  { id: 3, name: "Credit Cart", content: "Pay with cash upon delivery." },
+  {
+    id: 4,
+    name: "Paypal",
+    content:
+      "Pay via PayPal; you can pay with your credit card if you don't have a PayPal account.",
+  },
+];
+
 const Checkout = () => {
   const [isDifferentAddresses, setDifferentAddresses] = useState(true);
+  const [paymentMethods, setPaymentMethods] = useState(paymentMethodsData);
+  const [selectedMethod, setSelectedMethod] = useState(1);
 
   return (
     <>
@@ -502,60 +526,35 @@ const Checkout = () => {
           {/* Payment method */}
           <div className="payment-method">
             <div className="direct-bank-transfer mb-[30px]">
-              <div className="method-item mb-[14px]">
-                <label className="flex items-center gap-2 font-semibold text-[#54595F] pb-[5px]">
-                  {" "}
-                  <input
-                    type="radio"
-                    className="form-control"
-                    name="payment-method"
-                    checked
-                  />{" "}
-                  Direct bank transfer
-                </label>
+              {paymentMethods.map((method) => (
+                <div key={method.id} className="method-item mb-[14px]">
+                  <label
+                    className={`flex items-center gap-2 font-semibold text-[#54595F] py-[10px] ${
+                      selectedMethod !== method.id
+                        ? "border border-x-0 border-t-0 border-b-1"
+                        : ""
+                    }`}
+                  >
+                    {" "}
+                    <input
+                      type="radio"
+                      className="form-control"
+                      name="payment-method"
+                      checked={selectedMethod === method.id}
+                      onClick={() => setSelectedMethod(method.id)}
+                    />{" "}
+                    {method.name}
+                  </label>
 
-                <p className="info-methob mt-[12px] px-[20px] py-[14px]  border boder-[#EFEFEF] text-[#54595F] bg-[#F5F5F5] rounded-sm text-[14px]">
-                  Make your payment directly into our bank account. Please use
-                  your Order ID as the payment reference. Your order will not be
-                  shipped until the funds have cleared in our account.
-                </p>
-              </div>
-
-              <div className="method-item mb-[14px]">
-                <label className="flex items-center gap-2 font-semibold text-[#54595F] py-[10px] border border-x-0 border-t-0 border-b-1  ">
-                  {" "}
-                  <input
-                    type="radio"
-                    className="form-control"
-                    name="payment-method"
-                  />{" "}
-                  Cheque Payment
-                </label>
-              </div>
-
-              <div className="method-item mb-[14px]">
-                <label className="flex items-center gap-2 font-semibold text-[#54595F] py-[10px] border border-x-0 border-t-0 border-b-1  ">
-                  {" "}
-                  <input
-                    type="radio"
-                    className="form-control"
-                    name="payment-method"
-                  />{" "}
-                  Credit Cart
-                </label>
-              </div>
-
-              <div className="method-item mb-[14px]">
-                <label className="flex items-center gap-2 font-semibold text-[#54595F] py-[10px] border border-x-0 border-t-0 border-b-1  ">
-                  {" "}
-                  <input
-                    type="radio"
-                    className="form-control"
-                    name="payment-method"
-                  />{" "}
-                  Paypal
-                </label>
-              </div>
+                  <p
+                    className={`${
+                      selectedMethod === method.id ? "block" : "hidden"
+                    } info-methob mt-[12px] px-[20px] py-[14px] border boder-[#EFEFEF] text-[#54595F] bg-[#F5F5F5] rounded-sm text-[14px]`}
+                  >
+                    {method.content}
+                  </p>
+                </div>
+              ))}
             </div>
 
             <div className="flex sm:flex-grow-0 flex-grow">
