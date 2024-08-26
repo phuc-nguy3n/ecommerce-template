@@ -1,10 +1,14 @@
+"use client";
+
 import "./styles.css";
-import React from "react";
+import React, { useState } from "react";
 import Breadcrumb from "../ui/Breadcrumb";
 import Container from "../Container/Container";
 import { RiErrorWarningLine } from "react-icons/ri";
 
 const Checkout = () => {
+  const [isDifferentAddresses, setDifferentAddresses] = useState(true);
+
   return (
     <>
       <Breadcrumb items={[{ label: "home" }, { label: "checkout" }]} />
@@ -17,7 +21,9 @@ const Checkout = () => {
               <RiErrorWarningLine className="text-[24px]" />
               <p>
                 Returning customer?{" "}
-                <span className="underline">Click here to login</span>
+                <a href="/#" className="underline ">
+                  Click here to login
+                </a>
               </p>
             </div>
 
@@ -45,7 +51,7 @@ const Checkout = () => {
                     />
                   </div>
 
-                  <div className="form-control col-span-2 ml-1 flex items-center gap-3 sm:justify-normal justify-center">
+                  <div className="form-control col-span-2 ml-1 flex items-center gap-3 sm:justify-normal justify-center ">
                     <input
                       id="accept"
                       type="checkbox"
@@ -76,7 +82,9 @@ const Checkout = () => {
               <RiErrorWarningLine className="text-[24px]" />
               <p>
                 Have a coupon?{" "}
-                <span className="underline">Click here to enter your code</span>
+                <a href="/#" className="underline">
+                  Click here to enter your code
+                </a>
               </p>
             </div>
 
@@ -254,7 +262,10 @@ const Checkout = () => {
                         id="ship-to"
                         type="checkbox"
                         className="form-control"
-                        checked
+                        checked={isDifferentAddresses}
+                        onChange={() =>
+                          setDifferentAddresses(!isDifferentAddresses)
+                        }
                       />
                       <label htmlFor="ship-to">
                         Ship to a different address?
@@ -262,134 +273,138 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <select className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]">
-                        <option value="UK" selected>
-                          United Kingdom (UK)
-                        </option>
-                        <option value="US">United State (US)</option>
-                        <option value="GQ">Equatorial Guinea (GQ)</option>
-                        <option value="AU">Australia (AU)</option>
-                        <option value="DE">Germany</option>
-                        <option
-                          className="text-[#54596e]"
-                          value="Personal Question"
-                        >
-                          Personal Question
-                        </option>
-                      </select>
-                    </div>
-                  </div>
+                  {isDifferentAddresses && (
+                    <>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <select className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]">
+                            <option value="UK" selected>
+                              United Kingdom (UK)
+                            </option>
+                            <option value="US">United State (US)</option>
+                            <option value="GQ">Equatorial Guinea (GQ)</option>
+                            <option value="AU">Australia (AU)</option>
+                            <option value="DE">Germany</option>
+                            <option
+                              className="text-[#54596e]"
+                              value="Personal Question"
+                            >
+                              Personal Question
+                            </option>
+                          </select>
+                        </div>
+                      </div>
 
-                  <div className="md:col-span-6 col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5]"
-                        placeholder="First Name"
-                      />
-                    </div>
-                  </div>
+                      <div className="md:col-span-6 col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5]"
+                            placeholder="First Name"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="md:col-span-6 col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Last Name"
-                      />
-                    </div>
-                  </div>
+                      <div className="md:col-span-6 col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Last Name"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5]"
-                        placeholder="Your Company Name"
-                      />
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5]"
+                            placeholder="Your Company Name"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5]"
-                        placeholder="Street Address"
-                      />
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5]"
+                            placeholder="Street Address"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Apartment, suit, unit etc. (optional)"
-                      />
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Apartment, suit, unit etc. (optional)"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Town / City"
-                      />
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Town / City"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="md:col-span-6 col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Country"
-                      />
-                    </div>
-                  </div>
+                      <div className="md:col-span-6 col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Country"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="md:col-span-6 col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Postcode / Zip"
-                      />
-                    </div>
-                  </div>
+                      <div className="md:col-span-6 col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Postcode / Zip"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Email Address"
-                      />
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Email Address"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
-                        placeholder="Phone number"
-                      />
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e] bg-[#F5F5F5] "
+                            placeholder="Phone number"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="col-span-12">
-                    <div className="form-group">
-                      <textarea
-                        className="form-control w-full min-h-[120px] py-[16px] px-[25px] outline-none rounded-md bg-[#F5F5F5]"
-                        placeholder="Note about your order, e.g special notes for delivery."
-                      ></textarea>
-                    </div>
-                  </div>
+                      <div className="col-span-12">
+                        <div className="form-group">
+                          <textarea
+                            className="form-control w-full min-h-[120px] py-[16px] px-[25px] outline-none rounded-md bg-[#F5F5F5]"
+                            placeholder="Note about your order, e.g special notes for delivery."
+                          ></textarea>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
