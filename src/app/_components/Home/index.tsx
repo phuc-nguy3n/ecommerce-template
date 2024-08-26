@@ -3,7 +3,7 @@ import NewsSection from "./News";
 import ArticlesSection from "./Articles";
 import LiteratureSection from "./Literature";
 import VideoSection from "./Videos";
-import Container from "../_components/Container/Container";
+import Container from "../Container/Container";
 
 const HomePage = () => {
   return (
