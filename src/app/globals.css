@@ -62,7 +62,6 @@
 .gradient-bg {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   display: flex;
-  justify-content: flex-end;
 }
 
 h2.relative {

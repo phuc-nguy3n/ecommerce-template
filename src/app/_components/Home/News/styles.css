@@ -1,3 +1,7 @@
+.gradient-bg.home {
+  justify-content: flex-end;
+}
+
 /* Right side */
 .latest-box>li {
   border-bottom: 1px solid #d1d5db;
@@ -11,9 +15,6 @@
   border-bottom: none;
   padding-bottom: 0;
 }
-
-
-@media (min-width: 1200px) {}
 
 @media (min-width: 992px) and (max-width: 1199px) {
 

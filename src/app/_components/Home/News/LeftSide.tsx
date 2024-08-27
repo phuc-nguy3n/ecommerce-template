@@ -14,7 +14,7 @@ const LeftSide = () => {
           />
 
           {/* Overlay */}
-          <div className="absolute top-0 xl:w-full lg:w-[560px] w-full xl:h-[360px] lg:h-[500px] h-[500px] gradient-bg flex flex-col p-[30px]">
+          <div className="absolute top-0 xl:w-full lg:w-[560px] w-full xl:h-[360px] lg:h-[500px] h-[500px] gradient-bg home flex flex-col p-[30px]">
             <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
               News
             </div>
@@ -79,7 +79,7 @@ const LeftSide = () => {
         />
 
         {/* Overlay */}
-        <div className="absolute top-0 w-full xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] gradient-bg flex flex-col p-[20px]">
+        <div className="absolute top-0 w-full xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] gradient-bg home flex flex-col p-[20px]">
           <div className="mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#007BFF] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
             News
           </div>
@@ -113,7 +113,7 @@ const LeftSide = () => {
         />
 
         {/* Overlay */}
-        <div className="absolute top-0 w-full xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] gradient-bg flex flex-col p-[20px]">
+        <div className="absolute top-0 w-full xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] gradient-bg home flex flex-col p-[20px]">
           <div className="mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#007BFF] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
             News
           </div>

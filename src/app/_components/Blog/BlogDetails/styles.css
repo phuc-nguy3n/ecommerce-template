@@ -22,6 +22,6 @@ h2.has-line::after {
     margin-left: 24px;
 }
 
-.gradient-bg {
-    justify-content: flex-start !important;
+.gradient-bg.blog {
+    justify-content: flex-start;
 }
