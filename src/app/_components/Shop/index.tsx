@@ -10,6 +10,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa6";
 import ProductPopup from "./_components/ProductPopup";
 import LoadingBlock from "../LoadingBlock";
+import Link from "next/link";
 
 const productData = [
   {
@@ -295,9 +296,11 @@ const Shop = () => {
                                 <FaRegEye className="text-white" />
                               </button>
 
-                              <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
-                                <LiaCartPlusSolid className="text-white text-[20px]" />
-                              </button>
+                              <Link href="/cart">
+                                <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
+                                  <LiaCartPlusSolid className="text-white text-[20px]" />
+                                </button>
+                              </Link>
 
                               <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
                                 <FaRegHeart className="text-white" />
