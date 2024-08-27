@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
+import "../styles.css";
 
 const articlePost = [
   {
@@ -33,7 +34,7 @@ export default function ArticlesSection() {
               alt="Article"
             />
 
-            <div className="absolute top-0 w-full h-[430px] gradient-bg flex gap-2 flex-col md:p-[30px] p-[20px]">
+            <div className="absolute top-0 w-full h-[430px] gradient-bg home flex gap-2 flex-col md:p-[30px] p-[20px]">
               <div className="px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#8750A6] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                 Article
               </div>

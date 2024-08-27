@@ -1,6 +1,6 @@
 "use client";
 
-import "./styles.css";
+import "../styles.css";
 
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";

@@ -1,5 +1,6 @@
 "use client";
 
+import "../styles.css";
 import { useRef, useState, useEffect } from "react";
 import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
 import { IoArrowBack } from "react-icons/io5";
@@ -111,7 +112,7 @@ export default function LiteratureSection() {
                   alt="literature"
                 />
 
-                <div className="absolute top-0 w-full h-[350px] gradient-bg flex gap-2 flex-col p-[20px]">
+                <div className="absolute top-0 w-full h-[350px] gradient-bg home flex gap-2 flex-col p-[20px]">
                   <div className="px-[8px] text-white bg-[#00D084] rounded-sm font-semibold w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                     Literature
                   </div>
