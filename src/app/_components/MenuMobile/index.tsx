@@ -3,7 +3,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
-import { subnavData } from "../Header/HeaderFooter";
+import { navbar } from "../Header/HeaderFooter";
 import Link from "next/link";
 
 import "./styles.css";
@@ -14,10 +14,11 @@ type MenuMobileProps = {
 };
 
 const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
-  const [isActiveHomeMenu, setActiveHomeMenu] = useState(false);
-  const [isActiveCateMenu, setActiveCateMenu] = useState(false);
-  const [isActivePagesMenu, setActivePagesMenu] = useState(false);
-  const [isActiveBlogMenu, setActiveBlogMenu] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const toggleSubmenu = (menuName: any) => {
+    setActiveMenu(activeMenu === menuName ? null : menuName);
+  };
 
   return (
     <div
@@ -43,147 +44,64 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
 
         <div className="menu-body overflow-y-scroll pb-[40px] mt-[33px]">
           <ul className="nav-menu px-[40px]">
-            <li>
-              <p className="flex items-center justify-between py-[12px] ">
-                <Link
-                  href="/"
-                  onClick={() => setOpen(false)}
-                  className={`flex items-center gap-1 cursor-pointer ${
-                    isActiveHomeMenu ? "active" : ""
-                  }`}
-                >
-                  <IoIosArrowForward /> Home
-                </Link>
-              </p>
-            </li>
-
-            <li>
-              <p className="flex items-center justify-between py-[12px]">
-                <span className="flex items-center gap-1 cursor-pointer">
-                  <IoIosArrowForward /> About Us
-                </span>
-              </p>
-            </li>
-
-            <li>
-              <p className="flex items-center justify-between py-[12px] ">
-                <span
-                  className={`flex items-center gap-1 cursor-pointer ${
-                    isActiveCateMenu ? "active" : ""
-                  }`}
-                >
-                  <IoIosArrowForward /> Category
-                </span>
-
-                <button
-                  className="text-[18px] bg-[#F5F5F5] px-2 rounded-full"
-                  onClick={() => {
-                    setActiveCateMenu(!isActiveCateMenu);
-                  }}
-                >
-                  {isActiveCateMenu ? "-" : "+"}
-                </button>
-              </p>
-
-              <ul
-                className={`subnav-menu ${
-                  isActiveCateMenu ? "submenu-open" : "submenu-close"
-                }`}
-              >
-                {subnavData.category.map((item, index) => (
-                  <li className="pl-[20px]" key={index}>
-                    <span className="flex items-center gap-1 cursor-pointer py-[12px]">
-                      <IoIosArrowForward /> {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li>
-              <p className="flex items-center justify-between py-[12px] ">
-                <span
-                  className={`flex items-center gap-1 cursor-pointer ${
-                    isActivePagesMenu ? "active" : ""
-                  }`}
-                >
-                  <IoIosArrowForward /> Pages
-                </span>
-
-                <button
-                  className="text-[18px] bg-[#F5F5F5] px-2 rounded-full"
-                  onClick={() => {
-                    setActivePagesMenu(!isActivePagesMenu);
-                  }}
-                >
-                  {isActivePagesMenu ? "-" : "+"}
-                </button>
-              </p>
-
-              <ul
-                className={`subnav-menu ${
-                  isActivePagesMenu ? "submenu-open" : "submenu-close"
-                }`}
-              >
-                {subnavData.pages.map((item, index) => (
-                  <li className="pl-[20px]" key={index}>
-                    <span className="flex items-center gap-1 cursor-pointer py-[12px]">
-                      <IoIosArrowForward /> {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li>
-              <p className="flex items-center justify-between py-[12px] ">
-                <span
-                  className={`flex items-center gap-1 cursor-pointer ${
-                    isActiveBlogMenu ? "active" : ""
-                  }`}
-                >
-                  <IoIosArrowForward /> Blog
-                </span>
-
-                <button
-                  className="text-[18px] bg-[#F5F5F5] px-2 rounded-full"
-                  onClick={() => {
-                    setActiveBlogMenu(!isActiveBlogMenu);
-                  }}
-                >
-                  {isActiveBlogMenu ? "-" : "+"}
-                </button>
-              </p>
-
-              <ul
-                className={`subnav-menu ${
-                  isActiveBlogMenu ? "submenu-open" : "submenu-close"
-                }`}
-              >
-                {subnavData.blog.map((item, index) => (
-                  <li className="pl-[20px]" key={index}>
+            {navbar.map((item, index) => (
+              <li key={index}>
+                <p className="flex items-center justify-between py-[12px]">
+                  {item.submenu.length > 0 ? (
+                    <>
+                      <span
+                        className={`flex items-center gap-1 cursor-pointer capitalize ${
+                          activeMenu === item.name ? "active" : ""
+                        }`}
+                        onClick={() => toggleSubmenu(item.name)}
+                      >
+                        <IoIosArrowForward /> {item.name}
+                      </span>
+                      <button
+                        className="text-[18px] bg-[#F5F5F5] px-2 rounded-full"
+                        onClick={() => toggleSubmenu(item.name)}
+                      >
+                        {activeMenu === item.name ? "-" : "+"}
+                      </button>
+                    </>
+                  ) : (
                     <Link
+                      href={item.url}
                       onClick={() => {
                         setOpen(false);
-                        setActiveBlogMenu(false);
                       }}
-                      href={item.url}
-                      className="flex items-center gap-1 cursor-pointer py-[12px]"
+                      className="flex items-center gap-1 cursor-pointer capitalize"
                     >
                       <IoIosArrowForward /> {item.name}
                     </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li>
-              <p className="flex items-center justify-between py-[12px]">
-                <span className="flex items-center gap-1 cursor-pointer">
-                  <IoIosArrowForward /> Contact
-                </span>
-              </p>
-            </li>
+                  )}
+                </p>
+                {item.submenu.length > 0 && (
+                  <ul
+                    className={`subnav-menu ${
+                      activeMenu === item.name
+                        ? "submenu-open"
+                        : "submenu-close"
+                    }`}
+                  >
+                    {item.submenu.map((subItem, subIndex) => (
+                      <li className="pl-[20px]" key={subIndex}>
+                        <Link
+                          href={subItem.url}
+                          onClick={() => {
+                            setOpen(false);
+                            setActiveMenu(null);
+                          }}
+                          className="flex items-center gap-1 cursor-pointer py-[12px] capitalize"
+                        >
+                          <IoIosArrowForward /> {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

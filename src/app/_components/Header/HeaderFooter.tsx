@@ -19,11 +19,54 @@ export const subnavData = {
       url: "/blog/article",
     },
   ],
-
-  category: ["Category", "Three column", "Three column sidebar"],
-
-  pages: ["Shop", "Team", "Author", "Error page"],
 };
+
+export const navbar = [
+  {
+    name: "home",
+    url: "/",
+    submenu: [],
+  },
+  {
+    name: "blog",
+    url: "",
+    submenu: [
+      {
+        name: "Blog details video",
+        url: "/blog/video",
+      },
+      {
+        name: "Blog details article ",
+        url: "/blog/article",
+      },
+    ],
+  },
+  {
+    name: "video",
+    url: "/video",
+    submenu: [],
+  },
+  {
+    name: "article",
+    url: "/article",
+    submenu: [],
+  },
+  {
+    name: "timeline",
+    url: "/timeline",
+    submenu: [],
+  },
+  {
+    name: "shop",
+    url: "/shop",
+    submenu: [],
+  },
+  {
+    name: "contact",
+    url: "/contact",
+    submenu: [],
+  },
+];
 
 const HeaderFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,71 +97,46 @@ const HeaderFooter = () => {
       >
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px] flex justify-between">
           <ul className="lg:flex hidden items-center gap-10">
-            <li className="group py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/" className="inline-flex items-center gap-1">
-                <span>HOME</span>
-              </Link>
-            </li>
+            {navbar.map((item: any, index: any) => (
+              <li
+                key={index}
+                className="group py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
+              >
+                <Link
+                  className="inline-flex items-center gap-1"
+                  href={item.url}
+                >
+                  <span className="uppercase">{item.name}</span>{" "}
+                  {item.submenu.length > 0 ? (
+                    <IoIosArrowDown className="arrow-icon" />
+                  ) : (
+                    ""
+                  )}
+                </Link>
 
-            <li className="group py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <div className="inline-flex items-center gap-1">
-                <span>BLOG</span> <IoIosArrowDown className="arrow-icon" />
-              </div>
-
-              <div className="relative subnav-block ">
-                <ul className="w-[230px] subnav absolute top-[18px] left-[-18px] p-[18px] pr-[20px] border-t-[3px] border-[#ff1d50] text-[#080809] dark:text-white text-[14px] bg-[#fff] dark:bg-[#282828]">
-                  {subnavData.blog.map((item, index) => (
-                    <li
-                      className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
-                      key={index}
-                    >
-                      <Link href={item.url}>
-                        <p className="flex items-center gap-1 uppercase leading-[30px] text-nowrap">
-                          <IoIosArrowForward className="icon-subnav" />{" "}
-                          {item.name}
-                        </p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-
-            <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/video" className="inline-flex items-center gap-1">
-                <span>VIDEO</span>
-              </Link>
-            </li>
-
-            <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/article" className="inline-flex items-center gap-1">
-                <span>ARTICLE</span>
-              </Link>
-            </li>
-
-            <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/audio" className="inline-flex items-center gap-1">
-                <span>AUDIO</span>
-              </Link>
-            </li>
-
-            <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/timeline" className="inline-flex items-center gap-1">
-                <span>TIMELINE</span>
-              </Link>
-            </li>
-
-            <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/shop" className="inline-flex items-center gap-1">
-                <span>SHOP</span>
-              </Link>
-            </li>
-
-            <li className="py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-              <Link href="/contact" className="inline-flex items-center gap-1">
-                <span>CONTACT</span>
-              </Link>
-            </li>
+                {item.submenu.length > 0 ? (
+                  <div className="relative subnav-block">
+                    <ul className="w-[230px] subnav absolute top-[18px] left-[-18px] p-[18px] pr-[20px] border-t-[3px] border-[#ff1d50] text-[#080809] dark:text-white text-[14px] bg-[#fff] dark:bg-[#282828]">
+                      {item.submenu.map((item: any, index: any) => (
+                        <li
+                          className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
+                          key={index}
+                        >
+                          <Link href={item.url}>
+                            <p className="flex items-center gap-1 uppercase leading-[30px] text-nowrap">
+                              <IoIosArrowForward className="icon-subnav" />{" "}
+                              {item.name}
+                            </p>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </li>
+            ))}
           </ul>
 
           <div className="md:flex lg:hidden justify-center py-[10px]">
