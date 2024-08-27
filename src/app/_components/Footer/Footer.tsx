@@ -5,15 +5,16 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <div className="pt-12 pb-6 bg-black dark:bg-[#282828]">
       <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
         <div className="flex flex-col justify-center items-center gap-10">
-          <a href="/#">
+          <Link href="/">
             <img src="/logo.png" alt="logo" className="w-[346px] h-[114px]" />
-          </a>
+          </Link>
 
           <div className="flex items-center gap-[10px] flex-wrap">
             <div className="icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer">
@@ -81,7 +82,7 @@ export default function Footer() {
                 </li>
                 <li className="capitalize">
                   <a href="/#" className="px-[16px]">
-                    About Us
+                    Contact Us
                   </a>
                 </li>
               </ul>

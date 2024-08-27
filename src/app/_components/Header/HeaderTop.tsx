@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import { useContext } from "react";
 import ThemeContext from "@/context/themeContext";
+import Link from "next/link";
 
 const HeaderTop = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
@@ -73,12 +74,12 @@ const HeaderTop = () => {
 
         <div className="flex items-center text-[13px]">
           <div className="md:flex hidden items-center dark:text-[#54595F] text-[#B5B5B5] gap-2 login-box ">
-            <p className="flex items-center gap-2">
+            <Link href="/login" className="flex items-center gap-2">
               <FaRegUser className="text-[#ff1d50] text-[14px] " />{" "}
               <span className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out uppercase text-[13px] mt-[4px]">
                 Login
               </span>
-            </p>
+            </Link>
             <span className="mt-[4px]">/</span>{" "}
             <p className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out uppercase text-[13px] mt-[4px]">
               Register
