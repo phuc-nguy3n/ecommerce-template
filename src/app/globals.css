@@ -59,6 +59,11 @@
   }
 }
 
+.box:hover img {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+}
+
 .gradient-bg {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   display: flex;
@@ -78,10 +83,7 @@ h2.relative .line {
   margin-left: 24px;
 }
 
-.box:hover img {
-  transform: scale(1.1);
-  transition: transform 0.5s ease-in-out;
-}
+
 
 @layer base {
   * {

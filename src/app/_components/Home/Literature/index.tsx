@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
 import { IoArrowBack } from "react-icons/io5";
 import { IoArrowForward } from "react-icons/io5";
+import PostImage from "../../ui/PostImage";
 
 const literatureData = [
   {
@@ -102,39 +103,39 @@ export default function LiteratureSection() {
         >
           {literaturePosts.map((item, index) => (
             <div
-              className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full"
+              className="flex-none px-2 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 w-full"
               key={index}
             >
-              <div className="h-[350px] relative box overflow-hidden">
-                <img
-                  className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
-                  src={item.img}
-                  alt="literature"
-                />
-
-                <div className="absolute top-0 w-full h-[350px] gradient-bg home flex gap-2 flex-col p-[20px]">
-                  <div className="px-[8px] text-white bg-[#00D084] rounded-sm font-semibold w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                    Literature
-                  </div>
-                  <h3 className="text-white text-[18px] font-semibold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-                    {item.title}
-                  </h3>
-
-                  <div className="flex items-center gap-3 text-[#B5B5B5]">
-                    <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                      <FaRegUser />
-                      <p className="mt-0.5">By - Tnews</p>
-                    </span>
-
-                    <span>|</span>
-
-                    <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                      <FaCalendarDays />
-                      <p className="mt-0.5">20 Mar, 2023 </p>
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <PostImage
+                width={{
+                  xl: "full",
+                  lg: "full",
+                  md: "full",
+                  sm: "full",
+                  xs: "full",
+                }}
+                height={{
+                  xl: "[350px]",
+                  lg: "[350px]",
+                  md: "[350px]",
+                  sm: "[350px]",
+                  xs: "[350px]",
+                }}
+                padding={{
+                  xl: "[20px]",
+                  lg: "[20px]",
+                  md: "[20px]",
+                  sm: "[20px]",
+                  xs: "[20px]",
+                }}
+                colorTag={"[#00D084]"}
+                tagPosition={"bottom"}
+                tagName={"Article"}
+                cover={item.img}
+                title={item.title}
+                author={"By - Tnews"}
+                created={"20 Mar, 2023"}
+              />
             </div>
           ))}
         </div>

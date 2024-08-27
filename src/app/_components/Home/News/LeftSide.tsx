@@ -1,5 +1,6 @@
 import { FaRegUser } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
+import PostImage from "../../ui/PostImage";
 
 const LeftSide = () => {
   return (
@@ -72,70 +73,56 @@ const LeftSide = () => {
 
       {/* Second news */}
       <div className="md:col-span-1 col-span-2 flex-2 flex-grow overflow-hidden relative box lg:order-1 xl:order-2">
-        <img
-          className="xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] w-full object-cover transform transition-transform duration-500 hover:scale-105"
-          src="https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="News"
+        <PostImage
+          width={{ xl: "auto", lg: "auto", md: "auto", sm: "auto", xs: "auto" }}
+          height={{
+            xl: "[288px]",
+            lg: "[436px]",
+            md: "[316px]",
+            sm: "[500px]",
+            xs: "[500px]",
+          }}
+          padding={{
+            xl: "[20px]",
+            lg: "[20px]",
+            md: "[20px]",
+            sm: "[20px]",
+            xs: "[20px]",
+          }}
+          colorTag={"[#007BFF]"}
+          tagPosition={"bottom"}
+          tagName={"news"}
+          title={"Game on! Stay ahead with Sports updates"}
+          author={"By - Tnews"}
+          created={"20 Mar, 2023"}
         />
-
-        {/* Overlay */}
-        <div className="absolute top-0 w-full xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] gradient-bg home flex flex-col p-[20px]">
-          <div className="mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#007BFF] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-            News
-          </div>
-
-          <h3 className="text-white mb-[7px] font-semibold text-[18px] leading-[1.364] hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-            Game on! Stay ahead with Sports updates
-          </h3>
-
-          <div className="flex items-center gap-3 text-[#B5B5B5]">
-            <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-              <FaRegUser />
-              <p className="mt-0.5">By - Tnews</p>
-            </span>
-
-            <span>|</span>
-
-            <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-              <FaCalendarDays />
-              <p className="mt-0.5">20 Mar, 2023 </p>
-            </span>
-          </div>
-        </div>
       </div>
 
       {/* Third news */}
       <div className="md:col-span-1 col-span-2 flex-2 flex-grow overflow-hidden relative box lg:order-2 xl:order-3">
-        <img
-          className="xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] w-full object-cover transform transition-transform duration-500 hover:scale-105"
-          src="https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="News"
+        <PostImage
+          width={{ xl: "auto", lg: "auto", md: "auto", sm: "auto", xs: "auto" }}
+          height={{
+            xl: "[288px]",
+            lg: "[436px]",
+            md: "[316px]",
+            sm: "[500px]",
+            xs: "[500px]",
+          }}
+          padding={{
+            xl: "[20px]",
+            lg: "[20px]",
+            md: "[20px]",
+            sm: "[20px]",
+            xs: "[20px]",
+          }}
+          colorTag={"[#007BFF]"}
+          tagPosition={"bottom"}
+          tagName={"news"}
+          title={"Game on! Stay ahead with Sports updates"}
+          author={"By - Tnews"}
+          created={"20 Mar, 2023"}
         />
-
-        {/* Overlay */}
-        <div className="absolute top-0 w-full xl:h-[288px] lg:h-[436px] md:h-[316px] h-[500px] gradient-bg home flex flex-col p-[20px]">
-          <div className="mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#007BFF] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-            News
-          </div>
-
-          <h3 className="text-white mb-[7px] font-semibold text-[18px] leading-[1.364] hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-            Game on! Stay ahead with Sports updates
-          </h3>
-
-          <div className="flex items-center gap-3 text-[#B5B5B5]">
-            <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-              <FaRegUser />
-              <p className="mt-0.5">By - Tnews</p>
-            </span>
-
-            <span>|</span>
-
-            <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-              <FaCalendarDays />
-              <p className="mt-0.5">20 Mar, 2023 </p>
-            </span>
-          </div>
-        </div>
       </div>
     </div>
   );
