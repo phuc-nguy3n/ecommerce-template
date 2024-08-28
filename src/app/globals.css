@@ -32,7 +32,8 @@
 
     /* Customize */
     --text-content-light: #54595F;
-    --top-header-light: #EFEFEF
+    --top-header-light: #EFEFEF;
+    --middle-header-light: #ffffff;
   }
 
   .dark {
@@ -64,6 +65,7 @@
     /* Customize */
     --text-content-dark: #B5B5B5;
     --top-header-dark: #282828;
+    --middle-header-dark: #1e1e1e;
   }
 }
 
