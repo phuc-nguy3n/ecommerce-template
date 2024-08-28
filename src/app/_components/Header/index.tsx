@@ -6,7 +6,7 @@ import HeaderFooter from "./HeaderFooter";
 
 const Header = () => {
   return (
-    <header className="bg-[#282828] dark:bg-[#EFEFEF]">
+    <header className="bg-[--top-header-light]  dark:bg-[--top-header-dark]">
       <HeaderTop />
 
       <HeaderBody />
