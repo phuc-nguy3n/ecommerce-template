@@ -40,33 +40,40 @@ const iconList = [
 ];
 
 const HeaderTop = () => {
-  const flexBoxStyle = "flex lg:justify-between justify-center py-[10px]";
-  const navStyle =
-    "lg:flex hidden text-[--text-content-light] dark:text-[--text-content-dark] text-[13px] privacy-list";
+  const style = {
+    flexBox: "flex lg:justify-between justify-center py-[10px]",
+    navLeft:
+      "lg:flex hidden text-[--text-content-light] dark:text-[--text-content-dark] text-[13px] privacy-list",
+    navItem:
+      "inline-flex items-center gap-2 cursor-pointer hover:text-[--primary] transition-colors duration-300 ease-in-out relative",
+    text: "leading-[18px] font-normal text-[13px] mt-[4px]",
+    navRight:
+      "flex items-center text-[13px] text-[--text-content-light] dark:text-[--text-content-dark]",
+    loginBox: "md:flex hidden items-center gap-2 login-box",
+    textLogin:
+      "hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out uppercase text-[13px] mt-[4px]",
+    iconBox:
+      "flex text-[--text-content-light] dark:text-[--text-content-dark] xl:gap-4 lg:gap-3 md:gap-3 gap-4 text-[16px] mt-[2px]",
+    icon: "hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out",
+  };
 
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   return (
     <Container>
-      <div className={flexBoxStyle}>
-        <ul className={navStyle}>
-          <li className="inline-flex items-center gap-2 cursor-pointer hover:text-[--primary] transition-colors duration-300 ease-in-out relative">
+      <div className={style.flexBox}>
+        <ul className={style.navLeft}>
+          <li className={style.navItem}>
             <FaCalendarDays className="text-[14px] text-[--primary]" />
-            <span className="leading-[18px] font-normal text-[13px] mt-[4px]">
-              20 AUGUST, 2023
-            </span>
+            <span className={style.text}>20 AUGUST, 2023</span>
           </li>
 
-          <li className="inline-flex items-center gap-2 cursor-pointer hover:text-[--primary] transition-colors duration-300 ease-in-out relative">
-            <span className="leading-[18px] font-normal text-[13px] mt-[4px]">
-              PRIVACY POLICY
-            </span>
+          <li className={style.navItem}>
+            <span className={style.text}>PRIVACY POLICY</span>
           </li>
 
-          <li className="inline-flex items-center gap-2 cursor-pointer hover:text-[--primary] transition-colors duration-300 ease-in-out relative">
-            <span className="leading-[18px] font-normal text-[13px] mt-[4px]">
-              TERMS & CONDITIONS
-            </span>
+          <li className={style.navItem}>
+            <span className={style.text}>TERMS & CONDITIONS</span>
           </li>
 
           <li>
@@ -76,12 +83,10 @@ const HeaderTop = () => {
                   setDarkTheme(false);
                   localStorage.removeItem("ecommerce-theme");
                 }}
-                className="inline-flex items-center gap-2 cursor-pointer hover:text-[--primary] transition-colors duration-300 ease-in-out relative"
+                className={style.navItem}
               >
                 <IoMoonSharp className=" text-[14px]" />
-                <span className="leading-[18px] font-normal text-[13px] mt-[4px]">
-                  DARK MODE
-                </span>
+                <span className={style.text}>DARK MODE</span>
               </div>
             ) : (
               <div
@@ -89,37 +94,28 @@ const HeaderTop = () => {
                   setDarkTheme(true);
                   localStorage.setItem("ecommerce-theme", "true");
                 }}
-                className="inline-flex items-center gap-2 cursor-pointer hover:text-[--primary] transition-colors duration-300 ease-in-out relative"
+                className={style.navItem}
               >
-                <MdSunny className=" text-[14px]" />
-                <span className="leading-[18px] font-normal text-[13px] mt-[4px]">
-                  LIGHT MODE
-                </span>
+                <MdSunny className="text-[14px]" />
+                <span className={style.text}>LIGHT MODE</span>
               </div>
             )}
           </li>
         </ul>
 
-        <div className="flex items-center text-[13px] text-[--text-content-light] dark:text-[--text-content-dark]">
-          <div className="md:flex hidden items-center  gap-2 login-box ">
+        <div className={style.navRight}>
+          <div className={style.loginBox}>
             <Link href="/login" className="flex items-center gap-2">
-              <FaRegUser className="text-[--primary] text-[14px] " />{" "}
-              <span className="hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out uppercase text-[13px] mt-[4px]">
-                Login
-              </span>
+              <FaRegUser className="text-[--primary] text-[14px]" />{" "}
+              <span className={style.textLogin}>Login</span>
             </Link>
             <span className="mt-[4px]">/</span>{" "}
-            <p className="hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out uppercase text-[13px] mt-[4px]">
-              Register
-            </p>
+            <p className={style.textLogin}>Register</p>
           </div>
 
-          <ul className="flex text-[--text-content-light] dark:text-[--text-content-dark] xl:gap-4 lg:gap-3 md:gap-3 gap-4 text-[16px] mt-[2px]">
+          <ul className={style.iconBox}>
             {iconList.map((item, index) => (
-              <li
-                key={index}
-                className="hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out"
-              >
+              <li key={index} className={style.icon}>
                 {item.icon}
               </li>
             ))}
