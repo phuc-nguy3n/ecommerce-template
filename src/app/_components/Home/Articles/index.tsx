@@ -28,14 +28,14 @@ export default function ArticlesSection() {
 
       <div className="grid xl:grid-cols-3 grid-cols-2 gap-5">
         <div className="xl:col-span-2 md:col-span-1 col-span-2">
-          <div className="h-[430px] overflow-hidden relative box">
+          <div className="md:h-[430px] h-[300px] overflow-hidden relative box">
             <img
               className="h-full xl:w-[782px] lg:w-[438px] md:w-[318px] w-full object-cover transform transition-transform duration-500 hover:scale-105"
               src="https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew"
               alt="Article"
             />
 
-            <div className="absolute top-0 xl:w-[782px] lg:w-[438px] md:w-[318px] w-full h-[430px] gradient-bg home flex gap-2 flex-col md:p-[30px] p-[20px]">
+            <div className="absolute top-0 xl:w-[782px] lg:w-[438px] md:w-[318px] w-full md:h-[430px] h-[300px] gradient-bg home flex gap-2 flex-col md:p-[30px] p-[20px]">
               <div className="px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#8750A6] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                 Article
               </div>
