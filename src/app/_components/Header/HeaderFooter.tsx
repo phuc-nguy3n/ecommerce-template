@@ -63,6 +63,11 @@ export const navbar: NavbarItemType[] = [
     submenu: [],
   },
   {
+    name: "audio",
+    url: "/audio",
+    submenu: [],
+  },
+  {
     name: "timeline",
     url: "/timeline",
     submenu: [],
