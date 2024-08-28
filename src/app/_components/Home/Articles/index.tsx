@@ -1,6 +1,7 @@
+import "../styles.css";
 import React from "react";
 import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
-import "../styles.css";
+import Container from "../../Container/Container";
 
 const articlePost = [
   {
@@ -19,7 +20,7 @@ const articlePost = [
 
 export default function ArticlesSection() {
   return (
-    <div>
+    <Container>
       <h2 className="relative text-[30px] font-semibold inline-block mb-[33px]">
         Articles
         <span className="line"></span>
@@ -87,6 +88,6 @@ export default function ArticlesSection() {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 }

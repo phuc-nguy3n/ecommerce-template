@@ -23,11 +23,9 @@ const HomePage = () => {
         <LoadingBlock isLoading={loadingPage} />
       ) : (
         <>
-          <Container>
-            <NewsSection />
-            <ArticlesSection />
-            <LiteratureSection />
-          </Container>
+          <NewsSection />
+          <ArticlesSection />
+          <LiteratureSection />
           <VideoSection />
         </>
       )}
