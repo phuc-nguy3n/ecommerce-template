@@ -8,7 +8,7 @@ import { MdOutlineClose, MdOutlineStar } from "react-icons/md";
 const ProductPopup = ({ setShow }: any) => {
   const closeProductPopup = () => {
     setShow(false);
-    document.body.style.overflow = "scroll";
+    document.body.style.overflow = "auto";
   };
 
   return (
