@@ -128,8 +128,6 @@ const navbar: NavbarItemType[] = [
 const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
-  const [isVisible, setIsVisible] = useState(false);
-
   const openMenu = () => {
     const menu = document.getElementById("menu");
     menu!.classList.add("visible-custom");
@@ -163,21 +161,17 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  const handleScroll = () => {
+    const targetElement = document.querySelector("#header-bottom");
 
-    window.addEventListener("scroll", handleScroll);
+    if (window.scrollY > 500) {
+      targetElement!.classList.add("header-visible");
+    } else {
+      targetElement!.classList.remove("header-visible");
+    }
+  };
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  window.addEventListener("scroll", handleScroll);
 
   return (
     <header className={headerBgColor}>
@@ -260,11 +254,7 @@ const Header = () => {
       </div>
 
       {/* <HeaderBottom /> */}
-      <nav
-        className={`bg-black sticky-header ${
-          isVisible ? "header-visible" : ""
-        }`}
-      >
+      <nav id="header-bottom" className="bg-black sticky-header">
         <div className={headerBottomStyle.container}>
           {/* Navbar */}
           <ul className={headerBottomStyle.navbar}>
