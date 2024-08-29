@@ -92,7 +92,6 @@ ul.subnav li:hover .icon-subnav {
 
 
 /* Menu */
-
 .menu-wrap {
     opacity: 0;
     transform: translateX(-100%);
@@ -108,7 +107,7 @@ ul.subnav li:hover .icon-subnav {
     max-height: calc(100vh - 200px);
 }
 
-ul.nav-menu>li span.active {
+ul.nav-menu>li.active span {
     color: #FF1D50;
 }
 

@@ -129,7 +129,39 @@ const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpenMenu, setOpenMenu] = useState<boolean>(false);
+
+  const openMenu = () => {
+    const menu = document.getElementById("menu");
+    menu!.classList.add("visible-custom");
+  };
+
+  const closeMenu = () => {
+    const menu = document.getElementById("menu");
+    menu!.classList.remove("visible-custom");
+  };
+
+  const toggleSubmenu = (index: number) => {
+    const menuNav = document.querySelectorAll("#nav-menu > li");
+
+    if (index >= 0 && index < menuNav.length) {
+      const selectedItem = menuNav[index];
+      const button = selectedItem.querySelector("button");
+      const submenu = selectedItem.querySelector("#subnav-menu");
+      const isActive = selectedItem.classList.toggle("active");
+
+      if (isActive) {
+        button!.textContent = "-";
+        submenu?.classList.add("submenu-open");
+        submenu?.classList.remove("submenu-close");
+      } else {
+        button!.textContent = "+";
+        submenu?.classList.add("submenu-close");
+        submenu?.classList.remove("submenu-open");
+      }
+    } else {
+      console.log("Chỉ mục không hợp lệ");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -234,8 +266,10 @@ const Header = () => {
         }`}
       >
         <div className={headerBottomStyle.container}>
+          {/* Navbar */}
           <ul className={headerBottomStyle.navbar}>
             {navbar.map((item: NavbarItemType, index: number) => (
+              // Item navbar
               <li key={index} className={headerBottomStyle.itemBoxNav}>
                 {item.url ? (
                   <Link
@@ -266,8 +300,10 @@ const Header = () => {
 
                 {item.submenu.length > 0 ? (
                   <div className={headerBottomStyle.subNavWrapper}>
+                    {/* Subnav */}
                     <ul className={headerBottomStyle.subNav}>
                       {item.submenu.map((item: any, index: any) => (
+                        // Item subnav
                         <li
                           className={headerBottomStyle.itemBoxSubnav}
                           key={index}
@@ -307,17 +343,85 @@ const Header = () => {
               </div>
             </div>
 
-            <div
-              className={headerBottomStyle.hamburgerBox}
-              onClick={() => setOpenMenu(true)}
-            >
+            <div className={headerBottomStyle.hamburgerBox} onClick={openMenu}>
               <RxHamburgerMenu className="text-[24px]" />
             </div>
           </div>
         </div>
       </nav>
 
-      <MenuMobile isOpen={isOpenMenu} setOpen={setOpenMenu} />
+      {/* Menu */}
+      <div id="menu" className={menuStyle.overlay}>
+        <div className={menuStyle.menuWrapper}>
+          {/* Close button */}
+          <button className={menuStyle.closeBox} onClick={closeMenu}>
+            <IoCloseOutline className="flex-grow text-[24px]" />
+          </button>
+
+          {/* Logo */}
+          <Link href="/" onClick={closeMenu} className={menuStyle.logoBox}>
+            <img src="/logo.png" alt="logo" className="w-[143px] h-[60px]" />
+          </Link>
+
+          {/* Menu list */}
+          <div className={menuStyle.menuBody}>
+            <ul id="nav-menu" className="nav-menu px-[40px]">
+              {navbar.map((item, index) => (
+                // Item menu
+                <li key={index}>
+                  <div className={menuStyle.itemMenu}>
+                    {item.submenu.length > 0 ? (
+                      <>
+                        <span
+                          className={`${menuStyle.linkItemMenu} 
+                          
+                          `}
+                          onClick={() => toggleSubmenu(index)}
+                        >
+                          <IoIosArrowForward /> {item.name}
+                        </span>
+                        <button
+                          id={`toggle-submenu-${index}`}
+                          className="submenu-btn text-[18px] bg-[#F5F5F5] px-2 rounded-full"
+                          onClick={() => toggleSubmenu(index)}
+                        >
+                          +
+                        </button>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.url}
+                        onClick={closeMenu}
+                        className={menuStyle.linkItemMenu}
+                      >
+                        <IoIosArrowForward /> {item.name}
+                      </Link>
+                    )}
+                  </div>
+
+                  {/* Submenu */}
+                  {item.submenu.length > 0 && (
+                    <ul id="subnav-menu" className={`subnav-menu `}>
+                      {item.submenu.map((subItem, subIndex) => (
+                        // Item submenu
+                        <li className="pl-[20px]" key={subIndex}>
+                          <Link
+                            href={subItem.url}
+                            onClick={closeMenu}
+                            className={menuStyle.linkItemSubMenu}
+                          >
+                            <IoIosArrowForward /> {subItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };

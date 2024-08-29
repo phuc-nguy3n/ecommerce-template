@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background-light: #fff;
+    --background: #ffffff;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -30,20 +30,28 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    /* Customize */
-    --text-content-light: #54595F;
-    --top-header-light: #EFEFEF;
-    --middle-header-light: #ffffff;
+    /* --- Customize --- */
+    /* Common */
+    --text-content: #54595F;
+
+    /* Header */
+    --header-top: #EFEFEF;
+    --header-middle: #ffffff;
+    --subnav: #ffffff;
+    --text-subnav: #080809;
+
+    /* Footer */
   }
 
   .dark {
-    --background-dark: #1e1e1e;
+    --background: #1e1e1e;
+    --background-dark-second: #282828;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
+    --primary: #ff1d50;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -62,10 +70,17 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    /* Customize */
-    --text-content-dark: #B5B5B5;
-    --top-header-dark: #282828;
-    --middle-header-dark: #1e1e1e;
+    /* --- Customize --- */
+    /* Common */
+    --text-content: #B5B5B5;
+
+    /* Header */
+    --header-top: #282828;
+    --header-middle: #1e1e1e;
+    --subnav: #1e1e1e;
+    --text-subnav: #ffffff;
+
+    /* Footer */
   }
 }
 
