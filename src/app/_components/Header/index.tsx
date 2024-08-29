@@ -1,7 +1,13 @@
 "use client";
 
 import "./styles.css";
-import { headerTopStyle, headerMiddleStyle } from "./constantStyle";
+import {
+  headerTopStyle,
+  headerMiddleStyle,
+  headerBgColor,
+  headerBottomStyle,
+  menuStyle,
+} from "../../constantStyle";
 
 import Container from "../Container/Container";
 import { FaCalendarDays } from "react-icons/fa6";
@@ -33,7 +39,7 @@ type SubNavbarItemType = {
   url: string;
 };
 
-export type NavbarItemType = {
+type NavbarItemType = {
   name: string;
   url: string;
   submenu: SubNavbarItemType[];
@@ -67,7 +73,7 @@ const iconList = [
   },
 ];
 
-export const navbar: NavbarItemType[] = [
+const navbar: NavbarItemType[] = [
   {
     name: "home",
     url: "/",
@@ -142,7 +148,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-[--top-header-light]  dark:bg-[--top-header-dark]">
+    <header className={headerBgColor}>
       {/* Header top */}
       <Container>
         <div className={headerTopStyle.flexBox}>
@@ -221,36 +227,37 @@ const Header = () => {
         </div>
       </div>
 
-      {/* <HeaderFooter /> */}
+      {/* <HeaderBottom /> */}
       <nav
         className={`bg-black sticky-header ${
           isVisible ? "header-visible" : ""
         }`}
       >
-        <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px] flex justify-between">
-          <ul className="lg:flex hidden items-center gap-10">
+        <div className={headerBottomStyle.container}>
+          <ul className={headerBottomStyle.navbar}>
             {navbar.map((item: NavbarItemType, index: number) => (
-              <li
-                key={index}
-                className="group py-[17px] text-[14px] font-medium text-white hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
-              >
+              <li key={index} className={headerBottomStyle.itemBoxNav}>
                 {item.url ? (
                   <Link
-                    className="inline-flex items-center gap-1"
+                    className={headerBottomStyle.linkWrapperNav}
                     href={item.url}
                   >
-                    <span className="uppercase">{item.name}</span>{" "}
+                    <span className={headerBottomStyle.textLinkNav}>
+                      {item.name}
+                    </span>{" "}
                     {item.submenu.length > 0 ? (
-                      <IoIosArrowDown className="arrow-icon" />
+                      <IoIosArrowDown className={headerBottomStyle.arrowIcon} />
                     ) : (
                       ""
                     )}
                   </Link>
                 ) : (
-                  <div className="inline-flex items-center gap-1">
-                    <span className="uppercase">{item.name}</span>{" "}
+                  <div className={headerBottomStyle.linkWrapperNav}>
+                    <span className={headerBottomStyle.textLinkNav}>
+                      {item.name}
+                    </span>{" "}
                     {item.submenu.length > 0 ? (
-                      <IoIosArrowDown className="arrow-icon" />
+                      <IoIosArrowDown className={headerBottomStyle.arrowIcon} />
                     ) : (
                       ""
                     )}
@@ -258,15 +265,15 @@ const Header = () => {
                 )}
 
                 {item.submenu.length > 0 ? (
-                  <div className="relative subnav-block">
-                    <ul className="w-[230px] subnav absolute top-[18px] left-[-18px] p-[18px] pr-[20px] border-t-[3px] border-[#ff1d50] text-[#080809] dark:text-white text-[14px] bg-[#fff] dark:bg-[#282828]">
+                  <div className={headerBottomStyle.subNavWrapper}>
+                    <ul className={headerBottomStyle.subNav}>
                       {item.submenu.map((item: any, index: any) => (
                         <li
-                          className="hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out"
+                          className={headerBottomStyle.itemBoxSubnav}
                           key={index}
                         >
                           <Link href={item.url}>
-                            <p className="flex items-center gap-1 uppercase leading-[30px] text-nowrap">
+                            <p className={headerBottomStyle.textLinkSubnav}>
                               <IoIosArrowForward className="icon-subnav" />{" "}
                               {item.name}
                             </p>
@@ -282,33 +289,34 @@ const Header = () => {
             ))}
           </ul>
 
-          <div className="md:flex lg:hidden justify-center py-[10px]">
+          <div className={headerBottomStyle.logoBox}>
             <img
               src="/logo.png"
               alt="logo"
-              className="cursor-pointer w-[143px] h-[60px]"
+              className={headerBottomStyle.logo}
             />
           </div>
 
-          <div className="flex items-center lg:gap-10 gap-[20px]">
-            <div className="flex gap-4 text-white">
-              <div className="search-box hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
+          <div className="flex items-center lg:gap-10 sm:gap-[20px] gap-[14px]">
+            <div className="flex sm:gap-4 gap-2 text-white ml-[5px]">
+              <div className={`search-box  ${headerBottomStyle.btn}`}>
                 <IoSearch className="text-[26px]" />
               </div>
-              <div className="cart-box hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
+              <div className={`cart-box ${headerBottomStyle.btn}`}>
                 <GrCart className="text-[24px]" />
               </div>
             </div>
 
             <div
-              className="menu-box cursor-pointer bg-[#ff1d50] p-[17px] text-white lg:hidden md:block"
+              className="menu-box cursor-pointer bg-[#ff1d50] sm:p-[17px] p-[10px] text-white lg:hidden md:block"
               onClick={() => setOpenMenu(true)}
             >
-              <RxHamburgerMenu className="text-[24px] " />
+              <RxHamburgerMenu className="text-[24px]" />
             </div>
           </div>
         </div>
       </nav>
+
       <MenuMobile isOpen={isOpenMenu} setOpen={setOpenMenu} />
     </header>
   );
@@ -322,14 +330,11 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
   };
 
   return (
-    <div
-      className={`menu-wrap fixed top-0 right-0 left-0 bottom-0 w-full h-full bg-black bg-opacity-50 z-[9999] ${
-        isOpen ? "visible-custom" : ""
-      }`}
-    >
-      <div className="max-w-[310px] w-full bg-white h-full relative z-[1] opacity-1 border-r-[3px] border-[#FF1D50]">
+    <div className={`${menuStyle.overlay} ${isOpen ? "visible-custom" : ""}`}>
+      <div className={menuStyle.menuWrapper}>
+        {/* Close button */}
         <button
-          className="absolute right-[-16.5px] top-[25px] w-[33px] h-[33px] text-[18px] bg-[#FF1D50] text-white rounded-full flex items-center justify-between"
+          className={menuStyle.closeBox}
           onClick={() => {
             setOpen(false);
           }}
@@ -337,21 +342,28 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
           <IoCloseOutline className="flex-grow text-[24px]" />
         </button>
 
-        <div className="pt-[40px] pb-[30px] flex justify-center bg-[#EFF3FA]">
-          <div className="cursor-pointer">
-            <img src="/logo.png" alt="logo" className="w-[143px] h-[60px]" />
-          </div>
-        </div>
+        {/* Logo */}
+        <Link
+          href="/"
+          onClick={() => {
+            setOpen(false);
+          }}
+          className={menuStyle.logoBox}
+        >
+          <img src="/logo.png" alt="logo" className="w-[143px] h-[60px]" />
+        </Link>
 
-        <div className="menu-body overflow-y-scroll pb-[40px] mt-[33px]">
+        {/* Menu list */}
+        <div className={menuStyle.menuBody}>
           <ul className="nav-menu px-[40px]">
             {navbar.map((item, index) => (
+              // Item menu
               <li key={index}>
-                <div className="flex items-center justify-between py-[12px]">
+                <div className={menuStyle.itemMenu}>
                   {item.submenu.length > 0 ? (
                     <>
                       <span
-                        className={`flex items-center gap-1 cursor-pointer capitalize ${
+                        className={`${menuStyle.linkItemMenu} ${
                           activeMenu === item.name ? "active" : ""
                         }`}
                         onClick={() => toggleSubmenu(item.name)}
@@ -371,7 +383,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
                       onClick={() => {
                         setOpen(false);
                       }}
-                      className="flex items-center gap-1 cursor-pointer capitalize"
+                      className={menuStyle.linkItemMenu}
                     >
                       <IoIosArrowForward /> {item.name}
                     </Link>
@@ -388,6 +400,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
                     }`}
                   >
                     {item.submenu.map((subItem, subIndex) => (
+                      // Item submenu
                       <li className="pl-[20px]" key={subIndex}>
                         <Link
                           href={subItem.url}
@@ -395,7 +408,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
                             setOpen(false);
                             setActiveMenu(null);
                           }}
-                          className="flex items-center gap-1 cursor-pointer py-[12px] capitalize"
+                          className={menuStyle.linkItemSubMenu}
                         >
                           <IoIosArrowForward /> {subItem.name}
                         </Link>
