@@ -33,12 +33,16 @@
     /* --- Customize --- */
     /* Common */
     --text-content: #54595F;
+    --text-time: #B5B5B5;
 
     /* Header */
     --header-top: #EFEFEF;
     --header-middle: #ffffff;
     --subnav: #ffffff;
     --text-subnav: #080809;
+
+    /* Home */
+    --home-bg: #ffffff;
 
     /* Footer */
   }
@@ -79,6 +83,9 @@
     --header-middle: #1e1e1e;
     --subnav: #1e1e1e;
     --text-subnav: #ffffff;
+
+    /* Home */
+    --home-bg: #1e1e1e;
 
     /* Footer */
   }

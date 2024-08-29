@@ -5,8 +5,8 @@ import NewsSection from "./News";
 import ArticlesSection from "./Articles";
 import LiteratureSection from "./Literature";
 import VideoSection from "./Videos";
-import Container from "../Container/Container";
 import LoadingBlock from "../LoadingBlock";
+import { homeStyle } from "@/app/constantStyle";
 
 const HomePage = () => {
   const [loadingPage, setLoadingPage] = useState(true);
@@ -18,7 +18,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-[#1e1e1e]">
+    <div className={homeStyle.backgroundColor}>
       {loadingPage ? (
         <LoadingBlock isLoading={loadingPage} />
       ) : (
