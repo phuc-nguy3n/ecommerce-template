@@ -308,7 +308,7 @@ const Header = () => {
             </div>
 
             <div
-              className="menu-box cursor-pointer bg-[#ff1d50] sm:p-[17px] p-[10px] text-white lg:hidden md:block"
+              className={headerBottomStyle.hamburgerBox}
               onClick={() => setOpenMenu(true)}
             >
               <RxHamburgerMenu className="text-[24px]" />

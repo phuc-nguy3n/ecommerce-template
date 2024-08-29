@@ -45,6 +45,8 @@ export const headerBottomStyle = {
   logoBox: "md:flex lg:hidden justify-center py-[10px]",
   logo: "cursor-pointer sm:w-[143px] w-[130px] sm:h-[60px] h-[44px]",
   btn: "hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out",
+  hamburgerBox:
+    "cursor-pointer bg-[#ff1d50] sm:p-[17px] p-[10px] text-white lg:hidden md:block",
 };
 
 export const menuStyle = {
