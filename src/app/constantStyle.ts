@@ -63,7 +63,8 @@ export const menuStyle = {
 
 export const homeStyle = {
   backgroundColor: "bg-[--home-bg]",
-  heading: "relative inline-block mb-[33px] font-semibold text-[30px]",
+  heading:
+    "relative inline-block md:mb-[33px] mb-[24px] font-semibold text-[30px]",
   tag: "px-[8px] rounded-[3px] bg-[#007BFF] hover:bg-black w-fit uppercase font-bold text-[12px] leading-[26px] text-white cursor-pointer transition-colors duration-300 ease-in-out",
   timeBoxOne: "flex items-center gap-3",
   timeBoxTwo:
@@ -109,7 +110,7 @@ export const homeStyle = {
     },
   },
   article: {
-    wrapper: "grid grid-cols-12 gap-5",
+    wrapper: "grid grid-cols-12 md:gap-5 gap-7",
     imgBox:
       "box relative md:h-[430px] md:h-[300px] h-[250px] w-full overflow-hidden",
     img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
