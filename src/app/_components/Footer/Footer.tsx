@@ -6,60 +6,50 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import Link from "next/link";
+import Container from "../Container/Container";
+import { footerStyle } from "@/app/constantStyle";
 
 export default function Footer() {
   return (
-    <div className="pt-12 pb-6 bg-black dark:bg-[#282828]">
-      <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
+    <div className={footerStyle.wrapper}>
+      <Container>
         <div className="flex flex-col justify-center items-center gap-10">
           <Link href="/">
-            <img src="/logo.png" alt="logo" className="w-[346px] h-[114px]" />
+            <img src="/logo.png" alt="logo" className={footerStyle.logo} />
           </Link>
 
-          <div className="flex items-center gap-[10px] flex-wrap">
-            <div className="icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer">
+          <div className={footerStyle.socialMedia}>
+            <div className={footerStyle.icon}>
               <FaFacebookF className="text-white" />
             </div>
 
-            <div className="icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer">
+            <div className={footerStyle.icon}>
               <FaTwitter className="text-white" />
             </div>
 
-            <div className="icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer">
+            <div className={footerStyle.icon}>
               <FaLinkedinIn className="text-white" />
             </div>
 
-            <div className="icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer">
+            <div className={footerStyle.icon}>
               <FaInstagram className="text-white" />
             </div>
 
-            <div className="icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer">
+            <div className={footerStyle.icon}>
               <FaYoutube className="text-white" />
             </div>
           </div>
 
-          <nav className="flex items-center gap-[30px] text-white flex-wrap justify-center">
-            <a href="/#" className="uppercase">
-              home
-            </a>
-            <a href="/#" className="uppercase">
-              features
-            </a>
-            <a href="/#" className="uppercase">
-              category
-            </a>
-            <a href="/#" className="uppercase">
-              posts
-            </a>
-            <a href="/#" className="uppercase">
-              gadgets
-            </a>
-            <a href="/#" className="uppercase">
-              contact
-            </a>
+          <nav className={footerStyle.navbar}>
+            <a href="/#">home</a>
+            <a href="/#">features</a>
+            <a href="/#">category</a>
+            <a href="/#">posts</a>
+            <a href="/#">gadgets</a>
+            <a href="/#">contact</a>
           </nav>
 
-          <div className="flex lg:flex-row flex-col lg:gap-0 gap-6 items-center justify-between text-[#838f92] flex-grow w-full text-[12px]">
+          <div className={footerStyle.copyrightBox}>
             <p className="text-center lg:order-1 order-2">
               Copyright © 2024 HIMMLISCHES JERUSALEM. All rights reserved.
             </p>
@@ -89,7 +79,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

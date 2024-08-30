@@ -61,6 +61,17 @@ export const menuStyle = {
     "flex items-center gap-1 cursor-pointer py-[12px] capitalize",
 };
 
+export const footerStyle = {
+  wrapper: "pt-12 pb-6 bg-[--footer-bg]",
+  logo: "w-[346px] h-[114px]",
+  socialMedia: "flex items-center justify-center gap-[10px] flex-wrap",
+  icon: "icon-box p-[14px] rounded-full bg-[#363739] cursor-pointer",
+  navbar:
+    "flex items-center gap-[30px] text-white flex-wrap justify-center uppercase",
+  copyrightBox:
+    "flex lg:flex-row flex-col lg:gap-0 gap-6 items-center justify-between text-[#838f92] flex-grow w-full text-[12px]",
+};
+
 export const homeStyle = {
   backgroundColor: "bg-[--home-bg]",
   heading:

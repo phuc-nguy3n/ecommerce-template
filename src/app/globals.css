@@ -45,6 +45,7 @@
     --home-bg: #ffffff;
 
     /* Footer */
+    --footer-bg: #000000;
   }
 
   .dark {
@@ -88,6 +89,7 @@
     --home-bg: #1e1e1e;
 
     /* Footer */
+    --footer-bg: #282828;
   }
 }
 
