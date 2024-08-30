@@ -181,3 +181,19 @@ export const homeStyle = {
       "text-white md:text-[24px] text-[18px] font-semibold xl:mb-[15px] lg:mb-[10px] mb-[15px] lg:line-clamp-1 md:line-clamp-2",
   },
 };
+
+export const audioStyle = {
+  tag: "px-[8px] rounded-[3px] bg-[#007BFF] hover:bg-black w-fit uppercase font-bold text-[12px] leading-[26px] text-white cursor-pointer transition-colors duration-300 ease-in-out",
+  listPost:
+    "grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px]",
+  imgBox:
+    "md:mb-[25px] mb-[16px] overflow-hidden w-full h-[250px] relative box",
+  img: "w-full h-[250px] object-cover",
+  overlay:
+    "cursor-pointer absolute top-0 w-full h-[250px] gradient-bg video flex flex-col p-[20px] justify-start",
+  title:
+    "md:text-[20px] text-[14px] leading-[1.8] font-bold md:mb-[8px] cursor-pointer hover:text-[--primary] text-center line-clamp-3",
+  timeBox: "flex items-center gap-3 justify-center",
+  textTime:
+    "flex items-center gap-1 font-semibold md:text-[14px] text-[12px] text-[--text-time] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out",
+};
