@@ -136,6 +136,22 @@ const Header = () => {
   const closeMenu = () => {
     const menu = document.getElementById("menu");
     menu!.classList.remove("visible-custom");
+
+    const allSubmenus = document.querySelectorAll("#subnav-menu");
+    allSubmenus.forEach((submenu) => {
+      submenu.classList.remove("submenu-open");
+      submenu.classList.add("submenu-close");
+    });
+
+    const allButtons = document.querySelectorAll("#nav-menu > li button");
+    allButtons.forEach((button) => {
+      button.textContent = "+";
+    });
+
+    const menuNav = document.querySelectorAll("#nav-menu > li");
+    menuNav.forEach((item) => {
+      item.classList.remove("active");
+    });
   };
 
   const toggleSubmenu = (index: number) => {
