@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
+import { FaCalendarDays, FaRegUser, FaPlay } from "react-icons/fa6";
 import { IoArrowForward } from "react-icons/io5";
 import LoadingBlock from "../../LoadingBlock";
 import Breadcrumb from "../../ui/Breadcrumb";
@@ -115,6 +115,11 @@ const VideoOverview = () => {
                       <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                         {item.tagName}
                       </div>
+                    </div>
+
+                    {/* Play button */}
+                    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-4 bg-white hover:bg-[--primary] hover:text-white rounded-full cursor-pointer">
+                      <FaPlay className="text-lg" />
                     </div>
                   </div>
                   <h3 className="text-[20px] leading-[1.8] font-bold mb-[15px] cursor-pointer hover:text-[#ff1d50]">
