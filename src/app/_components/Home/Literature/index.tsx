@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import Container from "../../Container/Container";
+import { homeStyle } from "@/app/constantStyle";
 
 const literatureData = [
   {
@@ -76,20 +77,20 @@ export default function LiteratureSection() {
   return (
     <Container>
       <div className="py-[60px]">
-        <h2 className="relative text-[30px] font-semibold inline-block mb-[33px]">
+        <h2 className={homeStyle.heading}>
           Literature
           <span className="line mr-[24px]"></span>
-          <div className="flex items-center gap-2">
+          <div className={homeStyle.literature.arrowIconBox}>
             <div
               onClick={scrollLeft}
-              className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out"
+              className={homeStyle.literature.arrowIcon}
             >
               <IoArrowBack className="text-[18px]" />
             </div>
 
             <div
               onClick={scrollRight}
-              className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out"
+              className={homeStyle.literature.arrowIcon}
             >
               <IoArrowForward className="text-[18px]" />
             </div>
@@ -97,39 +98,31 @@ export default function LiteratureSection() {
         </h2>
 
         <div className="relative">
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3"
-          >
+          <div ref={scrollRef} className={homeStyle.literature.postList}>
             {literaturePosts.map((item, index) => (
-              <div
-                className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full"
-                key={index}
-              >
-                <div className="h-[350px] relative box overflow-hidden">
+              // Item
+              <div className={homeStyle.literature.postItem} key={index}>
+                <div className={homeStyle.literature.imgBox}>
                   <img
-                    className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
+                    className={homeStyle.literature.img}
                     src={item.img}
                     alt="literature"
                   />
 
-                  <div className="absolute top-0 w-full h-[350px] gradient-bg home flex gap-2 flex-col p-[20px]">
-                    <div className="px-[8px] text-white bg-[#00D084] rounded-sm font-semibold w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                      Literature
-                    </div>
-                    <h3 className="text-white text-[18px] font-semibold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out">
-                      {item.title}
-                    </h3>
+                  {/* Overlay */}
+                  <div className={homeStyle.literature.overlay}>
+                    <div className={homeStyle.tag}>Literature</div>
+                    <h3 className={homeStyle.literature.title}>{item.title}</h3>
 
-                    <div className="flex items-center gap-3 text-[#B5B5B5]">
-                      <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                    <div className={homeStyle.timeBoxOne}>
+                      <span className={homeStyle.textTimeOne}>
                         <FaRegUser />
                         <p className="mt-0.5">By - Tnews</p>
                       </span>
 
-                      <span>|</span>
+                      <span className="text-[--text-time]">|</span>
 
-                      <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                      <span className={homeStyle.textTimeOne}>
                         <FaCalendarDays />
                         <p className="mt-0.5">20 Mar, 2023 </p>
                       </span>

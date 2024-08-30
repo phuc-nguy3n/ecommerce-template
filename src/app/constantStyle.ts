@@ -115,7 +115,7 @@ export const homeStyle = {
       "box relative md:h-[430px] md:h-[300px] h-[250px] w-full overflow-hidden",
     img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
     overlay:
-      "gradient-bg home absolute top-0 flex flex-col gap-2 md:h-[430px] md:h-[300px] h-[250px] w-full md:p-[30px] md:p-[20px] p-[10px]",
+      "gradient-bg home absolute top-0 flex flex-col gap-2 md:h-[430px] md:h-[300px] h-[250px] w-full md:p-[30px] p-[10px]",
     titleMain:
       "font-semibold md:text-[24px] text-[18px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3",
     seCondImgBox:
@@ -125,5 +125,21 @@ export const homeStyle = {
     contentBox: "flex flex-col justify-between",
     titleSecond:
       "font-bold lg:text-[16px] text-[14px] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out lg:line-clamp-2 md:line-clamp-3 line-clamp-2",
+  },
+
+  literature: {
+    arrowIconBox: "flex items-center gap-2",
+    arrowIcon:
+      "p-2 rounded-full border hover:bg-[--primary] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out",
+    postList:
+      "flex -mx-3 overflow-x-hidden scroll-smooth snap-x snap-mandatory",
+    postItem:
+      "flex-none xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full px-3 snap-start",
+    imgBox: "box relative md:h-[350px] h-[250px] overflow-hidden",
+    img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
+    overlay:
+      "gradient-bg home absolute top-0 flex flex-col gap-2 md:h-[350px] h-[250px] w-full md:p-[20px] p-[10px]",
+    title:
+      "font-semibold text-[18px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3",
   },
 };
