@@ -142,4 +142,31 @@ export const homeStyle = {
     title:
       "font-semibold text-[18px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3",
   },
+
+  video: {
+    wrapper: "mb-[1px] py-[60px] bg-black",
+    postList:
+      "video-list xl:col-span-4 lg:col-span-2 col-span-4 lg:mb-0 mb-[24px] lg:pr-[15px] md:pr-0",
+    itemBox:
+      "lg:block grid grid-cols-4 lg:gap-0 sm:gap-[24px] gap-[10px] xl:space-y-[20px] lg:space-y-[24px]",
+    imgBox:
+      "flex-2 lg:flex-grow-0 flex-grow lg:w-[100px] w-full md:h-[100px] h-[80px] lg:mb-0 mb-[24px] relative overflow-hidden box",
+    img: "w-full md:h-[100px] h-[80px] object-cover transform transition-transform duration-500 hover:scale-105",
+    overlay:
+      "absolute top-0 w-full md:h-[100px] h-[80px] flex flex-col md:p-[30px] p-[10px] bg-black bg-opacity-[0.3] items-center justify-center",
+    playDisplayBox: "relative w-full h-full flex items-center justify-center",
+    btn: "pl-3 pr-2 py-2.5 rounded-full absolute",
+    titleSecond:
+      "text-[17px] leading-[1.4] mt-0.5 font-semibold text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
+    imgBoxMain: "xl:mb-[32px] lg:mb-[28px] mb-[32px] relative",
+    imgMain: "md:h-[376px] h-[250px] w-full object-cover",
+    overlayMain:
+      "absolute top-0 w-full md:h-[376px] h-[250px] flex flex-col p-[30px] bg-black bg-opacity-[0.3] items-center justify-center",
+    overlayWrapperMain:
+      "relative w-full h-full flex items-center justify-center btn-box",
+    btnActive:
+      "bg-white pl-4 pr-3 py-[14px] rounded-full btn-play absolute top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 hover:text-white hover:bg-[--primary] transition-colors duration-300 ease-in-out",
+    titleMain:
+      "text-white md:text-[24px] text-[18px] font-semibold xl:mb-[15px] lg:mb-[10px] mb-[15px] lg:line-clamp-1 md:line-clamp-2",
+  },
 };
