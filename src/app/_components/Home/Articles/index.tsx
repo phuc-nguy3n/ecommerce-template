@@ -2,10 +2,11 @@ import "../styles.css";
 import React from "react";
 import { FaCalendarDays, FaRegUser } from "react-icons/fa6";
 import Container from "../../Container/Container";
+import { homeStyle } from "@/app/constantStyle";
 
 const articlePost = [
   {
-    img: "https://media.istockphoto.com/id/855022728/vi/anh/quang-c%E1%BA%A3nh-cao-nguy%C3%AAn-soni-kougen-%E1%BB%9F-nh%E1%BA%ADt-b%E1%BA%A3n.jpg?s=612x612&w=0&k=20&c=pkZQREqcMbOv7jwWrKs5D0fUWyjlP4RaU_qYQLE772U=",
+    img: "https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew",
     title: "Chinese flying car producer raises $150M",
   },
   {
@@ -21,37 +22,38 @@ const articlePost = [
 export default function ArticlesSection() {
   return (
     <Container>
-      <h2 className="relative text-[30px] font-semibold inline-block mb-[33px]">
+      <h2 className={homeStyle.heading}>
         Articles
         <span className="line"></span>
       </h2>
 
-      <div className="grid xl:grid-cols-3 grid-cols-2 gap-5">
-        <div className="xl:col-span-2 md:col-span-1 col-span-2">
-          <div className="md:h-[430px] h-[300px] overflow-hidden relative box">
+      <div className={homeStyle.article.wrapper}>
+        {/* Main article */}
+        <div className="xl:col-span-7 md:col-span-6 col-span-12">
+          {/* Img box */}
+          <div className={homeStyle.article.imgBox}>
             <img
-              className="h-full xl:w-[782px] lg:w-[438px] md:w-[318px] w-full object-cover transform transition-transform duration-500 hover:scale-105"
+              className={homeStyle.article.img}
               src="https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew"
-              alt="Article"
+              alt="article"
             />
 
-            <div className="absolute top-0 xl:w-[782px] lg:w-[438px] md:w-[318px] w-full md:h-[430px] h-[300px] gradient-bg home flex gap-2 flex-col md:p-[30px] p-[20px]">
-              <div className="px-[8px] leading-[26px] text-[12px] font-bold uppercase  text-white bg-[#8750A6] rounded-[3px]  w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                Article
-              </div>
-              <h3 className="text-white md:text-[24px] text-[18px] font-semibold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3">
+            {/* Overlay */}
+            <div className={homeStyle.article.overlay}>
+              <div className={homeStyle.tag}>Article</div>
+              <h3 className={homeStyle.article.titleMain}>
                 Your life, upgraded - gadgets Make it extraordinary
               </h3>
 
-              <div className="flex items-center gap-3 text-[#B5B5B5]">
-                <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+              <div className={homeStyle.timeBoxOne}>
+                <span className={homeStyle.textTimeOne}>
                   <FaRegUser />
                   <p className="mt-0.5">By - Tnews</p>
                 </span>
 
-                <span>|</span>
+                <span className="text-[--text-time]">|</span>
 
-                <span className="text-[14px] font-semibold flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
+                <span className={homeStyle.textTimeOne}>
                   <FaCalendarDays />
                   <p className="mt-0.5">20 Mar, 2023 </p>
                 </span>
@@ -59,34 +61,35 @@ export default function ArticlesSection() {
             </div>
           </div>
         </div>
-        <div className="xl:col-span-1 md:col-span-1 col-span-2 flex flex-col gap-5">
+        {/* Some articles */}
+        <ul className="xl:col-span-5 md:col-span-6 col-span-12 flex flex-col gap-5">
           {articlePost.map((item, index) => (
-            <div className="flex gap-3" key={index}>
-              <div className="md:w-[250px] w-[130px] h-[130px] overflow-hidden">
+            <li className="flex gap-3" key={index}>
+              {/* Img box */}
+              <div className={homeStyle.article.seCondImgBox}>
                 <img
-                  className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
+                  className={homeStyle.article.secondImg}
                   src={item.img}
                   alt="aricle"
                 />
               </div>
 
-              <div className="flex flex-col justify-between">
-                <div>
-                  <div className="mb-[9px] px-[8px] leading-[26px] text-[12px] font-bold uppercasetext-white bg-[#8750A6] rounded-[3px] w-fit text-white hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                    Article
-                  </div>
-                  <h3 className="font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
+              {/* Content box */}
+              <div className={homeStyle.article.contentBox}>
+                <div className="title-area">
+                  <div className={`mb-[9px] ${homeStyle.tag}`}>Article</div>
+                  <h3 className={homeStyle.article.titleSecond}>
                     {item.title}
                   </h3>
                 </div>
 
-                <span className="flex items-center gap-2 text-gray-400 text-[14px] hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out w-fit font-medium">
+                <span className={homeStyle.timeBoxTwo}>
                   <FaCalendarDays /> <p className="mt-0.5">20 Mar, 2024</p>
                 </span>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </Container>
   );

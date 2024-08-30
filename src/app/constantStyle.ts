@@ -67,7 +67,7 @@ export const homeStyle = {
   tag: "px-[8px] rounded-[3px] bg-[#007BFF] hover:bg-black w-fit uppercase font-bold text-[12px] leading-[26px] text-white cursor-pointer transition-colors duration-300 ease-in-out",
   timeBoxOne: "flex items-center gap-3",
   timeBoxTwo:
-    "flex items-center justify-start gap-1 font-medium text-[14px] text-[--text-time] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out ",
+    "flex items-center justify-start gap-1 font-medium md:text-[14px] text-[12px] text-[--text-time] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out ",
   textTimeOne:
     "flex items-center gap-1 font-semibold md:text-[14px] text-[12px] text-[--text-time] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out",
   news: {
@@ -78,12 +78,12 @@ export const homeStyle = {
       overlay:
         "gradient-bg home absolute top-0 flex flex-col xl:h-[360px] md:h-[500px] h-[250px] xl:w-[555px] lg:w-[560px] w-full md:p-[30px] p-[10px]",
       titleOverlay:
-        "mb-[10px] font-semibold md:text-[24px] text-[18px] leading-[1.417] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out  line-clamp-2",
+        "mb-[10px] font-semibold md:text-[24px] text-[18px] leading-[1.417] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
       previewBox:
         "lg:flex flex-1 flex-col justify-between hidden xl:px-[30px] xl:py-[20px] lg:p-[20px] xl:h-[360px] lg:h-[500px] bg-gray-100 dark:bg-[#393939]",
       titlePreview:
         "mb-[15px] font-bold text-[30px] hover:text-[--primary] leading-[1.417] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-4",
-      contentPreview: "font-medium text-[#7e848d] leading-[1.75] line-clamp-3",
+      contentPreview: "font-medium text-[#7e848d] leading-[1.75] line-clamp-5",
     },
     secondNews: {
       imgBox:
@@ -102,10 +102,27 @@ export const homeStyle = {
       contentBox: "flex flex-col justify-between flex-1 text-right order-2",
       title:
         "lg:mb-0 md:mb-[5px] font-semibold text-left text-[14px] leading-[1.4] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out xl:line-clamp-3 line-clamp-2",
-      imgBox: "relative box w-[100px] h-[100px] overflow-hidden order-1",
+      imgBox: "relative box  w-[100px] h-[100px] overflow-hidden order-1",
       img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
       overlay:
         "gradient-bg absolute flex flex-col top-0 h-[100px] w-full p-[8px]",
     },
+  },
+  article: {
+    wrapper: "grid grid-cols-12 gap-5",
+    imgBox:
+      "box relative md:h-[430px] md:h-[300px] h-[250px] w-full overflow-hidden",
+    img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
+    overlay:
+      "gradient-bg home absolute top-0 flex flex-col gap-2 md:h-[430px] md:h-[300px] h-[250px] w-full md:p-[30px] md:p-[20px] p-[10px]",
+    titleMain:
+      "font-semibold md:text-[24px] text-[18px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3",
+    seCondImgBox:
+      "md:h-[130px] h-[100px] lg:min-w-[150px] lg:w-[150px] md:min-w-[130px] md:w-[130px] min-w-[100px] w-[100px] overflow-hidden",
+    secondImg:
+      "w-full h-full object-cover transform transition-transform duration-500 hover:scale-105",
+    contentBox: "flex flex-col justify-between",
+    titleSecond:
+      "font-bold lg:text-[16px] text-[14px] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out lg:line-clamp-2 md:line-clamp-3 line-clamp-2",
   },
 };
