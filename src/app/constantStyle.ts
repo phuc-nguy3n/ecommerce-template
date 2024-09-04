@@ -61,6 +61,17 @@ export const menuStyle = {
     "flex items-center gap-1 cursor-pointer py-[12px] capitalize",
 };
 
+export const searchPopupStyle = {
+  overlay:
+    "search-popup fixed top-0 right-0 left-0 bottom-0 w-full h-full bg-black bg-opacity-95 z-[9999] transition-opacity duration-500",
+  wrapper: "flex justify-center items-center h-full relative",
+  btnClose:
+    "p-3 border border-[--primary] rounded-full absolute top-10 right-10 hover:bg-white hover:border-none",
+  input:
+    "md:w-[600px] w-full rounded-full p-5 md:pl-7 pl-5  md:pr-14 pr-12 bg-transparent border border-[--primary] outline-none text-white md:text-lg text-base",
+  btnSubmit: "absolute top-[50%] md:right-5 right-4 -translate-y-[50%]",
+};
+
 export const footerStyle = {
   wrapper: "pt-12 pb-6 bg-[--footer-bg]",
   logo: "w-[346px] h-[114px]",

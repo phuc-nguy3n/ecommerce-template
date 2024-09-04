@@ -7,18 +7,13 @@ import {
   headerBgColor,
   headerBottomStyle,
   menuStyle,
+  searchPopupStyle,
 } from "../../constantStyle";
 
 import Container from "../Container/Container";
 import { FaCalendarDays } from "react-icons/fa6";
 import ThemeContext from "@/context/themeContext";
-import {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 import { IoCloseOutline, IoMoonSharp, IoSearch } from "react-icons/io5";
 import { MdSunny } from "react-icons/md";
 import Link from "next/link";
@@ -127,6 +122,7 @@ const navbar: NavbarItemType[] = [
 
 const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+  const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false);
 
   const openMenu = () => {
     const menu = document.getElementById("menu");
@@ -341,7 +337,10 @@ const Header = () => {
 
           <div className="flex items-center lg:gap-10 sm:gap-[20px] gap-[14px]">
             <div className="flex sm:gap-4 gap-2 text-white ml-[5px]">
-              <div className={`search-box  ${headerBottomStyle.btn}`}>
+              <div
+                className={`search-box  ${headerBottomStyle.btn}`}
+                onClick={() => setIsSearchPopupOpen(true)}
+              >
                 <IoSearch className="text-[26px]" />
               </div>
               <div className={`cart-box ${headerBottomStyle.btn}`}>
@@ -355,6 +354,34 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+      {/* Search Box */}
+      <div
+        className={` ${searchPopupStyle.overlay} ${
+          isSearchPopupOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className={searchPopupStyle.wrapper}>
+          <button
+            onClick={() => setIsSearchPopupOpen(false)}
+            className={searchPopupStyle.btnClose}
+          >
+            <IoCloseOutline className="text-[--primary] text-3xl hover:text-black" />
+          </button>
+
+          <div className="relative">
+            <input
+              type="text"
+              className={searchPopupStyle.input}
+              placeholder="What are you looking for?"
+            />
+
+            <button type="submit" className={searchPopupStyle.btnSubmit}>
+              <IoSearch className="text-white md:text-3xl text-2xl" />
+            </button>
+          </div>
+        </div>
+      </div>
 
       {/* Menu */}
       <div id="menu" className={menuStyle.overlay}>
@@ -429,109 +456,6 @@ const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
-
-const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, setOpen }) => {
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
-
-  const toggleSubmenu = (menuName: string) => {
-    setActiveMenu(activeMenu === menuName ? null : menuName);
-  };
-
-  return (
-    <div className={`${menuStyle.overlay} ${isOpen ? "visible-custom" : ""}`}>
-      <div className={menuStyle.menuWrapper}>
-        {/* Close button */}
-        <button
-          className={menuStyle.closeBox}
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          <IoCloseOutline className="flex-grow text-[24px]" />
-        </button>
-
-        {/* Logo */}
-        <Link
-          href="/"
-          onClick={() => {
-            setOpen(false);
-          }}
-          className={menuStyle.logoBox}
-        >
-          <img src="/logo.png" alt="logo" className="w-[143px] h-[60px]" />
-        </Link>
-
-        {/* Menu list */}
-        <div className={menuStyle.menuBody}>
-          <ul className="nav-menu px-[40px]">
-            {navbar.map((item, index) => (
-              // Item menu
-              <li key={index}>
-                <div className={menuStyle.itemMenu}>
-                  {item.submenu.length > 0 ? (
-                    <>
-                      <span
-                        className={`${menuStyle.linkItemMenu} ${
-                          activeMenu === item.name ? "active" : ""
-                        }`}
-                        onClick={() => toggleSubmenu(item.name)}
-                      >
-                        <IoIosArrowForward /> {item.name}
-                      </span>
-                      <button
-                        className="text-[18px] bg-[#F5F5F5] px-2 rounded-full"
-                        onClick={() => toggleSubmenu(item.name)}
-                      >
-                        {activeMenu === item.name ? "-" : "+"}
-                      </button>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.url}
-                      onClick={() => {
-                        setOpen(false);
-                      }}
-                      className={menuStyle.linkItemMenu}
-                    >
-                      <IoIosArrowForward /> {item.name}
-                    </Link>
-                  )}
-                </div>
-
-                {/* Submenu */}
-                {item.submenu.length > 0 && (
-                  <ul
-                    className={`subnav-menu ${
-                      activeMenu === item.name
-                        ? "submenu-open"
-                        : "submenu-close"
-                    }`}
-                  >
-                    {item.submenu.map((subItem, subIndex) => (
-                      // Item submenu
-                      <li className="pl-[20px]" key={subIndex}>
-                        <Link
-                          href={subItem.url}
-                          onClick={() => {
-                            setOpen(false);
-                            setActiveMenu(null);
-                          }}
-                          className={menuStyle.linkItemSubMenu}
-                        >
-                          <IoIosArrowForward /> {subItem.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
   );
 };
 
