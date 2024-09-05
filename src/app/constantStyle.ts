@@ -74,7 +74,7 @@ export const searchPopupStyle = {
 
 export const miniCartStyle = {
   overlay:
-    "fixed top-0 right-0 left-0 bottom-0 w-full h-full bg-black bg-opacity-50 z-[9999]",
+    "mini-cart-wrap fixed top-0 right-0 left-0 bottom-0 w-full h-full bg-black bg-opacity-50 z-[9999]",
   wrapper: "mini-cart w-[450px] h-full bg-white px-8 pb-40 overflow-y-scroll",
   btnClose:
     "p-2 border border-black rounded-full hover:bg-white hover:border-[--primary] text-black hover:text-[--primary]",

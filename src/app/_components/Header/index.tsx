@@ -174,6 +174,17 @@ const Header = () => {
     }
   };
 
+  const openMiniCart = () => {
+    const miniCart = document.getElementById("mini-cart");
+    miniCart!.classList.add("visible-custom");
+    console.log(miniCart);
+  };
+
+  const closeMiniCart = () => {
+    const miniCart = document.getElementById("mini-cart");
+    miniCart!.classList.remove("visible-custom");
+  };
+
   const handleScroll = () => {
     const targetElement = document.querySelector("#header-bottom");
 
@@ -344,7 +355,10 @@ const Header = () => {
               >
                 <IoSearch className="text-[26px]" />
               </button>
-              <button className={`cart-box ${headerBottomStyle.btn}`}>
+              <button
+                onClick={openMiniCart}
+                className={`cart-box ${headerBottomStyle.btn}`}
+              >
                 <GrCart className="text-[24px]" />
               </button>
             </div>
@@ -385,11 +399,14 @@ const Header = () => {
       </div>
 
       {/* Mini cart */}
-      <div className={miniCartStyle.overlay}>
+      <div id="mini-cart" className={miniCartStyle.overlay}>
         <div className="flex justify-end h-full">
           <div className={miniCartStyle.wrapper}>
             <div className="flex justify-end my-4">
-              <button className={miniCartStyle.btnClose}>
+              <button
+                onClick={closeMiniCart}
+                className={miniCartStyle.btnClose}
+              >
                 <IoCloseOutline className="text-3xl " />
               </button>
             </div>
