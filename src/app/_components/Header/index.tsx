@@ -121,9 +121,53 @@ const navbar: NavbarItemType[] = [
   },
 ];
 
+const itemsInit = [
+  {
+    id: "1",
+    img: "https://i.pinimg.com/1200x/a0/68/b9/a068b994fbe2417f0c2a227d7fcfccd9.jpg",
+    name: "Car Safety Seat",
+    price: 200,
+    quantity: 2,
+  },
+  {
+    id: "2",
+    img: "https://i.pinimg.com/1200x/84/e8/0c/84e80cf214008c6d30cbb1a0b7f13061.jpg",
+    name: "Car Safety Seat",
+    price: 200,
+    quantity: 2,
+  },
+  {
+    id: "3",
+    img: "https://i.pinimg.com/1200x/17/fb/0e/17fb0e833951c923c73245df420af471.jpg",
+    name: "Car Safety Seat",
+    price: 200,
+    quantity: 2,
+  },
+
+  {
+    id: "4",
+    img: "https://i.pinimg.com/1200x/62/37/44/623744dbeeb764ba5cc4a9d37331573a.jpg",
+    name: "Car Safety Seat",
+    price: 200,
+    quantity: 2,
+  },
+  {
+    id: "5",
+    img: "https://i.pinimg.com/1200x/15/1e/41/151e4172742943d588b42e913a55222a.jpg",
+    name: "Car Safety Seat",
+    price: 200,
+    quantity: 2,
+  },
+];
+
 const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false);
+  const [itemsCart, setItemsCart] = useState(itemsInit);
+
+  const handleRemoveItem = (itemId: string) => {
+    setItemsCart((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
 
   const openMenu = () => {
     const menu = document.getElementById("menu");
@@ -413,45 +457,53 @@ const Header = () => {
             <h1 className="text-lg font-bold mb-8">Shopping cart</h1>
 
             <ul className="cart-list mb-4">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <li key={index} className={miniCartStyle.itemBox}>
-                  <div className="flex justify-between gap-2">
-                    <div className={miniCartStyle.imgBox}>
-                      <img
-                        className="object-cover w-full h-full"
-                        src="https://i.pinimg.com/1200x/59/7e/86/597e869bbd47701f5b5f8045857bdf03.jpg"
-                        alt=""
-                      />
-                    </div>
+              {itemsCart.length === 0 ? (
+                <span> Cart empty</span>
+              ) : (
+                itemsCart.map((item, index) => (
+                  <li key={index} className={miniCartStyle.itemBox}>
+                    <div className="flex justify-between gap-2">
+                      <div className={miniCartStyle.imgBox}>
+                        <img
+                          className="object-cover w-full h-full"
+                          src={item.img}
+                          alt=""
+                        />
+                      </div>
 
-                    <div className={miniCartStyle.infoBox}>
-                      <h2 className={miniCartStyle.title}>Car Safety Seat</h2>
-                      <div className={miniCartStyle.amount}>
-                        <span className="quantity">1</span> x{" "}
-                        <span className="price">$940.00</span>
+                      <div className={miniCartStyle.infoBox}>
+                        <h2 className={miniCartStyle.title}>{item.name}</h2>
+                        <div className={miniCartStyle.amount}>
+                          <span className="quantity">{item.quantity}</span> x{" "}
+                          <span className="price">${item.price}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col justify-center">
+                        <button onClick={() => handleRemoveItem(item.id)}>
+                          <IoCloseOutline className="text-2xl text-[--text-content]" />
+                        </button>
                       </div>
                     </div>
-
-                    <div className="flex flex-col justify-center">
-                      <button>
-                        <IoCloseOutline className="text-2xl text-[--text-content]" />
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                ))
+              )}
             </ul>
 
-            <h3 className="mb-4 md:text-left text-right">
-              <span className="text-base font-bold mr-1">Subtotal: </span>{" "}
-              <span className="text-lg">$4398.00</span>
-            </h3>
+            {itemsCart.length !== 0 && (
+              <>
+                <h3 className="mb-4 md:text-left text-right">
+                  <span className="text-base font-bold mr-1">Subtotal: </span>{" "}
+                  <span className="text-lg">$4398.00</span>
+                </h3>
 
-            <div className="flex gap-3 flex-wrap">
-              <button className={miniCartStyle.btnAction}>View cart</button>
+                <div className="flex gap-3 flex-wrap">
+                  <button className={miniCartStyle.btnAction}>View cart</button>
 
-              <button className={miniCartStyle.btnAction}>Checkout</button>
-            </div>
+                  <button className={miniCartStyle.btnAction}>Checkout</button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
