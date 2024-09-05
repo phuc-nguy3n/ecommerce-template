@@ -72,6 +72,21 @@ export const searchPopupStyle = {
   btnSubmit: "absolute top-[50%] md:right-5 right-4 -translate-y-[50%]",
 };
 
+export const miniCartStyle = {
+  overlay:
+    "fixed top-0 right-0 left-0 bottom-0 w-full h-full bg-black bg-opacity-50 z-[9999]",
+  wrapper: "mini-cart w-[450px] h-full bg-white px-8 pb-40 overflow-y-scroll",
+  btnClose:
+    "p-2 border border-black rounded-full hover:bg-white hover:border-[--primary] text-black hover:text-[--primary]",
+  itemBox: "border border-x-0 border-b-1 border-t-0 border-[#B5B5B5] py-4",
+  imgBox: "min-w-[75px] h-[75px] cursor-pointer",
+  infoBox: "flex-grow max-w-[260px]",
+  title: "text-sm font-semibold mb-2 tracking-wide cursor-pointer line-clamp-2",
+  amount: "text-sm text-[--text-content] font-medium line-clamp-1",
+  btnAction:
+    "uppercase py-[12px] px-[30px] bg-[#FF1D50] text-white text-[14px] rounded-md font-bold flex items-center justify-center md:w-auto w-full",
+};
+
 export const footerStyle = {
   wrapper: "pt-12 pb-6 bg-[--footer-bg]",
   logo: "w-[346px] h-[114px]",

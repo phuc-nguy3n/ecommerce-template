@@ -8,6 +8,7 @@ import {
   headerBottomStyle,
   menuStyle,
   searchPopupStyle,
+  miniCartStyle,
 } from "../../constantStyle";
 
 import Container from "../Container/Container";
@@ -337,15 +338,15 @@ const Header = () => {
 
           <div className="flex items-center lg:gap-10 sm:gap-[20px] gap-[14px]">
             <div className="flex sm:gap-4 gap-2 text-white ml-[5px]">
-              <div
+              <button
                 className={`search-box  ${headerBottomStyle.btn}`}
                 onClick={() => setIsSearchPopupOpen(true)}
               >
                 <IoSearch className="text-[26px]" />
-              </div>
-              <div className={`cart-box ${headerBottomStyle.btn}`}>
+              </button>
+              <button className={`cart-box ${headerBottomStyle.btn}`}>
                 <GrCart className="text-[24px]" />
-              </div>
+              </button>
             </div>
 
             <div className={headerBottomStyle.hamburgerBox} onClick={openMenu}>
@@ -379,6 +380,62 @@ const Header = () => {
             <button type="submit" className={searchPopupStyle.btnSubmit}>
               <IoSearch className="text-white md:text-3xl text-2xl" />
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mini cart */}
+      <div className={miniCartStyle.overlay}>
+        <div className="flex justify-end h-full">
+          <div className={miniCartStyle.wrapper}>
+            <div className="flex justify-end my-4">
+              <button className={miniCartStyle.btnClose}>
+                <IoCloseOutline className="text-3xl " />
+              </button>
+            </div>
+
+            <h1 className="text-lg font-bold mb-8">Shopping cart</h1>
+
+            <ul className="cart-list mb-4">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <li key={index} className={miniCartStyle.itemBox}>
+                  <div className="flex justify-between gap-2">
+                    <div className={miniCartStyle.imgBox}>
+                      <img
+                        className="object-cover w-full h-full"
+                        src="https://i.pinimg.com/1200x/59/7e/86/597e869bbd47701f5b5f8045857bdf03.jpg"
+                        alt=""
+                      />
+                    </div>
+
+                    <div className={miniCartStyle.infoBox}>
+                      <h2 className={miniCartStyle.title}>Car Safety Seat</h2>
+                      <div className={miniCartStyle.amount}>
+                        <span className="quantity">1</span> x{" "}
+                        <span className="price">$940.00</span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col justify-center">
+                      <button>
+                        <IoCloseOutline className="text-2xl text-[--text-content]" />
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="mb-4 md:text-left text-right">
+              <span className="text-base font-bold mr-1">Subtotal: </span>{" "}
+              <span className="text-lg">$4398.00</span>
+            </h3>
+
+            <div className="flex gap-3 flex-wrap">
+              <button className={miniCartStyle.btnAction}>View cart</button>
+
+              <button className={miniCartStyle.btnAction}>Checkout</button>
+            </div>
           </div>
         </div>
       </div>
