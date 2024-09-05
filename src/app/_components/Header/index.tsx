@@ -177,7 +177,6 @@ const Header = () => {
   const openMiniCart = () => {
     const miniCart = document.getElementById("mini-cart");
     miniCart!.classList.add("visible-custom");
-    console.log(miniCart);
   };
 
   const closeMiniCart = () => {
