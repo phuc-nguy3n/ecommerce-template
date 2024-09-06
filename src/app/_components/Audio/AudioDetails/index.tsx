@@ -404,7 +404,7 @@ const AudioDetails = () => {
                     <li className={`audio-${index}`}>
                       <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
                         <div className="flex gap-[16px]">
-                          <div className="audio-icon w-[50px] h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
+                          <div className="audio-icon min-w-[50px] min-h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
                             <BsFileEarmarkMusic className="text-[24px] text-white" />
 
                             {/* Play box */}
