@@ -6,7 +6,6 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
 import { IoMdPause, IoMdPlay } from "react-icons/io";
 import { SlOptions, SlOptionsVertical } from "react-icons/sl";
-import { FaRegHeart } from "react-icons/fa";
 import {
   RiRepeat2Fill,
   RiRepeatOneFill,
@@ -176,7 +175,13 @@ const AudioDetails = () => {
     }, 1000);
   }, []);
 
-  const audioRef = useRef<any>(null);
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const toggleOptions = (index: number) => {
     if (openedOptionIndex === index) {
@@ -213,9 +218,9 @@ const AudioDetails = () => {
 
   const handlePlayAudio = (isPlay: boolean) => {
     if (isPlay) {
-      audioRef.current.play();
+      audioRef.current!.play();
     } else {
-      audioRef.current.pause();
+      audioRef.current!.pause();
     }
   };
 
@@ -271,7 +276,7 @@ const AudioDetails = () => {
 
   const changCurrentTime = (e: any) => {
     const currentTime = Number(e.target.value);
-    audioRef.current.currentTime = currentTime;
+    audioRef.current!.currentTime = currentTime;
     setCurrentTime(currentTime);
   };
 
@@ -285,8 +290,8 @@ const AudioDetails = () => {
 
   const handleEnded = () => {
     if (isRepeat) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
+      audioRef.current!.currentTime = 0;
+      audioRef.current!.play();
     } else if (isShuffling) {
       handlePlayRandom();
     } else if (audioIndex < playlist.length - 1) {
@@ -534,7 +539,6 @@ const AudioDetails = () => {
                       onLoadedMetadata={handleLoadedMetadata}
                       onTimeUpdate={handleTimeUpdate}
                       onEnded={handleEnded}
-                      volume={volume}
                     />
 
                     <button
