@@ -223,7 +223,7 @@ const ConferenceDetails = () => {
                               </th>
                               <th scope="col" className="px-6 py-3">
                                 <div className="flex items-center">
-                                  Size
+                                  Location
                                   <a href="#">
                                     <svg
                                       className="w-3 h-3 ms-1.5"
@@ -268,7 +268,7 @@ const ConferenceDetails = () => {
                                   </span>
                                 </div>
                               </td>
-                              <td className="px-6 py-4">10</td>
+                              <td className="px-6 py-4">Stuttgart</td>
                               <td className="px-6 py-4">January 2024</td>
                             </tr>
 
@@ -284,7 +284,7 @@ const ConferenceDetails = () => {
                                   </span>
                                 </div>
                               </td>
-                              <td className="px-6 py-4">10</td>
+                              <td className="px-6 py-4">Stuttgart</td>
                               <td className="px-6 py-4">January 2024</td>
                             </tr>
 
@@ -300,7 +300,7 @@ const ConferenceDetails = () => {
                                   </span>
                                 </div>
                               </td>
-                              <td className="px-6 py-4">10</td>
+                              <td className="px-6 py-4">Stuttgart</td>
                               <td className="px-6 py-4">January 2024</td>
                             </tr>
 
@@ -316,7 +316,7 @@ const ConferenceDetails = () => {
                                   </span>
                                 </div>
                               </td>
-                              <td className="px-6 py-4">10</td>
+                              <td className="px-6 py-4">Stuttgart</td>
                               <td className="px-6 py-4">January 2024</td>
                             </tr>
                           </tbody>
