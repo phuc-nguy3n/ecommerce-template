@@ -85,18 +85,25 @@ const Accordion = () => {
   ];
 
   return (
-    <div id="accordion-collapse" className="rounded-lg overflow-hidden border">
-      {accordionItems.map((item, index) => (
-        <AccordionItem
-          key={index}
-          id={index}
-          title={item.title}
-          content={item.content}
-          isOpen={openIndex === index}
-          toggleAccordion={toggleAccordion}
-        />
-      ))}
-    </div>
+    <>
+      <h2 className="xl:text-[34px] text-[28px] font-bold mb-5">FAQ</h2>
+
+      <div
+        id="accordion-collapse"
+        className="rounded-lg overflow-hidden border"
+      >
+        {accordionItems.map((item, index) => (
+          <AccordionItem
+            key={index}
+            id={index}
+            title={item.title}
+            content={item.content}
+            isOpen={openIndex === index}
+            toggleAccordion={toggleAccordion}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

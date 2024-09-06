@@ -3,6 +3,9 @@ import "./styles.css";
 import React from "react";
 import Breadcrumb from "../ui/Breadcrumb";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import Accordion from "../Accordion/Accordion";
+import ChartDownload from "../ChartDownload/ChartDownload";
+import Outline from "../Outline/Outline";
 
 const Contact = () => {
   return (
@@ -98,7 +101,7 @@ const Contact = () => {
             </div>
 
             {/* Form contact */}
-            <div className="xl:col-span-7 col-span-12">
+            <div className="xl:col-span-7 col-span-12 mb-[40px]">
               <div className="quote-form-box md:px-[50px] md:py-[50px] px-[20px] py-[30px] bg-[#F5F5F5]">
                 <h4 className="form-title xl:text-[26px] text-[20px] xl:text-left text-center font-bold mb-[20px]">
                   Send Message
@@ -164,6 +167,12 @@ const Contact = () => {
               </div>
             </div>
           </div>
+
+          <Accordion />
+
+          <ChartDownload />
+
+          <Outline />
         </div>
       </div>
 

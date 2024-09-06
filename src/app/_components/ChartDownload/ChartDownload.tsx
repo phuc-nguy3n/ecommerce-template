@@ -26,10 +26,10 @@ const chartList = [
 
 const ChartDownload = () => {
   return (
-    <div className="pt-[30px] mb-[30px]">
+    <div className="pt-[30px] my-[30px]">
       <div className="flex items-start gap-[10px]">
         <div className="flex-grow">
-          <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] sm:text-[24px] text-[22px] capitalize font-semibold leading-[1.5]">
+          <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] xl:text-[34px] text-[28px] capitalize font-semibold leading-[1.5]">
             Related Post
           </h2>
         </div>
