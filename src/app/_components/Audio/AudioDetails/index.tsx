@@ -668,7 +668,7 @@ const AudioDetails = () => {
                         </div>
                         <ul className="playlist-body py-[8px] px-[16px] max-h-[200px] overflow-y-scroll">
                           {playlistPopupData.map((item, index) => (
-                            <li>
+                            <li key={index}>
                               <div className="flex p-[8px] rounded-md hover:bg-slate-100">
                                 <div className="cover-img w-[48px] h-[48px] min-w-[48px] flex justify-center items-center relative">
                                   <BsFileEarmarkMusic className="text-[40px] text-[#FF1D50]" />

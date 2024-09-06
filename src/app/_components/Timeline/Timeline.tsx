@@ -71,7 +71,7 @@ const Timeline = () => {
                     <p className="leading-[1.75] text-[#54595F] tracking-wide">
                       Suggests that the entity or organization has a
                       longstanding history of providing trustworthy and reliable
-                      news coverage. The phrase "Over 25 years" indicates a
+                      news coverage. The phrase {"Over 25 years"} indicates a
                       long-established presence in the industry, which can
                       instill confidence in the audience.
                     </p>
@@ -114,7 +114,7 @@ const Timeline = () => {
                   </span>
 
                   <h2 className="leading-[1.5] tracking-wide lg:text-[42px] md:text-[30px] text-[40px] mb-[22px] font-bold text-white">
-                    Experience excellence our magazine's
+                    {"Experience excellence our magazine's"}
                   </h2>
                 </div>
 
