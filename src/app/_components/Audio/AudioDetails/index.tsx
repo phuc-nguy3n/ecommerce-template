@@ -157,6 +157,9 @@ const AudioDetails = () => {
   const [playlist, setPlaylist] = useState(audioDetails.playlist);
   const [audioIndex, setAudioIndex] = useState<number>(0);
   const [audioPlaying, setAudioPlaying] = useState<any>("");
+  const [openedOptionIndex, setOpenedOptionIndex] = useState<null | number>(
+    null
+  );
 
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -174,6 +177,14 @@ const AudioDetails = () => {
   }, []);
 
   const audioRef = useRef<any>(null);
+
+  const toggleOptions = (index: number) => {
+    if (openedOptionIndex === index) {
+      setOpenedOptionIndex(null);
+    } else {
+      setOpenedOptionIndex(index);
+    }
+  };
 
   const handleAudioPlaying = (index: number) => {
     const updatedPlaylist = playlist.map((item, idx) => ({
@@ -401,17 +412,13 @@ const AudioDetails = () => {
 
                 <ul className="audio-list grid xl:grid-cols-2 grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
                   {playlist.map((item, index) => (
-                    <li className={`audio-${index}`}>
+                    <li key={index} className={`audio-${index}`}>
                       <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
                         <div className="flex gap-[16px]">
                           <div className="audio-icon min-w-[50px] min-h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
                             <BsFileEarmarkMusic className="text-[24px] text-white" />
-
-                            {/* Play box */}
                             <div
-                              onClick={() => {
-                                handleAudioPlaying(index);
-                              }}
+                              onClick={() => handleAudioPlaying(index)}
                               className={`play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full  ${
                                 item.playing ? "flex" : "hidden"
                               } items-center justify-center`}
@@ -430,14 +437,21 @@ const AudioDetails = () => {
                             </div>
                           </div>
                         </div>
-
                         <div className="flex justify-center items-center gap-[16px]">
-                          <div className="w-[50px] h-[50px] flex justify-center items-center cursor-pointer">
-                            <FaRegHeart className="text-[20px]" />
-                          </div>
-
-                          <span className="options-box">
+                          <span
+                            className="options-box relative"
+                            onClick={() => toggleOptions(index)}
+                          >
                             <SlOptions className="cursor-pointer text-[20px]" />
+                            {openedOptionIndex === index && (
+                              <a
+                                href={item.src}
+                                download={`${item.name}.mp3`}
+                                className="absolute py-2 px-3 border rounded-sm top-[-40px] left-[-50px] text-[12px] text-[#57595b] z-50 bg-white"
+                              >
+                                Download
+                              </a>
+                            )}
                           </span>
                         </div>
                       </div>
@@ -467,8 +481,8 @@ const AudioDetails = () => {
                     </div>
                   </div>
 
-                  <div className="flex-1 flex items-center">
-                    <div className="cover-img w-[72px] h-[72px] min-w-[72px] flex justify-center items-center">
+                  <div className="flex-1 flex items-center md:p-0 p-2 pt-3">
+                    <div className="cover-img w-[72px] h-[72px] min-w-[72px] justify-center items-center md:flex hidden">
                       <BsFileEarmarkMusic className="text-[28px] text-[#FF1D50]" />
                     </div>
                     <div className="cover-content pl-[12px]">
@@ -637,7 +651,7 @@ const AudioDetails = () => {
                       </button>
 
                       <div
-                        className={`playlist-popup absolute top-[-230px] left-[-400px] w-[400px] h-[268px] py-[8px] bg-white border rounded-md ${
+                        className={`playlist-popup absolute  md:top-[-295px] top-[-288px] md:left-[-345px] left-[-245px] md:w-[400px] w-[300px] h-[268px] py-[8px] bg-white border rounded-md ${
                           showPlaylistPopup ? "block" : "hidden"
                         }`}
                       >
@@ -660,22 +674,13 @@ const AudioDetails = () => {
                                   </div>
                                 </div>
                                 <div className="list__content mt-[8px] pl-[2px]">
-                                  <h4 className="audio-title leading-[1] text-[13px] line-clamp-1 cursor-pointer font-medium">
+                                  <h4 className="audio-title text-[13px] line-clamp-1 cursor-pointer font-medium">
                                     {item.name}
                                   </h4>
 
                                   <span className="text-[#757c83] text-[13px] cursor-pointer">
                                     {item.desc}
                                   </span>
-                                </div>
-
-                                <div className="options flex gap-[14px] items-center">
-                                  <div className="cursor-pointer close-option hidden">
-                                    <AiOutlineClose className="text-[12px] text-[#5d6369]" />
-                                  </div>
-                                  <div className="cursor-pointer mr-[10px]">
-                                    <FaRegHeart className="text-[#5d6369] text-[18px]" />
-                                  </div>
                                 </div>
                               </div>
                             </li>
