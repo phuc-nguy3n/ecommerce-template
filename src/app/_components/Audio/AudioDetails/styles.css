@@ -16,9 +16,10 @@
     background-image: linear-gradient(0deg, #fff 0, rgba(255, 255, 255, .25) 100%);
 }
 
-.form-group select {
+.form-group .language {
     appearance: none;
     cursor: pointer;
+    background-image: none;
 }
 
 .audio-item:hover .play-box,

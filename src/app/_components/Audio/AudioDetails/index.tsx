@@ -397,7 +397,7 @@ const AudioDetails = () => {
                       </form>
 
                       <div className="form-group col-span-1 bg-[#F5F5F5] h-[50px] rounded-md relative">
-                        <select className="form-control w-full h-[50px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] ">
+                        <select className="form-control language w-full h-[50px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] ">
                           <option selected value="English">
                             English
                           </option>
