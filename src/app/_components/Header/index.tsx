@@ -105,6 +105,11 @@ const navbar: NavbarItemType[] = [
     submenu: [],
   },
   {
+    name: "conferences",
+    url: "/conferences",
+    submenu: [],
+  },
+  {
     name: "timeline",
     url: "/timeline",
     submenu: [],
