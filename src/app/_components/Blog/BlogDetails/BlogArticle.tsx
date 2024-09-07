@@ -61,7 +61,7 @@ const BlogArticleDetails = () => {
                 {/* Main img */}
                 <div className="mb-[35px]">
                   <img
-                    className="object-cover xl:w-[838px] lg:w-[631px] md:w-[656px] sm:w-[703px] w-full xl:h-[500px] lg:h-[343px] md:h-[388px] sm:h-[400px] h-[400px]"
+                    className="object-cover xl:w-[838px] lg:w-[631px] md:w-[656px] sm:w-[703px] w-full xl:h-[500px] lg:h-[343px] md:h-[388px] h-[200px]"
                     src="https://images.unsplash.com/photo-1721170628208-dffed6eb3514?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt=""
                   />
@@ -114,7 +114,7 @@ const BlogArticleDetails = () => {
                       {/* Second img */}
                       <div className="mb-[35px]">
                         <img
-                          className="object-cover xl:w-[768px] lg:w-[561px] md:w-[586px] sm:w-[608px] w-full xl:h-[350px] lg:h-[300px] md:h-[270px] sm:h-[280px] h-[280px]"
+                          className="object-cover xl:w-[768px] lg:w-[561px] md:w-[586px] sm:w-[608px] w-full xl:h-[350px] lg:h-[300px] md:h-[270px] sm:h-[280px] h-[200px]"
                           src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
@@ -146,7 +146,7 @@ const BlogArticleDetails = () => {
                       <div className="my-[30px] xl:w-[768px] w-full flex md:flex-nowrap flex-wrap">
                         <div className="xl:w-5/12 lg:w-7/12 md:w-6/12 w-full">
                           <img
-                            className="object-cover xl:w-[310px] lg:w-[313px] md:w-[281px] w-full h-[320px]"
+                            className="object-cover xl:w-[310px] lg:w-[313px] md:w-[281px] w-full md:h-[320px] h-[200px]"
                             src="https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt=""
                           />
@@ -309,15 +309,15 @@ const BlogArticleDetails = () => {
                     <div className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3">
                       <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
                         <div>
-                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                             <img
-                              className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                              className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                               src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt=""
                             />
 
                             {/* Overlay */}
-                            <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg blog flex flex-col p-[20px] justify-start">
+                            <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg blog flex flex-col p-[20px] justify-start">
                               <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                                 News
                               </div>
@@ -344,15 +344,15 @@ const BlogArticleDetails = () => {
 
                       <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
                         <div>
-                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                             <img
-                              className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                              className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                               src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt=""
                             />
 
                             {/* Overlay */}
-                            <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg blog flex flex-col p-[20px] justify-start">
+                            <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg blog flex flex-col p-[20px] justify-start">
                               <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                                 News
                               </div>
@@ -379,15 +379,15 @@ const BlogArticleDetails = () => {
 
                       <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
                         <div>
-                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                             <img
-                              className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                              className="xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                               src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt=""
                             />
 
                             {/* Overlay */}
-                            <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg blog flex flex-col p-[20px] justify-start">
+                            <div className="absolute top-0 xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg blog flex flex-col p-[20px] justify-start">
                               <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                                 News
                               </div>
@@ -559,7 +559,7 @@ const BlogArticleDetails = () => {
                     {/* Ads */}
                     <div className="mb-[35px]">
                       <img
-                        className="xl:w-[316px] lg:w-[234px] md:w-[656px] w-full xl:h-[350px] lg:h-[286px] md:h-[773px] sm:h-[700px] h-[550px] object-cover"
+                        className="xl:w-[316px] lg:w-[234px] md:w-[656px] w-full xl:h-[350px] lg:h-[286px] sm:h-[300px] h-[250px] object-cover"
                         src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt=""
                       />
