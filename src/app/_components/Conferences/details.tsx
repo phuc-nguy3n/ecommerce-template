@@ -27,6 +27,30 @@ import { IoMdMail } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { BsGlobe2 } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
+import { LuDot } from "react-icons/lu";
+
+const listFile = [
+  {
+    name: "2024-01-mount-zion-the-kingdom-of-god-spring-conference",
+    location: "Stuttgart",
+    date: "January 2024",
+  },
+  {
+    name: "2024-04-mount-zion-the-kingdom-of-god-summer-conference",
+    location: "Stuttgart",
+    date: "April 2024",
+  },
+  {
+    name: "2024-07-mount-zion-the-kingdom-of-god-autumn-conference",
+    location: "Stuttgart",
+    date: "July 2024",
+  },
+  {
+    name: "2024-10-mount-zion-the-kingdom-of-god-winter-conference",
+    location: "Stuttgart",
+    date: "October 2024",
+  },
+];
 
 const ConferenceDetails = () => {
   const [loadingPage, setLoadingPage] = useState(true);
@@ -201,127 +225,36 @@ const ConferenceDetails = () => {
 
                     <div className="main-content">
                       {/* List file */}
-                      <div className="relative overflow-x-auto shadow-sm border sm:rounded-md mb-[20px]">
-                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                              <th scope="col" className="px-6 py-3">
-                                <div className="flex items-center">
-                                  Name
-                                  <a href="#">
-                                    <svg
-                                      className="w-3 h-3 ms-1.5"
-                                      aria-hidden="true"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                    </svg>
-                                  </a>
-                                </div>
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                <div className="flex items-center">
-                                  Location
-                                  <a href="#">
-                                    <svg
-                                      className="w-3 h-3 ms-1.5"
-                                      aria-hidden="true"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                    </svg>
-                                  </a>
-                                </div>
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                <div className="flex items-center">
-                                  Date
-                                  <a href="#">
-                                    <svg
-                                      className="w-3 h-3 ms-1.5"
-                                      aria-hidden="true"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                    </svg>
-                                  </a>
-                                </div>
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                              <td
-                                scope="row"
-                                className="px-6 py-8 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                              >
-                                <div className="flex items-center">
-                                  <FaFolder className="text-4xl text-yellow-300" />
-                                  <span className="ml-3 max-w-[350px] whitespace-normal word-break break-all line-clamp-2">
-                                    Spring Conference
-                                  </span>
-                                </div>
-                              </td>
-                              <td className="px-6 py-4">Stuttgart</td>
-                              <td className="px-6 py-4">January 2024</td>
-                            </tr>
+                      <ul className="grid   grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
+                        {listFile.map((item, index) => (
+                          <li key={index}>
+                            <div className="flex justify-between hover:bg-slate-50 p-[10px] rounded-md ">
+                              <div className="flex justify-between flex-grow">
+                                <div className="flex gap-[16px] items-center">
+                                  <div className="min-w-[50px] h-[50px] flex justify-center items-center bg-yellow-300 rounded-md overflow-hidden cursor-pointer">
+                                    <FaFolder className="text-[24px] text-white" />
+                                  </div>
 
-                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                              <td
-                                scope="row"
-                                className="px-6 py-8 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                              >
-                                <div className="flex items-center">
-                                  <FaFolder className="text-4xl text-yellow-300" />
-                                  <span className="ml-3 max-w-[350px] whitespace-normal word-break break-all line-clamp-2">
-                                    Spring Conference
-                                  </span>
+                                  <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
+                                    <h3 className="audio-title text-[16px] mb-[2px] line-clamp-1 cursor-pointer">
+                                      {item.name}
+                                    </h3>
+                                    <div className="flex items-center">
+                                      <span className="text-[#757c83] text-[14px] cursor-pointer">
+                                        {item.location}
+                                      </span>
+                                      <LuDot className="text-[#757c83]" />
+                                      <span className="text-[#757c83] text-[14px] cursor-pointer">
+                                        {item.date}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
-                              </td>
-                              <td className="px-6 py-4">Stuttgart</td>
-                              <td className="px-6 py-4">January 2024</td>
-                            </tr>
-
-                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                              <td
-                                scope="row"
-                                className="px-6 py-8 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                              >
-                                <div className="flex items-center">
-                                  <FaFolder className="text-4xl text-yellow-300" />
-                                  <span className="ml-3 max-w-[350px] whitespace-normal word-break break-all line-clamp-2">
-                                    Spring Conference
-                                  </span>
-                                </div>
-                              </td>
-                              <td className="px-6 py-4">Stuttgart</td>
-                              <td className="px-6 py-4">January 2024</td>
-                            </tr>
-
-                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                              <td
-                                scope="row"
-                                className="px-6 py-8 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                              >
-                                <div className="flex items-center">
-                                  <FaFolder className="text-4xl text-yellow-300" />
-                                  <span className="ml-3 max-w-[350px] whitespace-normal word-break break-all line-clamp-2">
-                                    Spring Conference
-                                  </span>
-                                </div>
-                              </td>
-                              <td className="px-6 py-4">Stuttgart</td>
-                              <td className="px-6 py-4">January 2024</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                              </div>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
