@@ -409,7 +409,7 @@ const BlogVideoDetails = () => {
 
                     <div className="mb-[35px]">
                       <img
-                        className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] w-full xl:h-[350px] lg:h-[286px] md:h-[300px] sm:h-[300px] h-[250px] object-cover"
+                        className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] w-full xl:h-[350px] lg:h-[286px] sm:h-[300px] h-[250px] object-cover"
                         src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt=""
                       />
