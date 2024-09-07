@@ -103,15 +103,15 @@ const VideoOverview = () => {
             <div className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px]">
               {videoOverviewData.map((item, index) => (
                 <div key={index}>
-                  <div className="mb-[25px] overflow-hidden xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[400px] relative box">
+                  <div className="mb-[25px] overflow-hidden xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[200px] relative box">
                     <img
-                      className="xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[400px] object-cover"
+                      className="xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[200px] object-cover"
                       src={item.img}
                       alt="News"
                     />
 
                     {/* Overlay */}
-                    <div className="absolute top-0 xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[400px] gradient-bg video flex flex-col p-[20px] justify-start">
+                    <div className="absolute top-0 xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[200px] gradient-bg video flex flex-col p-[20px] justify-start">
                       <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                         {item.tagName}
                       </div>
