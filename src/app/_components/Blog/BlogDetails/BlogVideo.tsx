@@ -409,7 +409,7 @@ const BlogVideoDetails = () => {
 
                     <div className="mb-[35px]">
                       <img
-                        className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] xl:h-[350px] lg:h-[286px] md:h-[773px] sm:h-[554px] h-[400px] object-cover"
+                        className="xl:w-[318px] lg:w-[222px] md:w-[596px] sm:w-[596px] w-full xl:h-[350px] lg:h-[286px] md:h-[300px] sm:h-[300px] h-[250px] object-cover"
                         src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt=""
                       />
@@ -497,15 +497,15 @@ const BlogVideoDetails = () => {
                 <div className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3">
                   <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
                     <div>
-                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                         <img
-                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                           src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
 
                         {/* Overlay */}
-                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg flex flex-col p-[20px] justify-start">
                           <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                             News
                           </div>
@@ -532,15 +532,15 @@ const BlogVideoDetails = () => {
 
                   <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
                     <div>
-                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                         <img
-                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                           src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
 
                         {/* Overlay */}
-                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg flex flex-col p-[20px] justify-start">
                           <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                             News
                           </div>
@@ -567,15 +567,15 @@ const BlogVideoDetails = () => {
 
                   <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
                     <div>
-                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                         <img
-                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                           src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
 
                         {/* Overlay */}
-                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg flex flex-col p-[20px] justify-start">
                           <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                             News
                           </div>
@@ -602,15 +602,15 @@ const BlogVideoDetails = () => {
 
                   <div className="flex-none px-3 snap-start xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
                     <div>
-                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] relative box">
+                      <div className="mb-[18px] overflow-hidden xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
                         <img
-                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] object-cover"
+                          className="xl:w-[278px] lg:w-[285px] md:w-[318px w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] object-cover"
                           src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt=""
                         />
 
                         {/* Overlay */}
-                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[400px] gradient-bg flex flex-col p-[20px] justify-start">
+                        <div className="absolute top-0 xl:w-[278px] lg:w-[285px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] gradient-bg flex flex-col p-[20px] justify-start">
                           <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                             News
                           </div>
