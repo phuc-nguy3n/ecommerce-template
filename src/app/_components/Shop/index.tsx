@@ -280,9 +280,9 @@ const Shop = () => {
                   {productData.map((product, index) => (
                     <li key={index}>
                       <div className="product-item overflow-hidden">
-                        <div className="product-img-box sm:h-[300px] h:[511px] product-img mb-[20px] relative rounded-sm overflow-hidden">
+                        <div className="product-img-box sm:h-[300px] h-[250px] product-img mb-[20px] relative rounded-sm overflow-hidden">
                           <img
-                            className="w-full sm:h-[300px] h:[511px] object-cover "
+                            className="w-full sm:h-[300px] h-[250px] object-cover"
                             src={product.img}
                             alt=""
                           />

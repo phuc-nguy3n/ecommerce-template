@@ -213,10 +213,10 @@ export const audioStyle = {
   listPost:
     "grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px]",
   imgBox:
-    "md:mb-[25px] mb-[16px] overflow-hidden w-full h-[250px] relative box",
-  img: "w-full h-[250px] object-cover",
+    "md:mb-[25px] mb-[16px] overflow-hidden w-full sm:h-[250px] h-[200px] relative box",
+  img: "w-full sm:h-[250px] h-[200px] object-cover",
   overlay:
-    "cursor-pointer absolute top-0 w-full h-[250px] gradient-bg video flex flex-col p-[20px] justify-start",
+    "cursor-pointer absolute top-0 w-full sm:h-[250px] h-[200px] gradient-bg video flex flex-col p-[20px] justify-start",
   title:
     "md:text-[20px] text-[14px] leading-[1.8] font-bold md:mb-[8px] cursor-pointer hover:text-[--primary] text-center line-clamp-3",
   timeBox: "flex items-center gap-3 justify-center",

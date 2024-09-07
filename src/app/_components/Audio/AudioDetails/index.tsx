@@ -343,7 +343,7 @@ const AudioDetails = () => {
               >
                 <div className="img-box overflow-hidden rounded-xl md:w-auto w-full">
                   <img
-                    className="md:w-[300px]  w-full md:h-[300px] sm:h-[622px] h-fit object-cover"
+                    className="md:w-[300px]  w-full md:h-[300px] sm:h-[250px] h-[200px] object-cover"
                     src={audioDetails.cover}
                     alt=""
                   />
