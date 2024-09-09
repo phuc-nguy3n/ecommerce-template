@@ -1,3 +1,11 @@
 .gradient-bg.video {
     justify-content: flex-start;
 }
+
+.video-frame {
+    display: none;
+}
+
+.video-frame.active {
+    display: block;
+}

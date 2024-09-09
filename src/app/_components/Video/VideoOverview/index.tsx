@@ -8,12 +8,14 @@ import LoadingBlock from "../../LoadingBlock";
 import Breadcrumb from "../../ui/Breadcrumb";
 
 import "./styles.css";
+import { CgClose } from "react-icons/cg";
 
 const videoOverviewData = [
   {
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/sl2nXEeyYIw?si=FrEEC6mgzIW78cgF",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -22,6 +24,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/L5w2QYB9-UU?si=EdTTdH3gp0WdWcwZ",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -30,6 +33,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/sl2nXEeyYIw?si=FrEEC6mgzIW78cgF",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -38,6 +42,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/vSEcBiyNe8Y?si=jTrGU6tae6sYq4-O",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -46,6 +51,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/08Qa3ggR9rw?si=B7eImrTBdgH2apAm",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -54,6 +60,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/rjOKuGabFiQ?si=4KJxlk4XrMg9ApNN",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -62,6 +69,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/14qYC5aSs0Q?si=hldfsGXCB24xaDb7",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -70,6 +78,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/hIc0WYqdDto?si=ilnyr6yncwxWG7A9",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -78,6 +87,7 @@ const videoOverviewData = [
     tagName: "News",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
+    src: "https://www.youtube.com/embed/vSEcBiyNe8Y?si=jTrGU6tae6sYq4-O",
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -85,12 +95,28 @@ const videoOverviewData = [
 
 const VideoOverview = () => {
   const [loadingPage, setLoadingPage] = useState(true);
+  const [video, setVideo] = useState(videoOverviewData[0].src);
 
   useEffect(() => {
     setTimeout(() => {
       setLoadingPage(false);
     }, 1000);
   }, []);
+
+  const handleOpenVideo = (isOpen: boolean, index: number | null) => {
+    const videoElement = document.querySelector(".video-frame");
+
+    if (isOpen && index !== null) {
+      setVideo(videoOverviewData[index].src);
+      setTimeout(() => {
+        videoElement?.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }, 300);
+    } else {
+      videoElement?.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  };
 
   return (
     <div className="video-overview">
@@ -122,7 +148,12 @@ const VideoOverview = () => {
                     </div>
 
                     {/* Play button */}
-                    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-4 bg-white hover:bg-[--primary] hover:text-white rounded-full cursor-pointer">
+                    <div
+                      onClick={() => {
+                        handleOpenVideo(true, index);
+                      }}
+                      className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-4 bg-white hover:bg-[--primary] hover:text-white rounded-full cursor-pointer"
+                    >
                       <FaPlay className="text-lg" />
                     </div>
                   </div>
@@ -156,6 +187,35 @@ const VideoOverview = () => {
                   </p>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Video frame */}
+          <div className="video-frame fixed top-0 right-0 left-0 bottom-0 w-full bg-black bg-opacity-50 z-[9999] overflow-hidden">
+            <div className="flex justify-center items-center h-screen px-3">
+              <div className="w-full max-w-[900px] relative">
+                <div className="flex items-center justify-end mb-3">
+                  <button
+                    onClick={() => handleOpenVideo(false, null)}
+                    className="text-[18px] text-gray-200 hover:text-white py-2"
+                  >
+                    <CgClose className="flex-grow text-[24px]" />
+                  </button>
+                </div>
+
+                {/* Container với tỷ lệ khung hình 16:9 */}
+                <div className="relative pb-[56.25%] h-0">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src={video}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </section>
