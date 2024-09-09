@@ -171,7 +171,7 @@ export const homeStyle = {
     postList:
       "flex -mx-3 overflow-x-hidden scroll-smooth snap-x snap-mandatory",
     postItem:
-      "flex-none xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full px-3 snap-start",
+      "flex-none xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full px-3 snap-start cursor-pointer",
     imgBox: "box relative md:h-[350px] h-[250px] overflow-hidden",
     img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
     overlay:

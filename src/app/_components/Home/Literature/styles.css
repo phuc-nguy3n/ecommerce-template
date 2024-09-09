@@ -1,0 +1,16 @@
+.lirerature-popup {
+    display: none;
+}
+
+.lirerature-popup.active {
+    display: flex
+}
+
+.product-desc::-webkit-scrollbar {
+    width: 6px;
+}
+
+.product-desc::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
