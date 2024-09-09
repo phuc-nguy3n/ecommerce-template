@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { FaCalendarDays, FaRegUser, FaPlay } from "react-icons/fa6";
+import { FaPlay } from "react-icons/fa6";
+import { LuVote } from "react-icons/lu";
 import { IoArrowForward } from "react-icons/io5";
 import LoadingBlock from "../../LoadingBlock";
 import Breadcrumb from "../../ui/Breadcrumb";
@@ -100,18 +101,21 @@ const VideoOverview = () => {
       ) : (
         <section className="pt-[60px] pb-[30px]">
           <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
-            <div className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px]">
+            <ul className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px] ">
               {videoOverviewData.map((item, index) => (
-                <div key={index}>
-                  <div className="mb-[25px] overflow-hidden xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[200px] relative box">
+                <li
+                  key={index}
+                  className="rounded-md overflow-hidden border flex flex-col"
+                >
+                  <div className="mb-[25px] overflow-hidden xl:w-[380px] lg:w-[442px] w-full h-[200px] relative box">
                     <img
-                      className="xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[200px] object-cover"
+                      className="xl:w-[380px] lg:w-[442px] w-full h-[200px] object-cover"
                       src={item.img}
                       alt="News"
                     />
 
                     {/* Overlay */}
-                    <div className="absolute top-0 xl:w-[380px] lg:w-[442px] w-full xl:h-[310px] lg:h-[360px] md:h-[265px] sm:h-[250px] h-[200px] gradient-bg video flex flex-col p-[20px] justify-start">
+                    <div className="absolute top-0 xl:w-[380px] lg:w-[442px] w-full h-[200px] gradient-bg video flex flex-col p-[20px] justify-start">
                       <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
                         {item.tagName}
                       </div>
@@ -122,25 +126,18 @@ const VideoOverview = () => {
                       <FaPlay className="text-lg" />
                     </div>
                   </div>
-                  <h3 className="text-[20px] leading-[1.8] font-bold mb-[15px] cursor-pointer hover:text-[#ff1d50]">
+
+                  <h3 className="px-[25px] md:text-[20px] text-basic leading-[1.8] font-bold cursor-pointer hover:text-[#ff1d50] md:line-clamp-3 line-clamp-2 flex-2">
                     {item.title}
                   </h3>
-                  <div className="flex items-center gap-3 text-[#B5B5B5]">
-                    <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                      <FaRegUser />
-                      <p className="mt-0.5">{item.createBy}</p>
-                    </span>
-
-                    <span>|</span>
-
-                    <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                      <FaCalendarDays />
-                      <p className="mt-0.5">{item.created}</p>
-                    </span>
+                  <div className="flex justify-end items-end p-[25px] flex-1">
+                    <button className="py-2 px-4 flex items-center bg-white rounded-sm border gap-1">
+                      <LuVote /> vote
+                    </button>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
             <div className="mt-[40px] mb-[30px]">
               <ul className="flex items-center justify-center gap-[10px]">
