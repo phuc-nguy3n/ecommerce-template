@@ -183,7 +183,7 @@ export const homeStyle = {
   video: {
     wrapper: "mb-[1px] py-[60px] bg-black",
     postList:
-      "video-list xl:col-span-4 lg:col-span-2 col-span-4 lg:mb-0 mb-[24px] lg:pr-[15px] md:pr-0",
+      "video-list max-h-[485px] overflow-x-hidden overflow-y-scroll xl:col-span-4 lg:col-span-2 col-span-4 lg:mb-0 mb-[24px] lg:pr-[15px] md:pr-0",
     itemBox:
       "lg:block grid grid-cols-4 lg:gap-0 sm:gap-[24px] gap-[10px] xl:space-y-[20px] lg:space-y-[24px]",
     imgBox:

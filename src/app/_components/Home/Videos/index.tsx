@@ -64,6 +64,16 @@ const videoData: VideoType[] = [
     createBy: "By - Tamkie",
     active: false,
   },
+
+  {
+    tagName: "Video",
+    img: "https://images.unsplash.com/photo-1711192702535-eac61a78ecb0?q=80&w=2053&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    video: "https://www.youtube.com/embed/B9VRvOKKwfs?si=Z304b2WPBO4t5rSZ",
+    title: "SWITZERLAND",
+    created: "20 March, 2024",
+    createBy: "By - Relaxation Film",
+    active: false,
+  },
 ];
 
 export default function VideoSection() {

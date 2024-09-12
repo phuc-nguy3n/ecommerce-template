@@ -2,15 +2,14 @@
     position: relative;
 }
 
-.video-list::after {
-    content: '';
-    height: 100%;
-    width: 4px;
-    background-color: #54595F;
-    border-radius: 99px;
-    position: absolute;
-    bottom: 0;
-    right: -15px;
+.video-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.video-list::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 10px;
 }
 
 .btn-play,
@@ -18,13 +17,9 @@
     transition: all ease 0.4s;
 }
 
-
-
-
 .animate-fadeOutExpand {
     animation: fadeOutExpand infinite 4s ease-in-out;
 }
-
 
 @keyframes fadeOutExpand {
     0% {
