@@ -6,8 +6,13 @@
     width: 6px;
 }
 
+.vidieo-group::-webkit-scrollbar {
+    height: 6px;
+}
 
-.video-list::-webkit-scrollbar-thumb {
+
+.video-list::-webkit-scrollbar-thumb,
+.vidieo-group::-webkit-scrollbar-thumb {
     background-color: #f1f1f1;
     border-radius: 10px;
 }

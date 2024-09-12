@@ -116,7 +116,10 @@ export default function VideoSection() {
               <div className={homeStyle.video.itemBox}>
                 {videoPosts.map((item, index) => (
                   // Item
-                  <li className="flex lg:gap-4 gap-0" key={index}>
+                  <li
+                    className="lg:flex flex-none lg:w-auto w-1/4 lg:gap-4 gap-0"
+                    key={index}
+                  >
                     <div className={homeStyle.video.imgBox}>
                       <img
                         className={homeStyle.video.imgBox}
