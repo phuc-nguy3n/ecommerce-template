@@ -7,26 +7,32 @@ const playlist = [
   {
     title: "2024-07-04-Title1_which_can_be_long",
     Language: "Eng",
+    pdf: "/pdf/Website-v4.pdf",
   },
   {
     title: "2024-07-04-Title1_which_can_be_long",
     Language: "Eng",
+    pdf: "/pdf/Website-v4.pdf",
   },
   {
     title: "2024-07-04-Title1_which_can_be_long",
     Language: "Eng",
+    pdf: "/pdf/Website-v4.pdf",
   },
   {
     title: "2024-07-04-Title1_which_can_be_long",
     Language: "Eng",
+    pdf: "/pdf/Website-v4.pdf",
   },
   {
     title: "2024-07-04-Title1_which_can_be_long",
     Language: "Eng",
+    pdf: "/pdf/Website-v4.pdf",
   },
   {
     title: "2024-07-04-Title1_which_can_be_long",
     Language: "Eng",
+    pdf: "/pdf/Website-v4.pdf",
   },
 ];
 
@@ -88,9 +94,13 @@ const Outline = () => {
                   </div>
 
                   <div className="flex items-center">
-                    <button className="h-fit py-2 px-4 border border-[--primary] text-[--primary] rounded-sm md:block hidden">
+                    <a
+                      href={item.pdf}
+                      download={`${item.title}.pdf`}
+                      className="h-fit py-2 px-4 border border-[--primary] text-[--primary] rounded-sm md:block hidden"
+                    >
                       Download
-                    </button>
+                    </a>
                     <FiDownload className="md:hidden block text-2xl text-[--primary]" />
                   </div>
                 </div>
