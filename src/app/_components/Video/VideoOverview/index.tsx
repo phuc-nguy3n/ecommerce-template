@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { FaPlay } from "react-icons/fa6";
+import { FaCalendarDays, FaPlay } from "react-icons/fa6";
 import { LuVote } from "react-icons/lu";
 import { IoArrowForward } from "react-icons/io5";
 import { BiLike } from "react-icons/bi";
@@ -10,10 +10,12 @@ import Breadcrumb from "../../ui/Breadcrumb";
 
 import "./styles.css";
 import { CgClose } from "react-icons/cg";
+import { homeStyle } from "@/app/constantStyle";
+import { FaRegUser } from "react-icons/fa";
 
 const videoOverviewData = [
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/sl2nXEeyYIw?si=FrEEC6mgzIW78cgF",
@@ -23,7 +25,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/L5w2QYB9-UU?si=EdTTdH3gp0WdWcwZ",
@@ -33,7 +35,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/sl2nXEeyYIw?si=FrEEC6mgzIW78cgF",
@@ -43,7 +45,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/vSEcBiyNe8Y?si=jTrGU6tae6sYq4-O",
@@ -53,7 +55,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/08Qa3ggR9rw?si=B7eImrTBdgH2apAm",
@@ -63,7 +65,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/rjOKuGabFiQ?si=4KJxlk4XrMg9ApNN",
@@ -73,7 +75,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/14qYC5aSs0Q?si=hldfsGXCB24xaDb7",
@@ -83,7 +85,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/hIc0WYqdDto?si=ilnyr6yncwxWG7A9",
@@ -93,7 +95,7 @@ const videoOverviewData = [
   },
 
   {
-    tagName: "News",
+    tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
     src: "https://www.youtube.com/embed/vSEcBiyNe8Y?si=jTrGU6tae6sYq4-O",
@@ -172,12 +174,19 @@ const VideoOverview = () => {
                     {item.title}
                   </h3>
                   <div className="flex justify-between items-end p-[25px] flex-1">
-                    <div className="flex items-center gap-1">
-                      <BiLike /> <span>{item.voted}</span>
+                    <div className={homeStyle.timeBoxOne}>
+                      <span className={homeStyle.textTimeOne}>
+                        <FaRegUser />
+                        <p className="mt-0.5">By - Tnews</p>
+                      </span>
+
+                      <span className="text-[--text-time]">|</span>
+
+                      <span className={homeStyle.textTimeOne}>
+                        <FaCalendarDays />
+                        <p className="mt-0.5">20 Mar, 2023 </p>
+                      </span>
                     </div>
-                    <button className="py-2 px-4 flex items-center bg-white rounded-sm border gap-1">
-                      <LuVote /> vote
-                    </button>
                   </div>
                 </li>
               ))}
@@ -218,15 +227,12 @@ const VideoOverview = () => {
 
                 {/* Container với tỷ lệ khung hình 16:9 */}
                 <div className="relative pb-[56.25%] h-0">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src={video}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  ></iframe>
+                  <video className="w-full" controls>
+                    <source
+                      src="/video/file_example_MP4_480_1_5MG.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
                 </div>
               </div>
             </div>
