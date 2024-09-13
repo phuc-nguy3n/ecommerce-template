@@ -67,7 +67,7 @@ input[type="number"] {
     /* width: 55%; */
 }
 
-input[type="radio"] {
+.shipping-methods input[type="radio"] {
     transform: scale(1.8);
     accent-color: #FF1D50;
 }

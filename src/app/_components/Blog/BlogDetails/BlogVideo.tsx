@@ -27,6 +27,8 @@ import ShareMediaMobile from "../_components/ShareMediaMobile";
 import { useEffect, useState } from "react";
 import LoadingBlock from "../../LoadingBlock";
 
+const linkShare = "https://www.youtube.com/watch?v=4Lmcadu8ghM";
+
 const BlogVideoDetails = () => {
   const [loadingPage, setLoadingPage] = useState(true);
 
@@ -78,7 +80,7 @@ const BlogVideoDetails = () => {
 
                 <div className="mb-[30px] flex gap-[30px] relative">
                   {/* Share media */}
-                  <ShareMedia />
+                  <ShareMedia postURL={linkShare} />
 
                   {/* Blog content */}
                   <div className="flex-grow">

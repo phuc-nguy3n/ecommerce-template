@@ -86,11 +86,32 @@ const productData = [
   },
 ];
 
+const categoriesData = ["watches", "ipads", "accessories", "laptops", "phones"];
+
+const sortByDate = ["Latest", "Oldest"];
+
 const Shop = () => {
   const [loadingPage, setLoadingPage] = useState(true);
   const [showCategory, setShowCategory] = useState(false);
   const [showSortBy, setShowSortBy] = useState(false);
   const [showProductPopup, setShowProductPopup] = useState(false);
+
+  const [searchValue, setSearchValue] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleCheckboxChange = (category: string) => {
+    setSelectedCategories((prevSelected) => {
+      if (prevSelected.includes(category)) {
+        return prevSelected.filter((item) => item !== category);
+      } else {
+        return [...prevSelected, category];
+      }
+    });
+  };
 
   const openProductPopup = () => {
     setShowProductPopup(true);
@@ -123,6 +144,8 @@ const Shop = () => {
                         type="text"
                         className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none"
                         placeholder="Enter Keyword"
+                        onChange={handleInputChange}
+                        value={searchValue}
                       />
                     </div>
                     <button className="bg-[#FF1D50] w-[56px] h-[50px] flex items-center justify-center">
@@ -148,65 +171,27 @@ const Shop = () => {
                           showCategory ? "block" : "hidden"
                         }`}
                       >
-                        <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
-                            <input
-                              type="checkbox"
-                              className=" accent-[#FF1D50] w-6 h-6"
-                            />{" "}
-                            <span>Watches</span>
-                          </div>
-                        </li>
-
-                        <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
-                            <input
-                              type="checkbox"
-                              className=" accent-[#FF1D50] w-6 h-6"
-                            />{" "}
-                            <span>TV & Home</span>
-                          </div>
-                        </li>
-
-                        <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
-                            <input
-                              type="checkbox"
-                              className=" accent-[#FF1D50] w-6 h-6"
-                            />{" "}
-                            <span>Ipads</span>
-                          </div>
-                        </li>
-
-                        <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
-                            <input
-                              type="checkbox"
-                              className=" accent-[#FF1D50] w-6 h-6"
-                            />{" "}
-                            <span>Accessories</span>
-                          </div>
-                        </li>
-
-                        <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
-                            <input
-                              type="checkbox"
-                              className=" accent-[#FF1D50] w-6 h-6"
-                            />{" "}
-                            <span>Laptops</span>
-                          </div>
-                        </li>
-
-                        <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
-                            <input
-                              type="checkbox"
-                              className=" accent-[#FF1D50] w-6 h-6"
-                            />{" "}
-                            <span>Phones</span>
-                          </div>
-                        </li>
+                        {categoriesData.map((item, index) => (
+                          <li
+                            key={index}
+                            className="py-[16px] px-[10px]"
+                            value={item}
+                          >
+                            <div className="flex items-center gap-3">
+                              <input
+                                id={item}
+                                type="checkbox"
+                                className="accent-[#FF1D50] w-6 h-6"
+                                checked={selectedCategories.includes(`${item}`)}
+                                onChange={() => handleCheckboxChange(item)}
+                                value={item}
+                              />{" "}
+                              <label htmlFor={item} className="capitalize">
+                                {item}
+                              </label>
+                            </div>
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
@@ -226,11 +211,11 @@ const Shop = () => {
                         }`}
                       >
                         <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
+                          <div className="flex items-center gap-3">
                             <input
                               type="radio"
                               name="sort"
-                              className=" accent-[#FF1D50] w-6 h-6"
+                              className="accent-[#FF1D50] w-6 h-6"
                               checked
                             />{" "}
                             <span>Latest</span>
@@ -238,11 +223,11 @@ const Shop = () => {
                         </li>
 
                         <li className="py-[16px] px-[10px]">
-                          <div className="flex  items-center gap-3">
+                          <div className="flex items-center gap-3">
                             <input
                               type="radio"
                               name="sort"
-                              className=" accent-[#FF1D50] w-6 h-6"
+                              className="accent-[#FF1D50] w-6 h-6"
                             />{" "}
                             <span>Oldest</span>
                           </div>
