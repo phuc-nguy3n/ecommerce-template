@@ -1,59 +1,173 @@
 "use client";
 
 import "./styles.css";
-import React, { useEffect, useState } from "react";
+
+import { FaRegCirclePlay } from "react-icons/fa6";
+import { GoDotFill } from "react-icons/go";
+import { IoMdPause, IoMdPlay } from "react-icons/io";
+import { SlOptions, SlOptionsVertical } from "react-icons/sl";
+import {
+  RiRepeat2Fill,
+  RiRepeatOneFill,
+  RiShuffleFill,
+  RiPlayListFill,
+} from "react-icons/ri";
+import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
+import { AiOutlineClose } from "react-icons/ai";
+import { PiSpeakerHighFill } from "react-icons/pi";
+import { IoSearch } from "react-icons/io5";
+import { BiWorld } from "react-icons/bi";
+import { BsFileEarmarkMusic } from "react-icons/bs";
 import Breadcrumb from "../ui/Breadcrumb";
 import LoadingBlock from "../LoadingBlock";
-import Container from "../Container/Container";
-import { FaCalendarDays, FaShareNodes } from "react-icons/fa6";
-import {
-  FaEye,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaPinterestP,
-  FaRegComments,
-  FaRegUser,
-  FaTwitter,
-  FaFolder,
-  FaArrowRight,
-  FaArrowLeft,
-  FaPencilAlt,
-} from "react-icons/fa";
-import { IoArrowBack, IoArrowForward, IoSearch } from "react-icons/io5";
-import { HiOutlineBookOpen } from "react-icons/hi2";
-import { MdPrint } from "react-icons/md";
-import { IoMdMail } from "react-icons/io";
-import { AiFillLike } from "react-icons/ai";
-import { BsFileEarmarkMusic, BsGlobe2 } from "react-icons/bs";
-import { FiMail } from "react-icons/fi";
-import { LuDot } from "react-icons/lu";
+import { useState, useEffect, useRef } from "react";
 
-const listFile = [
+const audioDetails = {
+  name: "DPR Archives",
+  by: "DPR",
+  cover: "https://i.scdn.co/image/ab67616d0000b27335028642fcc7d80a4e96f31b",
+  playlist: [
+    {
+      id: 1,
+      name: "Billboard uwu",
+      desc: "DPR LIVE",
+      img: "https://images.unsplash.com/photo-1720758917825-018735fe6e6e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Billboard uwu.mp3",
+      playing: false,
+    },
+
+    {
+      id: 2,
+      name: "Cardboard Box Adventure",
+      desc: "Purple Cat",
+      img: "https://images.unsplash.com/photo-1720758898452-c70f7f274e0a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Cardboard Box Adventure.mp3",
+      playing: false,
+    },
+
+    {
+      id: 3,
+      name: "Coming to you seoul",
+      desc: "DPR CREAM",
+      img: "https://images.unsplash.com/photo-1723581013950-3ddcfd8f7553?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Coming to you seoul.mp3",
+      playing: false,
+    },
+
+    {
+      id: 4,
+      name: "Eyes of cream",
+      desc: "DPR CREAM",
+      img: "https://images.unsplash.com/photo-1724021751488-c11d49c4736c?q=80&w=1902&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of cream.mp3",
+      playing: false,
+    },
+
+    {
+      id: 5,
+      name: "Eyes of dpr",
+      desc: "DPR",
+      img: "https://images.unsplash.com/photo-1723912565879-93c63ae5bd9d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of dpr.mp3",
+      playing: false,
+    },
+
+    {
+      id: 6,
+      name: "Eyes of ian",
+      desc: "DPR IAN",
+      img: "https://images.unsplash.com/photo-1706920992323-2b58546b6f97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of ian.mp3",
+      playing: false,
+    },
+
+    {
+      id: 7,
+      name: "Eyes of live",
+      desc: "DPR LIVE",
+      img: "https://images.unsplash.com/photo-1605989039117-36c1ee1c7f8b?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of live.mp3",
+      playing: false,
+    },
+
+    {
+      id: 8,
+      name: "Eyes of rem",
+      desc: "DPR REM",
+      img: "https://images.unsplash.com/photo-1616960310894-3d43a1a00662?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Eyes of rem.mp3",
+      playing: false,
+    },
+
+    {
+      id: 9,
+      name: "Our last dream",
+      desc: "DPR",
+      img: "https://images.unsplash.com/photo-1723727597907-e0fc569af410?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/Our last dream.mp3",
+      playing: false,
+    },
+
+    {
+      id: 10,
+      name: "The Red Dot",
+      desc: "Purple Cat",
+      img: "https://images.unsplash.com/photo-1723875311456-2996e42a2fda?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/audio/The Red Dot.mp3",
+      playing: false,
+    },
+  ],
+};
+
+const playlistPopupData = [
   {
-    name: "2024-01-mount-zion-the-kingdom-of-god-spring-conference",
-    location: "Stuttgart",
-    date: "January 2024",
+    id: 1,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
   },
   {
-    name: "2024-04-mount-zion-the-kingdom-of-god-summer-conference",
-    location: "Stuttgart",
-    date: "April 2024",
+    id: 2,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
   },
   {
-    name: "2024-07-mount-zion-the-kingdom-of-god-autumn-conference",
-    location: "Stuttgart",
-    date: "July 2024",
+    id: 3,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
   },
   {
-    name: "2024-10-mount-zion-the-kingdom-of-god-winter-conference",
-    location: "Stuttgart",
-    date: "October 2024",
+    id: 4,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
+  },
+  {
+    id: 5,
+    name: "Aug 11, 2024 - Offerings & The Constitution of the Kingdom",
+    desc: "The Church in Fountain Valley",
   },
 ];
 
-const ConferenceDetails = () => {
+let backgroundImg = {
+  backgroundImage: `url(${audioDetails.cover})`,
+};
+
+const AudioDetails = () => {
   const [loadingPage, setLoadingPage] = useState(true);
+  const [playlist, setPlaylist] = useState(audioDetails.playlist);
+  const [audioIndex, setAudioIndex] = useState<number>(0);
+  const [audioPlaying, setAudioPlaying] = useState<any>("");
+  const [openedOptionIndex, setOpenedOptionIndex] = useState<null | number>(
+    null
+  );
+
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [isVolumnDisplay, setVolumnDisplay] = useState(false);
+  const [volume, setVolume] = useState<any>(1);
+  const [isRepeat, setRepeat] = useState(false);
+  const [isShuffling, setIsShuffling] = useState(false);
+  const [showOption, setShowOption] = useState(false);
+  const [showPlaylistPopup, setShowPlaylistPopup] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,651 +175,533 @@ const ConferenceDetails = () => {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const toggleOptions = (index: number) => {
+    if (openedOptionIndex === index) {
+      setOpenedOptionIndex(null);
+    } else {
+      setOpenedOptionIndex(index);
+    }
+  };
+
+  const handleAudioPlaying = (index: number) => {
+    const updatedPlaylist = playlist.map((item, idx) => ({
+      ...item,
+      playing: idx === index,
+    }));
+    const audio = updatedPlaylist.find((item) => item.playing === true);
+
+    setPlaylist(updatedPlaylist);
+    setAudioPlaying(audio);
+    setAudioIndex(index);
+
+    if (audio && audioRef.current) {
+      audioRef.current.src = audio.src;
+      handlePlayAudio(true);
+    }
+  };
+
+  const handlePlayAll = () => {
+    if (!audioPlaying) {
+      handleAudioPlaying(0);
+    } else {
+      return;
+    }
+  };
+
+  const handlePlayAudio = (isPlay: boolean) => {
+    if (isPlay) {
+      audioRef.current!.play();
+    } else {
+      audioRef.current!.pause();
+    }
+  };
+
+  const handleCloseAudioBar = () => {
+    const updatedPlaylist = playlist.map((item) => ({
+      ...item,
+      playing: false,
+    }));
+
+    setPlaylist(updatedPlaylist);
+    setAudioPlaying("");
+    handlePlayAudio(false);
+  };
+
+  const handleTogglePlaying = () => {
+    setAudioPlaying({ ...audioPlaying, playing: !audioPlaying.playing });
+    handlePlayAudio(!audioPlaying.playing);
+  };
+
+  const handleGoToAudio = (typeAudio: string) => {
+    if (isShuffling) {
+      handlePlayRandom();
+    } else {
+      let audIndex = audioIndex;
+      if (typeAudio === "prev") {
+        audIndex -= 1;
+        if (audIndex > 0) {
+          handleAudioPlaying(audIndex);
+        } else {
+          handleAudioPlaying(0);
+        }
+      } else if (typeAudio === "next") {
+        audIndex += 1;
+        if (audIndex < playlist.length - 1) {
+          handleAudioPlaying(audIndex);
+        }
+        return;
+      }
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const changCurrentTime = (e: any) => {
+    const currentTime = Number(e.target.value);
+    audioRef.current!.currentTime = currentTime;
+    setCurrentTime(currentTime);
+  };
+
+  const handleVolumeChange = (e: any) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
+  const handleEnded = () => {
+    if (isRepeat) {
+      audioRef.current!.currentTime = 0;
+      audioRef.current!.play();
+    } else if (isShuffling) {
+      handlePlayRandom();
+    } else if (audioIndex < playlist.length - 1) {
+      handleGoToAudio("next");
+    } else {
+      handleAudioPlaying(0);
+    }
+  };
+
+  const handlePlayRandom = () => {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * playlist.length);
+    } while (randomIndex === audioIndex);
+    handleAudioPlaying(randomIndex);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
+  };
+
   return (
-    <div>
-      {/* breadcrumb */}
+    <div className="relative">
       <Breadcrumb
         items={[
           { label: "home" },
-          { label: "conferences" },
-          { label: "spring" },
+          { label: "conference" },
+          { label: "conference details" },
         ]}
       />
 
       {loadingPage ? (
-        <LoadingBlock isLoading={loadingPage} />
+        <LoadingBlock />
       ) : (
-        <div className="pt-[60px] pb-[30px]">
-          <Container>
-            <div className="grid grid-cols-7 gap-[30px]">
-              <div className="lg:col-span-5 col-span-7 mb-[40px]">
-                {/* Tag name */}
-                <div className="px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                  References
-                </div>
+        <>
+          {/* Hero */}
+          <div className="hero" style={backgroundImg}></div>
 
-                {/* Heading */}
-                <h2 className="mt-[10px] mb-[18px] lg:text-[33px] md:text-[27px] leading-[1.5] font-bold">
-                  2024-07 Mount Zion – the Kingdom of God (Fountain Valley)
-                </h2>
-
-                {/* Info */}
-                <div className="flex items-center gap-3 text-[#54595F] mb-[24px] flex-wrap">
-                  <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                    <FaRegUser />
-                    <p className="mt-0.5 capitalize">Funkie</p>
-                  </span>
-
-                  <span className="text-[#EFEFEF]">|</span>
-
-                  <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                    <FaCalendarDays />
-                    <p className="mt-0.5 capitalize">23, March 2024</p>
-                  </span>
-
-                  <span className="text-[#EFEFEF]">|</span>
-
-                  <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                    <FaRegComments className="text-[16px]" />
-                    <p className="mt-0.5 capitalize">Comments (24)</p>
-                  </span>
-
-                  <span className="text-[#EFEFEF]">|</span>
-
-                  <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                    <HiOutlineBookOpen className="text-[16px]" />
-                    <p className="mt-0.5 capitalize">5 Mins Read</p>
-                  </span>
-                </div>
-
-                {/* Img large */}
-                <div className="mb-[35px] xl:h-[380px] lg:h-[312px] md:h-[358px] h-[200px]">
+          {/* Main */}
+          <div className="pt-[60px] pb-[30px] mt-[-100px]">
+            <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px] relative">
+              <div
+                className="flex justify-between items-center lg:gap-[40px] gap-[24px] mb-[80px] md:flex-nowrap flex-wrap"
+                id="view-details"
+              >
+                <div className="img-box overflow-hidden rounded-xl md:w-auto w-full">
                   <img
-                    className="object-cover w-full h-full"
-                    src="https://i.pinimg.com/1200x/e7/ad/77/e7ad77df3c648d7db34bc187e9a5c74a.jpg"
+                    className="md:w-[300px]  w-full md:h-[300px] sm:h-[250px] h-[200px] object-cover"
+                    src={audioDetails.cover}
                     alt=""
                   />
                 </div>
 
-                <div className="mb-[30px] flex gap-[30px] relative">
-                  {/* Media */}
-                  <div className="max-w-[40px] sm:block hidden">
-                    <div className="sticky lg:top-[80px] top-[90px] left-0">
-                      <span className="text-[12px] leading-[20px] text-[#080809] font-bold mb-[15px] block capitalize">
-                        Share Post:
-                      </span>
-
-                      <div>
-                        <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                          <FaFacebookF className="text-[#1D4292]" />
-                        </div>
-
-                        <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                          <FaTwitter className="text-[#1C96E8]" />
-                        </div>
-
-                        <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                          <FaLinkedinIn className="text-[#0270AD]" />
-                        </div>
-
-                        <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                          <FaPinterestP className="text-[#B7081B]" />
-                        </div>
-
-                        <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                          <FaInstagram className="text-[#AE2EB5]" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex-grow">
-                    {/* Media mobile */}
-                    <div className="sm:hidden block mb-[20px]">
-                      <div className="flex flex-wrap">
-                        <span className="text-[12px] leading-[20px] text-[#080809] font-bold mb-[15px] block capitalize mr-[10px]">
-                          Share Post:
-                        </span>
-
-                        <div className="flex gap-x-[10px] ">
-                          <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                            <FaFacebookF className="text-[#1D4292]" />
-                          </div>
-
-                          <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                            <FaTwitter className="text-[#1C96E8]" />
-                          </div>
-
-                          <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                            <FaLinkedinIn className="text-[#0270AD]" />
-                          </div>
-
-                          <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                            <FaPinterestP className="text-[#B7081B]" />
-                          </div>
-
-                          <div className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer">
-                            <FaInstagram className="text-[#AE2EB5]" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Action bar */}
-                    <div className="flex items-center justify-between mb-[24px] flex-wrap gap-[10px]">
-                      <div className="flex items-center gap-[10px]">
-                        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
-                          Print:{" "}
-                          <MdPrint className="text-[#FF1D50] text-[18px]" />
-                        </button>
-
-                        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
-                          Email:{" "}
-                          <IoMdMail className="text-[#FF1D50] text-[18px]" />
-                        </button>
-                      </div>
-
-                      <div className="flex items-center gap-[10px]">
-                        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px] ml-auto">
-                          <span className="mt-[1px]">1k</span>{" "}
-                          <AiFillLike className="text-[#FF1D50] text-[18px]" />
-                        </button>
-
-                        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
-                          <span className="mt-[1px]">515</span>{" "}
-                          <FaEye className="text-[#FF1D50] text-[18px]" />
-                        </button>
-
-                        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
-                          <span className="mt-[1px]">100</span>{" "}
-                          <FaShareNodes className="text-[#FF1D50] text-[18px]" />
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="main-content">
-                      {/* List file */}
-                      <ul className="grid   grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
-                        {listFile.map((item, index) => (
-                          <li key={index}>
-                            <div className="flex justify-between hover:bg-slate-50 p-[10px] rounded-md ">
-                              <div className="flex justify-between flex-grow">
-                                <div className="flex gap-[16px] items-center">
-                                  <div className="min-w-[50px] h-[50px] flex justify-center items-center bg-[--primary] rounded-md overflow-hidden cursor-pointer">
-                                    <BsFileEarmarkMusic className="text-[24px] text-white" />
-                                  </div>
-
-                                  <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
-                                    <h3 className="audio-title text-[16px] mb-[2px] line-clamp-1 cursor-pointer">
-                                      {item.name}
-                                    </h3>
-                                    <div className="flex items-center">
-                                      <span className="text-[#757c83] text-[14px] cursor-pointer">
-                                        {item.location}
-                                      </span>
-                                      <LuDot className="text-[#757c83]" />
-                                      <span className="text-[#757c83] text-[14px] cursor-pointer">
-                                        {item.date}
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Comment form */}
-                <div className="comment-form mb-[40px]">
-                  <div className="form-title">
-                    <h3 className="mb-[10px] sm:text-[30px] text-[22px] leading-[1.3] font-bold tracking-wide">
-                      Leave a Comment
-                    </h3>
-                    <p className="mb-[25px] text-[14px] text-[#6c757d]">
-                      Your email address will not be published. Required fields
-                      are marked *
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-[24px]">
-                    <div className="form-group relative sm:col-span-1 col-span-2">
-                      <input
-                        type="text"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
-                        placeholder="Your Name *"
-                      />
-
-                      <FaRegUser className="absolute top-[50%] right-[6%] translate-y-[-50%] text-[#ff1d50]" />
-                    </div>
-
-                    <div className="form-group relative sm:col-span-1 col-span-2">
-                      <input
-                        type="email"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
-                        placeholder="Your Email *"
-                      />
-
-                      <FiMail className="absolute top-[50%] right-[6%] translate-y-[-50%] text-[#ff1d50]" />
-                    </div>
-
-                    <div className="form-group relative col-span-2">
-                      <input
-                        type="text"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
-                        placeholder="Website *"
-                      />
-
-                      <BsGlobe2 className="absolute top-[50%] right-[3%] translate-y-[-50%] text-[#ff1d50]" />
-                    </div>
-
-                    <div className="form-group relative col-span-2">
-                      <textarea
-                        className="w-full min-h-[154px] py-[16px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] rounded-[5px] outline-none"
-                        placeholder="Write a Comment *"
-                      ></textarea>
-
-                      <FaPencilAlt className="absolute top-[16px] right-[3%] text-[#ff1d50]" />
-                    </div>
-
-                    <div className="col-span-2">
-                      <button className="uppercase text-white bg-[#ff1d50] font-bold text-[14px] py-[16px] px-[26px] rounded-[4px]">
-                        Post comment
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Conferences navigation */}
-                <div className="blog-navigation flex items-center justify-between border border-x-0 border-y-1 border-[#EFEFEF] sm:py-[30px] py-[16px] mb-[30px]">
-                  <div className="nav-btn pev flex items-center max-w-[350px] sm:gap-[20px] gap-[10px]">
-                    <div className="md:min-w-[80px] min-w-[50px]">
-                      <img
-                        className="md:w-[80px] w-[50px] md:h-[80px] h-[50px] object-cover rounded-full"
-                        src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="sm:mr-[31px] mr-0">
-                      <h5 className="text-[13px] mb-[12px] font-bold md:line-clamp-2  hidden">
-                        Winter Conferences
-                      </h5>
-                      <p className="flex items-center font-medium text-[#54595F]">
-                        <FaArrowLeft className="mr-[7px] text-[#FF1D50]" /> Prev
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="w-[1px] h-[80px] bg-[#EFEFEF]"></div>
-
-                  <div className="nav-btn pev flex items-center max-w-[350px] sm:gap-[20px] gap-[10px]">
-                    <div className="md:min-w-[80px] min-w-[50px] order-2">
-                      <img
-                        className="md:w-[80px] w-[50px] md:h-[80px] h-[50px] object-cover rounded-full"
-                        src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="sm:ml-[31px] ml-0">
-                      <h5 className="text-[13px] mb-[12px] font-bold text-right md:line-clamp-2  hidden">
-                        Summer conferences
-                      </h5>
-                      <p className="flex items-center font-medium text-[#54595F] justify-end">
-                        Next{" "}
-                        <FaArrowRight className="ml-[7px] text-[#FF1D50]" />
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Related Post */}
-                <div className="pt-[30px] mb-[30px]">
-                  <div className="flex items-start gap-[10px]">
-                    <div className="flex-grow">
-                      <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] text-[24px] capitalize font-semibold leading-[1.5]">
-                        Related Post
+                <div className="md:flex-grow md:w-0 w-full md:mt-0 mt-[30px]">
+                  <div className="title-area flex justify-between">
+                    <div>
+                      <h2 className="title capitalize text-[28px] font-semibold mb-[12px]">
+                        {audioDetails.name}
                       </h2>
-                    </div>
-
-                    <div className="flex gap-2">
-                      <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
-                        <IoArrowBack className="text-[18px]" />
+                      <div className="recor-box flex items-center text-[#54595F] gap-[10px] mb-[12px]">
+                        <span>Recording</span>
+                        <span>
+                          <GoDotFill className="text-[10px]" />
+                        </span>
+                        <span>{audioDetails.playlist.length} Recording</span>
+                      </div>
+                      <div className="created-by flex gap-[8px]">
+                        <span className="text-[#54595F]">By: </span>
+                        <p className="font-medium">{audioDetails.by}</p>
                       </div>
 
-                      <div className="p-2 rounded-full border hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
-                        <IoArrowForward className="text-[18px]" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <div className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory -mx-3">
-                      <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
-                        <div>
-                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
-                            <img
-                              className="w-full h-full object-cover"
-                              src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                              alt=""
-                            />
-
-                            {/* Overlay */}
-                            <div className="absolute top-0 w-full h-full  gradient-bg blog flex flex-col p-[20px] justify-start">
-                              <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                                News
-                              </div>
-                            </div>
-                          </div>
-                          <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
-                            Power to the people for a Better future!
-                          </h3>
-                          <div className="flex items-center gap-3 text-[#B5B5B5]">
-                            <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                              <FaRegUser />
-                              <p className="mt-0.5">By - Tnews</p>
-                            </span>
-
-                            <span>|</span>
-
-                            <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                              <FaCalendarDays />
-                              <p className="mt-0.5">20 Mar, 2023</p>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
-                        <div>
-                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
-                            <img
-                              className="w-full h-full object-cover"
-                              src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                              alt=""
-                            />
-
-                            {/* Overlay */}
-                            <div className="absolute top-0 w-full h-full  gradient-bg blog flex flex-col p-[20px] justify-start">
-                              <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                                News
-                              </div>
-                            </div>
-                          </div>
-                          <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
-                            Power to the people for a Better future!
-                          </h3>
-                          <div className="flex items-center gap-3 text-[#B5B5B5]">
-                            <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                              <FaRegUser />
-                              <p className="mt-0.5">By - Tnews</p>
-                            </span>
-
-                            <span>|</span>
-
-                            <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                              <FaCalendarDays />
-                              <p className="mt-0.5">20 Mar, 2023</p>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex-none px-3 snap-start xl:w-1/3 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full">
-                        <div>
-                          <div className="mb-[18px] overflow-hidden xl:w-[266px] lg:w-[303px] md:w-[318px] w-full xl:h-[187px] lg:h-[192px] md:h-[218px] sm:h-[190px] h-[200px] relative box">
-                            <img
-                              className="w-full h-full object-cover"
-                              src="https://images.unsplash.com/photo-1723479319633-43fa297d3853?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                              alt=""
-                            />
-
-                            {/* Overlay */}
-                            <div className="absolute top-0 w-full h-full  gradient-bg blog flex flex-col p-[20px] justify-start">
-                              <div className="lg:mb-0 mb-[15px] px-[8px] leading-[26px] text-[12px] font-bold uppercase text-white bg-[#007BFF] rounded-[3px] w-fit hover:bg-black cursor-pointer transition-colors duration-300 ease-in-out">
-                                News
-                              </div>
-                            </div>
-                          </div>
-                          <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
-                            Power to the people for a Better future!
-                          </h3>
-                          <div className="flex items-center gap-3 text-[#B5B5B5]">
-                            <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                              <FaRegUser />
-                              <p className="mt-0.5">By - Tnews</p>
-                            </span>
-
-                            <span>|</span>
-
-                            <span className="text-[14px] font-medium flex items-center gap-1 cursor-pointer hover:text-[#ff1d50] transition-colors duration-300 ease-in-out">
-                              <FaCalendarDays />
-                              <p className="mt-0.5">20 Mar, 2023</p>
-                            </span>
-                          </div>
-                        </div>
+                      <div
+                        onClick={handlePlayAll}
+                        className="play-box flex gap-[8px] mt-[44px] items-center cursor-pointer"
+                      >
+                        <FaRegCirclePlay className="text-[40px] text-[#FF1D50]" />{" "}
+                        <span className="font-semibold">Play all</span>
                       </div>
                     </div>
+
+                    <span className="options-box mt-[8px]">
+                      <SlOptions className="cursor-pointer text-[20px]" />
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Navbar */}
-              <div className="lg:col-span-2 col-span-7 mb-[40px] relative">
-                <div className="sticky top-[80px] right-0">
-                  {/* Search box */}
-                  <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
-                    <div className="form-group relative flex-grow">
+              <div className="mb-[30px]">
+                {/* Search box */}
+                <div className="search-box mb-[24px]">
+                  <div className="container xl:max-w-[1184px] lg:max-w-[960px] max-w-[720px]  overflow-hidden px-0">
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <form className="flex-grow border rounded-lg">
+                        <div className="form-control flex items-center py-[14px] gap-[10px] px-[16px]">
+                          <label htmlFor="search_input ">
+                            <IoSearch className="text-[24px] text-[#FF1D50]" />
+                          </label>
+                          <input
+                            type="text"
+                            className="search_input outline-none bg-transparent w-full pr-[24px]"
+                            placeholder="Type anything to get result..."
+                          />
+                        </div>
+                      </form>
+
+                      <div className="form-group col-span-1 bg-[#F5F5F5] h-[50px] rounded-md relative">
+                        <select
+                          defaultValue="English"
+                          className="form-control language w-full h-[50px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] "
+                        >
+                          <option value="English">English</option>
+                          <option value="German">German</option>
+                          <option value="France">France</option>
+                        </select>
+                        <BiWorld className="absolute translate-y-[-50%] top-[50%] right-[10%]" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <ul className="audio-list grid grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
+                  {playlist.map((item, index) => (
+                    <li key={index} className={`audio-${index}`}>
+                      <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
+                        <div className="flex gap-[16px]">
+                          <div className="audio-icon min-w-[50px] min-h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
+                            <BsFileEarmarkMusic className="text-[24px] text-white" />
+                            <div
+                              onClick={() => handleAudioPlaying(index)}
+                              className={`play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full  ${
+                                item.playing ? "flex" : "hidden"
+                              } items-center justify-center`}
+                            >
+                              {item.playing ? <IoMdPause /> : <IoMdPlay />}
+                            </div>
+                          </div>
+                          <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
+                            <h3 className="audio-title text-[16px] mb-[2px] line-clamp-1 cursor-pointer">
+                              {item.name}
+                            </h3>
+                            <div className="flex items-center gap-[16px] ">
+                              <span className="text-[#757c83] text-[14px] cursor-pointer">
+                                {item.desc}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-center items-center gap-[16px]">
+                          <span
+                            className="options-box relative"
+                            onClick={() => toggleOptions(index)}
+                          >
+                            <SlOptions className="cursor-pointer text-[20px]" />
+                            {openedOptionIndex === index && (
+                              <a
+                                href={item.src}
+                                download={`${item.name}.mp3`}
+                                className="absolute py-2 px-3 border rounded-sm top-[-40px] left-[-50px] text-[12px] text-[#57595b] z-50 bg-white"
+                              >
+                                Download
+                              </a>
+                            )}
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* audio control */}
+              <div
+                className={`sticky-bar ${
+                  audioPlaying ? "block" : "hidden"
+                } sticky z-30 bg-white bottom-[10px] rounded-lg`}
+              >
+                <div className="flex items-center cover relative">
+                  {/* progress audio */}
+                  <div className="progress absolute w-full h-1 top-[-14px] ">
+                    <div className="container max-w-[1200px] px-[10px]">
                       <input
-                        type="text"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none"
-                        placeholder="Enter Keyword"
+                        type="range"
+                        className="h-1 w-full outline-none rounded-md"
+                        min={0}
+                        max={duration}
+                        value={currentTime}
+                        onChange={(e) => changCurrentTime(e)}
                       />
                     </div>
-                    <button className="bg-[#FF1D50] w-[56px] h-[50px] flex items-center justify-center">
-                      <IoSearch className="text-white text-[18px]" />
+                  </div>
+
+                  <div className="flex-1 flex items-center md:p-0 p-2 pt-3">
+                    <div className="cover-img w-[72px] h-[72px] min-w-[72px] justify-center items-center md:flex hidden">
+                      <BsFileEarmarkMusic className="text-[28px] text-[#FF1D50]" />
+                    </div>
+                    <div className="cover-content pl-[12px]">
+                      <h3 className="audio-title text-[14px] font-medium mb-[2px] line-clamp-1 cursor-pointer">
+                        {audioPlaying?.name}
+                      </h3>
+                      <div className="flex items-center gap-[16px] ">
+                        <span className="text-[#757c83] text-[14px] cursor-pointer">
+                          {audioPlaying?.desc}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-[2] play-control flex items-center justify-center">
+                    <button
+                      onClick={() => setRepeat(!isRepeat)}
+                      className="p-2 mr-[24px] md:inline-block hidden"
+                    >
+                      {isRepeat ? (
+                        <RiRepeatOneFill className="text-[20px]" />
+                      ) : (
+                        <RiRepeat2Fill className="text-[20px]" />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        handleGoToAudio("prev");
+                      }}
+                      className="p-2"
+                    >
+                      <MdSkipPrevious className="text-[24px]" />
+                    </button>
+
+                    <button
+                      className="p-3 rounded-full shadow-sm play-btn"
+                      onClick={handleTogglePlaying}
+                    >
+                      {audioPlaying?.playing ? (
+                        <IoMdPause className="text-[18px]" />
+                      ) : (
+                        <IoMdPlay className="text-[18px]" />
+                      )}
+                    </button>
+
+                    {/* Audio element */}
+                    <audio
+                      ref={audioRef}
+                      onLoadedMetadata={handleLoadedMetadata}
+                      onTimeUpdate={handleTimeUpdate}
+                      onEnded={handleEnded}
+                    />
+
+                    <button
+                      onClick={() => {
+                        handleGoToAudio("next");
+                      }}
+                      className="p-2"
+                    >
+                      <MdSkipNext className="text-[24px]" />
+                    </button>
+
+                    <button
+                      onClick={() => setIsShuffling(!isShuffling)}
+                      className="p-2 md:ml-[22px] ml-0 md:inline-block hidden"
+                    >
+                      <RiShuffleFill
+                        className={`text-[20px] ${
+                          isShuffling ? "text-[#FF1D50]" : ""
+                        } `}
+                      />
+                    </button>
+
+                    <button
+                      className="md:p-2 p-0 md:ml-[24px] ml-0"
+                      onClick={handleCloseAudioBar}
+                    >
+                      <AiOutlineClose className="text-[20px] text-[#FF1D50] md:inline-block hidden" />
                     </button>
                   </div>
 
-                  <div className="category">
-                    <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
-                      Categories
-                    </h3>
+                  <div className="flex-1 flex items-center justify-end">
+                    <div className="duration xl:block hidden mr-[24px]">
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </div>
+                    <div className="relative">
+                      <div
+                        className={`absolute -rotate-90 left-[50%] translate-x-[-50%] top-[-96px] py-[4px] px-[12px] bg-white border rounded-lg ${
+                          isVolumnDisplay ? "block" : "hidden"
+                        }`}
+                      >
+                        <input
+                          className="mt-[7px]"
+                          type="range"
+                          min={0}
+                          max={1}
+                          step={0.01}
+                          value={volume}
+                          onChange={handleVolumeChange}
+                        />
+                      </div>
 
-                    {/*  Category list  */}
-                    <ul className="category-list space-y-[10px] mb-[30px]">
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Sport</p>{" "}
-                        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
-                        </div>
-                      </li>
-
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Business</p>{" "}
-                        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
-                        </div>
-                      </li>
-
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Politics</p>{" "}
-                        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
-                        </div>
-                      </li>
-
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Health</p>{" "}
-                        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
-                        </div>
-                      </li>
-
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Technology</p>{" "}
-                        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
-                        </div>
-                      </li>
-
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Entertaiment</p>{" "}
-                        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
-                        </div>
-                      </li>
-                    </ul>
-
-                    <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
-                      Recent Posts
-                    </h3>
-
-                    {/* Recent Posts List */}
-                    <ul className="recent-post mb-[35px]">
-                      <li className="flex gap-4 py-4">
-                        <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
-                          <div className="flex flex-col items-start">
-                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
-                              Fitness: Your journey to Better, stronger you.
-                            </h3>
-                          </div>
-
-                          <span className="text-[14px] text-gray-400 hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out flex items-center gap-1 justify-start">
-                            <FaCalendarDays />{" "}
-                            <p className="mt-[2px] font-medium">20 Mar, 2024</p>
-                          </span>
-                        </div>
-                        <div className="w-[80px] h-[80px] overflow-hidden relative box order-1">
-                          <img
-                            className="w-[80px] h-[80px] object-cover transform transition-transform duration-500 hover:scale-105"
-                            src="https://plus.unsplash.com/premium_photo-1723291846204-4aa828a8b08a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt=""
-                          />
-                        </div>
-                      </li>
-
-                      <li className="flex gap-4 py-4">
-                        <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
-                          <div className="flex flex-col items-start">
-                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
-                              Fitness: Your journey to Better, stronger you.
-                            </h3>
-                          </div>
-
-                          <span className="text-[14px] text-gray-400 hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out flex items-center gap-1 justify-start">
-                            <FaCalendarDays />{" "}
-                            <p className="mt-[2px] font-medium">20 Mar, 2024</p>
-                          </span>
-                        </div>
-                        <div className="w-[80px] h-[80px] overflow-hidden relative box order-1">
-                          <img
-                            className="w-[80px] h-[80px] object-cover transform transition-transform duration-500 hover:scale-105"
-                            src="https://plus.unsplash.com/premium_photo-1723291846204-4aa828a8b08a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt=""
-                          />
-                        </div>
-                      </li>
-
-                      <li className="flex gap-4 py-4">
-                        <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
-                          <div className="flex flex-col items-start">
-                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
-                              Fitness: Your journey to Better, stronger you.
-                            </h3>
-                          </div>
-
-                          <span className="text-[14px] text-gray-400 hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out flex items-center gap-1 justify-start">
-                            <FaCalendarDays />{" "}
-                            <p className="mt-[2px] font-medium">20 Mar, 2024</p>
-                          </span>
-                        </div>
-                        <div className="w-[80px] h-[80px] overflow-hidden relative box order-1">
-                          <img
-                            className="w-[80px] h-[80px] object-cover transform transition-transform duration-500 hover:scale-105"
-                            src="https://plus.unsplash.com/premium_photo-1723291846204-4aa828a8b08a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt=""
-                          />
-                        </div>
-                      </li>
-                    </ul>
-
-                    {/* Ads */}
-                    <div className="mb-[35px]">
-                      <img
-                        className="xl:w-[316px] lg:w-[234px] md:w-[656px] w-full xl:h-[350px] lg:h-[286px] sm:h-[300px] h-[250px] object-cover"
-                        src="https://images.unsplash.com/photo-1722603037481-6f6f7bf852fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt=""
-                      />
+                      <button
+                        onClick={() => {
+                          setVolumnDisplay(!isVolumnDisplay);
+                        }}
+                        className="p-2 md:inline-block hidden"
+                      >
+                        <PiSpeakerHighFill className="text-[20px]" />
+                      </button>
                     </div>
 
-                    <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
-                      Popular Tags
-                    </h3>
-
-                    {/* Popular Tags List */}
-                    <div className="tag-cloud flex gap-[10px] flex-wrap">
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Sports
+                    <div className="relative">
+                      <button
+                        onClick={() => {
+                          setShowOption(!showOption);
+                        }}
+                        className="p-2"
+                      >
+                        <SlOptionsVertical className="text-[16px] md:inline-block hidden" />
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Politics
+                      <div
+                        className={`${
+                          showOption ? "block" : "hidden"
+                        } absolute top-[-145px] left-[-120px] min-w-[120px] bg-white border rounded-md overflow-hidden text-[#57595b] text-[13px]`}
+                      >
+                        <ul className="option-board py-[10px] ">
+                          <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                            <span>Favorite</span>
+                          </li>
+                          <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                            <span>Add to playlist</span>
+                          </li>
+                          <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                            <a
+                              href={audioPlaying.src}
+                              download={`${audioPlaying.name}.mp3`}
+                            >
+                              Download
+                            </a>
+                          </li>
+                          <li className="px-[12px] py-[4px] hover:bg-slate-100 cursor-pointer">
+                            <span>Share</span>
+                          </li>
+                        </ul>
+                        <hr></hr>
+                        <div className="view-details pb-[10px] cursor-pointer">
+                          <a
+                            href="#view-details"
+                            className="px-[12px] pb-[4px] pt-[10px] block hover:bg-slate-100"
+                          >
+                            View details
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="relative">
+                      <button
+                        onClick={() => setShowPlaylistPopup(!showPlaylistPopup)}
+                        className="p-2 mr-[18px]"
+                      >
+                        <RiPlayListFill className="text-[20px]" />
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Business
-                      </button>
+                      <div
+                        className={`playlist-popup absolute  md:top-[-295px] top-[-288px] md:left-[-345px] left-[-245px] md:w-[400px] w-[300px] h-[268px] py-[8px] bg-white border rounded-md ${
+                          showPlaylistPopup ? "block" : "hidden"
+                        }`}
+                      >
+                        <div className="playlist-head py-[16px] px-[24px] flex justify-between items-center">
+                          <h3 className="font-semibold">Next Lineup</h3>
+                          <div className="text-[#FF1D50] cursor-pointer">
+                            <span className="font-medium">Clear</span>
+                            <div className="h-[2px] bg-[#FF1D50]"></div>
+                          </div>
+                        </div>
+                        <ul className="playlist-body py-[8px] px-[16px] max-h-[200px] overflow-y-scroll">
+                          {playlistPopupData.map((item, index) => (
+                            <li key={index}>
+                              <div className="flex p-[8px] rounded-md hover:bg-slate-100">
+                                <div className="cover-img w-[48px] h-[48px] min-w-[48px] flex justify-center items-center relative">
+                                  <BsFileEarmarkMusic className="text-[40px] text-[#FF1D50]" />
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Music
-                      </button>
+                                  <div className="play-box overlay absolute w-[30px] h-[30px] bg-black rounded-full hidden items-center justify-center cursor-pointer">
+                                    <IoMdPlay className="text-white" />
+                                  </div>
+                                </div>
+                                <div className="list__content mt-[8px] pl-[2px]">
+                                  <h4 className="audio-title text-[13px] line-clamp-1 cursor-pointer font-medium">
+                                    {item.name}
+                                  </h4>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Foood
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Technology
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Travels
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Health
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Fashions
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Animal
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Weather
-                      </button>
-
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px]">
-                        Movies
-                      </button>
+                                  <span className="text-[#757c83] text-[13px] cursor-pointer">
+                                    {item.desc}
+                                  </span>
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </Container>
-        </div>
+          </div>
+        </>
       )}
     </div>
   );
 };
 
-export default ConferenceDetails;
+export default AudioDetails;

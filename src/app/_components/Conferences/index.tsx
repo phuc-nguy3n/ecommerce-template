@@ -61,7 +61,7 @@ const ConferencesOverview = () => {
       ) : (
         <div className="pt-[60px] pb-[30px]">
           <Container>
-            <ul className={audioStyle.listPost}>
+            <ul className="grid grid-cols-1 gap-[20px]">
               {conferencesList.map((item, index) => (
                 <li key={index}>
                   <div className={audioStyle.imgBox}>
