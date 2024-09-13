@@ -25,7 +25,7 @@ import { HiOutlineBookOpen } from "react-icons/hi2";
 import { MdPrint } from "react-icons/md";
 import { IoMdMail } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
-import { BsGlobe2 } from "react-icons/bs";
+import { BsFileEarmarkMusic, BsGlobe2 } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import { LuDot } from "react-icons/lu";
 
@@ -231,8 +231,8 @@ const ConferenceDetails = () => {
                             <div className="flex justify-between hover:bg-slate-50 p-[10px] rounded-md ">
                               <div className="flex justify-between flex-grow">
                                 <div className="flex gap-[16px] items-center">
-                                  <div className="min-w-[50px] h-[50px] flex justify-center items-center bg-yellow-300 rounded-md overflow-hidden cursor-pointer">
-                                    <FaFolder className="text-[24px] text-white" />
+                                  <div className="min-w-[50px] h-[50px] flex justify-center items-center bg-[--primary] rounded-md overflow-hidden cursor-pointer">
+                                    <BsFileEarmarkMusic className="text-[24px] text-white" />
                                   </div>
 
                                   <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
