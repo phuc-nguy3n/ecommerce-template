@@ -1,6 +1,5 @@
 "use client";
 import "./styles.css";
-import React from "react";
 import Breadcrumb from "../ui/Breadcrumb";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Accordion from "../Accordion/Accordion";
@@ -133,8 +132,11 @@ const Contact = () => {
                     </div>
 
                     <div className="form-group md:col-span-1 col-span-2">
-                      <select className="form-control w-full  h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]">
-                        <option value="" disabled selected hidden>
+                      <select
+                        defaultValue="Select Subject"
+                        className="form-control w-full h-[50px] px-[25px] outline-none text-[16px] rounded-md text-[#54596e]"
+                      >
+                        <option value="Select Subject" disabled hidden>
                           Select Subject
                         </option>
                         <option value="Writing Article">Writing Article</option>
