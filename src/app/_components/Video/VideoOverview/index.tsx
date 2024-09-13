@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaCalendarDays, FaPlay } from "react-icons/fa6";
 import { LuVote } from "react-icons/lu";
 import { IoArrowForward } from "react-icons/io5";
-import { BiLike } from "react-icons/bi";
+import { BiLike, BiWorld } from "react-icons/bi";
 import LoadingBlock from "../../LoadingBlock";
 import Breadcrumb from "../../ui/Breadcrumb";
 
@@ -139,6 +139,23 @@ const VideoOverview = () => {
       ) : (
         <section className="pt-[60px] pb-[30px]">
           <div className="container xl:max-w-[1248px] lg:max-w-[960px] max-w-[720px]">
+            <div className="md:flex block  items-center mb-5 flex-wrap">
+              <span className="flex items-center mr-3 text-lg md:mb-0 mb-3">
+                Select language:{" "}
+              </span>
+              <div className="form-group bg-[#F5F5F5] h-[50px] rounded-md relative  sm:flex-grow-0 flex-grow">
+                <select
+                  defaultValue="English"
+                  className="form-control language w-full h-[50px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] "
+                >
+                  <option value="English">English</option>
+                  <option value="German">German</option>
+                  <option value="France">France</option>
+                </select>
+                <BiWorld className="absolute translate-y-[-50%] top-[50%] right-[10%]" />
+              </div>
+            </div>
+
             <ul className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-[20px] ">
               {videoOverviewData.map((item, index) => (
                 <li

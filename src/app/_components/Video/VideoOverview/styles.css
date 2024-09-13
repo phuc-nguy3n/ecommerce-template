@@ -9,3 +9,9 @@
 .video-frame.active {
     display: block;
 }
+
+.form-group .language {
+    appearance: none;
+    cursor: pointer;
+    background-image: none;
+}
