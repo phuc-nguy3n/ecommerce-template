@@ -18,7 +18,7 @@ const videoOverviewData = [
     tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/sl2nXEeyYIw?si=FrEEC6mgzIW78cgF",
+    src: "/video/file_example_MP4_480_1_5MG.mp4",
     voted: 20,
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
@@ -28,7 +28,7 @@ const videoOverviewData = [
     tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/L5w2QYB9-UU?si=EdTTdH3gp0WdWcwZ",
+    src: "/video/12221555_3840_2160_30fps.mp4",
     voted: 17,
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
@@ -38,68 +38,8 @@ const videoOverviewData = [
     tagName: "Video",
     img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/sl2nXEeyYIw?si=FrEEC6mgzIW78cgF",
+    src: "/video/19935237-uhd_3840_2160_30fps.mp4",
     voted: 15,
-    created: "29 Mar, 2023",
-    createBy: "By - Tnews ",
-  },
-
-  {
-    tagName: "Video",
-    img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/vSEcBiyNe8Y?si=jTrGU6tae6sYq4-O",
-    voted: 15,
-    created: "29 Mar, 2023",
-    createBy: "By - Tnews ",
-  },
-
-  {
-    tagName: "Video",
-    img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/08Qa3ggR9rw?si=B7eImrTBdgH2apAm",
-    voted: 9,
-    created: "29 Mar, 2023",
-    createBy: "By - Tnews ",
-  },
-
-  {
-    tagName: "Video",
-    img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/rjOKuGabFiQ?si=4KJxlk4XrMg9ApNN",
-    voted: 8,
-    created: "29 Mar, 2023",
-    createBy: "By - Tnews ",
-  },
-
-  {
-    tagName: "Video",
-    img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/14qYC5aSs0Q?si=hldfsGXCB24xaDb7",
-    voted: 4,
-    created: "29 Mar, 2023",
-    createBy: "By - Tnews ",
-  },
-
-  {
-    tagName: "Video",
-    img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/hIc0WYqdDto?si=ilnyr6yncwxWG7A9",
-    voted: 3,
-    created: "29 Mar, 2023",
-    createBy: "By - Tnews ",
-  },
-
-  {
-    tagName: "Video",
-    img: "https://images.unsplash.com/photo-1531356495-75ccc754cb64?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Paddle your way to adventure, embrace kayaking.",
-    src: "https://www.youtube.com/embed/vSEcBiyNe8Y?si=jTrGU6tae6sYq4-O",
-    voted: 3,
     created: "29 Mar, 2023",
     createBy: "By - Tnews ",
   },
@@ -107,7 +47,8 @@ const videoOverviewData = [
 
 const VideoOverview = () => {
   const [loadingPage, setLoadingPage] = useState(true);
-  const [video, setVideo] = useState(videoOverviewData[0].src);
+  const [video, setVideo] = useState<string>();
+  const [indexVideo, setIndexVideo] = useState<number>(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -115,15 +56,20 @@ const VideoOverview = () => {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setVideo(videoOverviewData[indexVideo].src);
+    }
+  }, [indexVideo]);
+
   const handleOpenVideo = (isOpen: boolean, index: number | null) => {
     const videoElement = document.querySelector(".video-frame");
 
     if (isOpen && index !== null) {
-      setVideo(videoOverviewData[index].src);
-      setTimeout(() => {
-        videoElement?.classList.add("active");
-        document.body.style.overflow = "hidden";
-      }, 300);
+      setIndexVideo(index);
+
+      videoElement?.classList.add("active");
+      document.body.style.overflow = "hidden";
     } else {
       videoElement?.classList.remove("active");
       document.body.style.overflow = "auto";
@@ -244,11 +190,8 @@ const VideoOverview = () => {
 
                 {/* Container với tỷ lệ khung hình 16:9 */}
                 <div className="relative pb-[56.25%] h-0">
-                  <video className="w-full" controls>
-                    <source
-                      src="/video/file_example_MP4_480_1_5MG.mp4"
-                      type="video/mp4"
-                    />
+                  <video key={video} className="w-full" controls>
+                    <source src={video} type="video/mp4" />
                   </video>
                 </div>
               </div>
