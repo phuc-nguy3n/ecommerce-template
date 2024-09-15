@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { FaCalendarDays, FaPlay } from "react-icons/fa6";
-import { LuVote } from "react-icons/lu";
-import { IoArrowForward } from "react-icons/io5";
-import { BiLike, BiWorld } from "react-icons/bi";
-import LoadingBlock from "../../LoadingBlock";
-import Breadcrumb from "../../ui/Breadcrumb";
-
 import "./styles.css";
+import React, { useEffect, useState, useRef } from "react";
+import { FaCalendarDays, FaPlay } from "react-icons/fa6";
+import { IoArrowForward } from "react-icons/io5";
+import { BiWorld } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { homeStyle } from "@/app/constantStyle";
 import { FaRegUser } from "react-icons/fa";
+import LoadingBlock from "../../LoadingBlock";
+import Breadcrumb from "../../ui/Breadcrumb";
 
 const videoOverviewData = [
   {
@@ -47,32 +45,34 @@ const videoOverviewData = [
 
 const VideoOverview = () => {
   const [loadingPage, setLoadingPage] = useState(true);
-  const [video, setVideo] = useState<string>();
+  const [videoUrl, setVideoUrl] = useState<string>();
   const [indexVideo, setIndexVideo] = useState<number>(0);
 
+  const videoFrameRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoadingPage(false);
     }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setVideo(videoOverviewData[indexVideo].src);
+      setVideoUrl(videoOverviewData[indexVideo].src);
     }
   }, [indexVideo]);
 
   const handleOpenVideo = (isOpen: boolean, index: number | null) => {
-    const videoElement = document.querySelector(".video-frame");
-
-    if (isOpen && index !== null) {
-      setIndexVideo(index);
-
-      videoElement?.classList.add("active");
-      document.body.style.overflow = "hidden";
-    } else {
-      videoElement?.classList.remove("active");
-      document.body.style.overflow = "auto";
+    if (videoFrameRef.current) {
+      if (isOpen && index !== null) {
+        setIndexVideo(index);
+        videoFrameRef.current.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        videoFrameRef.current.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
     }
   };
 
@@ -176,7 +176,10 @@ const VideoOverview = () => {
           </div>
 
           {/* Video frame */}
-          <div className="video-frame fixed top-0 right-0 left-0 bottom-0 w-full bg-black bg-opacity-50 z-[9999] overflow-hidden">
+          <div
+            ref={videoFrameRef}
+            className="video-frame fixed top-0 right-0 left-0 bottom-0 w-full bg-black bg-opacity-50 z-[9999] overflow-hidden"
+          >
             <div className="flex justify-center items-center h-screen px-3">
               <div className="w-full max-w-[900px] relative">
                 <div className="flex items-center justify-end mb-3">
@@ -190,8 +193,15 @@ const VideoOverview = () => {
 
                 {/* Container với tỷ lệ khung hình 16:9 */}
                 <div className="relative pb-[56.25%] h-0">
-                  <video key={video} className="w-full" controls>
-                    <source src={video} type="video/mp4" />
+                  <video key={videoUrl} className="w-full" controls>
+                    <source src={videoUrl} type="video/mp4" />
+                    <track
+                      kind="captions"
+                      srcLang="en"
+                      src=""
+                      label="English captions"
+                      default
+                    />
                   </video>
                 </div>
               </div>
