@@ -23,6 +23,8 @@ import { IoArrowBack, IoArrowForward, IoSearch } from "react-icons/io5";
 import ShareMediaMobile from "../_components/ShareMediaMobile";
 import LoadingBlock from "../../LoadingBlock";
 
+const linkShare = "https://www.youtube.com/watch?v=4Lmcadu8ghM";
+
 const BlogArticleDetails = () => {
   const [loadingPage, setLoadingPage] = useState(true);
 
@@ -68,7 +70,7 @@ const BlogArticleDetails = () => {
                 </div>
 
                 <div className="mb-[30px] flex gap-[30px] relative">
-                  <ShareMedia />
+                  <ShareMedia postURL={linkShare} />
 
                   {/* Blog content */}
                   <div className="flex-grow">
