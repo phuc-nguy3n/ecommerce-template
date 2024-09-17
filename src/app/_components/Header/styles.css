@@ -31,13 +31,8 @@
 
 /* Header bottom */
 .sticky-header {
-    top: -100px;
-    transition: top 0.7s ease-in-out, opacity 0.7s ease-in-out;
     z-index: 1000;
-}
-
-.header-visible {
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
     left: 0;
