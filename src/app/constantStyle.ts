@@ -29,7 +29,7 @@ export const headerBottomStyle = {
   itemBoxNav:
     "group text-[14px] font-medium text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out",
   linkWrapperNav: "inline-flex items-center gap-1",
-  textLinkNav: "uppercase py-[17px]",
+  textLinkNav: "uppercase py-[17px] text-white",
   arrowIcon: "arrow-icon",
   subNavWrapper: "relative subnav-block",
   subNav:
@@ -49,14 +49,15 @@ export const menuStyle = {
   overlay:
     "menu-wrap fixed top-0 right-0 left-0 bottom-0 w-full h-full bg-black bg-opacity-50 z-[9999]",
   menuWrapper:
-    "max-w-[310px] w-full bg-white h-full relative z-[1] opacity-1 border-r-[3px] border-[--primary]",
+    "max-w-[310px] w-full bg-[--background] h-full relative z-[1] opacity-1 border-r-[3px] border-[--primary]",
   closeBox:
     "absolute right-[-16.5px] top-[25px] w-[33px] h-[33px] text-[18px] bg-[--primary] text-white rounded-full flex items-center justify-between",
   logoBox:
-    "pt-[40px] pb-[30px] flex justify-center bg-[#EFF3FA] cursor-pointer",
+    "pt-[40px] pb-[30px] flex justify-center bg-[--menu-logo-box] cursor-pointer",
   menuBody: "menu-body overflow-y-scroll pb-[40px] mt-[33px]",
   itemMenu: "flex items-center justify-between py-[12px]",
-  linkItemMenu: "flex items-center gap-1 cursor-pointer capitalize",
+  linkItemMenu:
+    "flex items-center gap-1 cursor-pointer capitalize text-black dark:text-white",
   linkItemSubMenu:
     "flex items-center gap-1 cursor-pointer py-[12px] capitalize",
 };

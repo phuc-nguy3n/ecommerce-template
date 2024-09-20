@@ -41,6 +41,9 @@
     --subnav: #ffffff;
     --text-subnav: #080809;
 
+    /* Menu mobile */
+    --menu-logo-box: #EFF3FA;
+
     /* Home */
     --home-bg: #ffffff;
 
@@ -84,6 +87,9 @@
     --header-middle: #1e1e1e;
     --subnav: #1e1e1e;
     --text-subnav: #ffffff;
+
+    /* Menu mobile */
+    --menu-logo-box: #2a2a2a;
 
     /* Home */
     --home-bg: #1e1e1e;

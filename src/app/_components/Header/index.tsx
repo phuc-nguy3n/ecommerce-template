@@ -445,7 +445,7 @@ const Header = () => {
                           </span>
                           <button
                             id={`toggle-submenu-${index}`}
-                            className="submenu-btn text-[18px] bg-[#F5F5F5] px-2 rounded-full"
+                            className="submenu-btn text-[18px] bg-[#F5F5F5] px-2 rounded-full text-black"
                             onClick={() => toggleSubmenu(index)}
                           >
                             +
