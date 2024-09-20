@@ -116,7 +116,7 @@ export const homeStyle = {
       overlay:
         "gradient-bg home absolute top-0 flex flex-col xl:h-[360px] md:h-[500px] h-[250px] xl:w-[555px] lg:w-[560px] w-full md:p-[30px] p-[10px]",
       titleOverlay:
-        "mb-[10px] font-semibold md:text-[24px] text-[18px] leading-[1.417] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
+        "mb-[10px] font-semibold md:text-[24px] text-[16px] leading-[1.417] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
       previewBox:
         "lg:flex flex-1 flex-col justify-between hidden xl:px-[30px] xl:py-[20px] lg:p-[20px] xl:h-[360px] lg:h-[500px] bg-gray-100 dark:bg-[#393939]",
       titlePreview:
@@ -130,7 +130,7 @@ export const homeStyle = {
       overlay:
         "gradient-bg home absolute top-0 flex flex-col xl:h-[288px] lg:h-[436px] md:h-[316px] h-[250px] w-full md:p-[20px] p-[10px]",
       titleOverlay:
-        "mb-[7px] font-semibold text-[18px] leading-[1.364] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
+        "mb-[7px] font-semibold md:text-[18px] text-[16px] leading-[1.364] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
     },
     latest: {
       wrapped:
@@ -154,7 +154,7 @@ export const homeStyle = {
     overlay:
       "gradient-bg home absolute top-0 flex flex-col gap-2 md:h-[430px] md:h-[300px] h-[250px] w-full md:p-[30px] p-[10px]",
     titleMain:
-      "font-semibold md:text-[24px] text-[18px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3",
+      "font-semibold lg:text-[20px] md:text-[18px] text-[16px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
     seCondImgBox:
       "md:h-[130px] h-[100px] lg:min-w-[150px] lg:w-[150px] md:min-w-[130px] md:w-[130px] min-w-[100px] w-[100px] overflow-hidden",
     secondImg:

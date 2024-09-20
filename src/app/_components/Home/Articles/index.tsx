@@ -7,15 +7,18 @@ import { homeStyle } from "@/app/constantStyle";
 const articlePost = [
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew",
-    title: "Chinese flying car producer raises $150M",
+    title:
+      "Chinese flying car producer raises $150M Chinese flying car producer raises $150M producer raises $150M",
   },
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew",
-    title: "Chinese flying car producer raises $150M",
+    title:
+      "Chinese flying car producer raises $150M Chinese flying car producer raises $150M producer raises $150M",
   },
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/USDollarbanknotesareseeninthis-4502-6611-1723090850.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=7e9-AFqpheXxYawyLRiMew",
-    title: "Chinese flying car producer raises $150M",
+    title:
+      "Chinese flying car producer raises $150M Chinese flying car producer raises $150M producer raises $150M",
   },
 ];
 
@@ -42,7 +45,8 @@ export default function ArticlesSection() {
             <div className={homeStyle.article.overlay}>
               <div className={homeStyle.tag}>Article</div>
               <h3 className={homeStyle.article.titleMain}>
-                Your life, upgraded - gadgets Make it extraordinary
+                Your life, upgraded - gadgets Make it extraordinary gadgets Make
+                it gadgets Make it gadgets Make it
               </h3>
 
               <div className={homeStyle.timeBoxOne}>
