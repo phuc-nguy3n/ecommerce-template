@@ -239,20 +239,19 @@ const VideoFrame: React.FC<VideoFrameProps> = ({ video, setOpen }) => {
   };
 
   return (
-    <div className="fixed top-0 right-0 left-0 bottom-0 w-full bg-black bg-opacity-50 z-[9999] overflow-hidden">
+    <div
+      onClick={handleCloseVideo}
+      className="fixed top-0 right-0 left-0 bottom-0 w-full bg-black bg-opacity-50 z-[9999] overflow-hidden"
+    >
       <div className="flex justify-center items-center h-screen px-3">
         <div className="w-full max-w-[900px] relative">
-          <div className="flex items-center justify-end mb-3">
-            <button
-              onClick={handleCloseVideo}
-              className="text-[18px] text-gray-200 hover:text-white py-2"
-            >
-              <CgClose className="flex-grow text-[24px]" />
-            </button>
-          </div>
-
           {/* Container với tỷ lệ khung hình 16:9 */}
-          <div className="relative pb-[56.25%] h-0">
+          <div className="pb-[56.25%] h-0 relative">
+            <div className="flex items-center justify-center mb-3 absolute -top-[32px] right-[0] z-10 ">
+              <button onClick={handleCloseVideo} className="p-1rounded-full">
+                <CgClose className="flex-grow lg:text-[24px] text-[20px] text-white" />
+              </button>
+            </div>
             <iframe
               className="absolute top-0 left-0 w-full h-full"
               src={video}
