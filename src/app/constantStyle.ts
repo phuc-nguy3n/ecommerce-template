@@ -129,13 +129,12 @@ export const homeStyle = {
         "box relative md:col-span-1 col-span-2 overflow-hidden xl:order-2 lg:order-1",
       img: "xl:h-[288px] lg:h-[436px] md:h-[316px] h-[250px] w-full object-cover transform transition-transform duration-500 hover:scale-105",
       overlay:
-        "gradient-bg home absolute top-0 flex flex-col xl:h-[288px] lg:h-[436px] md:h-[316px] h-[250px] w-full md:p-[20px] p-[10px]",
+        "gradient-bg home absolute top-0 flex flex-col h-full w-full md:p-[20px] p-[10px]",
       titleOverlay:
         "mb-[7px] font-semibold md:text-[18px] text-[16px] leading-[1.364] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
     },
     latest: {
-      wrapped:
-        "xl:p-[20px] lg:px-[20px] lg:py-0 bg-gray-100 dark:bg-[--background]",
+      wrapped: "xl:p-[20px] lg:px-[20px] lg:py-0 bg-gray-100 dark:bg-[#393939]",
       newsList:
         "latest-box grid xl:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:gap-x-[24px] md:gap-x-[24px]",
       contentBox: "flex flex-col justify-between flex-1 text-right order-2",
