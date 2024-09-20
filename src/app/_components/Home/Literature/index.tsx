@@ -13,27 +13,33 @@ import { BiBadgeCheck } from "react-icons/bi";
 const literatureData = [
   {
     img: "https://snu.edu.in/site/assets/files/10464/antique-quill-pen-writes-old-fashioned-calligraphy-generated-by-ai.1600x0.webp",
-    title: "Tech on the go, laptop Redefines mobility.",
+    title:
+      "Tech on the go, laptop Redefines mobility. Tech on the go, laptop Redefines mobility.",
   },
   {
     img: "https://snu.edu.in/site/assets/files/10464/antique-quill-pen-writes-old-fashioned-calligraphy-generated-by-ai.1600x0.webp",
-    title: "Tech on the go, laptop Redefines mobility.",
+    title:
+      "Tech on the go, laptop Redefines mobility. Tech on the go, laptop Redefines mobility.",
   },
   {
     img: "https://snu.edu.in/site/assets/files/10464/antique-quill-pen-writes-old-fashioned-calligraphy-generated-by-ai.1600x0.webp",
-    title: "Tech on the go, laptop Redefines mobility.",
+    title:
+      "Tech on the go, laptop Redefines mobility. Tech on the go, laptop Redefines mobility.",
   },
   {
     img: "https://snu.edu.in/site/assets/files/10464/antique-quill-pen-writes-old-fashioned-calligraphy-generated-by-ai.1600x0.webp",
-    title: "Tech on the go, laptop Redefines mobility.",
+    title:
+      "Tech on the go, laptop Redefines mobility. Tech on the go, laptop Redefines mobility.",
   },
   {
     img: "https://snu.edu.in/site/assets/files/10464/antique-quill-pen-writes-old-fashioned-calligraphy-generated-by-ai.1600x0.webp",
-    title: "Tech on the go, laptop Redefines mobility.",
+    title:
+      "Tech on the go, laptop Redefines mobility. Tech on the go, laptop Redefines mobility.",
   },
   {
     img: "https://snu.edu.in/site/assets/files/10464/antique-quill-pen-writes-old-fashioned-calligraphy-generated-by-ai.1600x0.webp",
-    title: "Tech on the go, laptop Redefines mobility.",
+    title:
+      "Tech on the go, laptop Redefines mobility. Tech on the go, laptop Redefines mobility.",
   },
 ];
 

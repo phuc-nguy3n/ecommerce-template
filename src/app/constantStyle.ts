@@ -177,7 +177,7 @@ export const homeStyle = {
     overlay:
       "gradient-bg home absolute top-0 flex flex-col gap-2 md:h-[350px] h-[250px] w-full md:p-[20px] p-[10px]",
     title:
-      "font-semibold text-[18px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-3",
+      "font-semibold text-[16px] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
   },
 
   video: {
