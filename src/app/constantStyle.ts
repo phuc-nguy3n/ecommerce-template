@@ -121,7 +121,7 @@ export const homeStyle = {
       previewBox:
         "lg:flex flex-1 flex-col justify-between hidden xl:px-[30px] xl:py-[20px] lg:p-[20px] xl:h-[360px] lg:h-[500px] bg-gray-100 dark:bg-[#393939]",
       titlePreview:
-        "mb-[15px] font-bold text-[24px] hover:text-[--primary] leading-[1.417] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-4",
+        "mb-[15px] font-bold text-[24px] hover:text-[--primary] leading-[1.417] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-4 text-black dark:text-white",
       contentPreview: "font-medium text-[#7e848d] leading-[1.75] line-clamp-5",
     },
     secondNews: {
@@ -139,7 +139,7 @@ export const homeStyle = {
         "latest-box grid xl:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:gap-x-[24px] md:gap-x-[24px]",
       contentBox: "flex flex-col justify-between flex-1 text-right order-2",
       title:
-        "lg:mb-0 md:mb-[5px] font-semibold text-left text-[14px] leading-[1.4] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out xl:line-clamp-3 line-clamp-2",
+        "lg:mb-0 md:mb-[5px] font-semibold text-left text-[14px] leading-[1.4] hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out xl:line-clamp-3 line-clamp-2 text-black dark:text-white",
       imgBox: "relative box  w-[100px] h-[100px] overflow-hidden order-1",
       img: "h-full w-full object-cover transform transition-transform duration-500 hover:scale-105",
       overlay:
