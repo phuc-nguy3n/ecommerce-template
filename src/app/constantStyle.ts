@@ -130,7 +130,7 @@ export const homeStyle = {
       overlay:
         "gradient-bg home absolute top-0 flex flex-col xl:h-[288px] lg:h-[436px] md:h-[316px] h-[250px] w-full md:p-[20px] p-[10px]",
       titleOverlay:
-        "mb-[7px] font-semibold text-[18px] leading-[1.364] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out",
+        "mb-[7px] font-semibold text-[18px] leading-[1.364] text-white hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2",
     },
     latest: {
       wrapped:
