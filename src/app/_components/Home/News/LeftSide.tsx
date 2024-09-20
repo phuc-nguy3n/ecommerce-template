@@ -21,6 +21,7 @@ const LeftSide = () => {
             <div className="lg:hidden">
               <h2 className={homeStyle.news.firstNews.titleOverlay}>
                 Following the Moon, they are in Close space. Choose the best
+                Choose the best Sports updates
               </h2>
 
               <div className={homeStyle.timeBoxOne}>
@@ -45,6 +46,7 @@ const LeftSide = () => {
           <div>
             <h2 className={homeStyle.news.firstNews.titlePreview}>
               Following the Moon, they are in Close space. Choose the best
+              Choose the best Choose the best Choose the best
             </h2>
 
             <p className={homeStyle.news.firstNews.contentPreview}>
@@ -82,7 +84,8 @@ const LeftSide = () => {
           <div className={`mb-[15px] ${homeStyle.tag}`}>News</div>
 
           <h3 className={homeStyle.news.secondNews.titleOverlay}>
-            Game on! Stay ahead with Sports updates
+            Game on! Stay ahead with Sports updates Sports updates Sports
+            updates Sports updates
           </h3>
 
           <div className={homeStyle.timeBoxOne}>
@@ -114,7 +117,8 @@ const LeftSide = () => {
           <div className={`mb-[15px] ${homeStyle.tag}`}>News</div>
 
           <h3 className={homeStyle.news.secondNews.titleOverlay}>
-            Game on! Stay ahead with Sports updates
+            Game on! Stay ahead with Sports updates Sports updates Sports
+            updates Sports updates
           </h3>
 
           <div className={homeStyle.timeBoxOne}>

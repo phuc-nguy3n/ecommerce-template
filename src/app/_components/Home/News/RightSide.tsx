@@ -5,27 +5,32 @@ const newsPosts = [
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/pexels-janetrangdoan-793785-17-2461-3354-1723116059.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=sCxkrG1CiwG__ftuOeH70A",
     tagName: "News",
-    title: "Life, a canvas, paint your Masterpiece.",
+    title:
+      "Life, a canvas, paint your Masterpiece. Life, a canvas, paint your Masterpiece.",
   },
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/pexels-janetrangdoan-793785-17-2461-3354-1723116059.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=sCxkrG1CiwG__ftuOeH70A",
     tagName: "News",
-    title: "Life, a canvas, paint your Masterpiece.",
+    title:
+      "Life, a canvas, paint your Masterpiece. Life, a canvas, paint your Masterpiece.",
   },
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/pexels-janetrangdoan-793785-17-2461-3354-1723116059.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=sCxkrG1CiwG__ftuOeH70A",
     tagName: "News",
-    title: "Life, a canvas, paint your Masterpiece.",
+    title:
+      "Life, a canvas, paint your Masterpiece. Life, a canvas, paint your Masterpiece.",
   },
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/pexels-janetrangdoan-793785-17-2461-3354-1723116059.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=sCxkrG1CiwG__ftuOeH70A",
     tagName: "News",
-    title: "Life, a canvas, paint your Masterpiece.",
+    title:
+      "Life, a canvas, paint your Masterpiece. Life, a canvas, paint your Masterpiece.",
   },
   {
     img: "https://i1-english.vnecdn.net/2024/08/08/pexels-janetrangdoan-793785-17-2461-3354-1723116059.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=sCxkrG1CiwG__ftuOeH70A",
     tagName: "News",
-    title: "Life, a canvas, paint your Masterpiece.",
+    title:
+      "Life, a canvas, paint your Masterpiece. Life, a canvas, paint your Masterpiece.",
   },
 ];
 

@@ -120,7 +120,7 @@ export const homeStyle = {
       previewBox:
         "lg:flex flex-1 flex-col justify-between hidden xl:px-[30px] xl:py-[20px] lg:p-[20px] xl:h-[360px] lg:h-[500px] bg-gray-100 dark:bg-[#393939]",
       titlePreview:
-        "mb-[15px] font-bold text-[30px] hover:text-[--primary] leading-[1.417] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-4",
+        "mb-[15px] font-bold text-[24px] hover:text-[--primary] leading-[1.417] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-4",
       contentPreview: "font-medium text-[#7e848d] leading-[1.75] line-clamp-5",
     },
     secondNews: {
