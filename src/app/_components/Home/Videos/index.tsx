@@ -122,7 +122,7 @@ export default function VideoSection() {
                   >
                     <div className={homeStyle.video.imgBox}>
                       <img
-                        className={homeStyle.video.imgBox}
+                        className={homeStyle.video.img}
                         src={item.img}
                         alt="video"
                       />
