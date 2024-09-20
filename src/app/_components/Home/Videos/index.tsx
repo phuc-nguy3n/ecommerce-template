@@ -146,7 +146,7 @@ export default function VideoSection() {
                               <button
                                 className={`btn-play bg-white top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2 ${homeStyle.video.btn}`}
                               >
-                                <FaPlay />
+                                <FaPlay className="text-black" />
                               </button>
                             </>
                           )}
@@ -193,7 +193,7 @@ export default function VideoSection() {
                         onClick={handlePlayVideo}
                         className={homeStyle.video.btnActive}
                       >
-                        <FaPlay className="text-[24px] " />
+                        <FaPlay className="text-[24px] text-black" />
                       </button>
                     </div>
                   </div>
