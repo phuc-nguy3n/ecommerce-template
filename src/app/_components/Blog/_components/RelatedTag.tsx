@@ -16,7 +16,7 @@ const RelatedTag: React.FC<RelatedTagListProps> = ({ tagList }) => {
         {tagList.map((item, index) => (
           <button
             key={index}
-            className="leading-[1] text-[15px] capitalize py-[9px] px-[16px] border border-1 rounded-[4px]"
+            className="leading-[1] text-[15px] capitalize py-[9px] px-[16px] border border-1 rounded-[4px] dark:border-[--text-title]"
           >
             {item}
           </button>

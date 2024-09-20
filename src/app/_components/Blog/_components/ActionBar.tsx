@@ -19,27 +19,27 @@ const ActionBar: React.FC<ActionBarProps> = ({ liked, viewed, shared }) => {
   return (
     <div className="flex items-center justify-between mb-[24px] flex-wrap gap-[10px]">
       <div className="flex items-center gap-[10px]">
-        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
+        <button className="text-[14px] text-[#54595F] dark:text-white font-semibold bg-[#f5f5f5] dark:bg-black border border-1 rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
           Print: <MdPrint className="text-[#FF1D50] text-[18px]" />
         </button>
 
-        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
+        <button className="text-[14px] text-[#54595F] dark:text-white font-semibold bg-[#f5f5f5] dark:bg-black border border-1 rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
           Email: <IoMdMail className="text-[#FF1D50] text-[18px]" />
         </button>
       </div>
 
       <div className="flex items-center gap-[10px]">
-        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px] ml-auto">
+        <button className="text-[14px] text-[#54595F] dark:text-white font-semibold bg-[#f5f5f5] dark:bg-black border border-1 rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px] ml-auto">
           <span className="mt-[1px]">{formatLiked}</span>{" "}
           <AiFillLike className="text-[#FF1D50] text-[18px]" />
         </button>
 
-        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
+        <button className="text-[14px] text-[#54595F] dark:text-white font-semibold bg-[#f5f5f5] dark:bg-black border border-1 rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
           <span className="mt-[1px]">{formatViewed}</span>{" "}
           <FaEye className="text-[#FF1D50] text-[18px]" />
         </button>
 
-        <button className="text-[14px] text-[#54595F] font-semibold bg-[#f5f5f5] border border-1 border-[#EFEFEF] rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
+        <button className="text-[14px] text-[#54595F] dark:text-white font-semibold bg-[#f5f5f5] dark:bg-black border border-1 rounded-[4px] px-[10px] py-[4px] flex items-center gap-[7px]">
           <span className="mt-[1px]">{formatShared}</span>{" "}
           <FaShareNodes className="text-[#FF1D50] text-[18px]" />
         </button>

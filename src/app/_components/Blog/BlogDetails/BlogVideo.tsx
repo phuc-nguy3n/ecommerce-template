@@ -6,7 +6,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { BsGlobe2 } from "react-icons/bs";
 import { IoSearch, IoArrowBack, IoArrowForward } from "react-icons/io5";
-import Breadcrumb from "../_components/Breadcrumb";
+import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import TagName from "../_components/TagName";
 import BlogTitle from "../_components/BlogTitle";
 import BlogInfo from "../_components/BlogInfo";
@@ -39,7 +39,7 @@ const BlogVideoDetails = () => {
   }, []);
 
   return (
-    <div className="bg-[#f5f5f5]">
+    <div className="bg-[#f5f5f5] dark:bg-[--background]">
       {/* breadcrumb */}
       <Breadcrumb
         items={[{ label: "home" }, { label: "blog details video" }]}
@@ -50,9 +50,9 @@ const BlogVideoDetails = () => {
       ) : (
         <div className="pt-[60px] pb-[30px]" id="blog-details-video">
           <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
-            <div className="grid grid-cols-3 gap-[24px]">
+            <div className="grid grid-cols-3 gap-[24px] ">
               {/* Blog details post */}
-              <div className="sm:px-[30px] sm:py-[30px] px-[12px] py-[14px] mb-[40px] bg-white lg:col-span-2 col-span-3">
+              <div className="sm:px-[30px] sm:py-[30px] px-[12px] py-[14px] mb-[40px] bg-white dark:bg-[--header-top] lg:col-span-2 col-span-3">
                 {/* Tag name */}
                 <TagName text={"sport"} />
 
@@ -214,7 +214,7 @@ const BlogVideoDetails = () => {
                 {/* Comment form */}
                 <div className="comment-form">
                   <div className="form-title">
-                    <h3 className="mb-[10px] sm:text-[30px] text-[22px] leading-[1.3] font-bold tracking-wide">
+                    <h3 className="mb-[10px] sm:text-[30px] text-[--text-title] text-[22px] leading-[1.3] font-bold tracking-wide">
                       Leave a Comment
                     </h3>
                     <p className="mb-[25px] text-[14px] text-[#6c757d]">
@@ -227,7 +227,7 @@ const BlogVideoDetails = () => {
                     <div className="form-group relative sm:col-span-1 col-span-2">
                       <input
                         type="text"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
+                        className="w-full h-[50px] bg-[#F5F5F5] dark:bg-[#171718] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
                         placeholder="Your Name *"
                       />
 
@@ -237,7 +237,7 @@ const BlogVideoDetails = () => {
                     <div className="form-group relative sm:col-span-1 col-span-2">
                       <input
                         type="email"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
+                        className="w-full h-[50px] bg-[#F5F5F5] dark:bg-[#171718] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
                         placeholder="Your Email *"
                       />
 
@@ -247,7 +247,7 @@ const BlogVideoDetails = () => {
                     <div className="form-group relative col-span-2">
                       <input
                         type="text"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
+                        className="w-full h-[50px] bg-[#F5F5F5] dark:bg-[#171718] text-[#54595F] text-[16px] rounded-[5px] pr-[40px] pl-[25px] outline-none"
                         placeholder="Website *"
                       />
 
@@ -256,7 +256,7 @@ const BlogVideoDetails = () => {
 
                     <div className="form-group relative col-span-2">
                       <textarea
-                        className="w-full min-h-[154px] py-[16px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] rounded-[5px] outline-none"
+                        className="w-full min-h-[154px] py-[16px] bg-[#F5F5F5] dark:bg-[#171718] text-[#54595F] text-[16px] pr-[40px] pl-[25px] rounded-[5px] outline-none"
                         placeholder="Write a Comment *"
                       ></textarea>
 
@@ -271,14 +271,14 @@ const BlogVideoDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="sm:px-[30px] sm:py-[30px] px-[12px] py-[14px] mb-[40px] bg-white lg:relative lg:col-span-1 col-span-3">
+              <div className="sm:px-[30px] sm:py-[30px] px-[12px] py-[14px] mb-[40px] bg-white dark:bg-[--header-top] lg:relative lg:col-span-1 col-span-3">
                 <div className="sticky top-[80px] right-0">
                   {/* Search box */}
                   <div className="flex justify-between rounded-[3px] overflow-hidden mb-[35px]">
                     <div className="form-group relative flex-grow">
                       <input
                         type="text"
-                        className="w-full h-[50px] bg-[#F5F5F5] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none "
+                        className="w-full h-[50px] bg-[#F5F5F5] dark:bg-[#171718] text-[#54595F] text-[16px] pr-[40px] pl-[25px] outline-none "
                         placeholder="Enter Keyword"
                       />
                     </div>
@@ -289,55 +289,55 @@ const BlogVideoDetails = () => {
 
                   {/*  Category  */}
                   <div className="category">
-                    <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
+                    <h3 className="border border-b-1 dark:border-[--text-title] border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] text-[--text-title] font-bold">
                       Categories
                     </h3>
 
                     <ul className="category-list space-y-[10px] mb-[30px]">
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Sport</p>{" "}
+                      <li className="flex justify-between items-center bg-[#F5F5F5] dark:bg-[#171718] py-[16px] px-[26px] rounded-[4px] font-bold">
+                        <p className="text-[--text-title]">Sport</p>{" "}
                         <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
+                          <FaArrowRight className="text-black text-[--text-title]" />
                         </div>
                       </li>
 
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Business</p>{" "}
+                      <li className="flex justify-between items-center bg-[#F5F5F5] dark:bg-[#171718] py-[16px] px-[26px] rounded-[4px] font-bold">
+                        <p className="text-[--text-title]">Business</p>{" "}
                         <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
+                          <FaArrowRight className="text-black text-[--text-title]" />
                         </div>
                       </li>
 
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Politics</p>{" "}
+                      <li className="flex justify-between items-center bg-[#F5F5F5] dark:bg-[#171718] py-[16px] px-[26px] rounded-[4px] font-bold">
+                        <p className="text-[--text-title]">Politics</p>{" "}
                         <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
+                          <FaArrowRight className="text-black text-[--text-title]" />
                         </div>
                       </li>
 
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Health</p>{" "}
+                      <li className="flex justify-between items-center bg-[#F5F5F5] dark:bg-[#171718] py-[16px] px-[26px] rounded-[4px] font-bold">
+                        <p className="text-[--text-title]">Health</p>{" "}
                         <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
+                          <FaArrowRight className="text-black text-[--text-title]" />
                         </div>
                       </li>
 
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Technology</p>{" "}
+                      <li className="flex justify-between items-center bg-[#F5F5F5] dark:bg-[#171718] py-[16px] px-[26px] rounded-[4px] font-bold">
+                        <p className="text-[--text-title]">Technology</p>{" "}
                         <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
+                          <FaArrowRight className="text-black text-[--text-title]" />
                         </div>
                       </li>
 
-                      <li className="flex justify-between items-center bg-[#F5F5F5] py-[16px] px-[26px] rounded-[4px] font-bold">
-                        <p>Entertaiment</p>{" "}
+                      <li className="flex justify-between items-center bg-[#F5F5F5] dark:bg-[#171718] py-[16px] px-[26px] rounded-[4px] font-bold">
+                        <p className="text-[--text-title]">Entertaiment</p>{" "}
                         <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
-                          <FaArrowRight className="text-black " />
+                          <FaArrowRight className="text-black text-[--text-title]" />
                         </div>
                       </li>
                     </ul>
 
-                    <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
+                    <h3 className="border border-b-1 dark:border-[--text-title] border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold text-[--text-title]">
                       Recent Posts
                     </h3>
 
@@ -345,7 +345,7 @@ const BlogVideoDetails = () => {
                       <li className="flex gap-4 py-4">
                         <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                           <div className="flex flex-col items-start">
-                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
+                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold text-[--text-title] hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                               Fitness: Your journey to Better, stronger you.
                             </h3>
                           </div>
@@ -367,7 +367,7 @@ const BlogVideoDetails = () => {
                       <li className="flex gap-4 py-4">
                         <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                           <div className="flex flex-col items-start">
-                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
+                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold text-[--text-title] hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                               Fitness: Your journey to Better, stronger you.
                             </h3>
                           </div>
@@ -389,7 +389,7 @@ const BlogVideoDetails = () => {
                       <li className="flex gap-4 py-4">
                         <div className="flex flex-col lg:justify-between justify-center lg:gap-0 gap-[10px] flex-1 text-right order-2">
                           <div className="flex flex-col items-start">
-                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
+                            <h3 className="text-left text-[14px] lg:mb-0 md:mb-[5px] leading-[1.4] font-bold text-[--text-title] hover:text-[#ff1d50] cursor-pointer transition-colors duration-300 ease-in-out line-clamp-2">
                               Fitness: Your journey to Better, stronger you.
                             </h3>
                           </div>
@@ -417,56 +417,56 @@ const BlogVideoDetails = () => {
                       />
                     </div>
 
-                    <h3 className="border border-b-1 border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold">
+                    <h3 className="border border-b-1 dark:border-[--text-title] text-[--text-title] border-t-0 border-x-0 pb-[17px] mb-[30px] text-[19px] font-bold ">
                       Popular Tags
                     </h3>
 
                     <div className="tag-cloud ">
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Sports
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Politics
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Business
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Music
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Foood
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Technology
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Travels
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Health
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Fashions
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Animal
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Weather
                       </button>
 
-                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px]">
+                      <button className="py-[9px] px-[16px] border border-1 rounded-[4px] mr-[7px] mb-[7px] dark:border-[--text-title] text-[--text-title]">
                         Movies
                       </button>
                     </div>
@@ -479,18 +479,18 @@ const BlogVideoDetails = () => {
             <div className="pt-[30px] mb-[30px]">
               <div className="flex items-start gap-[10px]">
                 <div className="flex-grow">
-                  <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] sm:text-[24px] text-[22px] capitalize font-semibold leading-[1.5]">
+                  <h2 className="w-full relative line flex items-center sec-title has-line mb-[33px] sm:text-[24px] text-[22px] capitalize font-semibold leading-[1.5] text-[--text-title]">
                     Related Post
                   </h2>
                 </div>
 
                 <div className="flex gap-2">
-                  <div className="p-2 rounded-full border bg-white hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
-                    <IoArrowBack className="text-[18px]" />
+                  <div className="p-2 rounded-full border bg-white hover:bg-[#ff1d50] hover:text-white text-black cursor-pointer transition-colors duration-300 ease-in-out">
+                    <IoArrowBack className="text-[18px]  " />
                   </div>
 
-                  <div className="p-2 rounded-full border bg-white hover:bg-[#ff1d50] hover:text-white cursor-pointer transition-colors duration-300 ease-in-out">
-                    <IoArrowForward className="text-[18px]" />
+                  <div className="p-2 rounded-full border bg-white hover:bg-[#ff1d50] hover:text-white text-black cursor-pointer transition-colors duration-300 ease-in-out">
+                    <IoArrowForward className="text-[18px] " />
                   </div>
                 </div>
               </div>
@@ -513,7 +513,7 @@ const BlogVideoDetails = () => {
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer text-[--text-title] hover:text-[#ff1d50] line-clamp-2">
                         Power to the people for a Better future!
                       </h3>
                       <div className="flex items-center gap-3 text-[#B5B5B5]">
@@ -548,7 +548,7 @@ const BlogVideoDetails = () => {
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer text-[--text-title] hover:text-[#ff1d50] line-clamp-2">
                         Power to the people for a Better future!
                       </h3>
                       <div className="flex items-center gap-3 text-[#B5B5B5]">
@@ -583,7 +583,7 @@ const BlogVideoDetails = () => {
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer text-[--text-title] hover:text-[#ff1d50] line-clamp-2">
                         Power to the people for a Better future!
                       </h3>
                       <div className="flex items-center gap-3 text-[#B5B5B5]">
@@ -618,7 +618,7 @@ const BlogVideoDetails = () => {
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer hover:text-[#ff1d50]">
+                      <h3 className="text-[18px] leading-[1.8] font-bold mb-[10px] cursor-pointer text-[--text-title] hover:text-[#ff1d50] line-clamp-2">
                         Power to the people for a Better future!
                       </h3>
                       <div className="flex items-center gap-3 text-[#B5B5B5]">

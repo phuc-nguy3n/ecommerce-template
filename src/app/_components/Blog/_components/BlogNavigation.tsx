@@ -30,7 +30,7 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
           <h5 className="text-[13px] mb-[12px] font-bold md:line-clamp-2  hidden">
             {pevBlog.title}
           </h5>
-          <p className="flex items-center font-medium text-[#54595F]">
+          <p className="flex items-center font-medium text-[#54595F] dark:text-[--text-title]">
             <FaArrowLeft className="mr-[7px] text-[#FF1D50]" /> Prev
           </p>
         </div>
@@ -48,10 +48,10 @@ const BlogNavigation: React.FC<BlogNavigationProps> = ({
         </div>
 
         <div className="sm:ml-[31px] ml-0">
-          <h5 className="text-[13px] mb-[12px] font-bold text-right md:line-clamp-2  hidden">
+          <h5 className="text-[13px] mb-[12px] font-bold text-right md:line-clamp-2 hidden">
             {nextBlog.title}
           </h5>
-          <p className="flex items-center font-medium text-[#54595F] justify-end">
+          <p className="flex items-center font-medium text-[#54595F] dark:text-[--text-title] justify-end">
             Next <FaArrowRight className="ml-[7px] text-[#FF1D50]" />
           </p>
         </div>

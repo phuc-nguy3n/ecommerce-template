@@ -17,7 +17,7 @@ const SecondVideo: React.FC<SecondVideoProps> = ({ url }) => {
 
       <div className="absolute w-full lg:h-[300px] sm:h-[280px] h-[200px] top-[8px] bg-black bg-opacity-[0.5] flex justify-center items-center">
         <div className="bg-white p-3 rounded-full cursor-pointer">
-          <IoMdPlay className="text-[24px]" />
+          <IoMdPlay className="text-[24px] text-black" />
         </div>
       </div>
     </div>

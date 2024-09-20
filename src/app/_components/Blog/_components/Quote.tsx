@@ -8,7 +8,7 @@ type QuoteProps = {
 
 const Quote: React.FC<QuoteProps> = ({ text, author }) => {
   return (
-    <blockquote className="text-[20px] leading-[1.5] xl:p-[50px] py-[40px] px-[20px] relative bg-[#F5F5F5] overflow-hidden my-[30px] text-[#080809]">
+    <blockquote className="text-[20px] leading-[1.5] xl:p-[50px] py-[40px] px-[20px] relative bg-[#F5F5F5] dark:bg-black overflow-hidden my-[30px] text-[#080809] dark:text-white">
       <p className="mb-[22px] relative z-[3] xl:text-[19px] text-[17px]">
         {text}
       </p>

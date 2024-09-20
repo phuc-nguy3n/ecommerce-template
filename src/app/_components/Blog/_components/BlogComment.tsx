@@ -4,7 +4,7 @@ import { FaCalendarDays, FaReply } from "react-icons/fa6";
 const BlogComment = () => {
   return (
     <div className="mb-[30px]">
-      <h2 className="mb-[25px] md:text-[30px] text-[22px] leading-[1.278] text-black font-bold">
+      <h2 className="mb-[25px] md:text-[30px] text-[22px] leading-[1.278] text-[--text-title] font-bold">
         Comments (03)
       </h2>
 
@@ -21,14 +21,14 @@ const BlogComment = () => {
               </div>
 
               <div className="flex-grow">
-                <span className="text-[16px] font-medium flex items-center gap-1 cursor-pointer text-[#54595F] hover:text-[#ff1d50] transition-colors duration-300 ease-in-out mb-[5px]">
+                <span className="text-[16px] font-medium flex items-center gap-1 cursor-pointer text-[#54595F] dark:text-[--text-title] hover:text-[#ff1d50] dark:hover:text-[#ff1d50] transition-colors duration-300 ease-in-out mb-[5px]">
                   <FaCalendarDays />
                   <p className="mt-0.5 uppercase">21 June, 2023</p>
                 </span>
                 <h3 className="text-[16px] mb-[15px] font-bold tracking-wide">
                   Brooklyn Simmons
                 </h3>
-                <p className="mb-[17px] leading-[1.75] text-[#54595F] tracking-wide">
+                <p className="mb-[17px] leading-[1.75] text-[#54595F] dark:text-[--text-title] tracking-wide">
                   Your sport blog is simply fantastic! The in-depth analysis,
                   engaging writing style, and up-to-date coverage of various
                   sports events make it a must-visit for any sports enthusiast.
@@ -53,14 +53,14 @@ const BlogComment = () => {
                   </div>
 
                   <div className="flex-grow">
-                    <span className="text-[16px] font-medium flex items-center gap-1 cursor-pointer text-[#54595F] hover:text-[#ff1d50] transition-colors duration-300 ease-in-out mb-[5px]">
+                    <span className="text-[16px] font-medium flex items-center gap-1 cursor-pointer text-[#54595F] dark:text-[--text-title] hover:text-[#ff1d50] dark:hover:text-[#ff1d50] transition-colors duration-300 ease-in-out mb-[5px]">
                       <FaCalendarDays />
                       <p className="mt-0.5 uppercase">21 June, 2023</p>
                     </span>
                     <h3 className="text-[16px] mb-[15px] font-bold tracking-wide">
                       Brooklyn Simmons
                     </h3>
-                    <p className="mb-[17px] leading-[1.75] text-[#54595F] tracking-wide">
+                    <p className="mb-[17px] leading-[1.75] text-[#54595F] dark:text-[--text-title] tracking-wide">
                       Your sport blog is simply fantastic! The in-depth
                       analysis, engaging writing style, and up-to-date coverage
                       of various sports events make it a must-visit for any
@@ -88,14 +88,14 @@ const BlogComment = () => {
               </div>
 
               <div className="flex-grow">
-                <span className="text-[16px] font-medium flex items-center gap-1 cursor-pointer text-[#54595F] hover:text-[#ff1d50] transition-colors duration-300 ease-in-out mb-[5px]">
+                <span className="text-[16px] font-medium flex items-center gap-1 cursor-pointer text-[#54595F] dark:text-[--text-title] hover:text-[#ff1d50] dark:hover:text-[#ff1d50] transition-colors duration-300 ease-in-out mb-[5px]">
                   <FaCalendarDays />
                   <p className="mt-0.5 uppercase">21 June, 2023</p>
                 </span>
                 <h3 className="text-[16px] mb-[15px] font-bold tracking-wide">
                   Brooklyn Simmons
                 </h3>
-                <p className="mb-[17px] leading-[1.75] text-[#54595F] tracking-wide">
+                <p className="mb-[17px] leading-[1.75] text-[#54595F] dark:text-[--text-title] tracking-wide">
                   Your sport blog is simply fantastic! The in-depth analysis,
                   engaging writing style, and up-to-date coverage of various
                   sports events make it a must-visit for any sports enthusiast.

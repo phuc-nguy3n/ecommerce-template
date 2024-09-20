@@ -75,37 +75,37 @@ const ShareMedia: FC<Props> = ({ postURL }) => {
   return (
     <div className="max-w-[40px]">
       <div className="sticky top-[80px] left-0">
-        <span className="text-[12px] leading-[20px] text-[#080809] font-bold mb-[15px] block capitalize">
+        <span className="text-[12px] leading-[20px] text-[--text-title] font-bold mb-[15px] block capitalize">
           Share Post:
         </span>
 
         <div>
           <div
             onClick={handleShareOnFB}
-            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer"
+            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer dark:bg-black"
           >
-            <FaFacebookF className="text-[#1D4292]" />
+            <FaFacebookF className="text-[#1D4292] dark:text-white" />
           </div>
 
           <div
             onClick={() => handleShare("x")}
-            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer"
+            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer dark:bg-black"
           >
-            <FaXTwitter className="text-black" />
+            <FaXTwitter className="text-black dark:text-white" />
           </div>
 
           <div
             onClick={() => handleShare("linkedIn")}
-            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer"
+            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer dark:bg-black"
           >
-            <FaLinkedinIn className="text-[#0270AD]" />
+            <FaLinkedinIn className="text-[#0270AD] dark:text-white" />
           </div>
 
           <div
             onClick={() => handleShare("pinterest")}
-            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer"
+            className="w-[40px] h-[40px] mb-[10px] border border-1 rounded-full flex justify-center items-center cursor-pointer dark:bg-black"
           >
-            <FaPinterestP className="text-[#B7081B]" />
+            <FaPinterestP className="text-[#B7081B] dark:text-white" />
           </div>
         </div>
       </div>

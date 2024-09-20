@@ -12,14 +12,16 @@ type Props = {
 
 const Breadcrumb = ({ items }: Props) => {
   return (
-    <div className="breadcrumb py-[18px] bg-[#EFEFEF]">
+    <div className="breadcrumb py-[18px] bg-[--header-top]">
       <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
         <ul className="breadcrumb-menu flex gap-2">
           {items.map((item, index) => (
             <li
               key={index}
               className={`inline-flex items-center gap-2 uppercase cursor-pointer font-semibold ${
-                index === items.length - 1 ? "text-[#FF1D50]" : "text-gray-800"
+                index === items.length - 1
+                  ? "text-[#FF1D50]"
+                  : "text-gray-800 dark:text-white"
               }`}
             >
               {item.link ? <a href={item.link}>{item.label}</a> : item.label}

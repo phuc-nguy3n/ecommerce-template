@@ -32,6 +32,7 @@
 
     /* --- Customize --- */
     /* Common */
+    --text-title: black;
     --text-content: #54595F;
     --text-time: #B5B5B5;
 
@@ -80,6 +81,7 @@
 
     /* --- Customize --- */
     /* Common */
+    --text-title: #E0E0E0;
     --text-content: #B5B5B5;
 
     /* Header */

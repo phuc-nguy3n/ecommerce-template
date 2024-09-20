@@ -2,7 +2,7 @@
 
 import "./styles.css";
 import React, { useEffect, useState } from "react";
-import Breadcrumb from "../_components/Breadcrumb";
+import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import TagName from "../_components/TagName";
 import BlogTitle from "../_components/BlogTitle";
 import BlogInfo from "../_components/BlogInfo";
