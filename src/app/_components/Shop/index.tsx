@@ -1,7 +1,7 @@
 "use client";
 
 import "./styles.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import Breadcrumb from "../ui/Breadcrumb";
 import { IoArrowForward, IoSearch } from "react-icons/io5";

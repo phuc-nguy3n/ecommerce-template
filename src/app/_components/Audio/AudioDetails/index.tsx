@@ -5,6 +5,7 @@ import "./styles.css";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
 import { IoMdPause, IoMdPlay } from "react-icons/io";
+import { LuUpload } from "react-icons/lu";
 import { SlOptions, SlOptionsVertical } from "react-icons/sl";
 import {
   RiRepeat2Fill,
@@ -12,15 +13,20 @@ import {
   RiShuffleFill,
   RiPlayListFill,
 } from "react-icons/ri";
-import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
+import {
+  MdSkipPrevious,
+  MdSkipNext,
+  MdOutlineClose,
+  MdOutlineStar,
+} from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 import { PiSpeakerHighFill } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
-import { BiWorld } from "react-icons/bi";
+import { BiBadgeCheck, BiWorld } from "react-icons/bi";
 import { BsFileEarmarkMusic } from "react-icons/bs";
 import Breadcrumb from "../_components/Breadcrumb";
 import LoadingBlock from "../../LoadingBlock";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const audioDetails = {
   name: "DPR Archives",
@@ -450,13 +456,9 @@ const AudioDetails = () => {
                           >
                             <SlOptions className="cursor-pointer text-[20px]" />
                             {openedOptionIndex === index && (
-                              <a
-                                href={item.src}
-                                download={`${item.name}.mp3`}
-                                className="absolute py-2 px-3 border rounded-sm top-[-40px] left-[-50px] text-[12px] text-[#57595b] z-50 bg-white"
-                              >
-                                Download
-                              </a>
+                              <div className="absolute py-2 px-3 border rounded-sm top-[-40px] left-[-50px] text-[12px] text-[#57595b] z-50 bg-white">
+                                Edit
+                              </div>
                             )}
                           </span>
                         </div>
@@ -464,6 +466,78 @@ const AudioDetails = () => {
                     </li>
                   ))}
                 </ul>
+                {/* Popup edit */}
+                <div
+                  id="popup-fixed"
+                  className="flex fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-black bg-opacity-[0.7] items-center z-[1000]"
+                >
+                  <div className="absolute lg:top-[50%] left-[50%] top-0 translate-x-[-50%] lg:translate-y-[-50%] w-full">
+                    <div className="container  lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+                      <div className="grid grid-cols-12 bg-white py-[20px] gap-[20px] my-[20px] relative">
+                        <div className="cursor-pointer mb-[10px] text-[20px] absolute top-[10px] right-[10px] p-2 bg-slate-50 rounded-full">
+                          <MdOutlineClose />
+                        </div>
+
+                        {/* Img */}
+                        <div className="lg:col-span-6 col-span-12">
+                          <div className="w-full  h-[350px] lg:pl-[10px] px-[10px]">
+                            <img
+                              className="w-full h-full object-cover rounded-sm"
+                              src="https://www.casio.com/content/dam/casio/product-info/locales/vn/vi/timepiece/product/watch/G/GA/ga0/ga-010-1a/assets/GA-010-1A_kv.jpg.transform/main-visual-pc/image.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+
+                        {/* Desc */}
+                        <div className="lg:col-span-6 col-span-12">
+                          <div className="w-full lg:pl-[30px] lg:pr-[10px] px-[20px] md:max-h-[580px]">
+                            <h3 className="font-semibold text-2xl mb-4">
+                              Update info
+                            </h3>
+                            <div className="title-area mb-[20px]">
+                              <label
+                                htmlFor="title"
+                                className="font-semibold block mb-2"
+                              >
+                                Name file
+                              </label>
+                              <input
+                                id="title"
+                                type="text"
+                                className="w-full border border-gray-400 rounded-sm outline-none focus:outline-none p-1 px-2"
+                              />
+                            </div>
+
+                            <div className="title-area mb-[30px]">
+                              <label
+                                htmlFor="title"
+                                className="font-semibold block mb-2"
+                              >
+                                Upload img
+                              </label>
+                              <div className="flex gap-3 items-center">
+                                <input
+                                  id="title"
+                                  type="text"
+                                  className="w-full border border-gray-400 rounded-sm outline-none focus:outline-none p-1 px-2"
+                                />
+                                <button className="p-2 bg-slate-200 rounded-sm">
+                                  <LuUpload className="text-xl cursor-pointer" />
+                                </button>
+                              </div>
+                            </div>
+                            <div className="flex justify-end">
+                              <button className="p-2 px-4 bg-[--primary] text-white rounded-sm md:w-auto w-full">
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* audio control */}
