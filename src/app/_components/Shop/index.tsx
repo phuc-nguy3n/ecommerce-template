@@ -272,26 +272,10 @@ const Shop = () => {
                             alt=""
                           />
 
-                          <div className="overlay-product absolute bg-black bg-opacity-[0.3] w-[90%] h-[90%] rounded-sm top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex justify-center items-center ">
-                            <div className="flex justify-center items-center gap-[12px] flex-grow">
-                              <button
-                                onClick={openProductPopup}
-                                className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black"
-                              >
-                                <FaRegEye className="text-white" />
-                              </button>
-
-                              <Link href="/cart">
-                                <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
-                                  <LiaCartPlusSolid className="text-white text-[20px]" />
-                                </button>
-                              </Link>
-
-                              <button className="p-[12px] border border-white rounded-sm bg-[#FF1D50] hover:bg-black">
-                                <FaRegHeart className="text-white" />
-                              </button>
-                            </div>
-                          </div>
+                          <div
+                            onClick={openProductPopup}
+                            className="overlay-product absolute bg-black bg-opacity-[0.3] w-full h-full rounded-sm top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex justify-center items-center cursor-pointer"
+                          ></div>
                         </div>
                         <div className="product-content">
                           <h3 className="product-title font-semibold mt-[7px] mb-[8px] text-[17px]">
