@@ -18,7 +18,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -26,7 +26,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -34,7 +34,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -42,7 +42,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -50,7 +50,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -58,7 +58,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -66,7 +66,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -74,7 +74,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 
   {
@@ -82,7 +82,7 @@ const productData = [
     price: 112,
     SortDesc: "Introduce product Adidas Speaker",
     rating: 5,
-    img: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d328b1a46fa7493ea693ff0c55a756da_9366/Giay_Adifom_Climacool_Be_IF3904_01_standard.jpg",
+    img: "/products/product-1.png",
   },
 ];
 
@@ -265,9 +265,9 @@ const Shop = () => {
                   {productData.map((product, index) => (
                     <li key={index}>
                       <div className="product-item overflow-hidden">
-                        <div className="product-img-box sm:h-[300px] h-[250px] product-img mb-[20px] relative rounded-sm overflow-hidden">
+                        <div className="product-img-box sm:h-[300px] h-[250px] product-img mb-[20px] relative rounded-sm overflow-hidden bg-gray-200">
                           <img
-                            className="w-full sm:h-[300px] h-[250px] object-cover"
+                            className="w-full sm:h-[300px] h-[250px] object-cover z-10"
                             src={product.img}
                             alt=""
                           />
