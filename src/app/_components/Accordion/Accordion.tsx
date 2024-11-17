@@ -20,8 +20,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
       <h2 id={`accordion-heading-${id}`}>
         <button
           type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium border border-x-0 ${
-            isOpen ? "bg-slate-100" : ""
+          className={`flex items-center justify-between w-full p-5 font-medium border border-[--border-table] border-x-0 ${
+            isOpen ? "bg-[--faq-active]" : ""
           }`}
           onClick={() => toggleAccordion(id)}
           aria-expanded={isOpen}
@@ -86,11 +86,13 @@ const Accordion = () => {
 
   return (
     <>
-      <h2 className="xl:text-[34px] text-[28px] font-bold mb-5">FAQ</h2>
+      <h2 className="xl:text-[34px] text-[28px] text-[--text-base] font-bold mb-5">
+        FAQ
+      </h2>
 
       <div
         id="accordion-collapse"
-        className="rounded-lg overflow-hidden border"
+        className="rounded-lg overflow-hidden border  border-[--border-table]"
       >
         {accordionItems.map((item, index) => (
           <AccordionItem

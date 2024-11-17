@@ -32,18 +32,24 @@
 
     /* --- Customize --- */
     /* Common */
+    --text-base: #000;
     --text-title: black;
-    --text-content: #54595F;
-    --text-time: #B5B5B5;
+    --text-content: #54595f;
+    --text-time: #b5b5b5;
+
+    /* Background */
+    --bg-theme: #fff;
+    --border-table: #efefef;
+    --faq-active: #f1f5f9;
 
     /* Header */
-    --header-top: #EFEFEF;
+    --header-top: #efefef;
     --header-middle: #ffffff;
     --subnav: #ffffff;
     --text-subnav: #080809;
 
     /* Menu mobile */
-    --menu-logo-box: #EFF3FA;
+    --menu-logo-box: #eff3fa;
 
     /* Home */
     --home-bg: #ffffff;
@@ -81,8 +87,14 @@
 
     /* --- Customize --- */
     /* Common */
-    --text-title: #E0E0E0;
-    --text-content: #B5B5B5;
+    --text-base: #fff;
+    --text-title: #e0e0e0;
+    --text-content: #b5b5b5;
+
+    /* Background */
+    --bg-theme: #282828;
+    --border-table: #54595f;
+    --faq-active: #000;
 
     /* Header */
     --header-top: #282828;

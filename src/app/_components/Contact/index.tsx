@@ -11,7 +11,7 @@ const Contact = () => {
     <>
       <Breadcrumb items={[{ label: "home" }, { label: "contact us" }]} />
 
-      <div className="lg:py-[100px] py-[60px]">
+      <div className="lg:py-[100px] py-[60px] bg-[--bg-theme]">
         <div className="container xl:max-w-[1248px] lg:max-w-[960px] md:max-w-[720px]">
           <div className="grid grid-cols-12 gap-[24px]">
             <div className="xl:col-span-5 col-span-12">

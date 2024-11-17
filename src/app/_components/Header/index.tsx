@@ -304,7 +304,11 @@ const Header = () => {
         {/* Header middle */}
         <div className={headerMiddleStyle.logoBox}>
           <Link href="/">
-            <img src="/logo.png" alt="logo" className={headerMiddleStyle.img} />
+            <img
+              src={`${darkTheme ? "/logo-dark.png" : "/logo.png"}`}
+              alt="logo"
+              className={headerMiddleStyle.img}
+            />
           </Link>
 
           <div className={headerMiddleStyle.adsBox}>
@@ -420,12 +424,14 @@ const Header = () => {
             <button className={menuStyle.closeBox} onClick={closeMenu}>
               <IoCloseOutline className="flex-grow text-[24px]" />
             </button>
-
             {/* Logo */}
             <Link href="/" onClick={closeMenu} className={menuStyle.logoBox}>
-              <img src="/logo.png" alt="logo" className="w-[143px] h-[60px]" />
+              <img
+                src={`${darkTheme ? "/logo-dark.png" : "/logo.png"}`}
+                alt="logo"
+                className="w-[143px] h-[60px]"
+              />
             </Link>
-
             {/* Menu list */}
             <div className={menuStyle.menuBody}>
               <ul id="nav-menu" className="nav-menu px-[40px]">
@@ -551,7 +557,7 @@ const Header = () => {
 
           <div className={headerBottomStyle.logoBox}>
             <img
-              src="/logo.png"
+              src={`${darkTheme ? "/logo-dark.png" : "/logo.png"}`}
               alt="logo"
               className={headerBottomStyle.logo}
             />

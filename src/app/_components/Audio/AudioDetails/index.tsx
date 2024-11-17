@@ -35,7 +35,7 @@ const audioDetails = {
   playlist: [
     {
       id: 1,
-      name: "Billboard uwu",
+      name: "Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard",
       desc: "DPR LIVE",
       img: "https://images.unsplash.com/photo-1720758917825-018735fe6e6e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       src: "/audio/Billboard uwu.mp3",
@@ -174,6 +174,15 @@ const AudioDetails = () => {
   const [isShuffling, setIsShuffling] = useState(false);
   const [showOption, setShowOption] = useState(false);
   const [showPlaylistPopup, setShowPlaylistPopup] = useState(false);
+
+  const [maxTextLength, setMaxTextLength] = useState(30);
+
+  useEffect(() => {
+    updateMaxLength();
+    window.addEventListener("resize", updateMaxLength);
+
+    return () => window.removeEventListener("resize", updateMaxLength);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -323,6 +332,26 @@ const AudioDetails = () => {
     }${seconds}`;
   };
 
+  const updateMaxLength = () => {
+    if (window.innerWidth <= 480) {
+      setMaxTextLength(20);
+    } else if (window.innerWidth <= 768) {
+      setMaxTextLength(30);
+    } else if (window.innerWidth <= 1024) {
+      setMaxTextLength(60);
+    } else if (window.innerWidth <= 1200) {
+      setMaxTextLength(90);
+    } else {
+      setMaxTextLength(130);
+    }
+  };
+
+  const formatText = (text: string) => {
+    return text.length > maxTextLength
+      ? text.slice(0, maxTextLength) + "..."
+      : text;
+  };
+
   return (
     <div className="relative">
       <Breadcrumb
@@ -422,7 +451,7 @@ const AudioDetails = () => {
                   </div>
                 </div>
 
-                <ul className="audio-list grid xl:grid-cols-2 grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
+                <ul className="audio-list grid grid-cols-1 gap-y-[10px] gap-x-[40px] md:px-[10px] px-0">
                   {playlist.map((item, index) => (
                     <li key={index} className={`audio-${index}`}>
                       <div className="audio-item flex justify-between hover:bg-slate-50 p-[10px] rounded-md">
@@ -440,7 +469,7 @@ const AudioDetails = () => {
                           </div>
                           <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
                             <h3 className="audio-title text-[16px] mb-[2px] line-clamp-1 cursor-pointer">
-                              {item.name}
+                              {formatText(item.name)}
                             </h3>
                             <div className="flex items-center gap-[16px] ">
                               <span className="text-[#757c83] text-[14px] cursor-pointer">
@@ -466,78 +495,6 @@ const AudioDetails = () => {
                     </li>
                   ))}
                 </ul>
-                {/* Popup edit */}
-                <div
-                  id="popup-fixed"
-                  className="flex fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-black bg-opacity-[0.7] items-center z-[1000]"
-                >
-                  <div className="absolute lg:top-[50%] left-[50%] top-0 translate-x-[-50%] lg:translate-y-[-50%] w-full">
-                    <div className="container  lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
-                      <div className="grid grid-cols-12 bg-white py-[20px] gap-[20px] my-[20px] relative">
-                        <div className="cursor-pointer mb-[10px] text-[20px] absolute top-[10px] right-[10px] p-2 bg-slate-50 rounded-full">
-                          <MdOutlineClose />
-                        </div>
-
-                        {/* Img */}
-                        <div className="lg:col-span-6 col-span-12">
-                          <div className="w-full  h-[350px] lg:pl-[10px] px-[10px]">
-                            <img
-                              className="w-full h-full object-cover rounded-sm"
-                              src="https://www.casio.com/content/dam/casio/product-info/locales/vn/vi/timepiece/product/watch/G/GA/ga0/ga-010-1a/assets/GA-010-1A_kv.jpg.transform/main-visual-pc/image.jpg"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-
-                        {/* Desc */}
-                        <div className="lg:col-span-6 col-span-12">
-                          <div className="w-full lg:pl-[30px] lg:pr-[10px] px-[20px] md:max-h-[580px]">
-                            <h3 className="font-semibold text-2xl mb-4">
-                              Update info
-                            </h3>
-                            <div className="title-area mb-[20px]">
-                              <label
-                                htmlFor="title"
-                                className="font-semibold block mb-2"
-                              >
-                                Name file
-                              </label>
-                              <input
-                                id="title"
-                                type="text"
-                                className="w-full border border-gray-400 rounded-sm outline-none focus:outline-none p-1 px-2"
-                              />
-                            </div>
-
-                            <div className="title-area mb-[30px]">
-                              <label
-                                htmlFor="title"
-                                className="font-semibold block mb-2"
-                              >
-                                Upload img
-                              </label>
-                              <div className="flex gap-3 items-center">
-                                <input
-                                  id="title"
-                                  type="text"
-                                  className="w-full border border-gray-400 rounded-sm outline-none focus:outline-none p-1 px-2"
-                                />
-                                <button className="p-2 bg-slate-200 rounded-sm">
-                                  <LuUpload className="text-xl cursor-pointer" />
-                                </button>
-                              </div>
-                            </div>
-                            <div className="flex justify-end">
-                              <button className="p-2 px-4 bg-[--primary] text-white rounded-sm md:w-auto w-full">
-                                Save
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* audio control */}
@@ -754,7 +711,7 @@ const AudioDetails = () => {
                                 </div>
                                 <div className="list__content mt-[8px] pl-[2px]">
                                   <h4 className="audio-title text-[13px] line-clamp-1 cursor-pointer font-medium">
-                                    {item.name}
+                                    {formatText(item.name)}
                                   </h4>
 
                                   <span className="text-[#757c83] text-[13px] cursor-pointer">
