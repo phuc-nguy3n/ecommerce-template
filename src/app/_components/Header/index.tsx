@@ -29,6 +29,7 @@ import {
 import { GrCart } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { BiWorld } from "react-icons/bi";
 
 type SubNavbarItemType = {
   name: string;
@@ -253,7 +254,7 @@ const Header = () => {
                 <span className={headerTopStyle.text}>TERMS & CONDITIONS</span>
               </li>
 
-              <li>
+              <li className={headerTopStyle.navItem}>
                 {darkTheme ? (
                   <div
                     onClick={() => {
@@ -297,6 +298,18 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
+
+              <div className="form-group relative">
+                <select
+                  defaultValue="English"
+                  className="form-control language w-full h-[40px] pr-[45px] pl-[15px] outline-none border border-1 text-[16px] rounded-md text-[#54596e] "
+                >
+                  <option value="English">ENG</option>
+                  <option value="German">GER</option>
+                  <option value="France">FR</option>
+                </select>
+                <BiWorld className="absolute translate-y-[-50%] top-[50%] right-[10%]" />
+              </div>
             </div>
           </div>
         </Container>

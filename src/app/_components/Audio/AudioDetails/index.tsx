@@ -29,7 +29,7 @@ import LoadingBlock from "../../LoadingBlock";
 import React, { useState, useEffect, useRef } from "react";
 
 const audioDetails = {
-  name: "DPR Archives",
+  name: "Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard_Billboard",
   by: "DPR",
   cover: "https://i.scdn.co/image/ab67616d0000b27335028642fcc7d80a4e96f31b",
   playlist: [
@@ -175,10 +175,21 @@ const AudioDetails = () => {
   const [showOption, setShowOption] = useState(false);
   const [showPlaylistPopup, setShowPlaylistPopup] = useState(false);
 
+  const [maxTextBreadcrumb, setMaxTextBreadcrumb] = useState(30);
+
   const [maxTextLength, setMaxTextLength] = useState(30);
 
   useEffect(() => {
+    updateLengthBreadcrumb();
+
+    window.addEventListener("resize", updateLengthBreadcrumb);
+
+    return () => window.removeEventListener("resize", updateLengthBreadcrumb);
+  }, []);
+
+  useEffect(() => {
     updateMaxLength();
+
     window.addEventListener("resize", updateMaxLength);
 
     return () => window.removeEventListener("resize", updateMaxLength);
@@ -332,6 +343,20 @@ const AudioDetails = () => {
     }${seconds}`;
   };
 
+  const updateLengthBreadcrumb = () => {
+    if (window.innerWidth <= 480) {
+      setMaxTextBreadcrumb(8);
+    } else if (window.innerWidth <= 768) {
+      setMaxTextBreadcrumb(10);
+    } else if (window.innerWidth <= 1024) {
+      setMaxTextBreadcrumb(12);
+    } else if (window.innerWidth <= 1200) {
+      setMaxTextBreadcrumb(14);
+    } else {
+      setMaxTextBreadcrumb(16);
+    }
+  };
+
   const updateMaxLength = () => {
     if (window.innerWidth <= 480) {
       setMaxTextLength(20);
@@ -346,6 +371,12 @@ const AudioDetails = () => {
     }
   };
 
+  const formatBreadcrumb = (text: string) => {
+    return text.length > maxTextBreadcrumb
+      ? text.slice(0, maxTextBreadcrumb) + "..."
+      : text;
+  };
+
   const formatText = (text: string) => {
     return text.length > maxTextLength
       ? text.slice(0, maxTextLength) + "..."
@@ -358,7 +389,11 @@ const AudioDetails = () => {
         items={[
           { label: "home" },
           { label: "audio" },
-          { label: "audio details" },
+          {
+            label: formatBreadcrumb(
+              "2023-12_Der_grosse_Hohepriester_mitten_unter_den_goldenen_Leuchtern_Degerloch"
+            ),
+          },
         ]}
       />
 
@@ -386,8 +421,8 @@ const AudioDetails = () => {
 
                 <div className="md:flex-grow md:w-0 w-full md:mt-0 mt-[30px]">
                   <div className="title-area flex justify-between">
-                    <div>
-                      <h2 className="title capitalize text-[28px] font-semibold mb-[12px]">
+                    <div className="w-[80%]">
+                      <h2 className="title capitalize text-[28px] font-semibold mb-[12px] line-clamp-2 break-words">
                         {audioDetails.name}
                       </h2>
                       <div className="recor-box flex items-center text-[#54595F] gap-[10px] mb-[12px]">
@@ -411,7 +446,7 @@ const AudioDetails = () => {
                       </div>
                     </div>
 
-                    <span className="options-box mt-[8px]">
+                    <span className="options-box mt-[8px] w-[20%] flex justify-end">
                       <SlOptions className="cursor-pointer text-[20px]" />
                     </span>
                   </div>

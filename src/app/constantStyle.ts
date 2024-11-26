@@ -11,7 +11,7 @@ export const headerTopStyle = {
   textLogin:
     "hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out uppercase text-[13px] mt-[4px]",
   iconBox:
-    "flex text-[--text-content] xl:gap-4 lg:gap-3 md:gap-3 gap-4 text-[16px] mt-[2px]",
+    "flex text-[--text-content] xl:gap-4 lg:gap-3 md:gap-3 gap-4 text-[16px] mt-[2px] login-box",
   icon: "hover:text-[--primary] cursor-pointer transition-colors duration-300 ease-in-out",
 };
 

@@ -352,7 +352,7 @@ const AudioDetails = () => {
                 <div className="md:flex-grow md:w-0 w-full md:mt-0 mt-[30px]">
                   <div className="title-area flex justify-between">
                     <div>
-                      <h2 className="title capitalize text-[28px] font-semibold mb-[12px]">
+                      <h2 className="title capitalize text-[28px] font-semibold mb-[12px] line-clamp-2">
                         {audioDetails.name}
                       </h2>
                       <div className="recor-box flex items-center text-[#54595F] gap-[10px] mb-[12px]">

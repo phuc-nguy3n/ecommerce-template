@@ -163,10 +163,10 @@ export default function VideoSection() {
                           {item.title}
                         </h2>
 
-                        <span className={`mt-2.5 ${homeStyle.timeBoxTwo}`}>
+                        {/* <span className={`mt-2.5 ${homeStyle.timeBoxTwo}`}>
                           <FaCalendarDays />
                           <p className="mt-0.5">{item.created}</p>
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                   </li>
