@@ -160,6 +160,7 @@ let backgroundImg = {
 const AudioDetails = () => {
   const [loadingPage, setLoadingPage] = useState(true);
   const [playlist, setPlaylist] = useState(audioDetails.playlist);
+  console.log(playlist);
   const [audioIndex, setAudioIndex] = useState<number>(0);
   const [audioPlaying, setAudioPlaying] = useState<any>("");
   const [openedOptionIndex, setOpenedOptionIndex] = useState<null | number>(
@@ -494,12 +495,20 @@ const AudioDetails = () => {
                           <div className="audio-icon min-w-[50px] min-h-[50px] flex justify-center items-center bg-[#FF1D50] rounded-md overflow-hidden relative cursor-pointer">
                             <BsFileEarmarkMusic className="text-[24px] text-white" />
                             <div
-                              onClick={() => handleAudioPlaying(index)}
+                              onClick={() => {
+                                item.playing
+                                  ? handleTogglePlaying()
+                                  : handleAudioPlaying(index);
+                              }}
                               className={`play-box overlay absolute w-[30px] h-[30px] bg-white rounded-full  ${
                                 item.playing ? "flex" : "hidden"
                               } items-center justify-center`}
                             >
-                              {item.playing ? <IoMdPause /> : <IoMdPlay />}
+                              {item.playing && audioPlaying?.playing ? (
+                                <IoMdPause />
+                              ) : (
+                                <IoMdPlay />
+                              )}
                             </div>
                           </div>
                           <div className="audio-title-area mt-[-4px] flex flex-col justify-center">
